@@ -2,6 +2,13 @@
 
 The app version and the delivered zip name are bumped together on every update.
 
+## v1.3.1 — CI fix: Android SDK setup
+- The **Set up Android SDK** step no longer uses `android-actions/setup-android@v3`
+  (it was failing on the runner). It now uses the SDK that is already installed on
+  `ubuntu-latest`: it writes `local.properties`, exports `ANDROID_SDK_ROOT` /
+  `ANDROID_HOME`, adds `cmdline-tools` to `PATH`, accepts licenses and ensures
+  platform-34 + build-tools are present. Applied to all three APK workflows.
+
 ## v1.3.0 — A second signed-APK workflow (with the bundled git binary)
 - New **`.github/workflows/build-signed-apk-with-git.yml`**: builds a **signed**
   release APK from the permanent signing secrets **and** cross-compiles the

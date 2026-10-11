@@ -40,8 +40,8 @@ android {
         applicationId = "com.gitofy.native"
         minSdk = 26
         targetSdk = 34
-        versionCode = 13
-        versionName = "1.3.0"   // + signed-APK-with-git workflow; bumped on every update
+        versionCode = 14
+        versionName = "1.3.1"   // CI fix: use the runner SDK instead of the failing setup-android action
     }
 
     splits {

@@ -4,7 +4,7 @@ A 100% native port of the Gitofy GitHub client. No WebView for app UI; the uploa
 core ships the real **git (C) binary** driven by `ProcessBuilder` for Termux-level
 push speed. See `GITOFY-KOTLIN-PLAN.md` for the full phased plan.
 
-**Current version: v1.3.0 (+ signed-APK-with-git workflow).** Version and zip name bump on
+**Current version: v1.3.1 (CI SDK-setup fix).** Version and zip name bump on
 every delivered update.
 
 ## What's in v0.3.0 (adds to v0.2.0)

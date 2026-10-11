@@ -31,7 +31,21 @@ jobs:
           java-version: "17"
 
       - name: Set up Android SDK
-        uses: android-actions/setup-android@v3
+        run: |
+          set -e
+          ROOT="${ANDROID_SDK_ROOT:-${ANDROID_HOME:-}}"
+          if [ -z "$ROOT" ]; then echo "::error::No Android SDK on this runner"; exit 1; fi
+          echo "sdk.dir=$ROOT" > local.properties
+          echo "ANDROID_SDK_ROOT=$ROOT" >> "$GITHUB_ENV"
+          echo "ANDROID_HOME=$ROOT" >> "$GITHUB_ENV"
+          CT="$(ls -d "$ROOT"/cmdline-tools/*/bin 2>/dev/null | head -1 || true)"
+          if [ -n "$CT" ]; then
+            echo "$CT" >> "$GITHUB_PATH"
+            SM="$CT/sdkmanager"
+            yes | "$SM" --licenses > /dev/null 2>&1 || true
+            "$SM" "platforms;android-34" "build-tools;34.0.0" "platform-tools" > /dev/null 2>&1 || true
+          fi
+          echo "Android SDK ready at $ROOT"
 
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v4
