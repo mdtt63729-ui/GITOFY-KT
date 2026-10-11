@@ -4,7 +4,7 @@ A 100% native port of the Gitofy GitHub client. No WebView for app UI; the uploa
 core ships the real **git (C) binary** driven by `ProcessBuilder` for Termux-level
 push speed. See `GITOFY-KOTLIN-PLAN.md` for the full phased plan.
 
-**Current version: v1.0.0 (+ byte-level resume + WorkManager background upload).** Version and zip name bump on
+**Current version: v1.3.0 (+ signed-APK-with-git workflow).** Version and zip name bump on
 every delivered update.
 
 ## What's in v0.3.0 (adds to v0.2.0)
@@ -41,7 +41,15 @@ app/src/main/java/com/gitofy/native/
 tools/build-git-android.sh     cross-compile git → jniLibs/<abi>/libgit.so
 ```
 
-## Build
+## Build on GitHub (no local toolchain)
+Push to `main`, or run **Actions → Build unsigned APK → Run workflow**. You get an
+**unsigned release APK** (`gitofy-release-unsigned`) and a debug APK
+(`gitofy-debug`, installable). For a **signed** APK, run **Bootstrap signing secrets** once (permanent keystore +
+repo secrets) and then **Build signed release APK** → artifact
+`gitofy-release-signed`. Enable the `build_git` input to also cross-compile the
+bundled git binary. See `.github/workflows/README.md`.
+
+## Build locally
 ```bash
 export ANDROID_NDK_HOME=$HOME/Android/Sdk/ndk/26.1.10909125
 tools/build-git-android.sh arm64-v8a     # once per ABI

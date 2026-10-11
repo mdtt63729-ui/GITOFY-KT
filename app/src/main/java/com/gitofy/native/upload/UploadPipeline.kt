@@ -43,7 +43,8 @@ class UploadPipeline @Inject constructor(
     private val json: Json,
     private val benchmarks: BenchmarkStore,
 ) {
-    private val binary = GitBinary.resolve(context)
+    /** Null when the APK was built without the bundled git binary. */
+    private val binary: GitBinary? by lazy { runCatching { GitBinary.resolve(context) }.getOrNull() }
     private val lfs = LfsClient(http, json)
 
     private val lfsThreshold = GitEngine.LARGE_FILE_LIMIT
@@ -53,6 +54,10 @@ class UploadPipeline @Inject constructor(
     fun workDir(repo: String): File = File(uploadsDir(), repo)
 
     suspend fun run(req: UploadRequest, onProgress: (PipelineProgress) -> Unit): UploadOutcome {
+        val git = binary ?: return UploadOutcome.Failure(
+            "This build has no bundled git binary. Build one with tools/build-git-android.sh (or enable 'build_git' in the CI workflow).",
+            false,
+        )
         val token = tokenStore.token()
             ?: return UploadOutcome.Failure("Not signed in — no GitHub token.", false)
 
@@ -79,7 +84,7 @@ class UploadPipeline @Inject constructor(
                 // 1. Shallow clone.
                 if (cp.stage.ordinal < UploadCheckpoint.Stage.CLONED.ordinal) {
                     emit(GitProgress.Phase.OTHER, 0, null, "Cloning (${base.name} link)…")
-                    GitEngine(binary, base).cloneShallow(token, "https://github.com/${req.owner}/${req.repo}.git", work)
+                    GitEngine(git, base).cloneShallow(token, "https://github.com/${req.owner}/${req.repo}.git", work)
                     cp = cp.copy(stage = UploadCheckpoint.Stage.CLONED); cp.save(UploadCheckpoint.fileFor(work))
                 }
                 if (req.clearFirst) clearWorkingTree(work)
@@ -157,10 +162,10 @@ class UploadPipeline @Inject constructor(
 
                 // 5. Commit + push (retried; each attempt uses the current profile).
                 if (cp.stage.ordinal < UploadCheckpoint.Stage.COMMITTED.ordinal) {
-                    GitEngine(binary, profileFlow.value).commitAll(work, req.commitMessage)
+                    GitEngine(git, profileFlow.value).commitAll(work, req.commitMessage)
                     cp = cp.copy(stage = UploadCheckpoint.Stage.COMMITTED); cp.save(UploadCheckpoint.fileFor(work))
                 }
-                pushWithRetry({ GitEngine(binary, profileFlow.value) }, work, token, req.branch) { p ->
+                pushWithRetry({ GitEngine(git, profileFlow.value) }, work, token, req.branch) { p ->
                     onProgress(PipelineProgress(p.phase, p.percent, p.speed, p.raw, cp.stage.name))
                 }
 

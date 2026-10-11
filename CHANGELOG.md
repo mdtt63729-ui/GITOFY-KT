@@ -2,6 +2,43 @@
 
 The app version and the delivered zip name are bumped together on every update.
 
+## v1.3.0 — A second signed-APK workflow (with the bundled git binary)
+- New **`.github/workflows/build-signed-apk-with-git.yml`**: builds a **signed**
+  release APK from the permanent signing secrets **and** cross-compiles the
+  bundled git binary, so the APK is fully working (uploads included). Runs on push
+  to `main` and on demand; artifact **`gitofy-signed-full`**.
+- If the NDK git build fails it still produces a signed APK and warns, so you
+  always get an installable artifact.
+
+## v1.2.0 — Permanent APK signing on GitHub
+- New **`.github/workflows/bootstrap-signing.yml`**: run once, it generates a
+  **permanent** Android release keystore in Actions and writes the four repository
+  secrets (`ANDROID_KEYSTORE_BASE64`, `ANDROID_KEYSTORE_PASSWORD`,
+  `ANDROID_KEY_ALIAS`, `ANDROID_KEY_PASSWORD`) via a `GH_SECRETS_PAT`. It **refuses
+  to overwrite** an existing identity unless `force=true`, and uploads a keystore
+  backup artifact (opt-in credentials file). The identity is permanent, not
+  temporary — every future build shares it.
+- New **`.github/workflows/release-signed-apk.yml`**: restores the keystore from
+  the secrets, writes `signing.properties`, builds a **signed** release APK,
+  verifies it with `apksigner`, and uploads it as the `gitofy-release-signed`
+  artifact (and attaches it to the Release on a `v*` tag).
+- `app/build.gradle.kts` now reads a `signing.properties` (path via
+  `SIGNING_PROPERTIES_FILE`) and signs the release build from it — nothing
+  sensitive in the repo.
+
+## v1.1.0 — GitHub Actions: build an unsigned APK
+- New `.github/workflows/build-unsigned-apk.yml`: builds on GitHub with no local
+  toolchain. On push to `main` or a manual run it produces
+  - **`gitofy-release-unsigned`** — the unsigned release APK, and
+  - **`gitofy-debug`** — a debug APK (debug-signed, installable for testing).
+  - Optional inputs: `version` (stamp a versionName) and `build_git` (also
+    cross-compile the bundled git binary with the NDK).
+- `UploadPipeline` now resolves the bundled git binary **lazily and optionally**,
+  so an APK built without it still runs — the upload feature just reports a clear
+  message instead of crashing. This is what makes the "unsigned APK without git"
+  build usable.
+- `.github/workflows/README.md` explains how to sign the unsigned APK.
+
 ## v1.0.0 — Byte-level resume + background upload (WorkManager)
 ### (a) Byte-level resume in Pending uploads
 - The checkpoint now records `totalBytes`, `lfsTotalFiles`, `lfsDoneFiles`,

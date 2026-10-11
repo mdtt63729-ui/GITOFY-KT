@@ -1,3 +1,5 @@
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -7,16 +9,39 @@ plugins {
     alias(libs.plugins.hilt)
 }
 
+
+// Release signing is read from a signing.properties file that CI writes from the
+// four GitHub secrets. Nothing sensitive is stored in the repository.
+val signingPropsFile = System.getenv("SIGNING_PROPERTIES_FILE")
+val signingProps = Properties()
+val hasReleaseSigning: Boolean = if (signingPropsFile != null && file(signingPropsFile).exists()) {
+    file(signingPropsFile).inputStream().use { signingProps.load(it) }
+    val sp = signingProps.getProperty("storeFile")
+    sp != null && file(sp).exists()
+} else false
+
 android {
     namespace = "com.gitofy.native"
     compileSdk = 34
+
+    // Values come from signing.properties only; nothing is hard-coded here.
+    signingConfigs {
+        if (hasReleaseSigning) {
+            create("release") {
+                storeFile = file(signingProps.getProperty("storeFile"))
+                storePassword = signingProps.getProperty("storePassword")
+                keyAlias = signingProps.getProperty("keyAlias")
+                keyPassword = signingProps.getProperty("keyPassword")
+            }
+        }
+    }
 
     defaultConfig {
         applicationId = "com.gitofy.native"
         minSdk = 26
         targetSdk = 34
-        versionCode = 10
-        versionName = "1.0.0"   // + byte-level resume + WorkManager background upload; bumped on every update
+        versionCode = 13
+        versionName = "1.3.0"   // + signed-APK-with-git workflow; bumped on every update
     }
 
     splits {
@@ -36,6 +61,9 @@ android {
     buildTypes {
         release {
             isMinifyEnabled = false
+            if (hasReleaseSigning) {
+                signingConfig = signingConfigs.getByName("release")
+            }
         }
     }
 
