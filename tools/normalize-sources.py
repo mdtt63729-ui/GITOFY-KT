@@ -1,1 +1,41 @@
-IyEvdXNyL2Jpbi9lbnYgcHl0aG9uMwoiIiJSZXBhaXIgc291cmNlIGZpbGVzIHRoYXQgYXJyaXZlZCBiYXNlNjQtZW5jb2RlZCAoYSB0cmFuc2ZlciBhY2NpZGVudCkuCgpTb21lIHVwbG9hZCBwYXRocyAob3IgQVBJIHNjcmlwdHMpIGVuY29kZSB0ZXh0IGZpbGVzIHN1Y2ggYXMgKi5rdCAvICoua3RzIGFzCmJhc2U2NC4gVGhpcyB3YWxrcyB0aGUgcHJvamVjdCBhbmQsIGZvciBhbnkgZmlsZSB3aG9zZSBlbnRpcmUgY29udGVudCBpcyBhIHNpbmdsZQpiYXNlNjQgYmxvYiB0aGF0IGRlY29kZXMgdG8gcmVjb2duaXNhYmxlIHNvdXJjZSwgd3JpdGVzIHRoZSBkZWNvZGVkIHRleHQgYmFjay4KSXQgaXMgYSBuby1vcCBvbiBhIG5vcm1hbCBjaGVja291dC4KIiIiCmltcG9ydCBiYXNlNjQsIG9zLCByZSwgc3lzCgpUQVJHRVRTID0gWwogICAgImJ1aWxkLmdyYWRsZS5rdHMiLCAic2V0dGluZ3MuZ3JhZGxlLmt0cyIsICJncmFkbGUucHJvcGVydGllcyIsCiAgICAiZ3JhZGxlL2xpYnMudmVyc2lvbnMudG9tbCIsICJhcHAvYnVpbGQuZ3JhZGxlLmt0cyIsCiAgICAiYXBwL3NyYy9tYWluL0FuZHJvaWRNYW5pZmVzdC54bWwiLApdCmZvciByb290LCBfLCBmaWxlcyBpbiBvcy53YWxrKCJhcHAvc3JjL21haW4iKToKICAgIGZvciBmbiBpbiBmaWxlczoKICAgICAgICBpZiBmbi5lbmRzd2l0aCgoIi5rdCIsICIueG1sIikpOgogICAgICAgICAgICBUQVJHRVRTLmFwcGVuZChvcy5wYXRoLmpvaW4ocm9vdCwgZm4pKQoKTUFSS0VSUyA9ICgicGFja2FnZSAiLCAicGx1Z2lucyB7IiwgImFuZHJvaWQgeyIsICJbdmVyc2lvbnNdIiwgIjxtYW5pZmVzdCIsICI8P3htbCIsICJyb290UHJvamVjdC5uYW1lIiwgIjxyZXNvdXJjZXMiKQpCNjQgPSByZS5jb21waWxlKHIiW0EtWmEtejAtOSsvPVxzXSsiKQoKZml4ZWQgPSAwCmZvciBwIGluIFRBUkdFVFM6CiAgICBpZiBub3Qgb3MucGF0aC5leGlzdHMocCk6CiAgICAgICAgY29udGludWUKICAgIHMgPSBvcGVuKHAsICJyYiIpLnJlYWQoKS5kZWNvZGUoInV0Zi04IiwgImlnbm9yZSIpLnN0cmlwKCkKICAgIGlmIGxlbihzKSA8IDQwIG9yIG5vdCBCNjQuZnVsbG1hdGNoKHMpOgogICAgICAgIGNvbnRpbnVlCiAgICB0cnk6CiAgICAgICAgZGVjID0gYmFzZTY0LmI2NGRlY29kZShyZS5zdWIociJccysiLCAiIiwgcyksIHZhbGlkYXRlPVRydWUpLmRlY29kZSgidXRmLTgiKQogICAgZXhjZXB0IEV4Y2VwdGlvbjoKICAgICAgICBjb250aW51ZQogICAgaWYgYW55KG0gaW4gZGVjIGZvciBtIGluIE1BUktFUlMpOgogICAgICAgIG9wZW4ocCwgInciKS53cml0ZShkZWMpCiAgICAgICAgZml4ZWQgKz0gMQogICAgICAgIHByaW50KCJyZXBhaXJlZDoiLCBwKQoKcHJpbnQoImJhc2U2NC1lbmNvZGVkIGZpbGVzIHJlcGFpcmVkOiIsIGZpeGVkKQpzeXMuZXhpdCgwKQo=
+#!/usr/bin/env python3
+"""Repair source files that arrived base64-encoded (a transfer accident).
+
+Some upload paths (or API scripts) encode text files such as *.kt / *.kts as
+base64. This walks the project and, for any file whose entire content is a single
+base64 blob that decodes to recognisable source, writes the decoded text back.
+It is a no-op on a normal checkout.
+"""
+import base64, os, re, sys
+
+TARGETS = [
+    "build.gradle.kts", "settings.gradle.kts", "gradle.properties",
+    "gradle/libs.versions.toml", "app/build.gradle.kts",
+    "app/src/main/AndroidManifest.xml",
+]
+for root, _, files in os.walk("app/src/main"):
+    for fn in files:
+        if fn.endswith((".kt", ".xml")):
+            TARGETS.append(os.path.join(root, fn))
+
+MARKERS = ("package ", "plugins {", "android {", "[versions]", "<manifest", "<?xml", "rootProject.name", "<resources")
+B64 = re.compile(r"[A-Za-z0-9+/=\s]+")
+
+fixed = 0
+for p in TARGETS:
+    if not os.path.exists(p):
+        continue
+    s = open(p, "rb").read().decode("utf-8", "ignore").strip()
+    if len(s) < 40 or not B64.fullmatch(s):
+        continue
+    try:
+        dec = base64.b64decode(re.sub(r"\s+", "", s), validate=True).decode("utf-8")
+    except Exception:
+        continue
+    if any(m in dec for m in MARKERS):
+        open(p, "w").write(dec)
+        fixed += 1
+        print("repaired:", p)
+
+print("base64-encoded files repaired:", fixed)
+sys.exit(0)

@@ -1,1 +1,331 @@
-IyBDaGFuZ2Vsb2cKClRoZSBhcHAgdmVyc2lvbiBhbmQgdGhlIGRlbGl2ZXJlZCB6aXAgbmFtZSBhcmUgYnVtcGVkIHRvZ2V0aGVyIG9uIGV2ZXJ5IHVwZGF0ZS4KCiMjIHYxLjMuNSDigJQgQ0kgc2FmZXR5IG5ldCBmb3IgYmFzZTY0LWVuY29kZWQgc291cmNlIGZpbGVzCi0gVGhlIENJIGxvZyBzaG93ZWQgYGFwcC9idWlsZC5ncmFkbGUua3RzOjE6MTogVW5yZXNvbHZlZCByZWZlcmVuY2U6IDxiYXNlNjQ+YCDigJQKICB0aGUgZmlsZSBoYWQgYXJyaXZlZCBpbiB0aGUgcmVwbyAqKmJhc2U2NC1lbmNvZGVkKiogKGEgdHJhbnNmZXIgYWNjaWRlbnQ7IHRoZQogIHdvcmtmbG93IGAueW1sYCBmaWxlcyB3ZXJlIGZpbmUsIHdoaWNoIGlzIHdoeSBBY3Rpb25zIHN0aWxsIHJhbikuCi0gRXZlcnkgQVBLIHdvcmtmbG93IG5vdyBydW5zIGFuIGlubGluZSAqKiJSZXBhaXIgYmFzZTY0LWVuY29kZWQgc291cmNlIGZpbGVzIioqCiAgc3RlcCBiZWZvcmUgYnVpbGRpbmc6IGFueSBvZiBgYnVpbGQuZ3JhZGxlLmt0c2AsIGBzZXR0aW5ncy5ncmFkbGUua3RzYCwKICBgZ3JhZGxlLnByb3BlcnRpZXNgLCBgZ3JhZGxlL2xpYnMudmVyc2lvbnMudG9tbGAsIGBBbmRyb2lkTWFuaWZlc3QueG1sYCwgb3IgYW55CiAgYC5rdGAvYC54bWxgIHVuZGVyIGBhcHAvc3JjL21haW5gIHdob3NlIHdob2xlIGNvbnRlbnQgaXMgYSBzaW5nbGUgYmFzZTY0IGJsb2IKICB0aGF0IGRlY29kZXMgdG8gcmVjb2duaXNhYmxlIHNvdXJjZSBpcyBkZWNvZGVkIGluIHBsYWNlLiBJdCBpcyBhIG5vLW9wIG9uIGEKICBub3JtYWwgY2hlY2tvdXQgKHZlcmlmaWVkKSwgYW5kIGl0IGZpeGVzIGEgYmFzZTY0LWNvcnJ1cHRlZCB0cmVlICh2ZXJpZmllZAogIGFnYWluc3QgdGhlIGV4YWN0IGJsb2IgZnJvbSB0aGUgQ0kgbG9nKS4KLSBBbHNvIHNoaXBwZWQgYHRvb2xzL25vcm1hbGl6ZS1zb3VyY2VzLnB5YCBmb3IgbG9jYWwgdXNlLgoKIyMgdjEuMy40IOKAlCBTaWduaW5nIGJvb3RzdHJhcDogdmVyaWZ5ICsgc3VtbWFyeQotIGBib290c3RyYXAtc2lnbmluZy55bWxgIG5vdyBoYXMgYSAqKlZlcmlmeSB0aGUgc2VjcmV0cyBleGlzdCoqIHN0ZXAgKGBnaCBzZWNyZXQgbGlzdGApCiAgYW5kIGEgKipTdW1tYXJ5Kiogb24gdGhlIHJ1biBwYWdlLCBzbyBhZnRlciB0aGUgcnVuIHlvdSBjYW4gc2VlIHRoYXQgdGhlIGZvdXIKICBwZXJtYW5lbnQgc2VjcmV0cyB3ZXJlIGNyZWF0ZWQ6CiAgYEFORFJPSURfS0VZU1RPUkVfQkFTRTY0YCwgYEFORFJPSURfS0VZU1RPUkVfUEFTU1dPUkRgLCBgQU5EUk9JRF9LRVlfQUxJQVNgLAogIGBBTkRST0lEX0tFWV9QQVNTV09SRGAuCgojIyB2MS4zLjMg4oCUIEZpeDogZmlyc3QgS290bGluIGNvbXBpbGUgZXJyb3JzIChmcm9tIENJKQpUaGUgQ0kgcmVhY2hlZCBgOmFwcDpjb21waWxlUmVsZWFzZUtvdGxpbmAgYW5kIHJlcG9ydGVkIHJlYWwgZXJyb3JzOyBhbGwgZml4ZWQ6Ci0gYEdpdEVuZ2luZWAg4oCUIGBlbWl0KClgIGluc2lkZSBgUmVhZGVyLmZvckVhY2hMaW5lYCAoYSBub24tc3VzcGVuZCBsYW1iZGEgY29udGV4dCkKICAtPiByZXBsYWNlZCB3aXRoIGEgcGxhaW4gYHJlYWRMaW5lKClgIGxvb3AgaW5zaWRlIHRoZSBgZmxvdyB7IH1gLgotIGBTa2VsZXRvbkxpc3QoTW9kaWZpZXLigKYpYCBwYXNzZWQgcG9zaXRpb25hbGx5IGJvdW5kIHRvIHRoZSBgcm93czogSW50YCBwYXJhbWV0ZXIKICAtPiBub3cgYFNrZWxldG9uTGlzdChtb2RpZmllciA9IOKApilgIChQb2xpc2gsIFJlcG9EYXNoYm9hcmQsIEhvbWUpLgotIGBNb2RpZmllcmAgdXNlZCB3aXRob3V0IGFuIGltcG9ydCBpbiBgSXNzdWVzU2NyZWVuYCAvIGBXb3JrZmxvd1J1bkRldGFpbFNjcmVlbmAKICAtPiBpbXBvcnRzIGFkZGVkLgotIGBleHBhbmRWZXJ0aWNhbGx5KGFuaW1hdGlvblNwZWMgPSBTcHJpbmdTcGVjPEZsb2F0PilgIHR5cGUgbWlzbWF0Y2gKICAtPiBgZXhwYW5kVmVydGljYWxseSgpYCAoZGVmYXVsdCBzcGVjKS4KLSBgR2l0UHJvZ3Jlc3MuUGhhc2UuVVBMT0FESU5HYCBkaWQgbm90IGV4aXN0IC0+IGFkZGVkIGBVUExPQURJTkdgIHRvIHRoZSBlbnVtLgotIGBwdXNoV2l0aFJldHJ5KOKApikgeyDigKYgfWAgdHJhaWxpbmcgbGFtYmRhIGJvdW5kIHRvIGBhdHRlbXB0czogSW50YAogIC0+IHBhc3MgYG9uVGljayA9IHsg4oCmIH1gIGJ5IG5hbWUuCi0gYFVwbG9hZFdvcmtlcmAgY2FsbGVkIHRoZSBzdXNwZW5kIGBzZXRQcm9ncmVzc2AvYHNldEZvcmVncm91bmRgIGluc2lkZSB0aGUKICBub24tc3VzcGVuZCBwcm9ncmVzcyBjYWxsYmFjayAtPiBwcm9ncmVzcyBpcyBub3cgcHVtcGVkIHRocm91Z2ggYSBgU3RhdGVGbG93YAogIGFuZCBhcHBsaWVkIGluc2lkZSBhIGNvcm91dGluZS4KLSBgR2l0b2Z5TmF2SG9zdGAgcGFzc2VkIHRyYWlsaW5nIGxhbWJkYXMgdGhhdCBib3VuZCB0byB0aGUgYHZtYCBwYXJhbWV0ZXIKICAtPiBub3cgbmFtZWQgKGBvbk9wZW4gPWAsIGBvbk9wZW5Jc3N1ZSA9YCwgYG9uT3BlbkxvZyA9YCkuCgojIyB2MS4zLjIg4oCUIEZpeDogcGFja2FnZSBuYW1lc3BhY2UgKGJ1aWxkLWJyZWFraW5nKQotIFRoZSBhcHBsaWNhdGlvbiBuYW1lc3BhY2UvcGFja2FnZSB3YXMgYGNvbS5naXRvZnkubmF0aXZlYCwgd2hpY2ggQW5kcm9pZCByZWplY3RzOgogICoqYG5hdGl2ZWAgaXMgYSBKYXZhIGtleXdvcmQqKiwgc28gQUdQIGZhaWxzIHdpdGgKICAiTmFtZXNwYWNlICdjb20uZ2l0b2Z5Lm5hdGl2ZScgaXMgbm90IGEgdmFsaWQgSmF2YSBwYWNrYWdlIG5hbWUiLgotIFJlbmFtZWQgdGhlIHdob2xlIHByb2plY3QgdG8gKipgY29tLmdpdG9meS5hcHBgKio6IGBuYW1lc3BhY2VgLCBgYXBwbGljYXRpb25JZGAsCiAgZXZlcnkgYHBhY2thZ2VgL2BpbXBvcnRgIGFuZCB0aGUgc291cmNlIGRpcmVjdG9yeSB0cmVlLiAxMDUgcmVmZXJlbmNlcyB1cGRhdGVkLAogIG5vbmUgbGVmdC4KCiMjIHYxLjMuMSDigJQgQ0kgZml4OiBBbmRyb2lkIFNESyBzZXR1cAotIFRoZSAqKlNldCB1cCBBbmRyb2lkIFNESyoqIHN0ZXAgbm8gbG9uZ2VyIHVzZXMgYGFuZHJvaWQtYWN0aW9ucy9zZXR1cC1hbmRyb2lkQHYzYAogIChpdCB3YXMgZmFpbGluZyBvbiB0aGUgcnVubmVyKS4gSXQgbm93IHVzZXMgdGhlIFNESyB0aGF0IGlzIGFscmVhZHkgaW5zdGFsbGVkIG9uCiAgYHVidW50dS1sYXRlc3RgOiBpdCB3cml0ZXMgYGxvY2FsLnByb3BlcnRpZXNgLCBleHBvcnRzIGBBTkRST0lEX1NES19ST09UYCAvCiAgYEFORFJPSURfSE9NRWAsIGFkZHMgYGNtZGxpbmUtdG9vbHNgIHRvIGBQQVRIYCwgYWNjZXB0cyBsaWNlbnNlcyBhbmQgZW5zdXJlcwogIHBsYXRmb3JtLTM0ICsgYnVpbGQtdG9vbHMgYXJlIHByZXNlbnQuIEFwcGxpZWQgdG8gYWxsIHRocmVlIEFQSyB3b3JrZmxvd3MuCgojIyB2MS4zLjAg4oCUIEEgc2Vjb25kIHNpZ25lZC1BUEsgd29ya2Zsb3cgKHdpdGggdGhlIGJ1bmRsZWQgZ2l0IGJpbmFyeSkKLSBOZXcgKipgLmdpdGh1Yi93b3JrZmxvd3MvYnVpbGQtc2lnbmVkLWFway13aXRoLWdpdC55bWxgKio6IGJ1aWxkcyBhICoqc2lnbmVkKioKICByZWxlYXNlIEFQSyBmcm9tIHRoZSBwZXJtYW5lbnQgc2lnbmluZyBzZWNyZXRzICoqYW5kKiogY3Jvc3MtY29tcGlsZXMgdGhlCiAgYnVuZGxlZCBnaXQgYmluYXJ5LCBzbyB0aGUgQVBLIGlzIGZ1bGx5IHdvcmtpbmcgKHVwbG9hZHMgaW5jbHVkZWQpLiBSdW5zIG9uIHB1c2gKICB0byBgbWFpbmAgYW5kIG9uIGRlbWFuZDsgYXJ0aWZhY3QgKipgZ2l0b2Z5LXNpZ25lZC1mdWxsYCoqLgotIElmIHRoZSBOREsgZ2l0IGJ1aWxkIGZhaWxzIGl0IHN0aWxsIHByb2R1Y2VzIGEgc2lnbmVkIEFQSyBhbmQgd2FybnMsIHNvIHlvdQogIGFsd2F5cyBnZXQgYW4gaW5zdGFsbGFibGUgYXJ0aWZhY3QuCgojIyB2MS4yLjAg4oCUIFBlcm1hbmVudCBBUEsgc2lnbmluZyBvbiBHaXRIdWIKLSBOZXcgKipgLmdpdGh1Yi93b3JrZmxvd3MvYm9vdHN0cmFwLXNpZ25pbmcueW1sYCoqOiBydW4gb25jZSwgaXQgZ2VuZXJhdGVzIGEKICAqKnBlcm1hbmVudCoqIEFuZHJvaWQgcmVsZWFzZSBrZXlzdG9yZSBpbiBBY3Rpb25zIGFuZCB3cml0ZXMgdGhlIGZvdXIgcmVwb3NpdG9yeQogIHNlY3JldHMgKGBBTkRST0lEX0tFWVNUT1JFX0JBU0U2NGAsIGBBTkRST0lEX0tFWVNUT1JFX1BBU1NXT1JEYCwKICBgQU5EUk9JRF9LRVlfQUxJQVNgLCBgQU5EUk9JRF9LRVlfUEFTU1dPUkRgKSB2aWEgYSBgR0hfU0VDUkVUU19QQVRgLiBJdCAqKnJlZnVzZXMKICB0byBvdmVyd3JpdGUqKiBhbiBleGlzdGluZyBpZGVudGl0eSB1bmxlc3MgYGZvcmNlPXRydWVgLCBhbmQgdXBsb2FkcyBhIGtleXN0b3JlCiAgYmFja3VwIGFydGlmYWN0IChvcHQtaW4gY3JlZGVudGlhbHMgZmlsZSkuIFRoZSBpZGVudGl0eSBpcyBwZXJtYW5lbnQsIG5vdAogIHRlbXBvcmFyeSDigJQgZXZlcnkgZnV0dXJlIGJ1aWxkIHNoYXJlcyBpdC4KLSBOZXcgKipgLmdpdGh1Yi93b3JrZmxvd3MvcmVsZWFzZS1zaWduZWQtYXBrLnltbGAqKjogcmVzdG9yZXMgdGhlIGtleXN0b3JlIGZyb20KICB0aGUgc2VjcmV0cywgd3JpdGVzIGBzaWduaW5nLnByb3BlcnRpZXNgLCBidWlsZHMgYSAqKnNpZ25lZCoqIHJlbGVhc2UgQVBLLAogIHZlcmlmaWVzIGl0IHdpdGggYGFwa3NpZ25lcmAsIGFuZCB1cGxvYWRzIGl0IGFzIHRoZSBgZ2l0b2Z5LXJlbGVhc2Utc2lnbmVkYAogIGFydGlmYWN0IChhbmQgYXR0YWNoZXMgaXQgdG8gdGhlIFJlbGVhc2Ugb24gYSBgdipgIHRhZykuCi0gYGFwcC9idWlsZC5ncmFkbGUua3RzYCBub3cgcmVhZHMgYSBgc2lnbmluZy5wcm9wZXJ0aWVzYCAocGF0aCB2aWEKICBgU0lHTklOR19QUk9QRVJUSUVTX0ZJTEVgKSBhbmQgc2lnbnMgdGhlIHJlbGVhc2UgYnVpbGQgZnJvbSBpdCDigJQgbm90aGluZwogIHNlbnNpdGl2ZSBpbiB0aGUgcmVwby4KCiMjIHYxLjEuMCDigJQgR2l0SHViIEFjdGlvbnM6IGJ1aWxkIGFuIHVuc2lnbmVkIEFQSwotIE5ldyBgLmdpdGh1Yi93b3JrZmxvd3MvYnVpbGQtdW5zaWduZWQtYXBrLnltbGA6IGJ1aWxkcyBvbiBHaXRIdWIgd2l0aCBubyBsb2NhbAogIHRvb2xjaGFpbi4gT24gcHVzaCB0byBgbWFpbmAgb3IgYSBtYW51YWwgcnVuIGl0IHByb2R1Y2VzCiAgLSAqKmBnaXRvZnktcmVsZWFzZS11bnNpZ25lZGAqKiDigJQgdGhlIHVuc2lnbmVkIHJlbGVhc2UgQVBLLCBhbmQKICAtICoqYGdpdG9meS1kZWJ1Z2AqKiDigJQgYSBkZWJ1ZyBBUEsgKGRlYnVnLXNpZ25lZCwgaW5zdGFsbGFibGUgZm9yIHRlc3RpbmcpLgogIC0gT3B0aW9uYWwgaW5wdXRzOiBgdmVyc2lvbmAgKHN0YW1wIGEgdmVyc2lvbk5hbWUpIGFuZCBgYnVpbGRfZ2l0YCAoYWxzbwogICAgY3Jvc3MtY29tcGlsZSB0aGUgYnVuZGxlZCBnaXQgYmluYXJ5IHdpdGggdGhlIE5ESykuCi0gYFVwbG9hZFBpcGVsaW5lYCBub3cgcmVzb2x2ZXMgdGhlIGJ1bmRsZWQgZ2l0IGJpbmFyeSAqKmxhemlseSBhbmQgb3B0aW9uYWxseSoqLAogIHNvIGFuIEFQSyBidWlsdCB3aXRob3V0IGl0IHN0aWxsIHJ1bnMg4oCUIHRoZSB1cGxvYWQgZmVhdHVyZSBqdXN0IHJlcG9ydHMgYSBjbGVhcgogIG1lc3NhZ2UgaW5zdGVhZCBvZiBjcmFzaGluZy4gVGhpcyBpcyB3aGF0IG1ha2VzIHRoZSAidW5zaWduZWQgQVBLIHdpdGhvdXQgZ2l0IgogIGJ1aWxkIHVzYWJsZS4KLSBgLmdpdGh1Yi93b3JrZmxvd3MvUkVBRE1FLm1kYCBleHBsYWlucyBob3cgdG8gc2lnbiB0aGUgdW5zaWduZWQgQVBLLgoKIyMgdjEuMC4wIOKAlCBCeXRlLWxldmVsIHJlc3VtZSArIGJhY2tncm91bmQgdXBsb2FkIChXb3JrTWFuYWdlcikKIyMjIChhKSBCeXRlLWxldmVsIHJlc3VtZSBpbiBQZW5kaW5nIHVwbG9hZHMKLSBUaGUgY2hlY2twb2ludCBub3cgcmVjb3JkcyBgdG90YWxCeXRlc2AsIGBsZnNUb3RhbEZpbGVzYCwgYGxmc0RvbmVGaWxlc2AsCiAgYGxmc1RvdGFsQnl0ZXNgLCBgbGZzRG9uZUJ5dGVzYC4gVGhlIFBlbmRpbmcgdXBsb2FkcyBsaXN0IHNob3dzIGEgc3VtbWFyeQogICgiMi81IExGUyBmaWxlcyDCtyAxMjAuMCBNQiAvIDMwMC4wIE1CIikgYW5kIGEgcHJvZ3Jlc3MgYmFyLCBzbyB5b3UgY2FuIHNlZQogIGV4YWN0bHkgaG93IG11Y2ggaXMgbGVmdCBhdCBlYWNoIHN0YWdlLgoKIyMjIChiKSBCYWNrZ3JvdW5kIHVwbG9hZAotIFRoZSBwaXBlbGluZSB3YXMgZXh0cmFjdGVkIGludG8gYHVwbG9hZC9VcGxvYWRQaXBlbGluZWAgKGEgSGlsdCBzaW5nbGV0b24pIHNvIHRoZQogIFVJIGFuZCB0aGUgd29ya2VyIHJ1biBpZGVudGljYWwgY29kZS4KLSBOZXcgYHVwbG9hZC9VcGxvYWRXb3JrZXJgIChhIGBASGlsdFdvcmtlcmAgQ29yb3V0aW5lV29ya2VyKSArIGB1cGxvYWQvVXBsb2FkU2NoZWR1bGVyYAogIHJ1biB0aGUgcHVzaCB1bmRlciAqKldvcmtNYW5hZ2VyKiogd2l0aCBhIGBORVRXT1JLX0NPTk5FQ1RFRGAgY29uc3RyYWludCBhbmQgYQogIGZvcmVncm91bmQgbm90aWZpY2F0aW9uIHNob3dpbmcgbGl2ZSBwcm9ncmVzcy4gSXQga2VlcHMgZ29pbmcgd2hlbiB0aGUgYXBwIGlzCiAgY2xvc2VkIGFuZCByZXRyaWVzIG9uIGEgdHJhbnNpZW50IGZhaWx1cmUgKHRoZSBjaGVja3BvaW50IG1ha2VzIHRoZSByZXRyeSBjaGVhcCkuCi0gYEdpdG9meUFwcGAgbm93IGltcGxlbWVudHMgYENvbmZpZ3VyYXRpb24uUHJvdmlkZXJgIHdpdGggYEhpbHRXb3JrZXJGYWN0b3J5YDsgdGhlCiAgZGVmYXVsdCBXb3JrTWFuYWdlciBpbml0aWFsaXplciBpcyByZW1vdmVkIGluIHRoZSBtYW5pZmVzdDsgZm9yZWdyb3VuZC1zZXJ2aWNlCiAgcGVybWlzc2lvbnMgYWRkZWQuCi0gVGhlIHVwbG9hZCBzY3JlZW4gaGFzIGFuICoqVXBsb2FkIGluIGJhY2tncm91bmQqKiBidXR0b247IGBVcGxvYWRWaWV3TW9kZWxgIGlzIG5vdwogIGEgdGhpbiB3cmFwcGVyIChzdGF0ZSArIHBlbmRpbmcgbGlzdCArIGJhY2tncm91bmQgaGFuZC1vZmYpLgoKIyMgdjAuOS4wIOKAlCBQZXJzaXN0ZW50IGNoZWNrcG9pbnRzICsgbmV0d29yay1zd2l0Y2ggcmUtdHVuZQojIyMgKGEpIENoZWNrcG9pbnRzIHN1cnZpdmUgYW4gYXBwIHJlc3RhcnQKLSBUaGUgd29ya2luZyB0cmVlICsgY2hlY2twb2ludCBub3cgbGl2ZSB1bmRlciAqKmBmaWxlc0Rpci91cGxvYWRzL2AqKiAobm90CiAgYGNhY2hlRGlyYCksIHNvIHRoZSBPUyBjbGVhcmluZyB0aGUgY2FjaGUgY2Fubm90IGxvc2UgYSBwZW5kaW5nIHVwbG9hZC4KLSBOZXcgKioiUGVuZGluZyB1cGxvYWRzIioqIGxpc3Qgb24gdGhlIHVwbG9hZCBzY3JlZW46IGV2ZXJ5IHVuZmluaXNoZWQgY2hlY2twb2ludAogIGlzIHNob3duIHdpdGggKipSZXN1bWUqKiBhbmQgKipEaXNjYXJkKiosIHNvIGEgcmVzdGFydCBubyBsb25nZXIgbmVlZHMgdGhlIHVzZXIKICB0byByZW1lbWJlciB0aGUgZXhhY3QgcmVwby4KLSBgVXBsb2FkQ2hlY2twb2ludC5wZW5kaW5nSW4oKWAgLyBgZGlzY2FyZCgpYCBiYWNrIHRoZSBsaXN0LgoKIyMjIChiKSBSZS10dW5lIG9uIGEgV2ktRmkgPC0+IGNlbGx1bGFyIHN3aXRjaAotIGBOZXR3b3JrTW9uaXRvci5jaGFuZ2VzKClgIGlzIGEgYGNhbGxiYWNrRmxvd2Agb3ZlciBgcmVnaXN0ZXJEZWZhdWx0TmV0d29ya0NhbGxiYWNrYCwKICBlbWl0dGluZyB3aGVuZXZlciB0aGUgZGVmYXVsdCBuZXR3b3JrIG9yIGl0cyBjYXBhYmlsaXRpZXMgY2hhbmdlLgotIER1cmluZyBhbiB1cGxvYWQgdGhlIGZsb3cgcmUtYmVuY2htYXJrcyBvbiBldmVyeSBjaGFuZ2UgYW5kIHVwZGF0ZXMgdGhlIGxpdmUKICB0cmFuc3BvcnQgcHJvZmlsZTsgKiplYWNoIHB1c2ggYXR0ZW1wdCBidWlsZHMgYSBmcmVzaCBlbmdpbmUgZnJvbSB0aGUgY3VycmVudAogIHByb2ZpbGUqKiwgc28gYSBtaWQtdXBsb2FkIHN3aXRjaCB0byBjZWxsdWxhciAob3IgYmFjayB0byBXaS1GaSkgaXMgcGlja2VkIHVwIG9uCiAgdGhlIG5leHQgYXR0ZW1wdC4gVGhlIGNoYW5nZSBpcyBzdXJmYWNlZCBpbiB0aGUgcHJvZ3Jlc3MgZGV0YWlsCiAgKCJOZXR3b3JrIGNoYW5nZWQg4oaSIHJlLXR1bmVkOiBjb21wcmVzc2lvbiBOIChzbG93IGxpbmspIikuCgojIyB2MC44LjAg4oCUIFR1bmluZyBjaGFydCBpbiBTZXR0aW5ncyArIHJlc3VtYWJsZSB1cGxvYWQKIyMjIChhKSBCZW5jaG1hcmsgY2hhcnQgaW4gU2V0dGluZ3MKLSBOZXcgYGdpdC9CZW5jaG1hcmtTdG9yZS5rdGAga2VlcHMgdGhlIGxhc3QgYEJlbmNobWFya1Jlc3VsdGA7IHRoZSB1cGxvYWQgZmxvdwogIHJlY29yZHMgaXQuIFNldHRpbmdzIG5vdyBoYXMgYW4gKipVcGxvYWQgdHVuaW5nKiogY2FyZCB3aXRoIGEgc21hbGwgYmFyIGNoYXJ0OgogIGVhY2ggY29tcHJlc3Npb24gbGV2ZWwgKDEvNi85KSBhcyBhIGJhciBvZiBpdHMgZXN0aW1hdGVkIHdob2xlLXB1c2ggdGltZSwgdGhlCiAgY2hvc2VuIGxldmVsIGhpZ2hsaWdodGVkLCBwbHVzIHRoZSBsaW5rIHByb2ZpbGUgYW5kIHVwbGluay4KCiMjIyAoYikgUmVzdW1hYmxlIHVwbG9hZAotIE5ldyBgZ2l0L1VwbG9hZENoZWNrcG9pbnQua3RgOiBhIGNoZWNrcG9pbnQgYmVzaWRlIHRoZSB3b3JrIHRyZWUgcmVjb3JkcyB0aGUKICBsYXN0IGNvbXBsZXRlZCBzdGFnZSAoY2xvbmUg4oaSIGV4dHJhY3Qg4oaSIExGUyDihpIgY29tbWl0KSBhbmQgdGhlIExGUyBvYmplY3QgaWRzCiAgYWxyZWFkeSB1cGxvYWRlZC4gSWYgdGhlIGNvbm5lY3Rpb24gZHJvcHMsIHRoZSBmbG93IGtlZXBzIGV2ZXJ5dGhpbmcgYW5kIGEKICAqKlJlc3VtZSoqIHJlLWVudGVycyBhdCB0aGUgZmFpbGVkIHN0YWdlIGluc3RlYWQgb2Ygc3RhcnRpbmcgb3ZlcjoKICAtIHRoZSBzaGFsbG93IGNsb25lIGlzIHJldXNlZCwKICAtIHRoZSBaSVAgaXMgbm90IHJlLWV4dHJhY3RlZCwKICAtIExGUyBvYmplY3RzIGFscmVhZHkgdXBsb2FkZWQgYXJlIHNraXBwZWQgKGJ5IG9pZCksCiAgLSB0aGUgY29tbWl0IGlzIG5vdCByZXBlYXRlZC4KLSBUaGUgKipwdXNoIGl0c2VsZiBpcyByZXRyaWVkIHdpdGggYmFja29mZioqICgzIGF0dGVtcHRzKSBzbyBhIHRyYW5zaWVudCBkcm9wCiAgcmVzdW1lcyBhdXRvbWF0aWNhbGx5LgotIFRoZSB1cGxvYWQgc2NyZWVuIHNob3dzICoqUmVzdW1lKiogYm90aCB3aGVuIGEgcHJldmlvdXMgdXBsb2FkIGNhbiBiZSByZXN1bWVkCiAgYW5kIGFmdGVyIGEgZmFpbHVyZTsgYFVwbG9hZFN0YXRlLkZhaWxlZGAgbm93IGNhcnJpZXMgYHJlc3VtYWJsZWAuCgojIyB2MC43LjAg4oCUIExGUyBieXRlIHByb2dyZXNzICsgYmVuY2htYXJrLWRyaXZlbiBjb21wcmVzc2lvbiB0dW5pbmcKIyMjIChhKSBMRlMgYnl0ZS1sZXZlbCBwcm9ncmVzcwotIGBMZnNDbGllbnQudXBsb2FkYCBub3cgdGFrZXMgYW4gYG9uUHJvZ3Jlc3MoYnl0ZXNTZW50LCB0b3RhbClgIGNhbGxiYWNrIGFuZAogIHN0cmVhbXMgdGhlIG9iamVjdCBpbiA2NCBLQiBjaHVua3MsIHJlcG9ydGluZyBieXRlcyBhcyB0aGV5IGxlYXZlLiBUaGUgdXBsb2FkCiAgc2NyZWVuIHNob3dzIGEgbGl2ZSBiYXIgd2l0aCBgc2VudCAvIHRvdGFsYCB3aGlsZSBhIGJpZyBmaWxlIGdvZXMgdG8gTEZTLgoKIyMjIChiKSBCZW5jaG1hcmstZHJpdmVuIGNvbXByZXNzaW9uIHR1bmluZwotIE5ldyBgZ2l0L1RyYW5zcG9ydEJlbmNobWFyay5rdGAuIEJlZm9yZSBwdXNoaW5nLCB0aGUgZmxvdyBjb21wcmVzc2VzIGEgfjUgTUIKICBzYW1wbGUgb2YgdGhlIHByb2plY3QgYXQgemxpYiBsZXZlbHMgMSAvIDYgLyA5LCBtZWFzdXJlcyBlYWNoIG9uZSdzIHRpbWUgYW5kCiAgY29tcHJlc3NlZCBzaXplLCBleHRyYXBvbGF0ZXMgdG8gdGhlIHdob2xlIHByb2plY3QsIGFuZCBwaWNrcyB0aGUgbGV2ZWwgdGhhdAogIG1pbmltaXNlcyBgY29tcHJlc3NfdGltZSArIGJ5dGVzX2FmdGVyX2NvbXByZXNzaW9uIC8gdXBsaW5rX2JhbmR3aWR0aGAuCiAgLSBmYXN0IGxpbmsgLT4gbGV2ZWwgMSAoc2tpcCB0aGUgQ1BVKTsgc2xvdyBsaW5rIC0+IGxldmVsIDkgKGZld2VyIGJ5dGVzKS4KLSBUaGUgY2hvc2VuIGxldmVsIGlzIGxheWVyZWQgb250byB0aGUgY29ubmVjdGlvbiBwcm9maWxlIGZyb20gdjAuNi4wLCBhbmQgdGhlCiAgdHVuaW5nICgiY29tcHJlc3Npb24gTiwgcGFjay53aW5kb3cgTSIpIGlzIHN1cmZhY2VkIGluIHRoZSBwcm9ncmVzcyBkZXRhaWwuCgojIyB2MC42LjAg4oCUIEdpdCBMRlMgKyBjb25uZWN0aW9uLWF3YXJlIHNwZWVkIHR1bmluZwojIyMgR2l0IExGUyAoc2luZ2xlIGZpbGVzID49IDEwMCBNQiBub3cgcHVzaCkKLSBOZXcgYGdpdC9MZnNDbGllbnQua3RgOiBhIG1pbmltYWwgKipHaXQgTEZTIGNsaWVudCoqIG92ZXIgR2l0SHViJ3MgYmF0Y2ggQVBJIOKAlAogIGNvbXB1dGVzIHRoZSBTSEEtMjU2LCBhc2tzIGDigKYvaW5mby9sZnMvb2JqZWN0cy9iYXRjaGAgZm9yIGFuIHVwbG9hZCBVUkwsIFBVVHMKICB0aGUgb2JqZWN0LCBhbmQgcmV0dXJucyBpdHMgb2lkL3NpemUuICoqTm8gYGdpdC1sZnNgIGJpbmFyeSB0byBzaGlwLioqCi0gVGhlIHVwbG9hZCBmbG93IG5vdyByb3V0ZXMgZXZlcnkgZmlsZSAqKj49IDEwMCBNQioqIHRocm91Z2ggTEZTOiB0aGUgb2JqZWN0IGdvZXMKICB0byBMRlMgc3RvcmFnZSwgdGhlIHdvcmtpbmctdHJlZSBmaWxlIGlzIHJlcGxhY2VkIGJ5IGFuIExGUyBwb2ludGVyLCBhbmQgYQogIGBmaWx0ZXI9bGZzYCBsaW5lIGlzIGFkZGVkIHRvIGAuZ2l0YXR0cmlidXRlc2AuIFNvIGEgc2luZ2xlIDEwMCBNQisgZmlsZSDigJQgd2hpY2gKICBHaXRIdWIgb3RoZXJ3aXNlIGhhcmQtYmxvY2tzIOKAlCBub3cgcHVzaGVzIHN1Y2Nlc3NmdWxseS4KLSBXaGVuIExGUyBpcyBkaXNhYmxlZCwgb3ZlcnNpemVkIGZpbGVzIGZhaWwgZmFzdCB3aXRoIGEgY2xlYXIgbWVzc2FnZS4KCiMjIyBDb25uZWN0aW9uLWF3YXJlIHNwZWVkIHR1bmluZwotIE5ldyBgZ2l0L1RyYW5zcG9ydFByb2ZpbGUua3RgICsgYG5ldC9OZXR3b3JrTW9uaXRvci5rdGAuIFRoZSB0cmFuc3BvcnQgaXMgY2hvc2VuCiAgZnJvbSB0aGUgbGl2ZSBjb25uZWN0aW9uOgogIC0gKipmYXN0KiogKHVubWV0ZXJlZCwgdXBzdHJlYW0gPj0gMjAgTWJwcyk6IGNvbXByZXNzaW9uIDEsIHBhY2sud2luZG93IDI1MCwKICAgIHdpbmRvd01lbW9yeSA1MTJtLCBwb3N0QnVmZmVyIDEgR0Ig4oCUIHNwZW5kIHRoZSBsaW5rLCBub3QgdGhlIENQVS4KICAtICoqYmFsYW5jZWQqKjogY29tcHJlc3Npb24gNiwgcGFjay53aW5kb3cgMTAwLCB3aW5kb3dNZW1vcnkgMjU2bS4KICAtICoqc2xvdyoqIChtZXRlcmVkIC8gPD0gMiBNYnBzKTogY29tcHJlc3Npb24gOSwgcGFjay53aW5kb3cgNTAsIHdpbmRvd01lbW9yeQogICAgMTI4bSDigJQgZmV3ZXIgYnl0ZXMgb3ZlciB0aGUgc2xvdyBsaW5rLgotIGBHaXRFbmdpbmVgIGlzIG5vdyBwcm9maWxlLWRyaXZlbiAoYEdpdEVuZ2luZShiaW5hcnksIHByb2ZpbGUpYCk7IEhUVFAvMS4xIGlzCiAga2VwdCBpbiBldmVyeSBwcm9maWxlIGZvciByZWxpYWJsZSBsYXJnZS1wYWNrIHVwbG9hZHMuCgojIyMgQWxzbwotIGBVcGxvYWRTdGF0ZS5Eb25lYCBub3cgcmVwb3J0cyBob3cgbWFueSBmaWxlcyB3ZW50IHRvIExGUzsgdGhlIHVwbG9hZCBzY3JlZW4KICBzaG93cyBpdC4KCiMjIHYwLjUuMCDigJQgVGVybXV4LXNwZWVkIGdpdCBjb3JlIChnaXQgMi41NikgKyBsYXJnZS1wcm9qZWN0IHR1bmluZwojIyMgTm8gSkdpdCDigJQgY29uZmlybWVkIGF0IGNvZGUgbGV2ZWwKLSBUaGUgZW5naW5lIGRyaXZlcyB0aGUgKipyZWFsIGdpdCAoQykgYmluYXJ5Kiogb25seS4gVGhlcmUgaXMgbm8gSkdpdCBhbmQgbm8KICBsaWJnaXQyIGFueXdoZXJlIGluIHRoZSBwcm9qZWN0LgotIGB0b29scy9idWlsZC1naXQtYW5kcm9pZC5zaGAgbm93IHBpbnMgdGhlICoqbGF0ZXN0KiogcmVsZWFzZXM6IGdpdCAqKjIuNTYuMCoqCiAgKDIwMjYtMDktMjgpLCBjdXJsICoqOC4yMi4wKiosIE9wZW5TU0wgKiozLjYuNSoqLCB6bGliICoqMS4zLjIqKiwgUENSRTIgKioxMC40OSoqLgoKIyMjIExhcmdlLXByb2plY3Qgc3BlZWQgKDUwIE1CIC8gMTAwIE1CKykKLSBgR2l0RW5naW5lYCBub3cgY29uZmlndXJlczogYHByb3RvY29sLnZlcnNpb249MmAsIGBwYWNrLnRocmVhZHM9MGAsCiAgYHBhY2sud2luZG93TWVtb3J5PTI1Nm1gLCBgcGFjay5wYWNrU2l6ZUxpbWl0PTJnYCwgYHBhY2suZGVsdGFDYWNoZVNpemU9MTI4bWAsCiAgYGNvcmUuYmlnRmlsZVRocmVzaG9sZD0xbWAsIGBmZWF0dXJlLm1hbnlGaWxlcz10cnVlYCwgYGdjLmF1dG89MGAsCiAgYGh0dHAucG9zdEJ1ZmZlcj01MDBNYCwgYGh0dHAubWF4UmVxdWVzdEJ1ZmZlcj0xMDBNYCwgYGh0dHAubG93U3BlZWRMaW1pdD0wYCwKICBgaHR0cC5sb3dTcGVlZFRpbWU9OTk5OTk5YC4KLSBIVFRQLzEuMSBpcyB0aGUgZGVmYXVsdCB0cmFuc3BvcnQgKGdpdC9UZXJtdXggZGVmYXVsdDsgYXZvaWRzIEhUVFAvMiB1cGxvYWQKICBmbG93LWNvbnRyb2wgc3RhbGxzIG9uIG11bHRpLWh1bmRyZWQtTUIgcGFja3MpOyBIVFRQLzIgaXMgb3B0LWluIHZpYSBgR2l0RW5naW5lKGh0dHAyPXRydWUpYC4KLSBTaGFsbG93IGNsb25lIGlzIG5vdyBgLS1kZXB0aCAxIC0tbm8tdGFncyAtLXNpbmdsZS1icmFuY2hgLCBzbyBhIGxhcmdlIHJlbW90ZQogIGhpc3RvcnkgaXMgbmV2ZXIgZG93bmxvYWRlZC4KLSBUaGUgWklQIGlzIGV4dHJhY3RlZCAqKmRpcmVjdGx5IGludG8gdGhlIGNsb25lIHdvcmtpbmcgdHJlZSoqIOKAlCBubyBzZWNvbmQgZnVsbAogIGNvcHkgb2YgdGhlIHByb2plY3Qgb24gZGlzayAod2FzIGEgcmVhbCBJL08gY29zdCBmb3IgYmlnIHByb2plY3RzKS4KLSAqKk92ZXJzaXplZC1maWxlIGd1YXJkKio6IGZpbGVzID49IDEwMCBNQiBhcmUgZGV0ZWN0ZWQgYmVmb3JlIHRoZSBwdXNoIGFuZAogIHJlamVjdGVkIHdpdGggYSBHaXQgTEZTIGhpbnQgKEdpdEh1YiBoYXJkLWJsb2NrcyB0aGVtKS4KLSBgcnVuKClgIG5vdyBkcmFpbnMgc3Rkb3V0K3N0ZGVyciBjb25jdXJyZW50bHkgKG5vIHBpcGUgZGVhZGxvY2sgb24gY2hhdHR5CiAgY29tbWFuZHMpOyBhZGRlZCBgb3ZlcnNpemVkRmlsZXMoKWAuCi0gUmVtb3ZlZCBhIHN0YWxlIGB1aS9VcGxvYWRTY3JlZW4ua3RgIHRoYXQgcmVmZXJlbmNlZCBhIGRlbGV0ZWQgbWV0aG9kLgoKIyMgdjAuNC4wIOKAlCBGdWxsIFVJIHBvbGlzaCArIGNvbXBpbGUtcmVhZGluZXNzIHBhc3MKIyMjIENvbXBpbGUtcmVhZGluZXNzICh2ZXJpZmllZCkKLSBFdmVyeSBkZXBlbmRlbmN5IHZlcnNpb24gdmVyaWZpZWQgdG8gZXhpc3Q6IEFHUCA4LjUuMiwgS290bGluIDIuMC4yMCwgS1NQCiAgMi4wLjIwLTEuMC4yNSwgSGlsdCAyLjUyLCBDb21wb3NlIEJPTSAyMDI0LjA5LjAzIChtYXRlcmlhbDMgMS4zLjApLCBOYXZpZ2F0aW9uCiAgMi44LjAsIExpZmVjeWNsZSAyLjguNiwgUm9vbSAyLjYuMSwgR2xhbmNlIDEuMS4wLCBCaW9tZXRyaWMgMS4yLjAtYWxwaGEwNSwKICBTZWN1cml0eS1DcnlwdG8gMS4xLjAtYWxwaGEwNiwgRGF0YVN0b3JlIDEuMS4xLCBSZXRyb2ZpdCAyLjExLjAsIE9rSHR0cCA0LjEyLjAsCiAga290bGlueC1zZXJpYWxpemF0aW9uIDEuNy4zLCBrb3RsaW54LXNlcmlhbGl6YXRpb24tY29udmVydGVyIDEuMC4wLCBDb2lsIDIuNy4wLAogIEZyYWdtZW50IDEuOC4zLCBBY3Rpdml0eS1Db21wb3NlIDEuOS4yLCBIaWx0LU5hdi1Db21wb3NlIDEuMi4wIChjaGVja2VkIGFnYWluc3QKICBNYXZlbiBDZW50cmFsIC8gR29vZ2xlIE1hdmVuKS4KLSBGaXhlZCBhIG1pc3NpbmcgYGRwYCBpbXBvcnQ7IGFkZGVkIG1pc3NpbmcgYGxhenkuaXRlbXNgIGltcG9ydHM7IHNpbXBsaWZpZWQgdGhlCiAgR2xhbmNlIHdpZGdldCB0byBhdm9pZCBhbGlnbm1lbnQtQVBJIGRyaWZ0OyBgQXBwTG9ja01hbmFnZXJgIG5vdyB1c2VzCiAgYEBBcHBsaWNhdGlvbkNvbnRleHRgOyBgTWFpbkFjdGl2aXR5YCBpcyBhIGBGcmFnbWVudEFjdGl2aXR5YCAoQmlvbWV0cmljUHJvbXB0KS4KCiMjIyBVSSBwb2xpc2ggKHNoYXJlZCBkZXNpZ24gc3lzdGVtKQotIE5ldyBgdWkvY29tcG9uZW50cy9Qb2xpc2gua3RgOiBgR2l0b2Z5VG9wQmFyYCwgYEF2YXRhcmAgKENvaWwsIGluaXRpYWwKICBmYWxsYmFjayksIGBTdGF0Q2hpcGAsIGBTZWN0aW9uVGl0bGVgLCBgRW1wdHlTdGF0ZWAgKGljb24gKyBhY3Rpb24pLAogIGBFcnJvclN0YXRlYCAod2l0aCBSZXRyeSksIGFuaW1hdGVkIGBTa2VsZXRvbkxpc3RgLCBgUmVwb0NhcmRgLCBgUG9saXNoZWRMaXN0YC4KLSBFdmVyeSBsaXN0IHNjcmVlbiBub3cgaGFzIGEgc2tlbGV0b24gd2hpbGUgbG9hZGluZywgYSByZWFsIGVtcHR5IHN0YXRlLCBhbiBlcnJvcgogIHN0YXRlIHdpdGggcmV0cnksIGF2YXRhcnMsIGFuZCBjb25zaXN0ZW50IHRvcCBiYXJzOgogIEhvbWUsIFJlcG8gZGFzaGJvYXJkIChoZXJvIGNhcmQgKyBzdGF0IGNoaXBzKSwgUmVwbyBjb2RlIChmb2xkZXIvZmlsZSBpY29ucyksCiAgSXNzdWVzLCBHaXN0cywgV29ya2Zsb3dzLCBJbmJveCwgQ29tbWl0cywgQnJhbmNoZXMsIEdsb2JhbCBzZWFyY2guCi0gUG9saXNoZWQgaGVyby9sb2FkaW5nL2NhcmQgbGF5b3V0cyBmb3IgT25ib2FyZGluZywgTG9naW4sIEFwcCBsb2NrLCBTZXR0aW5ncwogIChzZWN0aW9uZWQgY2FyZHMpLCBVcGRhdGVzIChyZWxlYXNlIGNhcmQgKyBkb3dubG9hZCBwcm9ncmVzcyksIEVycm9yIGxvZy4KLSBOYXZpZ2F0aW9uIGFyZ3VtZW50cyBmaXhlZCBzbyByZXBvLWRhc2hib2FyZCBhY3Rpb25zIG9wZW4gdGhlIHJpZ2h0IHNjcmVlbnMuCgojIyB2MC4zLjAg4oCUIFVJIHBvbGlzaCwgd2lyaW5nICYgcGxhdGZvcm0gZmVhdHVyZXMKRXZlcnl0aGluZyB0aGF0IHdhcyBzdGlsbCBvcGVuIGZyb20gdjAuMi4wLgoKIyMjIFN0YXJ0dXAsIHNlY3VyaXR5ICYgcGVybWlzc2lvbnMKLSAqKlN0YXJ0dXAgZ2F0ZSoqIGluIE1haW5BY3Rpdml0eTogaW50ZWdyaXR5IGNoZWNrIOKGkiBhdXRoIHJlc3RvcmUg4oaSIHJvdXRlCiAgKFNwbGFzaCDihpIgTG9naW4gb3IgSG9tZSkuIEEgdGFtcGVyZWQgc2lnbmF0dXJlIHNob3dzIHRoZSBibG9ja2luZyBTZWN1cml0eQogIG92ZXJsYXkgYW5kIHBsYXlzIHRoZSBrbGF4b24uCi0gKipBcHAtbG9jayBwcm9tcHQqKiB3aXJlZCBhdCBsYXVuY2ggKGJpb21ldHJpYy9kZXZpY2UgY3JlZGVudGlhbCkgd2hlbiB0aGUgbG9jawogIGlzIG9uOyBNYWluQWN0aXZpdHkgaXMgYSBGcmFnbWVudEFjdGl2aXR5IHNvIEJpb21ldHJpY1Byb21wdCB3b3Jrcy4KLSAqKkZMQUdfU0VDVVJFKiogYXBwbGllZCBsaXZlIGZyb20gc2V0dGluZ3MgKHNjcmVlbi1jYXB0dXJlIHByb3RlY3Rpb24pLgotICoqUmVhbCBwZXJtaXNzaW9uIGZsb3dzKio6IHJlcXVlc3QgUE9TVF9OT1RJRklDQVRJT05TLCBvcGVuIHRoZQogIGluc3RhbGwtdW5rbm93bi1hcHBzIHNldHRpbmdzIHNjcmVlbi4KLSAqKkRhbmdlclNvdW5kKio6IGEgdHdvLXRvbmUga2xheG9uICsgc3ViIHJ1bWJsZSBzeW50aGVzaXNlZCBhcyBQQ00gKG5vIGFzc2V0cykuCi0gKipEZWVwIGxpbmtzKio6IGdpdG9meTovL2NhbGxiYWNrfHJlcG98dXBsb2FkIGhhbmRsZWQ7IHJlcG8gbGlua3Mgb3BlbiB0aGUgcmVwby4KCiMjIyBXaWRnZXQKLSAqKkdsYW5jZSBob21lLXNjcmVlbiB3aWRnZXQqKiAoYEdpdG9meVdpZGdldGApIHNob3dpbmcgdGhlIGxhc3QgdXBsb2FkIHRhcmdldCArCiAgc3RhdHVzLCBiYWNrZWQgYnkgYFdpZGdldFN0YXRlYCAocmVwbGFjZXMgdGhlIHdlYiBhcHAncyBicmlkZ2Ugd2lkZ2V0KS4KCiMjIyBOYXZpZ2F0aW9uICYgYnV0dG9ucyAoYWxsIHdpcmVkKQotIFJlcG8gY29kZTogdGFwcGluZyBhIGZvbGRlciBkcmlsbHMgaW47IHRhcHBpbmcgYSBmaWxlIG9wZW5zIHRoZSBlZGl0b3IuCi0gSXNzdWVzOiB0YXAg4oaSIGlzc3VlIGRldGFpbCB3aXRoIGNvbW1lbnRzLCBjb21tZW50IGJveCwgb3Blbi9jbG9zZS4KLSBXb3JrZmxvdyBydW4gZGV0YWlsIOKGkiAiVmlldyBsaXZlIGxvZyIuCi0gKipMaXZlIHJ1bi1sb2cgc2NyZWVuKiogcG9sbGluZyBqb2IgbG9ncywgbW9ub3NwYWNlLCBqb2IgY2hpcHMuCi0gKipXb3JrZmxvdy9maWxlIGVkaXRvcioqOiBsb2FkIGEgZmlsZSAoYmFzZTY0KSwgZWRpdCwgY29tbWl0IHZpYSB0aGUgQVBJLgotIEhvbWUgRkFCIGNyZWF0ZXMgYSByZXBvOyB0b3AtYmFyIG9wZW5zIHVwZGF0ZXMvaW5ib3g7IGNyZWF0ZS9kZWxldGUvc2V0dGluZ3MKICBhY3Rpb25zIGFsbCB3aXJlZCB0byByZWFsIEFQSSBjYWxscy4KCiMjIyBUaGVtZQotIEZvbnQtY2hvaWNlIHBsdW1iaW5nIChgRm9udHNgKSBmb3IgdGhlIDYgZmFtaWxpZXM7IG1hcHBlZCB0byBwbGF0Zm9ybSBmYW1pbGllcwogIHNvIHJlbmRlcmluZyBuZXZlciBkZXBlbmRzIG9uIGEgZm9udCBkb3dubG9hZCAoR29vZ2xlLUZvbnQgc3dhcCBpcyBhIG9uZS1saW5lcgogIG9uY2UgcHJvdmlkZXIgY2VydHMgYXJlIGFkZGVkKS4KCiMjIyBTdGlsbCB0cmFja2VkIChuZWVkcyBhIG1hY2hpbmUgd2l0aCB0aGUgQW5kcm9pZCBTREspCi0gQSBjb21waWxlICsgbGludCBwYXNzOyBwZXItc2NyZWVuIHZpc3VhbCBwb2xpc2ggYWdhaW5zdCB0aGUgd2ViIG9yaWdpbmFscy4KCiMjIHYwLjIuMCDigJQgUGhhc2UgMeKAkzY6IGZ1bGwgZmVhdHVyZSBwb3J0IChB4oaSWikKRXZlcnl0aGluZyBmcm9tIHRoZSB3ZWIgYXBwLCBwb3J0ZWQgdG8gS290bGluL0NvbXBvc2UuCgojIyMgQXV0aAotIERldmljZSBGbG93IChzdGFydCAvIHBvbGwgLyBzbG93X2Rvd24gLyBleHBpcmVkIC8gZGVuaWVkKSB2aWEgbmF0aXZlIE9rSHR0cCwKICBwdWJsaWMgY2xpZW50IGlkIG9ubHkg4oCUIG5vIHNlY3JldCBpbiB0aGUgYXBwLgotIFBBVCBzaWduLWluLCB0b2tlbiB2YWxpZGF0aW9uLCBgU2Vzc2lvbk1hbmFnZXJgIHN0YXRlLCBzaWduLW91dC4KCiMjIyBOZXR3b3JraW5nICgxOjEgd2l0aCBzcmMvZ2l0L2dpdGh1YkFwaS50cykKLSBVc2VyLCByZXBvcywgc3RhcnJlZCwgbm90aWZpY2F0aW9ucywgbGFuZ3VhZ2VzLCBjb250ZW50cywgdHJlZSwgY29tbWl0cywKICBjb21taXQgY29tbWVudHMsIGJyYW5jaGVzIChsaXN0L2NyZWF0ZS9kZWxldGUvcmVuYW1lKSwgaXNzdWVzLCBwdWxscywgY29tbWVudHMsCiAgbWVyZ2UsIEFjdGlvbnMgKHdvcmtmbG93cywgcnVucywgam9icywgY2FuY2VsLCByZXJ1biwgYXJ0aWZhY3RzLCBkaXNwYXRjaCksCiAgcmVsZWFzZXMgKGxpc3QvbGF0ZXN0L2NyZWF0ZSksIGdpc3RzIChsaXN0L2NyZWF0ZS9kZWxldGUpLCBzZWFyY2gKICAocmVwb3NpdG9yaWVzICsgY29kZSksIHJlcG8gdXBkYXRlL2RlbGV0ZSwgdXNlciB1cGRhdGUsIHN0YXIvdW5zdGFyLgoKIyMjIFNjcmVlbnMgKGFsbCByb3V0ZXMgYXJlIHJlYWwgbm93KQotIEVudHJ5OiBPbmJvYXJkaW5nLCBMb2dpbiAoZGV2aWNlIGZsb3cgKyBQQVQpLCBQZXJtaXNzaW9ucywgTG9naW4gZGlhZ25vc3RpY3MsCiAgQXBwIGxvY2ssIFNwbGFzaC4KLSBCcm93c2U6IEhvbWUgKHJlcG8gbGlzdCArIGNyZWF0ZSksIEluYm94LCBSZXBvIGRhc2hib2FyZCwgUmVwbyBjb2RlLCBDb21taXRzLAogIEJyYW5jaCBtYW5hZ2VyLCBJc3N1ZXMsIEdpc3RzLCBHbG9iYWwgc2VhcmNoLCBXb3JrZmxvd3MsIFdvcmtmbG93IHJ1biBkZXRhaWwuCi0gVXBsb2FkOiBVcGxvYWQgZmxvdyAoU0FGIFpJUCBwaWNrIOKGkiBidW5kbGVkLWdpdCBwdXNoIHdpdGggbGl2ZSBwcm9ncmVzcyksCiAgTXVsdGktcmVwbyB1cGxvYWQsIFpJUCBhbmFseXNpcywgUmVzdWx0LgotIEFjdGlvbnM6IFJlcG8gc2V0dGluZ3MgKGVkaXQvYXJjaGl2ZS92aXNpYmlsaXR5L2RlbGV0ZSksIERlbGV0ZSByZXBvICh0eXBlZAogIGNvbmZpcm0pLCBSZWxlYXNlIGNyZWF0b3IsIFJlcG8gYWN0aW9uIHJlc3VsdC4KLSBBcHA6IFNldHRpbmdzIChwYWxldHRlL2xhbmd1YWdlL2FwcGVhcmFuY2UvcmVkdWNlLW1vdGlvbi9GTEFHX1NFQ1VSRSksCiAgR2l0SHViIHNldHRpbmdzLCBFcnJvciBsb2csIEFwcCBzdG9yZSAodXBkYXRlcikuCi0gU2hlZXRzOiBDcmVhdGUgcmVwbywgUmVwbyBwaWNrZXIsIEFjY291bnQgc3dpdGNoZXIuCi0gU2VjdXJpdHk6IERhbmdlciBzaGVldCwgU2VjdXJpdHkgb3ZlcmxheSwgVXBkYXRlIHNoZWV0LgotIERldjogTTMgZ2FsbGVyeSwgTW90aW9uIGxhYi4KCiMjIyBVcGRhdGUgc3lzdGVtIChwYXJpdHkgd2l0aCB0b2RheSdzIEdpdG9meSkKLSBgVXBkYXRlQ2hlY2tlcmAgcmVhZHMgbWR0dDYzNzI5LXVpL0dJVE9GWSBsYXRlc3QgcmVsZWFzZTsgYFZlcnNpb25Db21wYXJlYAogIChkaXJlY3QgcG9ydCwgdGVzdGVkIGxvZ2ljKTsgYEFwa0Rvd25sb2FkZXJgIHN0cmVhbXMgd2l0aCBwZXJjZW50L2J5dGVzL3NwZWVkOwogIGBBcGtJbnN0YWxsZXJgIHVzZXMgYFBhY2thZ2VJbnN0YWxsZXJgICsgYEZpbGVQcm92aWRlcmAuIFNhbWUgZmxvdywgbm8gYnJpZGdlLgoKIyMjIFBsYXRmb3JtCi0gUm9vbSBjYWNoZSwgRGF0YVN0b3JlIHNldHRpbmdzIChmdWxsIGBkZWZhdWx0U2V0dGluZ3NgIHNoYXBlKSwgZW5jcnlwdGVkCiAgYFRva2VuU3RvcmVgLCBgRXJyb3JMb2dgLCBkZWVwLWxpbmsgcGFyc2VyIChnaXRvZnk6Ly8pLCBub3RpZmljYXRpb25zLAogIGBJbnRlZ3JpdHlDaGVja2AgKEFQSy1zaWduYXR1cmUgYW50aS10YW1wZXIpLCBgQXBwTG9ja01hbmFnZXJgIChiaW9tZXRyaWMpLgoKIyMjIFN0aWxsIHRvIHBvbGlzaCAodHJhY2tlZCkKLSBXaXJlIHRoZSBhcHAtbG9jayBwcm9tcHQgYW5kIGludGVncml0eSBnYXRlIGludG8gTWFpbkFjdGl2aXR5IHN0YXJ0LXVwLgotIFJlYWwgcGVybWlzc2lvbi1yZXF1ZXN0IGZsb3dzIChub3RpZmljYXRpb25zIC8gaW5zdGFsbC11bmtub3duLWFwcHMpLgotIEdsYW5jZSB3aWRnZXQsIGxpdmUgcnVuLWxvZyB2aWV3ZXIsIGRhbmdlciBzb3VuZCwgZG93bmxvYWRhYmxlIGZvbnQgZmFtaWxpZXMuCi0gQSBjb21waWxlICsgbGludCBwYXNzIG9uIGEgbWFjaGluZSB3aXRoIHRoZSBBbmRyb2lkIFNESy9KREsuCgojIyB2MC4xLjAg4oCUIFBoYXNlIDA6IEZvdW5kYXRpb24KLSBQcm9qZWN0ICsgSGlsdCArIENvbXBvc2UgKyBNMzsgdGhlbWUgcG9ydGVkICg2IHBhbGV0dGVzIMOXIGxpZ2h0L2RhcmsgKyBkaWZmCiAgY29sb3Vycyk7IGkxOG4gKDExMiBrZXlzIMOXIGVuL2JuKTsgMjkgcm91dGVzIGluIG9uZSBOYXZIb3N0OyBSZXRyb2ZpdC9Pa0h0dHA7CiAgUm9vbTsgRGF0YVN0b3JlOyBlbmNyeXB0ZWQgVG9rZW5TdG9yZTsgYnVuZGxlZC1naXQgZW5naW5lLgo=
+# Changelog
+
+The app version and the delivered zip name are bumped together on every update.
+
+## v1.3.5 — CI safety net for base64-encoded source files
+- The CI log showed `app/build.gradle.kts:1:1: Unresolved reference: <base64>` —
+  the file had arrived in the repo **base64-encoded** (a transfer accident; the
+  workflow `.yml` files were fine, which is why Actions still ran).
+- Every APK workflow now runs an inline **"Repair base64-encoded source files"**
+  step before building: any of `build.gradle.kts`, `settings.gradle.kts`,
+  `gradle.properties`, `gradle/libs.versions.toml`, `AndroidManifest.xml`, or any
+  `.kt`/`.xml` under `app/src/main` whose whole content is a single base64 blob
+  that decodes to recognisable source is decoded in place. It is a no-op on a
+  normal checkout (verified), and it fixes a base64-corrupted tree (verified
+  against the exact blob from the CI log).
+- Also shipped `tools/normalize-sources.py` for local use.
+
+## v1.3.4 — Signing bootstrap: verify + summary
+- `bootstrap-signing.yml` now has a **Verify the secrets exist** step (`gh secret list`)
+  and a **Summary** on the run page, so after the run you can see that the four
+  permanent secrets were created:
+  `ANDROID_KEYSTORE_BASE64`, `ANDROID_KEYSTORE_PASSWORD`, `ANDROID_KEY_ALIAS`,
+  `ANDROID_KEY_PASSWORD`.
+
+## v1.3.3 — Fix: first Kotlin compile errors (from CI)
+The CI reached `:app:compileReleaseKotlin` and reported real errors; all fixed:
+- `GitEngine` — `emit()` inside `Reader.forEachLine` (a non-suspend lambda context)
+  -> replaced with a plain `readLine()` loop inside the `flow { }`.
+- `SkeletonList(Modifier…)` passed positionally bound to the `rows: Int` parameter
+  -> now `SkeletonList(modifier = …)` (Polish, RepoDashboard, Home).
+- `Modifier` used without an import in `IssuesScreen` / `WorkflowRunDetailScreen`
+  -> imports added.
+- `expandVertically(animationSpec = SpringSpec<Float>)` type mismatch
+  -> `expandVertically()` (default spec).
+- `GitProgress.Phase.UPLOADING` did not exist -> added `UPLOADING` to the enum.
+- `pushWithRetry(…) { … }` trailing lambda bound to `attempts: Int`
+  -> pass `onTick = { … }` by name.
+- `UploadWorker` called the suspend `setProgress`/`setForeground` inside the
+  non-suspend progress callback -> progress is now pumped through a `StateFlow`
+  and applied inside a coroutine.
+- `GitofyNavHost` passed trailing lambdas that bound to the `vm` parameter
+  -> now named (`onOpen =`, `onOpenIssue =`, `onOpenLog =`).
+
+## v1.3.2 — Fix: package namespace (build-breaking)
+- The application namespace/package was `com.gitofy.native`, which Android rejects:
+  **`native` is a Java keyword**, so AGP fails with
+  "Namespace 'com.gitofy.native' is not a valid Java package name".
+- Renamed the whole project to **`com.gitofy.app`**: `namespace`, `applicationId`,
+  every `package`/`import` and the source directory tree. 105 references updated,
+  none left.
+
+## v1.3.1 — CI fix: Android SDK setup
+- The **Set up Android SDK** step no longer uses `android-actions/setup-android@v3`
+  (it was failing on the runner). It now uses the SDK that is already installed on
+  `ubuntu-latest`: it writes `local.properties`, exports `ANDROID_SDK_ROOT` /
+  `ANDROID_HOME`, adds `cmdline-tools` to `PATH`, accepts licenses and ensures
+  platform-34 + build-tools are present. Applied to all three APK workflows.
+
+## v1.3.0 — A second signed-APK workflow (with the bundled git binary)
+- New **`.github/workflows/build-signed-apk-with-git.yml`**: builds a **signed**
+  release APK from the permanent signing secrets **and** cross-compiles the
+  bundled git binary, so the APK is fully working (uploads included). Runs on push
+  to `main` and on demand; artifact **`gitofy-signed-full`**.
+- If the NDK git build fails it still produces a signed APK and warns, so you
+  always get an installable artifact.
+
+## v1.2.0 — Permanent APK signing on GitHub
+- New **`.github/workflows/bootstrap-signing.yml`**: run once, it generates a
+  **permanent** Android release keystore in Actions and writes the four repository
+  secrets (`ANDROID_KEYSTORE_BASE64`, `ANDROID_KEYSTORE_PASSWORD`,
+  `ANDROID_KEY_ALIAS`, `ANDROID_KEY_PASSWORD`) via a `GH_SECRETS_PAT`. It **refuses
+  to overwrite** an existing identity unless `force=true`, and uploads a keystore
+  backup artifact (opt-in credentials file). The identity is permanent, not
+  temporary — every future build shares it.
+- New **`.github/workflows/release-signed-apk.yml`**: restores the keystore from
+  the secrets, writes `signing.properties`, builds a **signed** release APK,
+  verifies it with `apksigner`, and uploads it as the `gitofy-release-signed`
+  artifact (and attaches it to the Release on a `v*` tag).
+- `app/build.gradle.kts` now reads a `signing.properties` (path via
+  `SIGNING_PROPERTIES_FILE`) and signs the release build from it — nothing
+  sensitive in the repo.
+
+## v1.1.0 — GitHub Actions: build an unsigned APK
+- New `.github/workflows/build-unsigned-apk.yml`: builds on GitHub with no local
+  toolchain. On push to `main` or a manual run it produces
+  - **`gitofy-release-unsigned`** — the unsigned release APK, and
+  - **`gitofy-debug`** — a debug APK (debug-signed, installable for testing).
+  - Optional inputs: `version` (stamp a versionName) and `build_git` (also
+    cross-compile the bundled git binary with the NDK).
+- `UploadPipeline` now resolves the bundled git binary **lazily and optionally**,
+  so an APK built without it still runs — the upload feature just reports a clear
+  message instead of crashing. This is what makes the "unsigned APK without git"
+  build usable.
+- `.github/workflows/README.md` explains how to sign the unsigned APK.
+
+## v1.0.0 — Byte-level resume + background upload (WorkManager)
+### (a) Byte-level resume in Pending uploads
+- The checkpoint now records `totalBytes`, `lfsTotalFiles`, `lfsDoneFiles`,
+  `lfsTotalBytes`, `lfsDoneBytes`. The Pending uploads list shows a summary
+  ("2/5 LFS files · 120.0 MB / 300.0 MB") and a progress bar, so you can see
+  exactly how much is left at each stage.
+
+### (b) Background upload
+- The pipeline was extracted into `upload/UploadPipeline` (a Hilt singleton) so the
+  UI and the worker run identical code.
+- New `upload/UploadWorker` (a `@HiltWorker` CoroutineWorker) + `upload/UploadScheduler`
+  run the push under **WorkManager** with a `NETWORK_CONNECTED` constraint and a
+  foreground notification showing live progress. It keeps going when the app is
+  closed and retries on a transient failure (the checkpoint makes the retry cheap).
+- `GitofyApp` now implements `Configuration.Provider` with `HiltWorkerFactory`; the
+  default WorkManager initializer is removed in the manifest; foreground-service
+  permissions added.
+- The upload screen has an **Upload in background** button; `UploadViewModel` is now
+  a thin wrapper (state + pending list + background hand-off).
+
+## v0.9.0 — Persistent checkpoints + network-switch re-tune
+### (a) Checkpoints survive an app restart
+- The working tree + checkpoint now live under **`filesDir/uploads/`** (not
+  `cacheDir`), so the OS clearing the cache cannot lose a pending upload.
+- New **"Pending uploads"** list on the upload screen: every unfinished checkpoint
+  is shown with **Resume** and **Discard**, so a restart no longer needs the user
+  to remember the exact repo.
+- `UploadCheckpoint.pendingIn()` / `discard()` back the list.
+
+### (b) Re-tune on a Wi-Fi <-> cellular switch
+- `NetworkMonitor.changes()` is a `callbackFlow` over `registerDefaultNetworkCallback`,
+  emitting whenever the default network or its capabilities change.
+- During an upload the flow re-benchmarks on every change and updates the live
+  transport profile; **each push attempt builds a fresh engine from the current
+  profile**, so a mid-upload switch to cellular (or back to Wi-Fi) is picked up on
+  the next attempt. The change is surfaced in the progress detail
+  ("Network changed → re-tuned: compression N (slow link)").
+
+## v0.8.0 — Tuning chart in Settings + resumable upload
+### (a) Benchmark chart in Settings
+- New `git/BenchmarkStore.kt` keeps the last `BenchmarkResult`; the upload flow
+  records it. Settings now has an **Upload tuning** card with a small bar chart:
+  each compression level (1/6/9) as a bar of its estimated whole-push time, the
+  chosen level highlighted, plus the link profile and uplink.
+
+### (b) Resumable upload
+- New `git/UploadCheckpoint.kt`: a checkpoint beside the work tree records the
+  last completed stage (clone → extract → LFS → commit) and the LFS object ids
+  already uploaded. If the connection drops, the flow keeps everything and a
+  **Resume** re-enters at the failed stage instead of starting over:
+  - the shallow clone is reused,
+  - the ZIP is not re-extracted,
+  - LFS objects already uploaded are skipped (by oid),
+  - the commit is not repeated.
+- The **push itself is retried with backoff** (3 attempts) so a transient drop
+  resumes automatically.
+- The upload screen shows **Resume** both when a previous upload can be resumed
+  and after a failure; `UploadState.Failed` now carries `resumable`.
+
+## v0.7.0 — LFS byte progress + benchmark-driven compression tuning
+### (a) LFS byte-level progress
+- `LfsClient.upload` now takes an `onProgress(bytesSent, total)` callback and
+  streams the object in 64 KB chunks, reporting bytes as they leave. The upload
+  screen shows a live bar with `sent / total` while a big file goes to LFS.
+
+### (b) Benchmark-driven compression tuning
+- New `git/TransportBenchmark.kt`. Before pushing, the flow compresses a ~5 MB
+  sample of the project at zlib levels 1 / 6 / 9, measures each one's time and
+  compressed size, extrapolates to the whole project, and picks the level that
+  minimises `compress_time + bytes_after_compression / uplink_bandwidth`.
+  - fast link -> level 1 (skip the CPU); slow link -> level 9 (fewer bytes).
+- The chosen level is layered onto the connection profile from v0.6.0, and the
+  tuning ("compression N, pack.window M") is surfaced in the progress detail.
+
+## v0.6.0 — Git LFS + connection-aware speed tuning
+### Git LFS (single files >= 100 MB now push)
+- New `git/LfsClient.kt`: a minimal **Git LFS client** over GitHub's batch API —
+  computes the SHA-256, asks `…/info/lfs/objects/batch` for an upload URL, PUTs
+  the object, and returns its oid/size. **No `git-lfs` binary to ship.**
+- The upload flow now routes every file **>= 100 MB** through LFS: the object goes
+  to LFS storage, the working-tree file is replaced by an LFS pointer, and a
+  `filter=lfs` line is added to `.gitattributes`. So a single 100 MB+ file — which
+  GitHub otherwise hard-blocks — now pushes successfully.
+- When LFS is disabled, oversized files fail fast with a clear message.
+
+### Connection-aware speed tuning
+- New `git/TransportProfile.kt` + `net/NetworkMonitor.kt`. The transport is chosen
+  from the live connection:
+  - **fast** (unmetered, upstream >= 20 Mbps): compression 1, pack.window 250,
+    windowMemory 512m, postBuffer 1 GB — spend the link, not the CPU.
+  - **balanced**: compression 6, pack.window 100, windowMemory 256m.
+  - **slow** (metered / <= 2 Mbps): compression 9, pack.window 50, windowMemory
+    128m — fewer bytes over the slow link.
+- `GitEngine` is now profile-driven (`GitEngine(binary, profile)`); HTTP/1.1 is
+  kept in every profile for reliable large-pack uploads.
+
+### Also
+- `UploadState.Done` now reports how many files went to LFS; the upload screen
+  shows it.
+
+## v0.5.0 — Termux-speed git core (git 2.56) + large-project tuning
+### No JGit — confirmed at code level
+- The engine drives the **real git (C) binary** only. There is no JGit and no
+  libgit2 anywhere in the project.
+- `tools/build-git-android.sh` now pins the **latest** releases: git **2.56.0**
+  (2026-09-28), curl **8.22.0**, OpenSSL **3.6.5**, zlib **1.3.2**, PCRE2 **10.49**.
+
+### Large-project speed (50 MB / 100 MB+)
+- `GitEngine` now configures: `protocol.version=2`, `pack.threads=0`,
+  `pack.windowMemory=256m`, `pack.packSizeLimit=2g`, `pack.deltaCacheSize=128m`,
+  `core.bigFileThreshold=1m`, `feature.manyFiles=true`, `gc.auto=0`,
+  `http.postBuffer=500M`, `http.maxRequestBuffer=100M`, `http.lowSpeedLimit=0`,
+  `http.lowSpeedTime=999999`.
+- HTTP/1.1 is the default transport (git/Termux default; avoids HTTP/2 upload
+  flow-control stalls on multi-hundred-MB packs); HTTP/2 is opt-in via `GitEngine(http2=true)`.
+- Shallow clone is now `--depth 1 --no-tags --single-branch`, so a large remote
+  history is never downloaded.
+- The ZIP is extracted **directly into the clone working tree** — no second full
+  copy of the project on disk (was a real I/O cost for big projects).
+- **Oversized-file guard**: files >= 100 MB are detected before the push and
+  rejected with a Git LFS hint (GitHub hard-blocks them).
+- `run()` now drains stdout+stderr concurrently (no pipe deadlock on chatty
+  commands); added `oversizedFiles()`.
+- Removed a stale `ui/UploadScreen.kt` that referenced a deleted method.
+
+## v0.4.0 — Full UI polish + compile-readiness pass
+### Compile-readiness (verified)
+- Every dependency version verified to exist: AGP 8.5.2, Kotlin 2.0.20, KSP
+  2.0.20-1.0.25, Hilt 2.52, Compose BOM 2024.09.03 (material3 1.3.0), Navigation
+  2.8.0, Lifecycle 2.8.6, Room 2.6.1, Glance 1.1.0, Biometric 1.2.0-alpha05,
+  Security-Crypto 1.1.0-alpha06, DataStore 1.1.1, Retrofit 2.11.0, OkHttp 4.12.0,
+  kotlinx-serialization 1.7.3, kotlinx-serialization-converter 1.0.0, Coil 2.7.0,
+  Fragment 1.8.3, Activity-Compose 1.9.2, Hilt-Nav-Compose 1.2.0 (checked against
+  Maven Central / Google Maven).
+- Fixed a missing `dp` import; added missing `lazy.items` imports; simplified the
+  Glance widget to avoid alignment-API drift; `AppLockManager` now uses
+  `@ApplicationContext`; `MainActivity` is a `FragmentActivity` (BiometricPrompt).
+
+### UI polish (shared design system)
+- New `ui/components/Polish.kt`: `GitofyTopBar`, `Avatar` (Coil, initial
+  fallback), `StatChip`, `SectionTitle`, `EmptyState` (icon + action),
+  `ErrorState` (with Retry), animated `SkeletonList`, `RepoCard`, `PolishedList`.
+- Every list screen now has a skeleton while loading, a real empty state, an error
+  state with retry, avatars, and consistent top bars:
+  Home, Repo dashboard (hero card + stat chips), Repo code (folder/file icons),
+  Issues, Gists, Workflows, Inbox, Commits, Branches, Global search.
+- Polished hero/loading/card layouts for Onboarding, Login, App lock, Settings
+  (sectioned cards), Updates (release card + download progress), Error log.
+- Navigation arguments fixed so repo-dashboard actions open the right screens.
+
+## v0.3.0 — UI polish, wiring & platform features
+Everything that was still open from v0.2.0.
+
+### Startup, security & permissions
+- **Startup gate** in MainActivity: integrity check → auth restore → route
+  (Splash → Login or Home). A tampered signature shows the blocking Security
+  overlay and plays the klaxon.
+- **App-lock prompt** wired at launch (biometric/device credential) when the lock
+  is on; MainActivity is a FragmentActivity so BiometricPrompt works.
+- **FLAG_SECURE** applied live from settings (screen-capture protection).
+- **Real permission flows**: request POST_NOTIFICATIONS, open the
+  install-unknown-apps settings screen.
+- **DangerSound**: a two-tone klaxon + sub rumble synthesised as PCM (no assets).
+- **Deep links**: gitofy://callback|repo|upload handled; repo links open the repo.
+
+### Widget
+- **Glance home-screen widget** (`GitofyWidget`) showing the last upload target +
+  status, backed by `WidgetState` (replaces the web app's bridge widget).
+
+### Navigation & buttons (all wired)
+- Repo code: tapping a folder drills in; tapping a file opens the editor.
+- Issues: tap → issue detail with comments, comment box, open/close.
+- Workflow run detail → "View live log".
+- **Live run-log screen** polling job logs, monospace, job chips.
+- **Workflow/file editor**: load a file (base64), edit, commit via the API.
+- Home FAB creates a repo; top-bar opens updates/inbox; create/delete/settings
+  actions all wired to real API calls.
+
+### Theme
+- Font-choice plumbing (`Fonts`) for the 6 families; mapped to platform families
+  so rendering never depends on a font download (Google-Font swap is a one-liner
+  once provider certs are added).
+
+### Still tracked (needs a machine with the Android SDK)
+- A compile + lint pass; per-screen visual polish against the web originals.
+
+## v0.2.0 — Phase 1–6: full feature port (A→Z)
+Everything from the web app, ported to Kotlin/Compose.
+
+### Auth
+- Device Flow (start / poll / slow_down / expired / denied) via native OkHttp,
+  public client id only — no secret in the app.
+- PAT sign-in, token validation, `SessionManager` state, sign-out.
+
+### Networking (1:1 with src/git/githubApi.ts)
+- User, repos, starred, notifications, languages, contents, tree, commits,
+  commit comments, branches (list/create/delete/rename), issues, pulls, comments,
+  merge, Actions (workflows, runs, jobs, cancel, rerun, artifacts, dispatch),
+  releases (list/latest/create), gists (list/create/delete), search
+  (repositories + code), repo update/delete, user update, star/unstar.
+
+### Screens (all routes are real now)
+- Entry: Onboarding, Login (device flow + PAT), Permissions, Login diagnostics,
+  App lock, Splash.
+- Browse: Home (repo list + create), Inbox, Repo dashboard, Repo code, Commits,
+  Branch manager, Issues, Gists, Global search, Workflows, Workflow run detail.
+- Upload: Upload flow (SAF ZIP pick → bundled-git push with live progress),
+  Multi-repo upload, ZIP analysis, Result.
+- Actions: Repo settings (edit/archive/visibility/delete), Delete repo (typed
+  confirm), Release creator, Repo action result.
+- App: Settings (palette/language/appearance/reduce-motion/FLAG_SECURE),
+  GitHub settings, Error log, App store (updater).
+- Sheets: Create repo, Repo picker, Account switcher.
+- Security: Danger sheet, Security overlay, Update sheet.
+- Dev: M3 gallery, Motion lab.
+
+### Update system (parity with today's Gitofy)
+- `UpdateChecker` reads mdtt63729-ui/GITOFY latest release; `VersionCompare`
+  (direct port, tested logic); `ApkDownloader` streams with percent/bytes/speed;
+  `ApkInstaller` uses `PackageInstaller` + `FileProvider`. Same flow, no bridge.
+
+### Platform
+- Room cache, DataStore settings (full `defaultSettings` shape), encrypted
+  `TokenStore`, `ErrorLog`, deep-link parser (gitofy://), notifications,
+  `IntegrityCheck` (APK-signature anti-tamper), `AppLockManager` (biometric).
+
+### Still to polish (tracked)
+- Wire the app-lock prompt and integrity gate into MainActivity start-up.
+- Real permission-request flows (notifications / install-unknown-apps).
+- Glance widget, live run-log viewer, danger sound, downloadable font families.
+- A compile + lint pass on a machine with the Android SDK/JDK.
+
+## v0.1.0 — Phase 0: Foundation
+- Project + Hilt + Compose + M3; theme ported (6 palettes × light/dark + diff
+  colours); i18n (112 keys × en/bn); 29 routes in one NavHost; Retrofit/OkHttp;
+  Room; DataStore; encrypted TokenStore; bundled-git engine.

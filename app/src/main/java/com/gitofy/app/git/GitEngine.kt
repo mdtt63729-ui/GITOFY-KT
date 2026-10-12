@@ -1,1 +1,206 @@
-cGFja2FnZSBjb20uZ2l0b2Z5LmFwcC5naXQKCmltcG9ydCBhbmRyb2lkLnV0aWwuQmFzZTY0CmltcG9ydCBrb3RsaW54LmNvcm91dGluZXMuRGlzcGF0Y2hlcnMKaW1wb3J0IGtvdGxpbnguY29yb3V0aW5lcy5mbG93LkZsb3cKaW1wb3J0IGtvdGxpbnguY29yb3V0aW5lcy5mbG93LmZsb3cKaW1wb3J0IGtvdGxpbnguY29yb3V0aW5lcy5mbG93LmZsb3dPbgppbXBvcnQga290bGlueC5jb3JvdXRpbmVzLndpdGhDb250ZXh0CmltcG9ydCBqYXZhLmlvLkZpbGUKCi8qKgogKiBGYXN0IHdyYXBwZXIgYXJvdW5kIHRoZSAqKmJ1bmRsZWQgZ2l0IChDKSBiaW5hcnkqKiDigJQgdGhlIFRlcm11eCBhcHByb2FjaC4KICoKICogVGhlcmUgaXMgZGVsaWJlcmF0ZWx5ICoqbm8gSkdpdCBhbmQgbm8gbGliZ2l0MiBoZXJlKiouIGdpdCdzIEMgaW1wbGVtZW50YXRpb24KICogKHBhY2sgZ2VuZXJhdGlvbiArIGRlbHRhIGNvbXByZXNzaW9uICsgdGhlIFNtYXJ0LUhUVFAgdHJhbnNwb3J0KSBpcyB3aGF0IGdpdmVzCiAqIFRlcm11eCBpdHMgcHVzaCBzcGVlZCwgc28gdGhlIGFwcCBzaGlwcyBhbmQgZHJpdmVzIHRoZSByZWFsIGJpbmFyeS4KICoKICogUGVyZm9ybWFuY2UgY2hvaWNlcywgdHVuZWQgZm9yIGxhcmdlIHByb2plY3RzICg+NTAgTUIsID4xMDAgTUIpOgogKiAgLSBgcHJvdG9jb2wudmVyc2lvbj0yYCAgICAgICAgICDigJQgZmFzdGVyIHJlZiBuZWdvdGlhdGlvbgogKiAgLSBgcGFjay50aHJlYWRzPTBgICAgICAgICAgICAgICDigJQgcGFjayB3aXRoIGV2ZXJ5IGNvcmUKICogIC0gYHBhY2sud2luZG93TWVtb3J5YC9gZGVsdGFDYWNoZVNpemVgL2BwYWNrU2l6ZUxpbWl0YCDigJQgYmlnLXJlcG8gcGFjayB0dW5pbmcKICogIC0gYGNvcmUuYmlnRmlsZVRocmVzaG9sZD0xbWAgICAg4oCUIGRvbid0IGRlbHRhLWNvbXByZXNzIGJpZyBiaW5hcmllcyAoQ1BVIHdpbikKICogIC0gYGZlYXR1cmUubWFueUZpbGVzPXRydWVgICAgICAg4oCUIGluZGV4IHY0ICsgdW50cmFja2VkIGNhY2hlIGZvciBtYW55IGZpbGVzCiAqICAtIGBodHRwLnBvc3RCdWZmZXJgIDUwMCBNQiAgICAgIOKAlCBzZW5kIGEgYmlnIHBhY2sgaW4gb25lIHJlcXVlc3QsIG5vIGNodW5raW5nCiAqICAtIGBodHRwLm1heFJlcXVlc3RCdWZmZXJgIDEwMCBNIOKAlCBsYXJnZXIgc21hcnQtSFRUUCByZXF1ZXN0IGJ1ZmZlcgogKiAgLSBgaHR0cC5sb3dTcGVlZExpbWl0L1RpbWVgICAgICDigJQgbmV2ZXIgYWJvcnQgYSBzbG93LWJ1dC1hbGl2ZSB1cGxvYWQKICogIC0gYC0tdGhpbmAgcHVzaCAgICAgICAgICAgICAgICAg4oCUIG9taXQgb2JqZWN0cyB0aGUgc2VydmVyIGFscmVhZHkgaGFzCiAqICAtIEhUVFAvMS4xIGJ5IGRlZmF1bHQgICAgICAgICAgIOKAlCBnaXQvVGVybXV4IGRlZmF1bHQ7IGF2b2lkcyBIVFRQLzIgdXBsb2FkCiAqICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgZmxvdy1jb250cm9sIHN0YWxscyBvbiBtdWx0aS1odW5kcmVkLU1CIHBhY2tzCiAqICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgKG9wdCBpbiB0byBIVFRQLzIgdmlhIFtodHRwMl0pCiAqICAtIHRva2VuIHZpYSBgR0lUX0NPTkZJR18qYCBlbnYgIOKAlCBuZXZlciBpbiBhcmd2LCBuZXZlciBpbiBgcHNgL2xvZ3MKICovCmNsYXNzIEdpdEVuZ2luZSgKICAgIHByaXZhdGUgdmFsIGdpdDogR2l0QmluYXJ5LAogICAgcHJpdmF0ZSB2YWwgcHJvZmlsZTogVHJhbnNwb3J0UHJvZmlsZSA9IFRyYW5zcG9ydFByb2ZpbGVzLmJhbGFuY2VkLAopIHsKICAgIGNvbXBhbmlvbiBvYmplY3QgewogICAgICAgIC8qKiBHaXRIdWIgaGFyZC1ibG9ja3MgYSBzaW5nbGUgZmlsZSA+PSAxMDAgTWlCLiAqLwogICAgICAgIGNvbnN0IHZhbCBMQVJHRV9GSUxFX0xJTUlUID0gMTAwTCAqIDEwMjQgKiAxMDI0CiAgICAgICAgLyoqIEdpdEh1YiB3YXJucyBmcm9tIDUwIE1pQi4gKi8KICAgICAgICBjb25zdCB2YWwgV0FSTl9GSUxFX0xJTUlUID0gNTBMICogMTAyNCAqIDEwMjQKICAgIH0KCiAgICBwcml2YXRlIGZ1biBjb25maWdBcmdzKCk6IExpc3Q8U3RyaW5nPiA9IGJ1aWxkTGlzdCB7CiAgICAgICAgZnVuIGMoazogU3RyaW5nLCB2OiBTdHJpbmcpIHsgYWRkKCItYyIpOyBhZGQoIiRrPSR2IikgfQogICAgICAgIGMoInByb3RvY29sLnZlcnNpb24iLCAiMiIpCiAgICAgICAgYygiY29yZS5jb21wcmVzc2lvbiIsIHByb2ZpbGUuY29tcHJlc3Npb24udG9TdHJpbmcoKSkKICAgICAgICBjKCJwYWNrLnRocmVhZHMiLCAiMCIpCiAgICAgICAgYygicGFjay53aW5kb3ciLCBwcm9maWxlLnBhY2tXaW5kb3cudG9TdHJpbmcoKSkKICAgICAgICBjKCJwYWNrLndpbmRvd01lbW9yeSIsIHByb2ZpbGUud2luZG93TWVtb3J5KQogICAgICAgIGMoInBhY2sucGFja1NpemVMaW1pdCIsICIyZyIpCiAgICAgICAgYygicGFjay5kZWx0YUNhY2hlU2l6ZSIsICIxMjhtIikKICAgICAgICBjKCJodHRwLnZlcnNpb24iLCBwcm9maWxlLmh0dHBWZXJzaW9uKQogICAgICAgIGMoImh0dHAucG9zdEJ1ZmZlciIsIHByb2ZpbGUucG9zdEJ1ZmZlcikKICAgICAgICBjKCJodHRwLm1heFJlcXVlc3RCdWZmZXIiLCAiMTAwTSIpCiAgICAgICAgYygiaHR0cC5sb3dTcGVlZExpbWl0IiwgIjAiKQogICAgICAgIGMoImh0dHAubG93U3BlZWRUaW1lIiwgIjk5OTk5OSIpCiAgICAgICAgYygiY29yZS5iaWdGaWxlVGhyZXNob2xkIiwgIjFtIikKICAgICAgICBjKCJmZWF0dXJlLm1hbnlGaWxlcyIsICJ0cnVlIikKICAgICAgICBjKCJnYy5hdXRvIiwgIjAiKQogICAgICAgIGMoImFkdmljZS5kZXRhY2hlZEhlYWQiLCAiZmFsc2UiKQogICAgfQoKICAgIHByaXZhdGUgZnVuIGNvbW1hbmQocmVwb0RpcjogRmlsZT8sIGFyZ3M6IExpc3Q8U3RyaW5nPik6IExpc3Q8U3RyaW5nPiA9IGJ1aWxkTGlzdCB7CiAgICAgICAgYWRkKGdpdC5leGVjdXRhYmxlLmFic29sdXRlUGF0aCkKICAgICAgICBpZiAocmVwb0RpciAhPSBudWxsKSB7IGFkZCgiLUMiKTsgYWRkKHJlcG9EaXIuYWJzb2x1dGVQYXRoKSB9CiAgICAgICAgYWRkQWxsKGNvbmZpZ0FyZ3MoKSkKICAgICAgICBhZGRBbGwoYXJncykKICAgIH0KCiAgICAvKioKICAgICAqIEdpdEh1YiBhY2NlcHRzIEhUVFAgQmFzaWMgd2l0aCB1c2VybmFtZSBgeC1hY2Nlc3MtdG9rZW5gIGFuZCB0aGUgdG9rZW4gYXMKICAgICAqIHRoZSBwYXNzd29yZC4gSGFuZGVkIHRvIGdpdCB0aHJvdWdoIHRoZSBHSVRfQ09ORklHXyogZW52IHZhcnMgc28gdGhlCiAgICAgKiBjcmVkZW50aWFsIG5ldmVyIGFwcGVhcnMgaW4gdGhlIGFyZ3VtZW50IGxpc3QuCiAgICAgKi8KICAgIHByaXZhdGUgZnVuIGF1dGhFbnYodG9rZW46IFN0cmluZz8pOiBNYXA8U3RyaW5nLCBTdHJpbmc+IHsKICAgICAgICBpZiAodG9rZW4uaXNOdWxsT3JCbGFuaygpKSByZXR1cm4gZW1wdHlNYXAoKQogICAgICAgIHZhbCBiYXNpYyA9IEJhc2U2NC5lbmNvZGVUb1N0cmluZygKICAgICAgICAgICAgIngtYWNjZXNzLXRva2VuOiR0b2tlbiIudG9CeXRlQXJyYXkoQ2hhcnNldHMuVVRGXzgpLAogICAgICAgICAgICBCYXNlNjQuTk9fV1JBUCwKICAgICAgICApCiAgICAgICAgcmV0dXJuIG1hcE9mKAogICAgICAgICAgICAiR0lUX0NPTkZJR19DT1VOVCIgdG8gIjEiLAogICAgICAgICAgICAiR0lUX0NPTkZJR19LRVlfMCIgdG8gImh0dHAuZXh0cmFIZWFkZXIiLAogICAgICAgICAgICAiR0lUX0NPTkZJR19WQUxVRV8wIiB0byAiQVVUSE9SSVpBVElPTjogYmFzaWMgJGJhc2ljIiwKICAgICAgICApCiAgICB9CgogICAgcHJpdmF0ZSBmdW4gbmV3UHJvY2VzcyhyZXBvRGlyOiBGaWxlPywgdG9rZW46IFN0cmluZz8sIGFyZ3M6IExpc3Q8U3RyaW5nPik6IFByb2Nlc3MgewogICAgICAgIHZhbCBwYiA9IFByb2Nlc3NCdWlsZGVyKGNvbW1hbmQocmVwb0RpciwgYXJncykpCiAgICAgICAgcGIuZW52aXJvbm1lbnQoKS5wdXRBbGwoZ2l0LmJhc2VFbnYoYXV0aEVudih0b2tlbikpKQogICAgICAgIHJldHVybiBwYi5zdGFydCgpCiAgICB9CgogICAgLyoqIFJ1biBhIHNob3J0IGNvbW1hbmQgdG8gY29tcGxldGlvbiBhbmQgcmV0dXJuIHN0ZG91dC4gVGhyb3dzIFtHaXRFeGNlcHRpb25dLiAqLwogICAgc3VzcGVuZCBmdW4gcnVuKHJlcG9EaXI6IEZpbGU/LCB0b2tlbjogU3RyaW5nPywgdmFyYXJnIGFyZ3M6IFN0cmluZyk6IFN0cmluZyA9CiAgICAgICAgd2l0aENvbnRleHQoRGlzcGF0Y2hlcnMuSU8pIHsKICAgICAgICAgICAgdmFsIHByb2MgPSBuZXdQcm9jZXNzKHJlcG9EaXIsIHRva2VuLCBhcmdzLnRvTGlzdCgpKQogICAgICAgICAgICAvLyBEcmFpbiBib3RoIHBpcGVzIGNvbmN1cnJlbnRseSBzbyBhIGNoYXR0eSBjb21tYW5kIGNhbiBuZXZlciBkZWFkbG9jay4KICAgICAgICAgICAgdmFsIG91dEJ1ZiA9IFN0cmluZ0J1aWxkZXIoKQogICAgICAgICAgICB2YWwgZXJyQnVmID0gU3RyaW5nQnVpbGRlcigpCiAgICAgICAgICAgIHZhbCB0T3V0ID0gVGhyZWFkIHsgcnVuQ2F0Y2hpbmcgeyBwcm9jLmlucHV0U3RyZWFtLmJ1ZmZlcmVkUmVhZGVyKCkuZm9yRWFjaExpbmUgeyBvdXRCdWYuYXBwZW5kTGluZShpdCkgfSB9IH0uYXBwbHkgeyBpc0RhZW1vbiA9IHRydWU7IHN0YXJ0KCkgfQogICAgICAgICAgICB2YWwgdEVyciA9IFRocmVhZCB7IHJ1bkNhdGNoaW5nIHsgcHJvYy5lcnJvclN0cmVhbS5idWZmZXJlZFJlYWRlcigpLmZvckVhY2hMaW5lIHsgZXJyQnVmLmFwcGVuZExpbmUoaXQpIH0gfSB9LmFwcGx5IHsgaXNEYWVtb24gPSB0cnVlOyBzdGFydCgpIH0KICAgICAgICAgICAgdmFsIGNvZGUgPSBwcm9jLndhaXRGb3IoKQogICAgICAgICAgICB0T3V0LmpvaW4oNTAwKTsgdEVyci5qb2luKDUwMCkKICAgICAgICAgICAgaWYgKGNvZGUgIT0gMCkgdGhyb3cgR2l0RXhjZXB0aW9uKGNvZGUsIGNvbW1hbmQocmVwb0RpciwgYXJncy50b0xpc3QoKSksIGVyckJ1Zi50b1N0cmluZygpKQogICAgICAgICAgICBvdXRCdWYudG9TdHJpbmcoKQogICAgICAgIH0KCiAgICAvKiogU3RyZWFtIGEgbG9uZyBjb21tYW5kLCBlbWl0dGluZyBhIFtHaXRQcm9ncmVzc10gZm9yIGVhY2ggbWVhbmluZ2Z1bCBzdGRlcnIgbGluZS4gKi8KICAgIGZ1biBydW5TdHJlYW1pbmcocmVwb0RpcjogRmlsZT8sIHRva2VuOiBTdHJpbmc/LCB2YXJhcmcgYXJnczogU3RyaW5nKTogRmxvdzxHaXRQcm9ncmVzcz4gPSBmbG93IHsKICAgICAgICB2YWwgcHJvYyA9IG5ld1Byb2Nlc3MocmVwb0RpciwgdG9rZW4sIGFyZ3MudG9MaXN0KCkpCiAgICAgICAgdmFsIGNtZCA9IGNvbW1hbmQocmVwb0RpciwgYXJncy50b0xpc3QoKSkKCiAgICAgICAgLy8gRHJhaW4gc3Rkb3V0IG9uIGEgZGFlbW9uIHRocmVhZCBzbyB0aGUgY2hpbGQgbmV2ZXIgYmxvY2tzIG9uIGEgZnVsbCBwaXBlLgogICAgICAgIHZhbCBkcmFpbiA9IFRocmVhZCB7IHJ1bkNhdGNoaW5nIHsgcHJvYy5pbnB1dFN0cmVhbS5yZWFkQnl0ZXMoKSB9IH0uYXBwbHkgewogICAgICAgICAgICBpc0RhZW1vbiA9IHRydWUKICAgICAgICAgICAgc3RhcnQoKQogICAgICAgIH0KCiAgICAgICAgdmFyIGxhc3RSYXc6IFN0cmluZz8gPSBudWxsCiAgICAgICAgdmFyIGxhc3RMaW5lOiBTdHJpbmc/ID0gbnVsbAogICAgICAgIHRyeSB7CiAgICAgICAgICAgIHZhbCByZWFkZXIgPSBwcm9jLmVycm9yU3RyZWFtLmJ1ZmZlcmVkUmVhZGVyKCkKICAgICAgICAgICAgd2hpbGUgKHRydWUpIHsKICAgICAgICAgICAgICAgIHZhbCBsaW5lID0gcmVhZGVyLnJlYWRMaW5lKCkgPzogYnJlYWsKICAgICAgICAgICAgICAgIC8vIGdpdCByZXdyaXRlcyBwcm9ncmVzcyB3aXRoICdccic7IG5vcm1hbGlzZSB0byBpbmRpdmlkdWFsIHRpY2tzLgogICAgICAgICAgICAgICAgZm9yIChwaWVjZSBpbiBsaW5lLnJlcGxhY2UoJ1xyJywgJ1xuJykuc3BsaXQoJ1xuJykpIHsKICAgICAgICAgICAgICAgICAgICB2YWwgdGljayA9IEdpdFByb2dyZXNzLnBhcnNlKHBpZWNlKSA/OiBjb250aW51ZQogICAgICAgICAgICAgICAgICAgIGlmIChwaWVjZSAhPSBsYXN0UmF3KSB7IGxhc3RSYXcgPSBwaWVjZTsgbGFzdExpbmUgPSBwaWVjZTsgZW1pdCh0aWNrKSB9CiAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgIH0KICAgICAgICAgICAgdmFsIGNvZGUgPSBwcm9jLndhaXRGb3IoKQogICAgICAgICAgICBpZiAoY29kZSAhPSAwKSB0aHJvdyBHaXRFeGNlcHRpb24oY29kZSwgY21kLCBsYXN0TGluZSA/OiAiIikKICAgICAgICB9IGZpbmFsbHkgewogICAgICAgICAgICBydW5DYXRjaGluZyB7IGRyYWluLmpvaW4oMjAwKSB9CiAgICAgICAgICAgIHJ1bkNhdGNoaW5nIHsgcHJvYy5kZXN0cm95KCkgfQogICAgICAgIH0KICAgIH0uZmxvd09uKERpc3BhdGNoZXJzLklPKQoKICAgIC8vIC0tLSBIaWdoLWxldmVsIG9wZXJhdGlvbnMgLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0KCiAgICAvKioKICAgICAqIFNoYWxsb3csIHNpbmdsZS1icmFuY2ggY2xvbmUgKGRlcHRoIDEsIG5vIHRhZ3MpLiBUaGlzIGlzIHRoZSBtaW5pbXVtIG5lZWRlZAogICAgICogdG8gaGF2ZSBhIGJhc2UgY29tbWl0IHRvIHB1c2ggb250bywgc28gYSBsYXJnZSByZW1vdGUgaGlzdG9yeSBpcyBuZXZlcgogICAgICogZG93bmxvYWRlZCDigJQgdGhlIHNhbWUgdHJpY2sgdGhhdCBtYWtlcyBhIFRlcm11eCBwdXNoIHF1aWNrLgogICAgICovCiAgICBzdXNwZW5kIGZ1biBjbG9uZVNoYWxsb3codG9rZW46IFN0cmluZz8sIHJlbW90ZTogU3RyaW5nLCBpbnRvOiBGaWxlKTogU3RyaW5nIHsKICAgICAgICBpbnRvLnBhcmVudEZpbGU/Lm1rZGlycygpCiAgICAgICAgcmV0dXJuIHJ1bigKICAgICAgICAgICAgbnVsbCwgdG9rZW4sCiAgICAgICAgICAgICJjbG9uZSIsICItLWRlcHRoIiwgIjEiLCAiLS1uby10YWdzIiwgIi0tc2luZ2xlLWJyYW5jaCIsICItLXByb2dyZXNzIiwKICAgICAgICAgICAgcmVtb3RlLCBpbnRvLmFic29sdXRlUGF0aCwKICAgICAgICApCiAgICB9CgogICAgLyoqIGBnaXQgZmV0Y2ggLS1kZXB0aCAxYCB0byByZWZyZXNoIHRoZSByZW1vdGUgaGVhZCBiZWZvcmUgYSBkaWZmLiAqLwogICAgc3VzcGVuZCBmdW4gZmV0Y2hTaGFsbG93KHJlcG9EaXI6IEZpbGUsIHRva2VuOiBTdHJpbmc/LCBicmFuY2g6IFN0cmluZyk6IFN0cmluZyA9CiAgICAgICAgcnVuKHJlcG9EaXIsIHRva2VuLCAiZmV0Y2giLCAiLS1kZXB0aCIsICIxIiwgIm9yaWdpbiIsIGJyYW5jaCkKCiAgICAvKiogYGdpdCBzdGF0dXMgLS1wb3JjZWxhaW5gIOKAlCBlbXB0eSBtZWFucyB0aGUgd29ya2luZyB0cmVlIGlzIGNsZWFuLiAqLwogICAgc3VzcGVuZCBmdW4gcG9yY2VsYWluKHJlcG9EaXI6IEZpbGUpOiBTdHJpbmcgPQogICAgICAgIHJ1bihyZXBvRGlyLCBudWxsLCAic3RhdHVzIiwgIi0tcG9yY2VsYWluIikKCiAgICAvKioKICAgICAqIFN0YWdlIGV2ZXJ5dGhpbmcgYW5kIGNvbW1pdCBpZiBhbnl0aGluZyBjaGFuZ2VkLiBSZXR1cm5zIHRydWUgaWYgYSBjb21taXQKICAgICAqIHdhcyBtYWRlLiBgLUFgIHBpY2tzIHVwIGFkZHMsIGVkaXRzIGFuZCBkZWxldGlvbnMgaW4gb25lIHBhc3MuCiAgICAgKi8KICAgIHN1c3BlbmQgZnVuIGNvbW1pdEFsbChyZXBvRGlyOiBGaWxlLCBtZXNzYWdlOiBTdHJpbmcpOiBCb29sZWFuIHsKICAgICAgICBydW4ocmVwb0RpciwgbnVsbCwgImFkZCIsICItQSIpCiAgICAgICAgaWYgKHBvcmNlbGFpbihyZXBvRGlyKS5pc0JsYW5rKCkpIHJldHVybiBmYWxzZQogICAgICAgIHJ1bigKICAgICAgICAgICAgcmVwb0RpciwgbnVsbCwKICAgICAgICAgICAgIi1jIiwgInVzZXIubmFtZT1HaXRvZnkiLAogICAgICAgICAgICAiLWMiLCAidXNlci5lbWFpbD1naXRvZnlAdXNlcnMubm9yZXBseS5naXRodWIuY29tIiwKICAgICAgICAgICAgImNvbW1pdCIsICItbSIsIG1lc3NhZ2UsCiAgICAgICAgKQogICAgICAgIHJldHVybiB0cnVlCiAgICB9CgogICAgLyoqCiAgICAgKiBQdXNoIHRoZSBjdXJyZW50IEhFQUQgdG8gYGJyYW5jaGAsIHN0cmVhbWluZyBwcm9ncmVzcy4gYC0tdGhpbmAga2VlcHMgdGhlCiAgICAgKiBwYWNrIHNtYWxsIGJ5IG9taXR0aW5nIG9iamVjdHMgdGhlIHNlcnZlciBhbHJlYWR5IGhhczsgYC0tcHJvZ3Jlc3NgIGZvcmNlcwogICAgICogdGhlIHRocm91Z2hwdXQgbGluZXMgd2UgcGFyc2UuCiAgICAgKi8KICAgIGZ1biBwdXNoKHJlcG9EaXI6IEZpbGUsIHRva2VuOiBTdHJpbmc/LCBicmFuY2g6IFN0cmluZywgdGhpbjogQm9vbGVhbiA9IHRydWUpOiBGbG93PEdpdFByb2dyZXNzPiB7CiAgICAgICAgdmFsIGFyZ3MgPSBidWlsZExpc3QgewogICAgICAgICAgICBhZGQoInB1c2giKQogICAgICAgICAgICBpZiAodGhpbikgYWRkKCItLXRoaW4iKQogICAgICAgICAgICBhZGQoIi0tcHJvZ3Jlc3MiKQogICAgICAgICAgICBhZGQoIm9yaWdpbiIpCiAgICAgICAgICAgIGFkZCgiSEVBRDokYnJhbmNoIikKICAgICAgICB9CiAgICAgICAgcmV0dXJuIHJ1blN0cmVhbWluZyhyZXBvRGlyLCB0b2tlbiwgKmFyZ3MudG9UeXBlZEFycmF5KCkpCiAgICB9CgogICAgLyoqCiAgICAgKiBGaWxlcyBhdCBvciBhYm92ZSBbbGltaXRdLiBHaXRIdWIgYmxvY2tzIGFueSBzaW5nbGUgZmlsZSA+PSAxMDAgTWlCLCBzbyB0aGUKICAgICAqIHVwbG9hZCBmbG93IGNoZWNrcyB0aGlzIGJlZm9yZSBwdXNoaW5nIGFuZCBwb2ludHMgdGhlIHVzZXIgYXQgR2l0IExGUy4KICAgICAqLwogICAgZnVuIG92ZXJzaXplZEZpbGVzKGRpcjogRmlsZSwgbGltaXQ6IExvbmcgPSBMQVJHRV9GSUxFX0xJTUlUKTogTGlzdDxQYWlyPFN0cmluZywgTG9uZz4+ID0KICAgICAgICBkaXIud2Fsa1RvcERvd24oKQogICAgICAgICAgICAuZmlsdGVyIHsgaXQuaXNGaWxlICYmIGl0Lmxlbmd0aCgpID49IGxpbWl0IH0KICAgICAgICAgICAgLm1hcCB7IGl0LnJlbGF0aXZlVG8oZGlyKS5wYXRoIHRvIGl0Lmxlbmd0aCgpIH0KICAgICAgICAgICAgLnRvTGlzdCgpCn0K
+package com.gitofy.app.git
+
+import android.util.Base64
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
+import kotlinx.coroutines.withContext
+import java.io.File
+
+/**
+ * Fast wrapper around the **bundled git (C) binary** — the Termux approach.
+ *
+ * There is deliberately **no JGit and no libgit2 here**. git's C implementation
+ * (pack generation + delta compression + the Smart-HTTP transport) is what gives
+ * Termux its push speed, so the app ships and drives the real binary.
+ *
+ * Performance choices, tuned for large projects (>50 MB, >100 MB):
+ *  - `protocol.version=2`          — faster ref negotiation
+ *  - `pack.threads=0`              — pack with every core
+ *  - `pack.windowMemory`/`deltaCacheSize`/`packSizeLimit` — big-repo pack tuning
+ *  - `core.bigFileThreshold=1m`    — don't delta-compress big binaries (CPU win)
+ *  - `feature.manyFiles=true`      — index v4 + untracked cache for many files
+ *  - `http.postBuffer` 500 MB      — send a big pack in one request, no chunking
+ *  - `http.maxRequestBuffer` 100 M — larger smart-HTTP request buffer
+ *  - `http.lowSpeedLimit/Time`     — never abort a slow-but-alive upload
+ *  - `--thin` push                 — omit objects the server already has
+ *  - HTTP/1.1 by default           — git/Termux default; avoids HTTP/2 upload
+ *                                    flow-control stalls on multi-hundred-MB packs
+ *                                    (opt in to HTTP/2 via [http2])
+ *  - token via `GIT_CONFIG_*` env  — never in argv, never in `ps`/logs
+ */
+class GitEngine(
+    private val git: GitBinary,
+    private val profile: TransportProfile = TransportProfiles.balanced,
+) {
+    companion object {
+        /** GitHub hard-blocks a single file >= 100 MiB. */
+        const val LARGE_FILE_LIMIT = 100L * 1024 * 1024
+        /** GitHub warns from 50 MiB. */
+        const val WARN_FILE_LIMIT = 50L * 1024 * 1024
+    }
+
+    private fun configArgs(): List<String> = buildList {
+        fun c(k: String, v: String) { add("-c"); add("$k=$v") }
+        c("protocol.version", "2")
+        c("core.compression", profile.compression.toString())
+        c("pack.threads", "0")
+        c("pack.window", profile.packWindow.toString())
+        c("pack.windowMemory", profile.windowMemory)
+        c("pack.packSizeLimit", "2g")
+        c("pack.deltaCacheSize", "128m")
+        c("http.version", profile.httpVersion)
+        c("http.postBuffer", profile.postBuffer)
+        c("http.maxRequestBuffer", "100M")
+        c("http.lowSpeedLimit", "0")
+        c("http.lowSpeedTime", "999999")
+        c("core.bigFileThreshold", "1m")
+        c("feature.manyFiles", "true")
+        c("gc.auto", "0")
+        c("advice.detachedHead", "false")
+    }
+
+    private fun command(repoDir: File?, args: List<String>): List<String> = buildList {
+        add(git.executable.absolutePath)
+        if (repoDir != null) { add("-C"); add(repoDir.absolutePath) }
+        addAll(configArgs())
+        addAll(args)
+    }
+
+    /**
+     * GitHub accepts HTTP Basic with username `x-access-token` and the token as
+     * the password. Handed to git through the GIT_CONFIG_* env vars so the
+     * credential never appears in the argument list.
+     */
+    private fun authEnv(token: String?): Map<String, String> {
+        if (token.isNullOrBlank()) return emptyMap()
+        val basic = Base64.encodeToString(
+            "x-access-token:$token".toByteArray(Charsets.UTF_8),
+            Base64.NO_WRAP,
+        )
+        return mapOf(
+            "GIT_CONFIG_COUNT" to "1",
+            "GIT_CONFIG_KEY_0" to "http.extraHeader",
+            "GIT_CONFIG_VALUE_0" to "AUTHORIZATION: basic $basic",
+        )
+    }
+
+    private fun newProcess(repoDir: File?, token: String?, args: List<String>): Process {
+        val pb = ProcessBuilder(command(repoDir, args))
+        pb.environment().putAll(git.baseEnv(authEnv(token)))
+        return pb.start()
+    }
+
+    /** Run a short command to completion and return stdout. Throws [GitException]. */
+    suspend fun run(repoDir: File?, token: String?, vararg args: String): String =
+        withContext(Dispatchers.IO) {
+            val proc = newProcess(repoDir, token, args.toList())
+            // Drain both pipes concurrently so a chatty command can never deadlock.
+            val outBuf = StringBuilder()
+            val errBuf = StringBuilder()
+            val tOut = Thread { runCatching { proc.inputStream.bufferedReader().forEachLine { outBuf.appendLine(it) } } }.apply { isDaemon = true; start() }
+            val tErr = Thread { runCatching { proc.errorStream.bufferedReader().forEachLine { errBuf.appendLine(it) } } }.apply { isDaemon = true; start() }
+            val code = proc.waitFor()
+            tOut.join(500); tErr.join(500)
+            if (code != 0) throw GitException(code, command(repoDir, args.toList()), errBuf.toString())
+            outBuf.toString()
+        }
+
+    /** Stream a long command, emitting a [GitProgress] for each meaningful stderr line. */
+    fun runStreaming(repoDir: File?, token: String?, vararg args: String): Flow<GitProgress> = flow {
+        val proc = newProcess(repoDir, token, args.toList())
+        val cmd = command(repoDir, args.toList())
+
+        // Drain stdout on a daemon thread so the child never blocks on a full pipe.
+        val drain = Thread { runCatching { proc.inputStream.readBytes() } }.apply {
+            isDaemon = true
+            start()
+        }
+
+        var lastRaw: String? = null
+        var lastLine: String? = null
+        try {
+            val reader = proc.errorStream.bufferedReader()
+            while (true) {
+                val line = reader.readLine() ?: break
+                // git rewrites progress with '\r'; normalise to individual ticks.
+                for (piece in line.replace('\r', '\n').split('\n')) {
+                    val tick = GitProgress.parse(piece) ?: continue
+                    if (piece != lastRaw) { lastRaw = piece; lastLine = piece; emit(tick) }
+                }
+            }
+            val code = proc.waitFor()
+            if (code != 0) throw GitException(code, cmd, lastLine ?: "")
+        } finally {
+            runCatching { drain.join(200) }
+            runCatching { proc.destroy() }
+        }
+    }.flowOn(Dispatchers.IO)
+
+    // --- High-level operations --------------------------------------------------
+
+    /**
+     * Shallow, single-branch clone (depth 1, no tags). This is the minimum needed
+     * to have a base commit to push onto, so a large remote history is never
+     * downloaded — the same trick that makes a Termux push quick.
+     */
+    suspend fun cloneShallow(token: String?, remote: String, into: File): String {
+        into.parentFile?.mkdirs()
+        return run(
+            null, token,
+            "clone", "--depth", "1", "--no-tags", "--single-branch", "--progress",
+            remote, into.absolutePath,
+        )
+    }
+
+    /** `git fetch --depth 1` to refresh the remote head before a diff. */
+    suspend fun fetchShallow(repoDir: File, token: String?, branch: String): String =
+        run(repoDir, token, "fetch", "--depth", "1", "origin", branch)
+
+    /** `git status --porcelain` — empty means the working tree is clean. */
+    suspend fun porcelain(repoDir: File): String =
+        run(repoDir, null, "status", "--porcelain")
+
+    /**
+     * Stage everything and commit if anything changed. Returns true if a commit
+     * was made. `-A` picks up adds, edits and deletions in one pass.
+     */
+    suspend fun commitAll(repoDir: File, message: String): Boolean {
+        run(repoDir, null, "add", "-A")
+        if (porcelain(repoDir).isBlank()) return false
+        run(
+            repoDir, null,
+            "-c", "user.name=Gitofy",
+            "-c", "user.email=gitofy@users.noreply.github.com",
+            "commit", "-m", message,
+        )
+        return true
+    }
+
+    /**
+     * Push the current HEAD to `branch`, streaming progress. `--thin` keeps the
+     * pack small by omitting objects the server already has; `--progress` forces
+     * the throughput lines we parse.
+     */
+    fun push(repoDir: File, token: String?, branch: String, thin: Boolean = true): Flow<GitProgress> {
+        val args = buildList {
+            add("push")
+            if (thin) add("--thin")
+            add("--progress")
+            add("origin")
+            add("HEAD:$branch")
+        }
+        return runStreaming(repoDir, token, *args.toTypedArray())
+    }
+
+    /**
+     * Files at or above [limit]. GitHub blocks any single file >= 100 MiB, so the
+     * upload flow checks this before pushing and points the user at Git LFS.
+     */
+    fun oversizedFiles(dir: File, limit: Long = LARGE_FILE_LIMIT): List<Pair<String, Long>> =
+        dir.walkTopDown()
+            .filter { it.isFile && it.length() >= limit }
+            .map { it.relativeTo(dir).path to it.length() }
+            .toList()
+}

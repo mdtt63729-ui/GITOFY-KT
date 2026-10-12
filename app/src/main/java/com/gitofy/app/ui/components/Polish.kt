@@ -1,1 +1,276 @@
-cGFja2FnZSBjb20uZ2l0b2Z5LmFwcC51aS5jb21wb25lbnRzCgppbXBvcnQgYW5kcm9pZHguY29tcG9zZS5hbmltYXRpb24uY29yZS5SZXBlYXRNb2RlCmltcG9ydCBhbmRyb2lkeC5jb21wb3NlLmFuaW1hdGlvbi5jb3JlLmFuaW1hdGVGbG9hdAppbXBvcnQgYW5kcm9pZHguY29tcG9zZS5hbmltYXRpb24uY29yZS5pbmZpbml0ZVJlcGVhdGFibGUKaW1wb3J0IGFuZHJvaWR4LmNvbXBvc2UuYW5pbWF0aW9uLmNvcmUucmVtZW1iZXJJbmZpbml0ZVRyYW5zaXRpb24KaW1wb3J0IGFuZHJvaWR4LmNvbXBvc2UuYW5pbWF0aW9uLmNvcmUudHdlZW4KaW1wb3J0IGFuZHJvaWR4LmNvbXBvc2UuZm91bmRhdGlvbi5iYWNrZ3JvdW5kCmltcG9ydCBhbmRyb2lkeC5jb21wb3NlLmZvdW5kYXRpb24uY2xpY2thYmxlCmltcG9ydCBhbmRyb2lkeC5jb21wb3NlLmZvdW5kYXRpb24ubGF6eS5pdGVtcwppbXBvcnQgYW5kcm9pZHguY29tcG9zZS5mb3VuZGF0aW9uLmxheW91dC5BcnJhbmdlbWVudAppbXBvcnQgYW5kcm9pZHguY29tcG9zZS5mb3VuZGF0aW9uLmxheW91dC5Cb3gKaW1wb3J0IGFuZHJvaWR4LmNvbXBvc2UuZm91bmRhdGlvbi5sYXlvdXQuQ29sdW1uCmltcG9ydCBhbmRyb2lkeC5jb21wb3NlLmZvdW5kYXRpb24ubGF5b3V0LlJvdwppbXBvcnQgYW5kcm9pZHguY29tcG9zZS5mb3VuZGF0aW9uLmxheW91dC5maWxsTWF4U2l6ZQppbXBvcnQgYW5kcm9pZHguY29tcG9zZS5mb3VuZGF0aW9uLmxheW91dC5maWxsTWF4V2lkdGgKaW1wb3J0IGFuZHJvaWR4LmNvbXBvc2UuZm91bmRhdGlvbi5sYXlvdXQuaGVpZ2h0CmltcG9ydCBhbmRyb2lkeC5jb21wb3NlLmZvdW5kYXRpb24ubGF5b3V0LnBhZGRpbmcKaW1wb3J0IGFuZHJvaWR4LmNvbXBvc2UuZm91bmRhdGlvbi5sYXlvdXQuc2l6ZQppbXBvcnQgYW5kcm9pZHguY29tcG9zZS5mb3VuZGF0aW9uLmxheW91dC53aWR0aAppbXBvcnQgYW5kcm9pZHguY29tcG9zZS5mb3VuZGF0aW9uLnNoYXBlLkNpcmNsZVNoYXBlCmltcG9ydCBhbmRyb2lkeC5jb21wb3NlLmZvdW5kYXRpb24uc2hhcGUuUm91bmRlZENvcm5lclNoYXBlCmltcG9ydCBhbmRyb2lkeC5jb21wb3NlLm1hdGVyaWFsLmljb25zLkljb25zCmltcG9ydCBhbmRyb2lkeC5jb21wb3NlLm1hdGVyaWFsLmljb25zLmF1dG9taXJyb3JlZC5maWxsZWQuQXJyb3dCYWNrCmltcG9ydCBhbmRyb2lkeC5jb21wb3NlLm1hdGVyaWFsLmljb25zLmZpbGxlZC5DbG91ZE9mZgppbXBvcnQgYW5kcm9pZHguY29tcG9zZS5tYXRlcmlhbC5pY29ucy5maWxsZWQuU3RhcgppbXBvcnQgYW5kcm9pZHguY29tcG9zZS5tYXRlcmlhbC5pY29ucy5vdXRsaW5lZC5JbmJveAppbXBvcnQgYW5kcm9pZHguY29tcG9zZS5tYXRlcmlhbDMuQXNzaXN0Q2hpcAppbXBvcnQgYW5kcm9pZHguY29tcG9zZS5tYXRlcmlhbDMuQnV0dG9uCmltcG9ydCBhbmRyb2lkeC5jb21wb3NlLm1hdGVyaWFsMy5FeHBlcmltZW50YWxNYXRlcmlhbDNBcGkKaW1wb3J0IGFuZHJvaWR4LmNvbXBvc2UubWF0ZXJpYWwzLkljb24KaW1wb3J0IGFuZHJvaWR4LmNvbXBvc2UubWF0ZXJpYWwzLkljb25CdXR0b24KaW1wb3J0IGFuZHJvaWR4LmNvbXBvc2UubWF0ZXJpYWwzLk1hdGVyaWFsVGhlbWUKaW1wb3J0IGFuZHJvaWR4LmNvbXBvc2UubWF0ZXJpYWwzLlRleHQKaW1wb3J0IGFuZHJvaWR4LmNvbXBvc2UubWF0ZXJpYWwzLlRvcEFwcEJhcgppbXBvcnQgYW5kcm9pZHguY29tcG9zZS5tYXRlcmlhbDMuVG9wQXBwQmFyRGVmYXVsdHMKaW1wb3J0IGFuZHJvaWR4LmNvbXBvc2UucnVudGltZS5Db21wb3NhYmxlCmltcG9ydCBhbmRyb2lkeC5jb21wb3NlLnJ1bnRpbWUuZ2V0VmFsdWUKaW1wb3J0IGFuZHJvaWR4LmNvbXBvc2UudWkuQWxpZ25tZW50CmltcG9ydCBhbmRyb2lkeC5jb21wb3NlLnVpLk1vZGlmaWVyCmltcG9ydCBhbmRyb2lkeC5jb21wb3NlLnVpLmRyYXcuYWxwaGEKaW1wb3J0IGFuZHJvaWR4LmNvbXBvc2UudWkuZHJhdy5jbGlwCmltcG9ydCBhbmRyb2lkeC5jb21wb3NlLnVpLmdyYXBoaWNzLnZlY3Rvci5JbWFnZVZlY3RvcgppbXBvcnQgYW5kcm9pZHguY29tcG9zZS51aS5sYXlvdXQuQ29udGVudFNjYWxlCmltcG9ydCBhbmRyb2lkeC5jb21wb3NlLnVpLnRleHQuc3R5bGUuVGV4dE92ZXJmbG93CmltcG9ydCBhbmRyb2lkeC5jb21wb3NlLnVpLnVuaXQuRHAKaW1wb3J0IGFuZHJvaWR4LmNvbXBvc2UudWkudW5pdC5kcAppbXBvcnQgY29pbC5jb21wb3NlLkFzeW5jSW1hZ2UKaW1wb3J0IGNvbS5naXRvZnkuYXBwLm1vZGVsLlJlcG9zaXRvcnkKCi8qKiBBIGNvbnNpc3RlbnQgdG9wIGJhciB3aXRoIGFuIG9wdGlvbmFsIGJhY2sgYnV0dG9uIGFuZCBhY3Rpb25zLiAqLwpAT3B0SW4oRXhwZXJpbWVudGFsTWF0ZXJpYWwzQXBpOjpjbGFzcykKQENvbXBvc2FibGUKZnVuIEdpdG9meVRvcEJhcih0aXRsZTogU3RyaW5nLCBvbkJhY2s6ICgoKSAtPiBVbml0KT8gPSBudWxsLCBhY3Rpb25zOiBAQ29tcG9zYWJsZSAoKSAtPiBVbml0ID0ge30pIHsKICAgIFRvcEFwcEJhcigKICAgICAgICB0aXRsZSA9IHsgVGV4dCh0aXRsZSwgbWF4TGluZXMgPSAxLCBvdmVyZmxvdyA9IFRleHRPdmVyZmxvdy5FbGxpcHNpcykgfSwKICAgICAgICBuYXZpZ2F0aW9uSWNvbiA9IHsKICAgICAgICAgICAgaWYgKG9uQmFjayAhPSBudWxsKSBJY29uQnV0dG9uKG9uQ2xpY2sgPSBvbkJhY2spIHsKICAgICAgICAgICAgICAgIEljb24oSWNvbnMuQXV0b01pcnJvcmVkLkZpbGxlZC5BcnJvd0JhY2ssIGNvbnRlbnREZXNjcmlwdGlvbiA9ICJCYWNrIikKICAgICAgICAgICAgfQogICAgICAgIH0sCiAgICAgICAgYWN0aW9ucyA9IHsgYWN0aW9ucygpIH0sCiAgICAgICAgY29sb3JzID0gVG9wQXBwQmFyRGVmYXVsdHMudG9wQXBwQmFyQ29sb3JzKAogICAgICAgICAgICBjb250YWluZXJDb2xvciA9IE1hdGVyaWFsVGhlbWUuY29sb3JTY2hlbWUuc3VyZmFjZSwKICAgICAgICApLAogICAgKQp9CgovKiogQ2lyY3VsYXIgYXZhdGFyOiBzaG93cyB0aGUgaW5pdGlhbCwgdGhlbiB0aGUgcmVhbCBpbWFnZSB3aGVuIGl0IGxvYWRzLiAqLwpAQ29tcG9zYWJsZQpmdW4gQXZhdGFyKHVybDogU3RyaW5nPywgbmFtZTogU3RyaW5nLCBzaXplOiBEcCA9IDQwLmRwKSB7CiAgICBCb3goCiAgICAgICAgTW9kaWZpZXIuc2l6ZShzaXplKS5jbGlwKENpcmNsZVNoYXBlKS5iYWNrZ3JvdW5kKE1hdGVyaWFsVGhlbWUuY29sb3JTY2hlbWUucHJpbWFyeUNvbnRhaW5lciksCiAgICAgICAgY29udGVudEFsaWdubWVudCA9IEFsaWdubWVudC5DZW50ZXIsCiAgICApIHsKICAgICAgICBUZXh0KAogICAgICAgICAgICBuYW1lLnRha2UoMSkudXBwZXJjYXNlKCksCiAgICAgICAgICAgIGNvbG9yID0gTWF0ZXJpYWxUaGVtZS5jb2xvclNjaGVtZS5vblByaW1hcnlDb250YWluZXIsCiAgICAgICAgICAgIHN0eWxlID0gTWF0ZXJpYWxUaGVtZS50eXBvZ3JhcGh5LnRpdGxlTWVkaXVtLAogICAgICAgICkKICAgICAgICBpZiAoIXVybC5pc051bGxPckJsYW5rKCkpIHsKICAgICAgICAgICAgQXN5bmNJbWFnZSgKICAgICAgICAgICAgICAgIG1vZGVsID0gdXJsLAogICAgICAgICAgICAgICAgY29udGVudERlc2NyaXB0aW9uID0gbnVsbCwKICAgICAgICAgICAgICAgIGNvbnRlbnRTY2FsZSA9IENvbnRlbnRTY2FsZS5Dcm9wLAogICAgICAgICAgICAgICAgbW9kaWZpZXIgPSBNb2RpZmllci5zaXplKHNpemUpLmNsaXAoQ2lyY2xlU2hhcGUpLAogICAgICAgICAgICApCiAgICAgICAgfQogICAgfQp9CgpAQ29tcG9zYWJsZQpmdW4gU3RhdENoaXAodGV4dDogU3RyaW5nLCBpY29uOiBJbWFnZVZlY3RvciA9IEljb25zLkZpbGxlZC5TdGFyKSB7CiAgICBBc3Npc3RDaGlwKG9uQ2xpY2sgPSB7fSwgbGFiZWwgPSB7IFRleHQodGV4dCkgfSwgbGVhZGluZ0ljb24gPSB7IEljb24oaWNvbiwgbnVsbCwgTW9kaWZpZXIuc2l6ZSgxNi5kcCkpIH0pCn0KCkBDb21wb3NhYmxlCmZ1biBTZWN0aW9uVGl0bGUodGV4dDogU3RyaW5nKSB7CiAgICBUZXh0KAogICAgICAgIHRleHQsCiAgICAgICAgc3R5bGUgPSBNYXRlcmlhbFRoZW1lLnR5cG9ncmFwaHkudGl0bGVTbWFsbCwKICAgICAgICBjb2xvciA9IE1hdGVyaWFsVGhlbWUuY29sb3JTY2hlbWUucHJpbWFyeSwKICAgICAgICBtb2RpZmllciA9IE1vZGlmaWVyLnBhZGRpbmcoc3RhcnQgPSAxNi5kcCwgdG9wID0gMTIuZHAsIGJvdHRvbSA9IDQuZHApLAogICAgKQp9CgpAQ29tcG9zYWJsZQpmdW4gRW1wdHlTdGF0ZSgKICAgIHRpdGxlOiBTdHJpbmcsCiAgICBib2R5OiBTdHJpbmcgPSAiIiwKICAgIGljb246IEltYWdlVmVjdG9yID0gSWNvbnMuT3V0bGluZWQuSW5ib3gsCiAgICBhY3Rpb25MYWJlbDogU3RyaW5nPyA9IG51bGwsCiAgICBvbkFjdGlvbjogKCgpIC0+IFVuaXQpPyA9IG51bGwsCiAgICBtb2RpZmllcjogTW9kaWZpZXIgPSBNb2RpZmllciwKKSB7CiAgICBCb3gobW9kaWZpZXIuZmlsbE1heFNpemUoKSwgY29udGVudEFsaWdubWVudCA9IEFsaWdubWVudC5DZW50ZXIpIHsKICAgICAgICBDb2x1bW4oCiAgICAgICAgICAgIGhvcml6b250YWxBbGlnbm1lbnQgPSBBbGlnbm1lbnQuQ2VudGVySG9yaXpvbnRhbGx5LAogICAgICAgICAgICB2ZXJ0aWNhbEFycmFuZ2VtZW50ID0gQXJyYW5nZW1lbnQuc3BhY2VkQnkoMTAuZHApLAogICAgICAgICAgICBtb2RpZmllciA9IE1vZGlmaWVyLnBhZGRpbmcoMjguZHApLAogICAgICAgICkgewogICAgICAgICAgICBJY29uKGljb24sIG51bGwsIE1vZGlmaWVyLnNpemUoNDguZHApLCB0aW50ID0gTWF0ZXJpYWxUaGVtZS5jb2xvclNjaGVtZS5wcmltYXJ5KQogICAgICAgICAgICBUZXh0KHRpdGxlLCBzdHlsZSA9IE1hdGVyaWFsVGhlbWUudHlwb2dyYXBoeS50aXRsZU1lZGl1bSkKICAgICAgICAgICAgaWYgKGJvZHkuaXNOb3RFbXB0eSgpKSB7CiAgICAgICAgICAgICAgICBUZXh0KGJvZHksIHN0eWxlID0gTWF0ZXJpYWxUaGVtZS50eXBvZ3JhcGh5LmJvZHlNZWRpdW0sIGNvbG9yID0gTWF0ZXJpYWxUaGVtZS5jb2xvclNjaGVtZS5vblN1cmZhY2VWYXJpYW50KQogICAgICAgICAgICB9CiAgICAgICAgICAgIGlmIChhY3Rpb25MYWJlbCAhPSBudWxsICYmIG9uQWN0aW9uICE9IG51bGwpIHsKICAgICAgICAgICAgICAgIEJ1dHRvbihvbkNsaWNrID0gb25BY3Rpb24pIHsgVGV4dChhY3Rpb25MYWJlbCkgfQogICAgICAgICAgICB9CiAgICAgICAgfQogICAgfQp9CgpAQ29tcG9zYWJsZQpmdW4gRXJyb3JTdGF0ZShtZXNzYWdlOiBTdHJpbmcsIG9uUmV0cnk6ICgoKSAtPiBVbml0KT8gPSBudWxsLCBtb2RpZmllcjogTW9kaWZpZXIgPSBNb2RpZmllcikgewogICAgQm94KG1vZGlmaWVyLmZpbGxNYXhTaXplKCksIGNvbnRlbnRBbGlnbm1lbnQgPSBBbGlnbm1lbnQuQ2VudGVyKSB7CiAgICAgICAgQ29sdW1uKAogICAgICAgICAgICBob3Jpem9udGFsQWxpZ25tZW50ID0gQWxpZ25tZW50LkNlbnRlckhvcml6b250YWxseSwKICAgICAgICAgICAgdmVydGljYWxBcnJhbmdlbWVudCA9IEFycmFuZ2VtZW50LnNwYWNlZEJ5KDEwLmRwKSwKICAgICAgICAgICAgbW9kaWZpZXIgPSBNb2RpZmllci5wYWRkaW5nKDI4LmRwKSwKICAgICAgICApIHsKICAgICAgICAgICAgSWNvbihJY29ucy5GaWxsZWQuQ2xvdWRPZmYsIG51bGwsIE1vZGlmaWVyLnNpemUoNDguZHApLCB0aW50ID0gTWF0ZXJpYWxUaGVtZS5jb2xvclNjaGVtZS5lcnJvcikKICAgICAgICAgICAgVGV4dCgiU29tZXRoaW5nIHdlbnQgd3JvbmciLCBzdHlsZSA9IE1hdGVyaWFsVGhlbWUudHlwb2dyYXBoeS50aXRsZU1lZGl1bSkKICAgICAgICAgICAgVGV4dChtZXNzYWdlLCBzdHlsZSA9IE1hdGVyaWFsVGhlbWUudHlwb2dyYXBoeS5ib2R5TWVkaXVtLCBjb2xvciA9IE1hdGVyaWFsVGhlbWUuY29sb3JTY2hlbWUub25TdXJmYWNlVmFyaWFudCkKICAgICAgICAgICAgaWYgKG9uUmV0cnkgIT0gbnVsbCkgQnV0dG9uKG9uQ2xpY2sgPSBvblJldHJ5KSB7IFRleHQoIlJldHJ5IikgfQogICAgICAgIH0KICAgIH0KfQoKLyoqIEEgc2hpbW1lcmluZyBwbGFjZWhvbGRlciBsaXN0IHNob3duIHdoaWxlIGRhdGEgbG9hZHMuICovCkBDb21wb3NhYmxlCmZ1biBTa2VsZXRvbkxpc3Qocm93czogSW50ID0gNiwgbW9kaWZpZXI6IE1vZGlmaWVyID0gTW9kaWZpZXIpIHsKICAgIHZhbCB0cmFuc2l0aW9uID0gcmVtZW1iZXJJbmZpbml0ZVRyYW5zaXRpb24obGFiZWwgPSAic2tlbGV0b24iKQogICAgdmFsIGFscGhhIGJ5IHRyYW5zaXRpb24uYW5pbWF0ZUZsb2F0KAogICAgICAgIGluaXRpYWxWYWx1ZSA9IDAuMzVmLCB0YXJnZXRWYWx1ZSA9IDAuNzVmLAogICAgICAgIGFuaW1hdGlvblNwZWMgPSBpbmZpbml0ZVJlcGVhdGFibGUodHdlZW4oOTAwKSwgUmVwZWF0TW9kZS5SZXZlcnNlKSwKICAgICAgICBsYWJlbCA9ICJhbHBoYSIsCiAgICApCiAgICBDb2x1bW4obW9kaWZpZXIuZmlsbE1heFdpZHRoKCkucGFkZGluZygxNi5kcCksIHZlcnRpY2FsQXJyYW5nZW1lbnQgPSBBcnJhbmdlbWVudC5zcGFjZWRCeSgxMi5kcCkpIHsKICAgICAgICByZXBlYXQocm93cykgewogICAgICAgICAgICBSb3codmVydGljYWxBbGlnbm1lbnQgPSBBbGlnbm1lbnQuQ2VudGVyVmVydGljYWxseSwgaG9yaXpvbnRhbEFycmFuZ2VtZW50ID0gQXJyYW5nZW1lbnQuc3BhY2VkQnkoMTIuZHApKSB7CiAgICAgICAgICAgICAgICBCb3goTW9kaWZpZXIuc2l6ZSg0MC5kcCkuY2xpcChDaXJjbGVTaGFwZSkuYmFja2dyb3VuZChNYXRlcmlhbFRoZW1lLmNvbG9yU2NoZW1lLnN1cmZhY2VWYXJpYW50KS5hbHBoYShhbHBoYSkpCiAgICAgICAgICAgICAgICBDb2x1bW4oTW9kaWZpZXIud2VpZ2h0KDFmKSwgdmVydGljYWxBcnJhbmdlbWVudCA9IEFycmFuZ2VtZW50LnNwYWNlZEJ5KDYuZHApKSB7CiAgICAgICAgICAgICAgICAgICAgQm94KE1vZGlmaWVyLmZpbGxNYXhXaWR0aCgwLjZmKS5oZWlnaHQoMTQuZHApLmNsaXAoUm91bmRlZENvcm5lclNoYXBlKDYuZHApKS5iYWNrZ3JvdW5kKE1hdGVyaWFsVGhlbWUuY29sb3JTY2hlbWUuc3VyZmFjZVZhcmlhbnQpLmFscGhhKGFscGhhKSkKICAgICAgICAgICAgICAgICAgICBCb3goTW9kaWZpZXIuZmlsbE1heFdpZHRoKDAuOWYpLmhlaWdodCgxMi5kcCkuY2xpcChSb3VuZGVkQ29ybmVyU2hhcGUoNi5kcCkpLmJhY2tncm91bmQoTWF0ZXJpYWxUaGVtZS5jb2xvclNjaGVtZS5zdXJmYWNlVmFyaWFudCkuYWxwaGEoYWxwaGEpKQogICAgICAgICAgICAgICAgfQogICAgICAgICAgICB9CiAgICAgICAgfQogICAgfQp9CgovKiogQSBwb2xpc2hlZCByZXBvc2l0b3J5IHJvdy4gKi8KQENvbXBvc2FibGUKZnVuIFJlcG9DYXJkKHJlcG86IFJlcG9zaXRvcnksIG9uQ2xpY2s6ICgpIC0+IFVuaXQpIHsKICAgIFJvdygKICAgICAgICBNb2RpZmllcgogICAgICAgICAgICAuZmlsbE1heFdpZHRoKCkKICAgICAgICAgICAgLnBhZGRpbmcoaG9yaXpvbnRhbCA9IDEyLmRwLCB2ZXJ0aWNhbCA9IDYuZHApCiAgICAgICAgICAgIC5jbGlwKFJvdW5kZWRDb3JuZXJTaGFwZSgxNi5kcCkpCiAgICAgICAgICAgIC5iYWNrZ3JvdW5kKE1hdGVyaWFsVGhlbWUuY29sb3JTY2hlbWUuc3VyZmFjZUNvbnRhaW5lcikKICAgICAgICAgICAgLmNsaWNrYWJsZShvbkNsaWNrID0gb25DbGljaykKICAgICAgICAgICAgLnBhZGRpbmcoMTIuZHApLAogICAgICAgIGhvcml6b250YWxBcnJhbmdlbWVudCA9IEFycmFuZ2VtZW50LnNwYWNlZEJ5KDEyLmRwKSwKICAgICAgICB2ZXJ0aWNhbEFsaWdubWVudCA9IEFsaWdubWVudC5DZW50ZXJWZXJ0aWNhbGx5LAogICAgKSB7CiAgICAgICAgQXZhdGFyKHJlcG8ub3duZXI/LmF2YXRhclVybCwgcmVwby5vd25lckxvZ2luKQogICAgICAgIENvbHVtbihNb2RpZmllci53ZWlnaHQoMWYpLCB2ZXJ0aWNhbEFycmFuZ2VtZW50ID0gQXJyYW5nZW1lbnQuc3BhY2VkQnkoNC5kcCkpIHsKICAgICAgICAgICAgUm93KHZlcnRpY2FsQWxpZ25tZW50ID0gQWxpZ25tZW50LkNlbnRlclZlcnRpY2FsbHksIGhvcml6b250YWxBcnJhbmdlbWVudCA9IEFycmFuZ2VtZW50LnNwYWNlZEJ5KDYuZHApKSB7CiAgICAgICAgICAgICAgICBUZXh0KHJlcG8ubmFtZSwgc3R5bGUgPSBNYXRlcmlhbFRoZW1lLnR5cG9ncmFwaHkudGl0bGVNZWRpdW0sIG1heExpbmVzID0gMSwgb3ZlcmZsb3cgPSBUZXh0T3ZlcmZsb3cuRWxsaXBzaXMpCiAgICAgICAgICAgICAgICBpZiAocmVwby5pc1ByaXZhdGUpIFRleHQoIuKAoiBwcml2YXRlIiwgc3R5bGUgPSBNYXRlcmlhbFRoZW1lLnR5cG9ncmFwaHkubGFiZWxTbWFsbCwgY29sb3IgPSBNYXRlcmlhbFRoZW1lLmNvbG9yU2NoZW1lLm9uU3VyZmFjZVZhcmlhbnQpCiAgICAgICAgICAgIH0KICAgICAgICAgICAgVGV4dCgKICAgICAgICAgICAgICAgIHJlcG8uZGVzY3JpcHRpb24gPzogIiR7cmVwby5vd25lckxvZ2lufSDigKIgJHtyZXBvLmxhbmd1YWdlID86ICLigJQifSIsCiAgICAgICAgICAgICAgICBzdHlsZSA9IE1hdGVyaWFsVGhlbWUudHlwb2dyYXBoeS5ib2R5U21hbGwsCiAgICAgICAgICAgICAgICBjb2xvciA9IE1hdGVyaWFsVGhlbWUuY29sb3JTY2hlbWUub25TdXJmYWNlVmFyaWFudCwKICAgICAgICAgICAgICAgIG1heExpbmVzID0gMiwgb3ZlcmZsb3cgPSBUZXh0T3ZlcmZsb3cuRWxsaXBzaXMsCiAgICAgICAgICAgICkKICAgICAgICAgICAgUm93KGhvcml6b250YWxBcnJhbmdlbWVudCA9IEFycmFuZ2VtZW50LnNwYWNlZEJ5KDEwLmRwKSkgewogICAgICAgICAgICAgICAgVGV4dCgi4piFICR7cmVwby5zdGFyZ2F6ZXJzQ291bnR9Iiwgc3R5bGUgPSBNYXRlcmlhbFRoZW1lLnR5cG9ncmFwaHkubGFiZWxTbWFsbCkKICAgICAgICAgICAgICAgIFRleHQoIuKRgiAke3JlcG8uZm9ya3NDb3VudH0iLCBzdHlsZSA9IE1hdGVyaWFsVGhlbWUudHlwb2dyYXBoeS5sYWJlbFNtYWxsKQogICAgICAgICAgICAgICAgcmVwby5sYW5ndWFnZT8ubGV0IHsgVGV4dChpdCwgc3R5bGUgPSBNYXRlcmlhbFRoZW1lLnR5cG9ncmFwaHkubGFiZWxTbWFsbCkgfQogICAgICAgICAgICB9CiAgICAgICAgfQogICAgfQp9CgovKiogQSBwb2xpc2hlZCBsaXN0IHNjcmVlbjogdG9wIGJhciwgc2tlbGV0b24sIGVtcHR5L2Vycm9yIHN0YXRlcywgcm93cy4gKi8KQENvbXBvc2FibGUKZnVuIDxUPiBQb2xpc2hlZExpc3QoCiAgICB0aXRsZTogU3RyaW5nLAogICAgc3RhdGU6IGNvbS5naXRvZnkuYXBwLnVpLnN0YXRlLlVpU3RhdGU8TGlzdDxUPj4sCiAgICBvbkJhY2s6ICgoKSAtPiBVbml0KT8gPSBudWxsLAogICAgb25SZXRyeTogKCgpIC0+IFVuaXQpPyA9IG51bGwsCiAgICBlbXB0eVRpdGxlOiBTdHJpbmcgPSAiTm90aGluZyBoZXJlIiwKICAgIGVtcHR5Qm9keTogU3RyaW5nID0gIiIsCiAgICBlbXB0eUljb246IEltYWdlVmVjdG9yID0gSWNvbnMuT3V0bGluZWQuSW5ib3gsCiAgICBhY3Rpb25zOiBAQ29tcG9zYWJsZSAoKSAtPiBVbml0ID0ge30sCiAgICBrZXk6IChUKSAtPiBBbnkgPSB7IGl0Lmhhc2hDb2RlKCkgfSwKICAgIGhlYWRlcjogQENvbXBvc2FibGUgKCkgLT4gVW5pdCA9IHt9LAogICAgcm93OiBAQ29tcG9zYWJsZSAoVCkgLT4gVW5pdCwKKSB7CiAgICBhbmRyb2lkeC5jb21wb3NlLm1hdGVyaWFsMy5TY2FmZm9sZCh0b3BCYXIgPSB7IEdpdG9meVRvcEJhcih0aXRsZSwgb25CYWNrLCBhY3Rpb25zKSB9KSB7IHBhZGRpbmcgLT4KICAgICAgICBDb2x1bW4oTW9kaWZpZXIuZmlsbE1heFNpemUoKS5wYWRkaW5nKHBhZGRpbmcpKSB7CiAgICAgICAgICAgIGhlYWRlcigpCiAgICAgICAgICAgIHdoZW4gKHN0YXRlKSB7CiAgICAgICAgICAgICAgICBpcyBjb20uZ2l0b2Z5LmFwcC51aS5zdGF0ZS5VaVN0YXRlLkxvYWRpbmcgLT4gU2tlbGV0b25MaXN0KG1vZGlmaWVyID0gTW9kaWZpZXIuZmlsbE1heFNpemUoKSkKICAgICAgICAgICAgICAgIGlzIGNvbS5naXRvZnkuYXBwLnVpLnN0YXRlLlVpU3RhdGUuRXJyb3IgLT4gRXJyb3JTdGF0ZShzdGF0ZS5tZXNzYWdlLCBvblJldHJ5LCBNb2RpZmllci5maWxsTWF4U2l6ZSgpKQogICAgICAgICAgICAgICAgaXMgY29tLmdpdG9meS5hcHAudWkuc3RhdGUuVWlTdGF0ZS5Db250ZW50IC0+CiAgICAgICAgICAgICAgICAgICAgaWYgKHN0YXRlLmRhdGEuaXNFbXB0eSgpKSB7CiAgICAgICAgICAgICAgICAgICAgICAgIEVtcHR5U3RhdGUoZW1wdHlUaXRsZSwgZW1wdHlCb2R5LCBlbXB0eUljb24sIG1vZGlmaWVyID0gTW9kaWZpZXIuZmlsbE1heFNpemUoKSkKICAgICAgICAgICAgICAgICAgICB9IGVsc2UgewogICAgICAgICAgICAgICAgICAgICAgICBhbmRyb2lkeC5jb21wb3NlLmZvdW5kYXRpb24ubGF6eS5MYXp5Q29sdW1uKE1vZGlmaWVyLmZpbGxNYXhTaXplKCkpIHsKICAgICAgICAgICAgICAgICAgICAgICAgICAgIGl0ZW1zKHN0YXRlLmRhdGEsIGtleSA9IGtleSkgeyBpdGVtIC0+IHJvdyhpdGVtKSB9CiAgICAgICAgICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgIH0KICAgICAgICB9CiAgICB9Cn0KCi8qKiBBIHNtYWxsIGJhciBjaGFydCBvZiB0aGUgbGFzdCB1cGxvYWQtdHVuaW5nIGJlbmNobWFyaywgZm9yIFNldHRpbmdzLiAqLwpAQ29tcG9zYWJsZQpmdW4gQmVuY2htYXJrQ2hhcnQocmVzdWx0OiBjb20uZ2l0b2Z5LmFwcC5naXQuQmVuY2htYXJrUmVzdWx0KSB7CiAgICB2YWwgbWF4U2VjID0gcmVzdWx0LmxldmVscy5tYXhPZk9yTnVsbCB7IGl0LmVzdGltYXRlZFRvdGFsU2VjIH0/LmNvZXJjZUF0TGVhc3QoMC4wMDAxKSA/OiAwLjAwMDEKICAgIENvbHVtbihNb2RpZmllci5maWxsTWF4V2lkdGgoKS5wYWRkaW5nKGhvcml6b250YWwgPSAxNi5kcCksIHZlcnRpY2FsQXJyYW5nZW1lbnQgPSBBcnJhbmdlbWVudC5zcGFjZWRCeSg2LmRwKSkgewogICAgICAgIFRleHQoCiAgICAgICAgICAgICIke3Jlc3VsdC5wcm9maWxlTmFtZX0gbGluayDCtyB+JHtjb20uZ2l0b2Z5LmFwcC51dGlsLmZvcm1hdFNpemUocmVzdWx0LnRvdGFsQnl0ZXMpfSDCtyAke3Jlc3VsdC51cHN0cmVhbUticHMgLyAxMDAwfSBNYnBzIHVwIiwKICAgICAgICAgICAgc3R5bGUgPSBNYXRlcmlhbFRoZW1lLnR5cG9ncmFwaHkuYm9keVNtYWxsLAogICAgICAgICAgICBjb2xvciA9IE1hdGVyaWFsVGhlbWUuY29sb3JTY2hlbWUub25TdXJmYWNlVmFyaWFudCwKICAgICAgICApCiAgICAgICAgcmVzdWx0LmxldmVscy5mb3JFYWNoIHsgbCAtPgogICAgICAgICAgICBSb3codmVydGljYWxBbGlnbm1lbnQgPSBBbGlnbm1lbnQuQ2VudGVyVmVydGljYWxseSwgaG9yaXpvbnRhbEFycmFuZ2VtZW50ID0gQXJyYW5nZW1lbnQuc3BhY2VkQnkoOC5kcCkpIHsKICAgICAgICAgICAgICAgIFRleHQoIkwke2wubGV2ZWx9Iiwgc3R5bGUgPSBNYXRlcmlhbFRoZW1lLnR5cG9ncmFwaHkubGFiZWxNZWRpdW0sIG1vZGlmaWVyID0gTW9kaWZpZXIud2lkdGgoMjQuZHApKQogICAgICAgICAgICAgICAgQm94KAogICAgICAgICAgICAgICAgICAgIE1vZGlmaWVyLndlaWdodCgxZikuaGVpZ2h0KDE4LmRwKS5jbGlwKFJvdW5kZWRDb3JuZXJTaGFwZSg2LmRwKSkKICAgICAgICAgICAgICAgICAgICAgICAgLmJhY2tncm91bmQoTWF0ZXJpYWxUaGVtZS5jb2xvclNjaGVtZS5zdXJmYWNlVmFyaWFudCksCiAgICAgICAgICAgICAgICApIHsKICAgICAgICAgICAgICAgICAgICBCb3goCiAgICAgICAgICAgICAgICAgICAgICAgIE1vZGlmaWVyCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAuZmlsbE1heFdpZHRoKChsLmVzdGltYXRlZFRvdGFsU2VjIC8gbWF4U2VjKS50b0Zsb2F0KCkuY29lcmNlSW4oMC4wMmYsIDFmKSkKICAgICAgICAgICAgICAgICAgICAgICAgICAgIC5oZWlnaHQoMTguZHApCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAuY2xpcChSb3VuZGVkQ29ybmVyU2hhcGUoNi5kcCkpCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAuYmFja2dyb3VuZChpZiAobC5jaG9zZW4pIE1hdGVyaWFsVGhlbWUuY29sb3JTY2hlbWUucHJpbWFyeSBlbHNlIE1hdGVyaWFsVGhlbWUuY29sb3JTY2hlbWUuc2Vjb25kYXJ5KSwKICAgICAgICAgICAgICAgICAgICApCiAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICBUZXh0KAogICAgICAgICAgICAgICAgICAgICIlLjFmcyVzIi5mb3JtYXQobC5lc3RpbWF0ZWRUb3RhbFNlYywgaWYgKGwuY2hvc2VuKSAiIOKckyIgZWxzZSAiIiksCiAgICAgICAgICAgICAgICAgICAgc3R5bGUgPSBNYXRlcmlhbFRoZW1lLnR5cG9ncmFwaHkubGFiZWxTbWFsbCwKICAgICAgICAgICAgICAgICAgICBtb2RpZmllciA9IE1vZGlmaWVyLndpZHRoKDQ4LmRwKSwKICAgICAgICAgICAgICAgICkKICAgICAgICAgICAgfQogICAgICAgIH0KICAgICAgICB2YWwgY2hvc2VuID0gcmVzdWx0LmxldmVscy5maXJzdE9yTnVsbCB7IGl0LmNob3NlbiB9Py5sZXZlbAogICAgICAgIFRleHQoIkNob3NlbiBjb21wcmVzc2lvbjogbGV2ZWwgJGNob3NlbiIsIHN0eWxlID0gTWF0ZXJpYWxUaGVtZS50eXBvZ3JhcGh5LmxhYmVsTWVkaXVtLCBjb2xvciA9IE1hdGVyaWFsVGhlbWUuY29sb3JTY2hlbWUucHJpbWFyeSkKICAgIH0KfQo=
+package com.gitofy.app.ui.components
+
+import androidx.compose.animation.core.RepeatMode
+import androidx.compose.animation.core.animateFloat
+import androidx.compose.animation.core.infiniteRepeatable
+import androidx.compose.animation.core.rememberInfiniteTransition
+import androidx.compose.animation.core.tween
+import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.filled.CloudOff
+import androidx.compose.material.icons.filled.Star
+import androidx.compose.material.icons.outlined.Inbox
+import androidx.compose.material3.AssistChip
+import androidx.compose.material3.Button
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarDefaults
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.dp
+import coil.compose.AsyncImage
+import com.gitofy.app.model.Repository
+
+/** A consistent top bar with an optional back button and actions. */
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun GitofyTopBar(title: String, onBack: (() -> Unit)? = null, actions: @Composable () -> Unit = {}) {
+    TopAppBar(
+        title = { Text(title, maxLines = 1, overflow = TextOverflow.Ellipsis) },
+        navigationIcon = {
+            if (onBack != null) IconButton(onClick = onBack) {
+                Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
+            }
+        },
+        actions = { actions() },
+        colors = TopAppBarDefaults.topAppBarColors(
+            containerColor = MaterialTheme.colorScheme.surface,
+        ),
+    )
+}
+
+/** Circular avatar: shows the initial, then the real image when it loads. */
+@Composable
+fun Avatar(url: String?, name: String, size: Dp = 40.dp) {
+    Box(
+        Modifier.size(size).clip(CircleShape).background(MaterialTheme.colorScheme.primaryContainer),
+        contentAlignment = Alignment.Center,
+    ) {
+        Text(
+            name.take(1).uppercase(),
+            color = MaterialTheme.colorScheme.onPrimaryContainer,
+            style = MaterialTheme.typography.titleMedium,
+        )
+        if (!url.isNullOrBlank()) {
+            AsyncImage(
+                model = url,
+                contentDescription = null,
+                contentScale = ContentScale.Crop,
+                modifier = Modifier.size(size).clip(CircleShape),
+            )
+        }
+    }
+}
+
+@Composable
+fun StatChip(text: String, icon: ImageVector = Icons.Filled.Star) {
+    AssistChip(onClick = {}, label = { Text(text) }, leadingIcon = { Icon(icon, null, Modifier.size(16.dp)) })
+}
+
+@Composable
+fun SectionTitle(text: String) {
+    Text(
+        text,
+        style = MaterialTheme.typography.titleSmall,
+        color = MaterialTheme.colorScheme.primary,
+        modifier = Modifier.padding(start = 16.dp, top = 12.dp, bottom = 4.dp),
+    )
+}
+
+@Composable
+fun EmptyState(
+    title: String,
+    body: String = "",
+    icon: ImageVector = Icons.Outlined.Inbox,
+    actionLabel: String? = null,
+    onAction: (() -> Unit)? = null,
+    modifier: Modifier = Modifier,
+) {
+    Box(modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.spacedBy(10.dp),
+            modifier = Modifier.padding(28.dp),
+        ) {
+            Icon(icon, null, Modifier.size(48.dp), tint = MaterialTheme.colorScheme.primary)
+            Text(title, style = MaterialTheme.typography.titleMedium)
+            if (body.isNotEmpty()) {
+                Text(body, style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
+            }
+            if (actionLabel != null && onAction != null) {
+                Button(onClick = onAction) { Text(actionLabel) }
+            }
+        }
+    }
+}
+
+@Composable
+fun ErrorState(message: String, onRetry: (() -> Unit)? = null, modifier: Modifier = Modifier) {
+    Box(modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.spacedBy(10.dp),
+            modifier = Modifier.padding(28.dp),
+        ) {
+            Icon(Icons.Filled.CloudOff, null, Modifier.size(48.dp), tint = MaterialTheme.colorScheme.error)
+            Text("Something went wrong", style = MaterialTheme.typography.titleMedium)
+            Text(message, style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
+            if (onRetry != null) Button(onClick = onRetry) { Text("Retry") }
+        }
+    }
+}
+
+/** A shimmering placeholder list shown while data loads. */
+@Composable
+fun SkeletonList(rows: Int = 6, modifier: Modifier = Modifier) {
+    val transition = rememberInfiniteTransition(label = "skeleton")
+    val alpha by transition.animateFloat(
+        initialValue = 0.35f, targetValue = 0.75f,
+        animationSpec = infiniteRepeatable(tween(900), RepeatMode.Reverse),
+        label = "alpha",
+    )
+    Column(modifier.fillMaxWidth().padding(16.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
+        repeat(rows) {
+            Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+                Box(Modifier.size(40.dp).clip(CircleShape).background(MaterialTheme.colorScheme.surfaceVariant).alpha(alpha))
+                Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(6.dp)) {
+                    Box(Modifier.fillMaxWidth(0.6f).height(14.dp).clip(RoundedCornerShape(6.dp)).background(MaterialTheme.colorScheme.surfaceVariant).alpha(alpha))
+                    Box(Modifier.fillMaxWidth(0.9f).height(12.dp).clip(RoundedCornerShape(6.dp)).background(MaterialTheme.colorScheme.surfaceVariant).alpha(alpha))
+                }
+            }
+        }
+    }
+}
+
+/** A polished repository row. */
+@Composable
+fun RepoCard(repo: Repository, onClick: () -> Unit) {
+    Row(
+        Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 12.dp, vertical = 6.dp)
+            .clip(RoundedCornerShape(16.dp))
+            .background(MaterialTheme.colorScheme.surfaceContainer)
+            .clickable(onClick = onClick)
+            .padding(12.dp),
+        horizontalArrangement = Arrangement.spacedBy(12.dp),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        Avatar(repo.owner?.avatarUrl, repo.ownerLogin)
+        Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(4.dp)) {
+            Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+                Text(repo.name, style = MaterialTheme.typography.titleMedium, maxLines = 1, overflow = TextOverflow.Ellipsis)
+                if (repo.isPrivate) Text("• private", style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+            }
+            Text(
+                repo.description ?: "${repo.ownerLogin} • ${repo.language ?: "—"}",
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                maxLines = 2, overflow = TextOverflow.Ellipsis,
+            )
+            Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+                Text("★ ${repo.stargazersCount}", style = MaterialTheme.typography.labelSmall)
+                Text("⑂ ${repo.forksCount}", style = MaterialTheme.typography.labelSmall)
+                repo.language?.let { Text(it, style = MaterialTheme.typography.labelSmall) }
+            }
+        }
+    }
+}
+
+/** A polished list screen: top bar, skeleton, empty/error states, rows. */
+@Composable
+fun <T> PolishedList(
+    title: String,
+    state: com.gitofy.app.ui.state.UiState<List<T>>,
+    onBack: (() -> Unit)? = null,
+    onRetry: (() -> Unit)? = null,
+    emptyTitle: String = "Nothing here",
+    emptyBody: String = "",
+    emptyIcon: ImageVector = Icons.Outlined.Inbox,
+    actions: @Composable () -> Unit = {},
+    key: (T) -> Any = { it.hashCode() },
+    header: @Composable () -> Unit = {},
+    row: @Composable (T) -> Unit,
+) {
+    androidx.compose.material3.Scaffold(topBar = { GitofyTopBar(title, onBack, actions) }) { padding ->
+        Column(Modifier.fillMaxSize().padding(padding)) {
+            header()
+            when (state) {
+                is com.gitofy.app.ui.state.UiState.Loading -> SkeletonList(modifier = Modifier.fillMaxSize())
+                is com.gitofy.app.ui.state.UiState.Error -> ErrorState(state.message, onRetry, Modifier.fillMaxSize())
+                is com.gitofy.app.ui.state.UiState.Content ->
+                    if (state.data.isEmpty()) {
+                        EmptyState(emptyTitle, emptyBody, emptyIcon, modifier = Modifier.fillMaxSize())
+                    } else {
+                        androidx.compose.foundation.lazy.LazyColumn(Modifier.fillMaxSize()) {
+                            items(state.data, key = key) { item -> row(item) }
+                        }
+                    }
+            }
+        }
+    }
+}
+
+/** A small bar chart of the last upload-tuning benchmark, for Settings. */
+@Composable
+fun BenchmarkChart(result: com.gitofy.app.git.BenchmarkResult) {
+    val maxSec = result.levels.maxOfOrNull { it.estimatedTotalSec }?.coerceAtLeast(0.0001) ?: 0.0001
+    Column(Modifier.fillMaxWidth().padding(horizontal = 16.dp), verticalArrangement = Arrangement.spacedBy(6.dp)) {
+        Text(
+            "${result.profileName} link · ~${com.gitofy.app.util.formatSize(result.totalBytes)} · ${result.upstreamKbps / 1000} Mbps up",
+            style = MaterialTheme.typography.bodySmall,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
+        result.levels.forEach { l ->
+            Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                Text("L${l.level}", style = MaterialTheme.typography.labelMedium, modifier = Modifier.width(24.dp))
+                Box(
+                    Modifier.weight(1f).height(18.dp).clip(RoundedCornerShape(6.dp))
+                        .background(MaterialTheme.colorScheme.surfaceVariant),
+                ) {
+                    Box(
+                        Modifier
+                            .fillMaxWidth((l.estimatedTotalSec / maxSec).toFloat().coerceIn(0.02f, 1f))
+                            .height(18.dp)
+                            .clip(RoundedCornerShape(6.dp))
+                            .background(if (l.chosen) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.secondary),
+                    )
+                }
+                Text(
+                    "%.1fs%s".format(l.estimatedTotalSec, if (l.chosen) " ✓" else ""),
+                    style = MaterialTheme.typography.labelSmall,
+                    modifier = Modifier.width(48.dp),
+                )
+            }
+        }
+        val chosen = result.levels.firstOrNull { it.chosen }?.level
+        Text("Chosen compression: level $chosen", style = MaterialTheme.typography.labelMedium, color = MaterialTheme.colorScheme.primary)
+    }
+}

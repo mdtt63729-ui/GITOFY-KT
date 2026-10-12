@@ -1,1 +1,119 @@
-aW1wb3J0IGphdmEudXRpbC5Qcm9wZXJ0aWVzCgpwbHVnaW5zIHsKICAgIGFsaWFzKGxpYnMucGx1Z2lucy5hbmRyb2lkLmFwcGxpY2F0aW9uKQogICAgYWxpYXMobGlicy5wbHVnaW5zLmtvdGxpbi5hbmRyb2lkKQogICAgYWxpYXMobGlicy5wbHVnaW5zLmtvdGxpbi5jb21wb3NlKQogICAgYWxpYXMobGlicy5wbHVnaW5zLmtvdGxpbi5zZXJpYWxpemF0aW9uKQogICAgYWxpYXMobGlicy5wbHVnaW5zLmtzcCkKICAgIGFsaWFzKGxpYnMucGx1Z2lucy5oaWx0KQp9CgoKLy8gUmVsZWFzZSBzaWduaW5nIGlzIHJlYWQgZnJvbSBhIHNpZ25pbmcucHJvcGVydGllcyBmaWxlIHRoYXQgQ0kgd3JpdGVzIGZyb20gdGhlCi8vIGZvdXIgR2l0SHViIHNlY3JldHMuIE5vdGhpbmcgc2Vuc2l0aXZlIGlzIHN0b3JlZCBpbiB0aGUgcmVwb3NpdG9yeS4KdmFsIHNpZ25pbmdQcm9wc0ZpbGUgPSBTeXN0ZW0uZ2V0ZW52KCJTSUdOSU5HX1BST1BFUlRJRVNfRklMRSIpCnZhbCBzaWduaW5nUHJvcHMgPSBQcm9wZXJ0aWVzKCkKdmFsIGhhc1JlbGVhc2VTaWduaW5nOiBCb29sZWFuID0gaWYgKHNpZ25pbmdQcm9wc0ZpbGUgIT0gbnVsbCAmJiBmaWxlKHNpZ25pbmdQcm9wc0ZpbGUpLmV4aXN0cygpKSB7CiAgICBmaWxlKHNpZ25pbmdQcm9wc0ZpbGUpLmlucHV0U3RyZWFtKCkudXNlIHsgc2lnbmluZ1Byb3BzLmxvYWQoaXQpIH0KICAgIHZhbCBzcCA9IHNpZ25pbmdQcm9wcy5nZXRQcm9wZXJ0eSgic3RvcmVGaWxlIikKICAgIHNwICE9IG51bGwgJiYgZmlsZShzcCkuZXhpc3RzKCkKfSBlbHNlIGZhbHNlCgphbmRyb2lkIHsKICAgIG5hbWVzcGFjZSA9ICJjb20uZ2l0b2Z5LmFwcCIKICAgIGNvbXBpbGVTZGsgPSAzNAoKICAgIC8vIFZhbHVlcyBjb21lIGZyb20gc2lnbmluZy5wcm9wZXJ0aWVzIG9ubHk7IG5vdGhpbmcgaXMgaGFyZC1jb2RlZCBoZXJlLgogICAgc2lnbmluZ0NvbmZpZ3MgewogICAgICAgIGlmIChoYXNSZWxlYXNlU2lnbmluZykgewogICAgICAgICAgICBjcmVhdGUoInJlbGVhc2UiKSB7CiAgICAgICAgICAgICAgICBzdG9yZUZpbGUgPSBmaWxlKHNpZ25pbmdQcm9wcy5nZXRQcm9wZXJ0eSgic3RvcmVGaWxlIikpCiAgICAgICAgICAgICAgICBzdG9yZVBhc3N3b3JkID0gc2lnbmluZ1Byb3BzLmdldFByb3BlcnR5KCJzdG9yZVBhc3N3b3JkIikKICAgICAgICAgICAgICAgIGtleUFsaWFzID0gc2lnbmluZ1Byb3BzLmdldFByb3BlcnR5KCJrZXlBbGlhcyIpCiAgICAgICAgICAgICAgICBrZXlQYXNzd29yZCA9IHNpZ25pbmdQcm9wcy5nZXRQcm9wZXJ0eSgia2V5UGFzc3dvcmQiKQogICAgICAgICAgICB9CiAgICAgICAgfQogICAgfQoKICAgIGRlZmF1bHRDb25maWcgewogICAgICAgIGFwcGxpY2F0aW9uSWQgPSAiY29tLmdpdG9meS5hcHAiCiAgICAgICAgbWluU2RrID0gMjYKICAgICAgICB0YXJnZXRTZGsgPSAzNAogICAgICAgIHZlcnNpb25Db2RlID0gMTgKICAgICAgICB2ZXJzaW9uTmFtZSA9ICIxLjMuNSIgICAvLyBDSTogcmVwYWlyIGJhc2U2NC1lbmNvZGVkIHNvdXJjZSBmaWxlcyBiZWZvcmUgYnVpbGQKICAgIH0KCiAgICBzcGxpdHMgewogICAgICAgIGFiaSB7CiAgICAgICAgICAgIGlzRW5hYmxlID0gdHJ1ZQogICAgICAgICAgICByZXNldCgpCiAgICAgICAgICAgIGluY2x1ZGUoImFybTY0LXY4YSIsICJhcm1lYWJpLXY3YSIpCiAgICAgICAgICAgIGlzVW5pdmVyc2FsQXBrID0gZmFsc2UKICAgICAgICB9CiAgICB9CgogICAgcGFja2FnaW5nIHsKICAgICAgICBqbmlMaWJzIHsgdXNlTGVnYWN5UGFja2FnaW5nID0gdHJ1ZSB9ICAgLy8ga2VlcCBsaWJnaXQuc28gZXh0cmFjdGVkICYgZXhlY3V0YWJsZQogICAgICAgIHJlc291cmNlcyB7IGV4Y2x1ZGVzICs9ICIvTUVUQS1JTkYve0FMMi4wLExHUEwyLjF9IiB9CiAgICB9CgogICAgYnVpbGRUeXBlcyB7CiAgICAgICAgcmVsZWFzZSB7CiAgICAgICAgICAgIGlzTWluaWZ5RW5hYmxlZCA9IGZhbHNlCiAgICAgICAgICAgIGlmIChoYXNSZWxlYXNlU2lnbmluZykgewogICAgICAgICAgICAgICAgc2lnbmluZ0NvbmZpZyA9IHNpZ25pbmdDb25maWdzLmdldEJ5TmFtZSgicmVsZWFzZSIpCiAgICAgICAgICAgIH0KICAgICAgICB9CiAgICB9CgogICAgY29tcGlsZU9wdGlvbnMgewogICAgICAgIHNvdXJjZUNvbXBhdGliaWxpdHkgPSBKYXZhVmVyc2lvbi5WRVJTSU9OXzE3CiAgICAgICAgdGFyZ2V0Q29tcGF0aWJpbGl0eSA9IEphdmFWZXJzaW9uLlZFUlNJT05fMTcKICAgIH0KICAgIGtvdGxpbk9wdGlvbnMgeyBqdm1UYXJnZXQgPSAiMTciIH0KICAgIGJ1aWxkRmVhdHVyZXMgeyBjb21wb3NlID0gdHJ1ZSB9Cn0KCmRlcGVuZGVuY2llcyB7CiAgICBpbXBsZW1lbnRhdGlvbihsaWJzLmFuZHJvaWR4LmNvcmUua3R4KQogICAgaW1wbGVtZW50YXRpb24obGlicy5hbmRyb2lkeC5saWZlY3ljbGUucnVudGltZS5rdHgpCiAgICBpbXBsZW1lbnRhdGlvbihsaWJzLmFuZHJvaWR4LmxpZmVjeWNsZS5ydW50aW1lLmNvbXBvc2UpCiAgICBpbXBsZW1lbnRhdGlvbihsaWJzLmFuZHJvaWR4LmxpZmVjeWNsZS52aWV3bW9kZWwuY29tcG9zZSkKICAgIGltcGxlbWVudGF0aW9uKGxpYnMuYW5kcm9pZHguYWN0aXZpdHkuY29tcG9zZSkKICAgIGltcGxlbWVudGF0aW9uKGxpYnMuYW5kcm9pZHgubmF2aWdhdGlvbi5jb21wb3NlKQogICAgaW1wbGVtZW50YXRpb24obGlicy5hbmRyb2lkeC5oaWx0Lm5hdmlnYXRpb24uY29tcG9zZSkKICAgIGltcGxlbWVudGF0aW9uKGxpYnMuYW5kcm9pZHguc2VjdXJpdHkuY3J5cHRvKQogICAgaW1wbGVtZW50YXRpb24obGlicy5hbmRyb2lkeC5iaW9tZXRyaWMpCiAgICBpbXBsZW1lbnRhdGlvbihsaWJzLmFuZHJvaWR4LmZyYWdtZW50Lmt0eCkKICAgIGltcGxlbWVudGF0aW9uKGxpYnMuYW5kcm9pZHguZ2xhbmNlLmFwcHdpZGdldCkKICAgIGltcGxlbWVudGF0aW9uKGxpYnMuYW5kcm9pZHguZ2xhbmNlLm1hdGVyaWFsMykKICAgIGltcGxlbWVudGF0aW9uKGxpYnMuYW5kcm9pZHguZGF0YXN0b3JlLnByZWZlcmVuY2VzKQogICAgaW1wbGVtZW50YXRpb24obGlicy5rb3RsaW54LmNvcm91dGluZXMuYW5kcm9pZCkKICAgIGltcGxlbWVudGF0aW9uKGxpYnMua290bGlueC5zZXJpYWxpemF0aW9uLmpzb24pCgogICAgaW1wbGVtZW50YXRpb24ocGxhdGZvcm0obGlicy5jb21wb3NlLmJvbSkpCiAgICBpbXBsZW1lbnRhdGlvbihsaWJzLmNvbXBvc2UudWkpCiAgICBpbXBsZW1lbnRhdGlvbihsaWJzLmNvbXBvc2UudWkuZ3JhcGhpY3MpCiAgICBpbXBsZW1lbnRhdGlvbihsaWJzLmNvbXBvc2UudWkudG9vbGluZy5wcmV2aWV3KQogICAgaW1wbGVtZW50YXRpb24obGlicy5jb21wb3NlLm1hdGVyaWFsMykKICAgIGltcGxlbWVudGF0aW9uKGxpYnMuY29tcG9zZS5tYXRlcmlhbC5pY29ucykKICAgIGltcGxlbWVudGF0aW9uKGxpYnMuY29tcG9zZS51aS50ZXh0Lmdvb2dsZS5mb250cykKICAgIGltcGxlbWVudGF0aW9uKGxpYnMuY29pbC5jb21wb3NlKQogICAgaW1wbGVtZW50YXRpb24obGlicy5hbmRyb2lkeC53b3JrLnJ1bnRpbWUua3R4KQogICAgaW1wbGVtZW50YXRpb24obGlicy5hbmRyb2lkeC5oaWx0LndvcmspCiAgICBkZWJ1Z0ltcGxlbWVudGF0aW9uKGxpYnMuY29tcG9zZS51aS50b29saW5nKQoKICAgIGltcGxlbWVudGF0aW9uKGxpYnMucmV0cm9maXQpCiAgICBpbXBsZW1lbnRhdGlvbihsaWJzLnJldHJvZml0LnNlcmlhbGl6YXRpb24pCiAgICBpbXBsZW1lbnRhdGlvbihsaWJzLm9raHR0cCkKICAgIGltcGxlbWVudGF0aW9uKGxpYnMub2todHRwLmxvZ2dpbmcpCgogICAgaW1wbGVtZW50YXRpb24obGlicy5yb29tLnJ1bnRpbWUpCiAgICBpbXBsZW1lbnRhdGlvbihsaWJzLnJvb20ua3R4KQogICAga3NwKGxpYnMucm9vbS5jb21waWxlcikKICAgIGtzcChsaWJzLmFuZHJvaWR4LmhpbHQuY29tcGlsZXIpCgogICAgaW1wbGVtZW50YXRpb24obGlicy5oaWx0LmFuZHJvaWQpCiAgICBrc3AobGlicy5oaWx0LmNvbXBpbGVyKQp9Cg==
+import java.util.Properties
+
+plugins {
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.kotlin.serialization)
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.hilt)
+}
+
+
+// Release signing is read from a signing.properties file that CI writes from the
+// four GitHub secrets. Nothing sensitive is stored in the repository.
+val signingPropsFile = System.getenv("SIGNING_PROPERTIES_FILE")
+val signingProps = Properties()
+val hasReleaseSigning: Boolean = if (signingPropsFile != null && file(signingPropsFile).exists()) {
+    file(signingPropsFile).inputStream().use { signingProps.load(it) }
+    val sp = signingProps.getProperty("storeFile")
+    sp != null && file(sp).exists()
+} else false
+
+android {
+    namespace = "com.gitofy.app"
+    compileSdk = 34
+
+    // Values come from signing.properties only; nothing is hard-coded here.
+    signingConfigs {
+        if (hasReleaseSigning) {
+            create("release") {
+                storeFile = file(signingProps.getProperty("storeFile"))
+                storePassword = signingProps.getProperty("storePassword")
+                keyAlias = signingProps.getProperty("keyAlias")
+                keyPassword = signingProps.getProperty("keyPassword")
+            }
+        }
+    }
+
+    defaultConfig {
+        applicationId = "com.gitofy.app"
+        minSdk = 26
+        targetSdk = 34
+        versionCode = 18
+        versionName = "1.3.5"   // CI: repair base64-encoded source files before build
+    }
+
+    splits {
+        abi {
+            isEnable = true
+            reset()
+            include("arm64-v8a", "armeabi-v7a")
+            isUniversalApk = false
+        }
+    }
+
+    packaging {
+        jniLibs { useLegacyPackaging = true }   // keep libgit.so extracted & executable
+        resources { excludes += "/META-INF/{AL2.0,LGPL2.1}" }
+    }
+
+    buildTypes {
+        release {
+            isMinifyEnabled = false
+            if (hasReleaseSigning) {
+                signingConfig = signingConfigs.getByName("release")
+            }
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+    kotlinOptions { jvmTarget = "17" }
+    buildFeatures { compose = true }
+}
+
+dependencies {
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.androidx.lifecycle.runtime.compose)
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
+    implementation(libs.androidx.activity.compose)
+    implementation(libs.androidx.navigation.compose)
+    implementation(libs.androidx.hilt.navigation.compose)
+    implementation(libs.androidx.security.crypto)
+    implementation(libs.androidx.biometric)
+    implementation(libs.androidx.fragment.ktx)
+    implementation(libs.androidx.glance.appwidget)
+    implementation(libs.androidx.glance.material3)
+    implementation(libs.androidx.datastore.preferences)
+    implementation(libs.kotlinx.coroutines.android)
+    implementation(libs.kotlinx.serialization.json)
+
+    implementation(platform(libs.compose.bom))
+    implementation(libs.compose.ui)
+    implementation(libs.compose.ui.graphics)
+    implementation(libs.compose.ui.tooling.preview)
+    implementation(libs.compose.material3)
+    implementation(libs.compose.material.icons)
+    implementation(libs.compose.ui.text.google.fonts)
+    implementation(libs.coil.compose)
+    implementation(libs.androidx.work.runtime.ktx)
+    implementation(libs.androidx.hilt.work)
+    debugImplementation(libs.compose.ui.tooling)
+
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.serialization)
+    implementation(libs.okhttp)
+    implementation(libs.okhttp.logging)
+
+    implementation(libs.room.runtime)
+    implementation(libs.room.ktx)
+    ksp(libs.room.compiler)
+    ksp(libs.androidx.hilt.compiler)
+
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.compiler)
+}

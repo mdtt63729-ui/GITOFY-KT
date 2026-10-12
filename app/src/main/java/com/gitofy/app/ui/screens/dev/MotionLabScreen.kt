@@ -1,1 +1,39 @@
-cGFja2FnZSBjb20uZ2l0b2Z5LmFwcC51aS5zY3JlZW5zLmRldgoKaW1wb3J0IGFuZHJvaWR4LmNvbXBvc2UuYW5pbWF0aW9uLkFuaW1hdGVkVmlzaWJpbGl0eQppbXBvcnQgYW5kcm9pZHguY29tcG9zZS5hbmltYXRpb24uY29yZS5hbmltYXRlRmxvYXRBc1N0YXRlCmltcG9ydCBhbmRyb2lkeC5jb21wb3NlLmFuaW1hdGlvbi5leHBhbmRWZXJ0aWNhbGx5CmltcG9ydCBhbmRyb2lkeC5jb21wb3NlLmFuaW1hdGlvbi5mYWRlSW4KaW1wb3J0IGFuZHJvaWR4LmNvbXBvc2UuZm91bmRhdGlvbi5sYXlvdXQuQXJyYW5nZW1lbnQKaW1wb3J0IGFuZHJvaWR4LmNvbXBvc2UuZm91bmRhdGlvbi5sYXlvdXQuQ29sdW1uCmltcG9ydCBhbmRyb2lkeC5jb21wb3NlLmZvdW5kYXRpb24ubGF5b3V0LmZpbGxNYXhXaWR0aAppbXBvcnQgYW5kcm9pZHguY29tcG9zZS5mb3VuZGF0aW9uLmxheW91dC5wYWRkaW5nCmltcG9ydCBhbmRyb2lkeC5jb21wb3NlLm1hdGVyaWFsMy5CdXR0b24KaW1wb3J0IGFuZHJvaWR4LmNvbXBvc2UubWF0ZXJpYWwzLkNhcmQKaW1wb3J0IGFuZHJvaWR4LmNvbXBvc2UubWF0ZXJpYWwzLk1hdGVyaWFsVGhlbWUKaW1wb3J0IGFuZHJvaWR4LmNvbXBvc2UubWF0ZXJpYWwzLlRleHQKaW1wb3J0IGFuZHJvaWR4LmNvbXBvc2UucnVudGltZS5Db21wb3NhYmxlCmltcG9ydCBhbmRyb2lkeC5jb21wb3NlLnJ1bnRpbWUuZ2V0VmFsdWUKaW1wb3J0IGFuZHJvaWR4LmNvbXBvc2UucnVudGltZS5tdXRhYmxlU3RhdGVPZgppbXBvcnQgYW5kcm9pZHguY29tcG9zZS5ydW50aW1lLnJlbWVtYmVyCmltcG9ydCBhbmRyb2lkeC5jb21wb3NlLnJ1bnRpbWUuc2V0VmFsdWUKaW1wb3J0IGFuZHJvaWR4LmNvbXBvc2UudWkuTW9kaWZpZXIKaW1wb3J0IGFuZHJvaWR4LmNvbXBvc2UudWkudW5pdC5kcAppbXBvcnQgY29tLmdpdG9meS5hcHAudWkuY29tcG9uZW50cy5TY3JlZW5TY2FmZm9sZAppbXBvcnQgY29tLmdpdG9meS5hcHAudWkudGhlbWUuR2l0b2Z5TW90aW9uCgovKiogRXhlcmNpc2VzIHRoZSBNMyBtb3Rpb24gc3BlY3Mgc28gdGhleSBjYW4gYmUgdHVuZWQgYnkgZXllLiAqLwpAQ29tcG9zYWJsZQpmdW4gTW90aW9uTGFiU2NyZWVuKG9uQmFjazogKCkgLT4gVW5pdCkgewogICAgdmFyIHZpc2libGUgYnkgcmVtZW1iZXIgeyBtdXRhYmxlU3RhdGVPZihmYWxzZSkgfQogICAgdmFsIHNjYWxlIGJ5IGFuaW1hdGVGbG9hdEFzU3RhdGUoaWYgKHZpc2libGUpIDFmIGVsc2UgMC42ZiwgYW5pbWF0aW9uU3BlYyA9IEdpdG9meU1vdGlvbi5zcGF0aWFsTWVkaXVtKQogICAgU2NyZWVuU2NhZmZvbGQoIk1vdGlvbiBsYWIiLCBvbkJhY2spIHsgbSAtPgogICAgICAgIENvbHVtbihtLnBhZGRpbmcoMTYuZHApLCBBcnJhbmdlbWVudC5zcGFjZWRCeSgxNi5kcCkpIHsKICAgICAgICAgICAgQnV0dG9uKG9uQ2xpY2sgPSB7IHZpc2libGUgPSAhdmlzaWJsZSB9LCBtb2RpZmllciA9IE1vZGlmaWVyLmZpbGxNYXhXaWR0aCgpKSB7IFRleHQoIlRvZ2dsZSBtb3Rpb24iKSB9CiAgICAgICAgICAgIEFuaW1hdGVkVmlzaWJpbGl0eSh2aXNpYmxlLCBlbnRlciA9IGZhZGVJbigpICsgZXhwYW5kVmVydGljYWxseSgpKSB7CiAgICAgICAgICAgICAgICBDYXJkKE1vZGlmaWVyLmZpbGxNYXhXaWR0aCgpKSB7IFRleHQoIkFuaW1hdGVkIGNvbnRhaW5lciIsIE1vZGlmaWVyLnBhZGRpbmcoMTYuZHApKSB9CiAgICAgICAgICAgIH0KICAgICAgICAgICAgVGV4dCgiU2NhbGU6ICUuMmYiLmZvcm1hdChzY2FsZSksIHN0eWxlID0gTWF0ZXJpYWxUaGVtZS50eXBvZ3JhcGh5LmJvZHlTbWFsbCkKICAgICAgICB9CiAgICB9Cn0K
+package com.gitofy.app.ui.screens.dev
+
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.animation.expandVertically
+import androidx.compose.animation.fadeIn
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Button
+import androidx.compose.material3.Card
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
+import com.gitofy.app.ui.components.ScreenScaffold
+import com.gitofy.app.ui.theme.GitofyMotion
+
+/** Exercises the M3 motion specs so they can be tuned by eye. */
+@Composable
+fun MotionLabScreen(onBack: () -> Unit) {
+    var visible by remember { mutableStateOf(false) }
+    val scale by animateFloatAsState(if (visible) 1f else 0.6f, animationSpec = GitofyMotion.spatialMedium)
+    ScreenScaffold("Motion lab", onBack) { m ->
+        Column(m.padding(16.dp), Arrangement.spacedBy(16.dp)) {
+            Button(onClick = { visible = !visible }, modifier = Modifier.fillMaxWidth()) { Text("Toggle motion") }
+            AnimatedVisibility(visible, enter = fadeIn() + expandVertically()) {
+                Card(Modifier.fillMaxWidth()) { Text("Animated container", Modifier.padding(16.dp)) }
+            }
+            Text("Scale: %.2f".format(scale), style = MaterialTheme.typography.bodySmall)
+        }
+    }
+}

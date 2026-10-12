@@ -1,1 +1,249 @@
-cGFja2FnZSBjb20uZ2l0b2Z5LmFwcC51cGxvYWQKCmltcG9ydCBhbmRyb2lkLmNvbnRlbnQuQ29udGV4dAppbXBvcnQgYW5kcm9pZC5uZXQuVXJpCmltcG9ydCBjb20uZ2l0b2Z5LmFwcC5kYXRhLlRva2VuU3RvcmUKaW1wb3J0IGNvbS5naXRvZnkuYXBwLmdpdC5CZW5jaG1hcmtTdG9yZQppbXBvcnQgY29tLmdpdG9meS5hcHAuZ2l0LkdpdEJpbmFyeQppbXBvcnQgY29tLmdpdG9meS5hcHAuZ2l0LkdpdEVuZ2luZQppbXBvcnQgY29tLmdpdG9meS5hcHAuZ2l0LkdpdFByb2dyZXNzCmltcG9ydCBjb20uZ2l0b2Z5LmFwcC5naXQuTGZzQ2xpZW50CmltcG9ydCBjb20uZ2l0b2Z5LmFwcC5naXQuVHJhbnNwb3J0QmVuY2htYXJrCmltcG9ydCBjb20uZ2l0b2Z5LmFwcC5naXQuVHJhbnNwb3J0UHJvZmlsZXMKaW1wb3J0IGNvbS5naXRvZnkuYXBwLmdpdC5VcGxvYWRDaGVja3BvaW50CmltcG9ydCBjb20uZ2l0b2Z5LmFwcC5uZXQuTmV0d29ya01vbml0b3IKaW1wb3J0IGNvbS5naXRvZnkuYXBwLnV0aWwuZm9ybWF0U2l6ZQppbXBvcnQgY29tLmdpdG9meS5hcHAud2lkZ2V0LldpZGdldFN0YXRlCmltcG9ydCBkYWdnZXIuaGlsdC5hbmRyb2lkLnF1YWxpZmllcnMuQXBwbGljYXRpb25Db250ZXh0CmltcG9ydCBrb3RsaW54LmNvcm91dGluZXMuSm9iCmltcG9ydCBrb3RsaW54LmNvcm91dGluZXMuZGVsYXkKaW1wb3J0IGtvdGxpbnguY29yb3V0aW5lcy5mbG93Lk11dGFibGVTdGF0ZUZsb3cKaW1wb3J0IGtvdGxpbnguY29yb3V0aW5lcy5sYXVuY2gKaW1wb3J0IGtvdGxpbnguY29yb3V0aW5lcy5jb3JvdXRpbmVTY29wZQppbXBvcnQga290bGlueC5zZXJpYWxpemF0aW9uLmpzb24uSnNvbgppbXBvcnQgb2todHRwMy5Pa0h0dHBDbGllbnQKaW1wb3J0IGphdmEuaW8uRmlsZQppbXBvcnQgamF2YS51dGlsLnppcC5aaXBJbnB1dFN0cmVhbQppbXBvcnQgamF2YXguaW5qZWN0LkluamVjdAppbXBvcnQgamF2YXguaW5qZWN0LlNpbmdsZXRvbgoKLyoqCiAqIFRoZSB3aG9sZSBwdXNoIHBpcGVsaW5lLCBleHRyYWN0ZWQgc28gYm90aCB0aGUgVUkgKFtjb20uZ2l0b2Z5LmFwcC51aS5VcGxvYWRWaWV3TW9kZWxdKQogKiBhbmQgdGhlIGJhY2tncm91bmQgW1VwbG9hZFdvcmtlcl0gcnVuIGV4YWN0bHkgdGhlIHNhbWUgY29kZS4KICoKICogU3RhZ2VzOiBzaGFsbG93IGNsb25lIC0+IGV4dHJhY3QgLT4gYmVuY2htYXJrL3R1bmUgLT4gR2l0IExGUyAtPiBjb21taXQgLT4gcHVzaCwKICogd2l0aCBhIGNoZWNrcG9pbnQgYWZ0ZXIgZWFjaCBzdGFnZSBzbyBhIGRyb3AgKG9yIGFuIGFwcCByZXN0YXJ0KSBjYW4gcmVzdW1lLgogKi8KQFNpbmdsZXRvbgpjbGFzcyBVcGxvYWRQaXBlbGluZSBASW5qZWN0IGNvbnN0cnVjdG9yKAogICAgQEFwcGxpY2F0aW9uQ29udGV4dCBwcml2YXRlIHZhbCBjb250ZXh0OiBDb250ZXh0LAogICAgcHJpdmF0ZSB2YWwgdG9rZW5TdG9yZTogVG9rZW5TdG9yZSwKICAgIHByaXZhdGUgdmFsIG5ldHdvcms6IE5ldHdvcmtNb25pdG9yLAogICAgcHJpdmF0ZSB2YWwgaHR0cDogT2tIdHRwQ2xpZW50LAogICAgcHJpdmF0ZSB2YWwganNvbjogSnNvbiwKICAgIHByaXZhdGUgdmFsIGJlbmNobWFya3M6IEJlbmNobWFya1N0b3JlLAopIHsKICAgIC8qKiBOdWxsIHdoZW4gdGhlIEFQSyB3YXMgYnVpbHQgd2l0aG91dCB0aGUgYnVuZGxlZCBnaXQgYmluYXJ5LiAqLwogICAgcHJpdmF0ZSB2YWwgYmluYXJ5OiBHaXRCaW5hcnk/IGJ5IGxhenkgeyBydW5DYXRjaGluZyB7IEdpdEJpbmFyeS5yZXNvbHZlKGNvbnRleHQpIH0uZ2V0T3JOdWxsKCkgfQogICAgcHJpdmF0ZSB2YWwgbGZzID0gTGZzQ2xpZW50KGh0dHAsIGpzb24pCgogICAgcHJpdmF0ZSB2YWwgbGZzVGhyZXNob2xkID0gR2l0RW5naW5lLkxBUkdFX0ZJTEVfTElNSVQKICAgIHByaXZhdGUgdmFsIGJlbmNobWFya1NhbXBsZUJ5dGVzID0gNUwgKiAxMDI0ICogMTAyNAoKICAgIGZ1biB1cGxvYWRzRGlyKCk6IEZpbGUgPSBGaWxlKGNvbnRleHQuZmlsZXNEaXIsICJ1cGxvYWRzIikuYXBwbHkgeyBta2RpcnMoKSB9CiAgICBmdW4gd29ya0RpcihyZXBvOiBTdHJpbmcpOiBGaWxlID0gRmlsZSh1cGxvYWRzRGlyKCksIHJlcG8pCgogICAgc3VzcGVuZCBmdW4gcnVuKHJlcTogVXBsb2FkUmVxdWVzdCwgb25Qcm9ncmVzczogKFBpcGVsaW5lUHJvZ3Jlc3MpIC0+IFVuaXQpOiBVcGxvYWRPdXRjb21lIHsKICAgICAgICB2YWwgZ2l0ID0gYmluYXJ5ID86IHJldHVybiBVcGxvYWRPdXRjb21lLkZhaWx1cmUoCiAgICAgICAgICAgICJUaGlzIGJ1aWxkIGhhcyBubyBidW5kbGVkIGdpdCBiaW5hcnkuIEJ1aWxkIG9uZSB3aXRoIHRvb2xzL2J1aWxkLWdpdC1hbmRyb2lkLnNoIChvciBlbmFibGUgJ2J1aWxkX2dpdCcgaW4gdGhlIENJIHdvcmtmbG93KS4iLAogICAgICAgICAgICBmYWxzZSwKICAgICAgICApCiAgICAgICAgdmFsIHRva2VuID0gdG9rZW5TdG9yZS50b2tlbigpCiAgICAgICAgICAgID86IHJldHVybiBVcGxvYWRPdXRjb21lLkZhaWx1cmUoIk5vdCBzaWduZWQgaW4g4oCUIG5vIEdpdEh1YiB0b2tlbi4iLCBmYWxzZSkKCiAgICAgICAgdmFsIHdvcmsgPSB3b3JrRGlyKHJlcS5yZXBvKQogICAgICAgIHZhciBjcDogVXBsb2FkQ2hlY2twb2ludCA9IGlmIChyZXEucmVzdW1lKSB7CiAgICAgICAgICAgIFVwbG9hZENoZWNrcG9pbnQubG9hZCh3b3JrKQogICAgICAgICAgICAgICAgPzogVXBsb2FkQ2hlY2twb2ludChyZXEub3duZXIsIHJlcS5yZXBvLCByZXEuYnJhbmNoLCBVcGxvYWRDaGVja3BvaW50LlN0YWdlLk5PTkUsIHppcFVyaSA9IHJlcS56aXBVcmkpCiAgICAgICAgfSBlbHNlIHsKICAgICAgICAgICAgd29yay5kZWxldGVSZWN1cnNpdmVseSgpOyBVcGxvYWRDaGVja3BvaW50LmNsZWFyKHdvcmspCiAgICAgICAgICAgIFVwbG9hZENoZWNrcG9pbnQocmVxLm93bmVyLCByZXEucmVwbywgcmVxLmJyYW5jaCwgVXBsb2FkQ2hlY2twb2ludC5TdGFnZS5OT05FLCB6aXBVcmkgPSByZXEuemlwVXJpKQogICAgICAgIH0KICAgICAgICB2YWwgemlwVXJpID0gVXJpLnBhcnNlKHJlcS56aXBVcmkpCgogICAgICAgIHJldHVybiBjb3JvdXRpbmVTY29wZSB7CiAgICAgICAgICAgIHZhciBuZXRKb2I6IEpvYj8gPSBudWxsCiAgICAgICAgICAgIHRyeSB7CiAgICAgICAgICAgICAgICB2YWwgbmV0ID0gbmV0d29yay5jdXJyZW50KCkKICAgICAgICAgICAgICAgIHZhbCBiYXNlID0gVHJhbnNwb3J0UHJvZmlsZXMuZm9yTmV0d29yayhuZXQubWV0ZXJlZCwgbmV0LnVwc3RyZWFtS2JwcykKICAgICAgICAgICAgICAgIHZhbCBwcm9maWxlRmxvdyA9IE11dGFibGVTdGF0ZUZsb3coYmFzZSkKCiAgICAgICAgICAgICAgICBmdW4gZW1pdChwaGFzZTogR2l0UHJvZ3Jlc3MuUGhhc2UsIHBjdDogSW50Pywgc3BlZWQ6IFN0cmluZz8sIGRldGFpbDogU3RyaW5nKSA9CiAgICAgICAgICAgICAgICAgICAgb25Qcm9ncmVzcyhQaXBlbGluZVByb2dyZXNzKHBoYXNlLCBwY3QsIHNwZWVkLCBkZXRhaWwsIGNwLnN0YWdlLm5hbWUsIGNwLmxmc0RvbmVCeXRlcywgY3AubGZzVG90YWxCeXRlcykpCgogICAgICAgICAgICAgICAgLy8gMS4gU2hhbGxvdyBjbG9uZS4KICAgICAgICAgICAgICAgIGlmIChjcC5zdGFnZS5vcmRpbmFsIDwgVXBsb2FkQ2hlY2twb2ludC5TdGFnZS5DTE9ORUQub3JkaW5hbCkgewogICAgICAgICAgICAgICAgICAgIGVtaXQoR2l0UHJvZ3Jlc3MuUGhhc2UuT1RIRVIsIDAsIG51bGwsICJDbG9uaW5nICgke2Jhc2UubmFtZX0gbGluaynigKYiKQogICAgICAgICAgICAgICAgICAgIEdpdEVuZ2luZShnaXQsIGJhc2UpLmNsb25lU2hhbGxvdyh0b2tlbiwgImh0dHBzOi8vZ2l0aHViLmNvbS8ke3JlcS5vd25lcn0vJHtyZXEucmVwb30uZ2l0Iiwgd29yaykKICAgICAgICAgICAgICAgICAgICBjcCA9IGNwLmNvcHkoc3RhZ2UgPSBVcGxvYWRDaGVja3BvaW50LlN0YWdlLkNMT05FRCk7IGNwLnNhdmUoVXBsb2FkQ2hlY2twb2ludC5maWxlRm9yKHdvcmspKQogICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgaWYgKHJlcS5jbGVhckZpcnN0KSBjbGVhcldvcmtpbmdUcmVlKHdvcmspCgogICAgICAgICAgICAgICAgLy8gMi4gRXh0cmFjdC4KICAgICAgICAgICAgICAgIGlmIChjcC5zdGFnZS5vcmRpbmFsIDwgVXBsb2FkQ2hlY2twb2ludC5TdGFnZS5FWFRSQUNURUQub3JkaW5hbCkgewogICAgICAgICAgICAgICAgICAgIGVtaXQoR2l0UHJvZ3Jlc3MuUGhhc2UuT1RIRVIsIDAsIG51bGwsICJFeHRyYWN0aW5n4oCmIikKICAgICAgICAgICAgICAgICAgICBleHRyYWN0WmlwKHppcFVyaSwgd29yaykKICAgICAgICAgICAgICAgICAgICBjcCA9IGNwLmNvcHkoc3RhZ2UgPSBVcGxvYWRDaGVja3BvaW50LlN0YWdlLkVYVFJBQ1RFRCk7IGNwLnNhdmUoVXBsb2FkQ2hlY2twb2ludC5maWxlRm9yKHdvcmspKQogICAgICAgICAgICAgICAgfQoKICAgICAgICAgICAgICAgIC8vIDMuIEJlbmNobWFyayB+NSBNQjsgcmVjb3JkIGZvciBTZXR0aW5nczsgcGljayB0aGUgcHJvZmlsZS4KICAgICAgICAgICAgICAgIHZhbCBmaWxlcyA9IHdvcmsud2Fsa1RvcERvd24oKS5maWx0ZXIgeyBpdC5pc0ZpbGUgJiYgIWl0LnBhdGguY29udGFpbnMoIi8uZ2l0LyIpIH0udG9MaXN0KCkKICAgICAgICAgICAgICAgIHZhbCB0b3RhbEJ5dGVzID0gZmlsZXMuc3VtT2YgeyBpdC5sZW5ndGgoKSB9CiAgICAgICAgICAgICAgICB2YWwgc2FtcGxlID0gc2FtcGxlT2YoZmlsZXMsIGJlbmNobWFya1NhbXBsZUJ5dGVzKQogICAgICAgICAgICAgICAgdmFsIHJlc3VsdCA9IFRyYW5zcG9ydEJlbmNobWFyay5hbmFseXplKHNhbXBsZSwgdG90YWxCeXRlcywgbmV0LnVwc3RyZWFtS2JwcywgYmFzZS5uYW1lKQogICAgICAgICAgICAgICAgYmVuY2htYXJrcy5yZWNvcmQocmVzdWx0KQogICAgICAgICAgICAgICAgdmFsIGxldmVsID0gcmVzdWx0LmxldmVscy5maXJzdE9yTnVsbCB7IGl0LmNob3NlbiB9Py5sZXZlbCA/OiA2CiAgICAgICAgICAgICAgICBwcm9maWxlRmxvdy52YWx1ZSA9IGJhc2UuY29weShjb21wcmVzc2lvbiA9IGxldmVsKQogICAgICAgICAgICAgICAgY3AgPSBjcC5jb3B5KHRvdGFsQnl0ZXMgPSB0b3RhbEJ5dGVzKTsgY3Auc2F2ZShVcGxvYWRDaGVja3BvaW50LmZpbGVGb3Iod29yaykpCiAgICAgICAgICAgICAgICBlbWl0KEdpdFByb2dyZXNzLlBoYXNlLk9USEVSLCAwLCBudWxsLCAiVHVuZWQ6IGNvbXByZXNzaW9uICRsZXZlbCwgcGFjay53aW5kb3cgJHtwcm9maWxlRmxvdy52YWx1ZS5wYWNrV2luZG93fSAoJHtiYXNlLm5hbWV9IGxpbmspIikKCiAgICAgICAgICAgICAgICAvLyBSZS10dW5lIG9uIGEgbmV0d29yayBzd2l0Y2ggKFdpLUZpIDwtPiBjZWxsdWxhcikuCiAgICAgICAgICAgICAgICBuZXRKb2IgPSBsYXVuY2ggewogICAgICAgICAgICAgICAgICAgIG5ldHdvcmsuY2hhbmdlcygpLmNvbGxlY3QgeyBpbmZvIC0+CiAgICAgICAgICAgICAgICAgICAgICAgIHZhbCBiYXNlMiA9IFRyYW5zcG9ydFByb2ZpbGVzLmZvck5ldHdvcmsoaW5mby5tZXRlcmVkLCBpbmZvLnVwc3RyZWFtS2JwcykKICAgICAgICAgICAgICAgICAgICAgICAgdmFsIGx2bDIgPSBUcmFuc3BvcnRCZW5jaG1hcmsuY2hvb3NlQ29tcHJlc3Npb24oc2FtcGxlLCB0b3RhbEJ5dGVzLCBpbmZvLnVwc3RyZWFtS2JwcykKICAgICAgICAgICAgICAgICAgICAgICAgdmFsIHAyID0gYmFzZTIuY29weShjb21wcmVzc2lvbiA9IGx2bDIpCiAgICAgICAgICAgICAgICAgICAgICAgIGlmIChwMiAhPSBwcm9maWxlRmxvdy52YWx1ZSkgewogICAgICAgICAgICAgICAgICAgICAgICAgICAgcHJvZmlsZUZsb3cudmFsdWUgPSBwMgogICAgICAgICAgICAgICAgICAgICAgICAgICAgZW1pdChHaXRQcm9ncmVzcy5QaGFzZS5PVEhFUiwgbnVsbCwgbnVsbCwgIk5ldHdvcmsgY2hhbmdlZCDihpIgcmUtdHVuZWQ6IGNvbXByZXNzaW9uICRsdmwyICgke2Jhc2UyLm5hbWV9IGxpbmspIikKICAgICAgICAgICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgIH0KCiAgICAgICAgICAgICAgICAvLyA0LiBPdmVyc2l6ZWQgZmlsZXMgLT4gR2l0IExGUyAoc2tpcCBhbHJlYWR5LXVwbG9hZGVkLCBieXRlIHByb2dyZXNzKS4KICAgICAgICAgICAgICAgIGlmIChjcC5zdGFnZS5vcmRpbmFsIDwgVXBsb2FkQ2hlY2twb2ludC5TdGFnZS5MRlMub3JkaW5hbCkgewogICAgICAgICAgICAgICAgICAgIHZhbCBiaWcgPSBmaWxlcy5maWx0ZXIgeyBpdC5sZW5ndGgoKSA+PSBsZnNUaHJlc2hvbGQgfQogICAgICAgICAgICAgICAgICAgIGlmIChiaWcuaXNOb3RFbXB0eSgpKSB7CiAgICAgICAgICAgICAgICAgICAgICAgIGlmICghcmVxLnVzZUxmcykgewogICAgICAgICAgICAgICAgICAgICAgICAgICAgdmFsIGxpc3QgPSBiaWcudGFrZSg1KS5qb2luVG9TdHJpbmcoIlxuIikgeyAi4oCiICR7aXQucmVsYXRpdmVUbyh3b3JrKS5wYXRofSAoJHtpdC5sZW5ndGgoKSAvICgxMDI0ICogMTAyNCl9IE1CKSIgfQogICAgICAgICAgICAgICAgICAgICAgICAgICAgcmV0dXJuQGNvcm91dGluZVNjb3BlIFVwbG9hZE91dGNvbWUuRmFpbHVyZSgiRmlsZXMgPj0gMTAwIE1CIG5lZWQgR2l0IExGUyAoZGlzYWJsZWQpOlxuJGxpc3QiLCBmYWxzZSkKICAgICAgICAgICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgICAgICAgICB2YWwgZXh0cyA9IG11dGFibGVTZXRPZjxTdHJpbmc+KCkKICAgICAgICAgICAgICAgICAgICAgICAgdmFsIGRvbmUgPSBjcC5kb25lT2lkcy50b011dGFibGVTZXQoKQogICAgICAgICAgICAgICAgICAgICAgICB2YXIgZG9uZUJ5dGVzID0gY3AubGZzRG9uZUJ5dGVzCiAgICAgICAgICAgICAgICAgICAgICAgIHZhbCBsZnNUb3RhbEJ5dGVzID0gYmlnLnN1bU9mIHsgaXQubGVuZ3RoKCkgfQogICAgICAgICAgICAgICAgICAgICAgICBjcCA9IGNwLmNvcHkobGZzVG90YWxGaWxlcyA9IGJpZy5zaXplLCBsZnNUb3RhbEJ5dGVzID0gbGZzVG90YWxCeXRlcykKICAgICAgICAgICAgICAgICAgICAgICAgZm9yICgoaSwgZikgaW4gYmlnLndpdGhJbmRleCgpKSB7CiAgICAgICAgICAgICAgICAgICAgICAgICAgICB2YWwgb2lkID0gbGZzLm9pZE9mKGYpCiAgICAgICAgICAgICAgICAgICAgICAgICAgICBpZiAob2lkIGluIGRvbmUpIGNvbnRpbnVlCiAgICAgICAgICAgICAgICAgICAgICAgICAgICB2YWwgdG90YWwgPSBmLmxlbmd0aCgpCiAgICAgICAgICAgICAgICAgICAgICAgICAgICB2YWwgYmFzZURvbmUgPSBkb25lQnl0ZXMKICAgICAgICAgICAgICAgICAgICAgICAgICAgIHZhbCBvYmogPSBsZnMudXBsb2FkKHJlcS5vd25lciwgcmVxLnJlcG8sIHRva2VuLCBmKSB7IHNlbnQsIHNpemUgLT4KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB2YWwgcGN0ID0gaWYgKHNpemUgPiAwKSAoKHNlbnQgKiAxMDApIC8gc2l6ZSkudG9JbnQoKSBlbHNlIDAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBvblByb2dyZXNzKAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBQaXBlbGluZVByb2dyZXNzKAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgR2l0UHJvZ3Jlc3MuUGhhc2UuVVBMT0FESU5HLCBwY3QsIG51bGwsCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAiTEZTICR7aSArIDF9LyR7YmlnLnNpemV9OiAke2YubmFtZX0g4oCUICR7Zm9ybWF0U2l6ZShzZW50KX0gLyAke2Zvcm1hdFNpemUodG90YWwpfSIsCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBjcC5zdGFnZS5uYW1lLCBiYXNlRG9uZSArIHNlbnQsIGxmc1RvdGFsQnl0ZXMsCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICksCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgKQogICAgICAgICAgICAgICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgICAgICAgICAgICAgZi53cml0ZVRleHQobGZzLnBvaW50ZXIob2JqLm9pZCwgb2JqLnNpemUpKQogICAgICAgICAgICAgICAgICAgICAgICAgICAgZi5uYW1lLnN1YnN0cmluZ0FmdGVyTGFzdCgnLicsICIiKS50YWtlSWYgeyBpdC5pc05vdEJsYW5rKCkgfT8ubGV0IHsgZXh0cy5hZGQoaXQpIH0KICAgICAgICAgICAgICAgICAgICAgICAgICAgIGRvbmUuYWRkKG9iai5vaWQpCiAgICAgICAgICAgICAgICAgICAgICAgICAgICBkb25lQnl0ZXMgKz0gdG90YWwKICAgICAgICAgICAgICAgICAgICAgICAgICAgIGNwID0gY3AuY29weShkb25lT2lkcyA9IGRvbmUudG9MaXN0KCksIGxmc0RvbmVGaWxlcyA9IGRvbmUuc2l6ZSwgbGZzRG9uZUJ5dGVzID0gZG9uZUJ5dGVzKQogICAgICAgICAgICAgICAgICAgICAgICAgICAgY3Auc2F2ZShVcGxvYWRDaGVja3BvaW50LmZpbGVGb3Iod29yaykpCiAgICAgICAgICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgICAgICAgICAgaWYgKGV4dHMuaXNOb3RFbXB0eSgpKSBhcHBlbmRHaXRhdHRyaWJ1dGVzKHdvcmssIGV4dHMpCiAgICAgICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgICAgIGNwID0gY3AuY29weShzdGFnZSA9IFVwbG9hZENoZWNrcG9pbnQuU3RhZ2UuTEZTKTsgY3Auc2F2ZShVcGxvYWRDaGVja3BvaW50LmZpbGVGb3Iod29yaykpCiAgICAgICAgICAgICAgICB9CgogICAgICAgICAgICAgICAgLy8gNS4gQ29tbWl0ICsgcHVzaCAocmV0cmllZDsgZWFjaCBhdHRlbXB0IHVzZXMgdGhlIGN1cnJlbnQgcHJvZmlsZSkuCiAgICAgICAgICAgICAgICBpZiAoY3Auc3RhZ2Uub3JkaW5hbCA8IFVwbG9hZENoZWNrcG9pbnQuU3RhZ2UuQ09NTUlUVEVELm9yZGluYWwpIHsKICAgICAgICAgICAgICAgICAgICBHaXRFbmdpbmUoZ2l0LCBwcm9maWxlRmxvdy52YWx1ZSkuY29tbWl0QWxsKHdvcmssIHJlcS5jb21taXRNZXNzYWdlKQogICAgICAgICAgICAgICAgICAgIGNwID0gY3AuY29weShzdGFnZSA9IFVwbG9hZENoZWNrcG9pbnQuU3RhZ2UuQ09NTUlUVEVEKTsgY3Auc2F2ZShVcGxvYWRDaGVja3BvaW50LmZpbGVGb3Iod29yaykpCiAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICBwdXNoV2l0aFJldHJ5KAogICAgICAgICAgICAgICAgICAgIGVuZ2luZUZvciA9IHsgR2l0RW5naW5lKGdpdCwgcHJvZmlsZUZsb3cudmFsdWUpIH0sCiAgICAgICAgICAgICAgICAgICAgd29yayA9IHdvcmssIHRva2VuID0gdG9rZW4sIGJyYW5jaCA9IHJlcS5icmFuY2gsCiAgICAgICAgICAgICAgICAgICAgb25UaWNrID0geyBwIC0+IG9uUHJvZ3Jlc3MoUGlwZWxpbmVQcm9ncmVzcyhwLnBoYXNlLCBwLnBlcmNlbnQsIHAuc3BlZWQsIHAucmF3LCBjcC5zdGFnZS5uYW1lKSkgfSwKICAgICAgICAgICAgICAgICkKCiAgICAgICAgICAgICAgICBVcGxvYWRDaGVja3BvaW50LmNsZWFyKHdvcmspCiAgICAgICAgICAgICAgICBXaWRnZXRTdGF0ZS53cml0ZShjb250ZXh0LCAiJHtyZXEub3duZXJ9LyR7cmVxLnJlcG99IiwgIlB1c2hlZCB0byAke3JlcS5icmFuY2h9IikKICAgICAgICAgICAgICAgIFVwbG9hZE91dGNvbWUuU3VjY2VzcyhyZXEuYnJhbmNoLCBjcC5kb25lT2lkcy5zaXplKQogICAgICAgICAgICB9IGNhdGNoICh0OiBUaHJvd2FibGUpIHsKICAgICAgICAgICAgICAgIGNwLnNhdmUoVXBsb2FkQ2hlY2twb2ludC5maWxlRm9yKHdvcmspKQogICAgICAgICAgICAgICAgVXBsb2FkT3V0Y29tZS5GYWlsdXJlKHQubWVzc2FnZSA/OiB0LmphdmFDbGFzcy5zaW1wbGVOYW1lLCByZXN1bWFibGUgPSB0cnVlKQogICAgICAgICAgICB9IGZpbmFsbHkgewogICAgICAgICAgICAgICAgbmV0Sm9iPy5jYW5jZWwoKQogICAgICAgICAgICB9CiAgICAgICAgfQogICAgfQoKICAgIHByaXZhdGUgc3VzcGVuZCBmdW4gcHVzaFdpdGhSZXRyeSgKICAgICAgICBlbmdpbmVGb3I6ICgpIC0+IEdpdEVuZ2luZSwgd29yazogRmlsZSwgdG9rZW46IFN0cmluZywgYnJhbmNoOiBTdHJpbmcsCiAgICAgICAgb25UaWNrOiAoR2l0UHJvZ3Jlc3MpIC0+IFVuaXQsIGF0dGVtcHRzOiBJbnQgPSAzLAogICAgKSB7CiAgICAgICAgdmFyIGxhc3Q6IFRocm93YWJsZT8gPSBudWxsCiAgICAgICAgZm9yIChpIGluIDEuLmF0dGVtcHRzKSB7CiAgICAgICAgICAgIHRyeSB7CiAgICAgICAgICAgICAgICBlbmdpbmVGb3IoKS5wdXNoKHdvcmssIHRva2VuLCBicmFuY2gpLmNvbGxlY3QgeyBvblRpY2soaXQpIH0KICAgICAgICAgICAgICAgIHJldHVybgogICAgICAgICAgICB9IGNhdGNoICh0OiBUaHJvd2FibGUpIHsKICAgICAgICAgICAgICAgIGxhc3QgPSB0CiAgICAgICAgICAgICAgICBpZiAoaSA8IGF0dGVtcHRzKSB7IG9uVGljayhHaXRQcm9ncmVzcyhHaXRQcm9ncmVzcy5QaGFzZS5PVEhFUiwgbnVsbCwgbnVsbCwgbnVsbCwgIlB1c2ggZmFpbGVkIOKAlCByZXRyeWluZyAoJGkvJGF0dGVtcHRzKeKApiIpKTsgZGVsYXkoMjAwMEwgKiBpKSB9CiAgICAgICAgICAgIH0KICAgICAgICB9CiAgICAgICAgdGhyb3cgbGFzdCA/OiBJbGxlZ2FsU3RhdGVFeGNlcHRpb24oInB1c2ggZmFpbGVkIikKICAgIH0KCiAgICBwcml2YXRlIGZ1biBzYW1wbGVPZihmaWxlczogTGlzdDxGaWxlPiwgbWF4Qnl0ZXM6IExvbmcpOiBCeXRlQXJyYXkgewogICAgICAgIHZhbCBvdXQgPSBqYXZhLmlvLkJ5dGVBcnJheU91dHB1dFN0cmVhbSgpCiAgICAgICAgZm9yIChmIGluIGZpbGVzKSB7CiAgICAgICAgICAgIGlmIChvdXQuc2l6ZSgpID49IG1heEJ5dGVzKSBicmVhawogICAgICAgICAgICBydW5DYXRjaGluZyB7CiAgICAgICAgICAgICAgICBmLmlucHV0U3RyZWFtKCkudXNlIHsgaW5wdXQgLT4KICAgICAgICAgICAgICAgICAgICB2YWwgYnVmID0gQnl0ZUFycmF5KDY0ICogMTAyNCkKICAgICAgICAgICAgICAgICAgICB3aGlsZSAob3V0LnNpemUoKSA8IG1heEJ5dGVzKSB7CiAgICAgICAgICAgICAgICAgICAgICAgIHZhbCBuID0gaW5wdXQucmVhZChidWYsIDAsIG1pbk9mKGJ1Zi5zaXplLnRvTG9uZygpLCBtYXhCeXRlcyAtIG91dC5zaXplKCkpLnRvSW50KCkpCiAgICAgICAgICAgICAgICAgICAgICAgIGlmIChuIDw9IDApIGJyZWFrCiAgICAgICAgICAgICAgICAgICAgICAgIG91dC53cml0ZShidWYsIDAsIG4pCiAgICAgICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgfQogICAgICAgICAgICB9CiAgICAgICAgfQogICAgICAgIHJldHVybiBvdXQudG9CeXRlQXJyYXkoKQogICAgfQoKICAgIHByaXZhdGUgZnVuIGNsZWFyV29ya2luZ1RyZWUoZGlyOiBGaWxlKSB7CiAgICAgICAgZGlyLmxpc3RGaWxlcygpPy5mb3JFYWNoIHsgZiAtPiBpZiAoZi5uYW1lICE9ICIuZ2l0IikgZi5kZWxldGVSZWN1cnNpdmVseSgpIH0KICAgIH0KCiAgICBwcml2YXRlIGZ1biBhcHBlbmRHaXRhdHRyaWJ1dGVzKGRpcjogRmlsZSwgZXh0czogU2V0PFN0cmluZz4pIHsKICAgICAgICB2YWwgZmlsZSA9IEZpbGUoZGlyLCAiLmdpdGF0dHJpYnV0ZXMiKQogICAgICAgIHZhbCBleGlzdGluZyA9IGlmIChmaWxlLmV4aXN0cygpKSBmaWxlLnJlYWRUZXh0KCkgZWxzZSAiIgogICAgICAgIHZhbCBsaW5lcyA9IGV4dHMuZmlsdGVyIHsgIWV4aXN0aW5nLmNvbnRhaW5zKCIqLiRpdCAiKSB9Lm1hcCB7ICIqLiRpdCBmaWx0ZXI9bGZzIGRpZmY9bGZzIG1lcmdlPWxmcyAtdGV4dCIgfQogICAgICAgIGlmIChsaW5lcy5pc05vdEVtcHR5KCkpIHsKICAgICAgICAgICAgZmlsZS53cml0ZVRleHQoZXhpc3RpbmcgKyAoaWYgKGV4aXN0aW5nLmlzTm90RW1wdHkoKSAmJiAhZXhpc3RpbmcuZW5kc1dpdGgoIlxuIikpICJcbiIgZWxzZSAiIikgKyBsaW5lcy5qb2luVG9TdHJpbmcoIlxuIikgKyAiXG4iKQogICAgICAgIH0KICAgIH0KCiAgICBwcml2YXRlIGZ1biBleHRyYWN0WmlwKHppcFVyaTogVXJpLCBkZXN0OiBGaWxlKSB7CiAgICAgICAgdmFsIGRlc3RQYXRoID0gZGVzdC5jYW5vbmljYWxQYXRoCiAgICAgICAgY29udGV4dC5jb250ZW50UmVzb2x2ZXIub3BlbklucHV0U3RyZWFtKHppcFVyaSk/LnVzZSB7IGlucHV0IC0+CiAgICAgICAgICAgIFppcElucHV0U3RyZWFtKGlucHV0KS51c2UgeyB6aXAgLT4KICAgICAgICAgICAgICAgIHZhciBlbnRyeSA9IHppcC5uZXh0RW50cnkKICAgICAgICAgICAgICAgIHdoaWxlIChlbnRyeSAhPSBudWxsKSB7CiAgICAgICAgICAgICAgICAgICAgdmFsIHRhcmdldCA9IEZpbGUoZGVzdCwgZW50cnkubmFtZSkKICAgICAgICAgICAgICAgICAgICBpZiAoIXRhcmdldC5jYW5vbmljYWxQYXRoLnN0YXJ0c1dpdGgoZGVzdFBhdGgpKSB7IGVudHJ5ID0gemlwLm5leHRFbnRyeTsgY29udGludWUgfQogICAgICAgICAgICAgICAgICAgIGlmIChlbnRyeS5pc0RpcmVjdG9yeSkgdGFyZ2V0Lm1rZGlycygpCiAgICAgICAgICAgICAgICAgICAgZWxzZSB7IHRhcmdldC5wYXJlbnRGaWxlPy5ta2RpcnMoKTsgdGFyZ2V0Lm91dHB1dFN0cmVhbSgpLnVzZSB7IHppcC5jb3B5VG8oaXQpIH0gfQogICAgICAgICAgICAgICAgICAgIHppcC5jbG9zZUVudHJ5KCk7IGVudHJ5ID0gemlwLm5leHRFbnRyeQogICAgICAgICAgICAgICAgfQogICAgICAgICAgICB9CiAgICAgICAgfSA/OiBlcnJvcigiQ291bGQgbm90IG9wZW4gdGhlIHNlbGVjdGVkIGZpbGUiKQogICAgfQp9Cg==
+package com.gitofy.app.upload
+
+import android.content.Context
+import android.net.Uri
+import com.gitofy.app.data.TokenStore
+import com.gitofy.app.git.BenchmarkStore
+import com.gitofy.app.git.GitBinary
+import com.gitofy.app.git.GitEngine
+import com.gitofy.app.git.GitProgress
+import com.gitofy.app.git.LfsClient
+import com.gitofy.app.git.TransportBenchmark
+import com.gitofy.app.git.TransportProfiles
+import com.gitofy.app.git.UploadCheckpoint
+import com.gitofy.app.net.NetworkMonitor
+import com.gitofy.app.util.formatSize
+import com.gitofy.app.widget.WidgetState
+import dagger.hilt.android.qualifiers.ApplicationContext
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.coroutineScope
+import kotlinx.serialization.json.Json
+import okhttp3.OkHttpClient
+import java.io.File
+import java.util.zip.ZipInputStream
+import javax.inject.Inject
+import javax.inject.Singleton
+
+/**
+ * The whole push pipeline, extracted so both the UI ([com.gitofy.app.ui.UploadViewModel])
+ * and the background [UploadWorker] run exactly the same code.
+ *
+ * Stages: shallow clone -> extract -> benchmark/tune -> Git LFS -> commit -> push,
+ * with a checkpoint after each stage so a drop (or an app restart) can resume.
+ */
+@Singleton
+class UploadPipeline @Inject constructor(
+    @ApplicationContext private val context: Context,
+    private val tokenStore: TokenStore,
+    private val network: NetworkMonitor,
+    private val http: OkHttpClient,
+    private val json: Json,
+    private val benchmarks: BenchmarkStore,
+) {
+    /** Null when the APK was built without the bundled git binary. */
+    private val binary: GitBinary? by lazy { runCatching { GitBinary.resolve(context) }.getOrNull() }
+    private val lfs = LfsClient(http, json)
+
+    private val lfsThreshold = GitEngine.LARGE_FILE_LIMIT
+    private val benchmarkSampleBytes = 5L * 1024 * 1024
+
+    fun uploadsDir(): File = File(context.filesDir, "uploads").apply { mkdirs() }
+    fun workDir(repo: String): File = File(uploadsDir(), repo)
+
+    suspend fun run(req: UploadRequest, onProgress: (PipelineProgress) -> Unit): UploadOutcome {
+        val git = binary ?: return UploadOutcome.Failure(
+            "This build has no bundled git binary. Build one with tools/build-git-android.sh (or enable 'build_git' in the CI workflow).",
+            false,
+        )
+        val token = tokenStore.token()
+            ?: return UploadOutcome.Failure("Not signed in — no GitHub token.", false)
+
+        val work = workDir(req.repo)
+        var cp: UploadCheckpoint = if (req.resume) {
+            UploadCheckpoint.load(work)
+                ?: UploadCheckpoint(req.owner, req.repo, req.branch, UploadCheckpoint.Stage.NONE, zipUri = req.zipUri)
+        } else {
+            work.deleteRecursively(); UploadCheckpoint.clear(work)
+            UploadCheckpoint(req.owner, req.repo, req.branch, UploadCheckpoint.Stage.NONE, zipUri = req.zipUri)
+        }
+        val zipUri = Uri.parse(req.zipUri)
+
+        return coroutineScope {
+            var netJob: Job? = null
+            try {
+                val net = network.current()
+                val base = TransportProfiles.forNetwork(net.metered, net.upstreamKbps)
+                val profileFlow = MutableStateFlow(base)
+
+                fun emit(phase: GitProgress.Phase, pct: Int?, speed: String?, detail: String) =
+                    onProgress(PipelineProgress(phase, pct, speed, detail, cp.stage.name, cp.lfsDoneBytes, cp.lfsTotalBytes))
+
+                // 1. Shallow clone.
+                if (cp.stage.ordinal < UploadCheckpoint.Stage.CLONED.ordinal) {
+                    emit(GitProgress.Phase.OTHER, 0, null, "Cloning (${base.name} link)…")
+                    GitEngine(git, base).cloneShallow(token, "https://github.com/${req.owner}/${req.repo}.git", work)
+                    cp = cp.copy(stage = UploadCheckpoint.Stage.CLONED); cp.save(UploadCheckpoint.fileFor(work))
+                }
+                if (req.clearFirst) clearWorkingTree(work)
+
+                // 2. Extract.
+                if (cp.stage.ordinal < UploadCheckpoint.Stage.EXTRACTED.ordinal) {
+                    emit(GitProgress.Phase.OTHER, 0, null, "Extracting…")
+                    extractZip(zipUri, work)
+                    cp = cp.copy(stage = UploadCheckpoint.Stage.EXTRACTED); cp.save(UploadCheckpoint.fileFor(work))
+                }
+
+                // 3. Benchmark ~5 MB; record for Settings; pick the profile.
+                val files = work.walkTopDown().filter { it.isFile && !it.path.contains("/.git/") }.toList()
+                val totalBytes = files.sumOf { it.length() }
+                val sample = sampleOf(files, benchmarkSampleBytes)
+                val result = TransportBenchmark.analyze(sample, totalBytes, net.upstreamKbps, base.name)
+                benchmarks.record(result)
+                val level = result.levels.firstOrNull { it.chosen }?.level ?: 6
+                profileFlow.value = base.copy(compression = level)
+                cp = cp.copy(totalBytes = totalBytes); cp.save(UploadCheckpoint.fileFor(work))
+                emit(GitProgress.Phase.OTHER, 0, null, "Tuned: compression $level, pack.window ${profileFlow.value.packWindow} (${base.name} link)")
+
+                // Re-tune on a network switch (Wi-Fi <-> cellular).
+                netJob = launch {
+                    network.changes().collect { info ->
+                        val base2 = TransportProfiles.forNetwork(info.metered, info.upstreamKbps)
+                        val lvl2 = TransportBenchmark.chooseCompression(sample, totalBytes, info.upstreamKbps)
+                        val p2 = base2.copy(compression = lvl2)
+                        if (p2 != profileFlow.value) {
+                            profileFlow.value = p2
+                            emit(GitProgress.Phase.OTHER, null, null, "Network changed → re-tuned: compression $lvl2 (${base2.name} link)")
+                        }
+                    }
+                }
+
+                // 4. Oversized files -> Git LFS (skip already-uploaded, byte progress).
+                if (cp.stage.ordinal < UploadCheckpoint.Stage.LFS.ordinal) {
+                    val big = files.filter { it.length() >= lfsThreshold }
+                    if (big.isNotEmpty()) {
+                        if (!req.useLfs) {
+                            val list = big.take(5).joinToString("\n") { "• ${it.relativeTo(work).path} (${it.length() / (1024 * 1024)} MB)" }
+                            return@coroutineScope UploadOutcome.Failure("Files >= 100 MB need Git LFS (disabled):\n$list", false)
+                        }
+                        val exts = mutableSetOf<String>()
+                        val done = cp.doneOids.toMutableSet()
+                        var doneBytes = cp.lfsDoneBytes
+                        val lfsTotalBytes = big.sumOf { it.length() }
+                        cp = cp.copy(lfsTotalFiles = big.size, lfsTotalBytes = lfsTotalBytes)
+                        for ((i, f) in big.withIndex()) {
+                            val oid = lfs.oidOf(f)
+                            if (oid in done) continue
+                            val total = f.length()
+                            val baseDone = doneBytes
+                            val obj = lfs.upload(req.owner, req.repo, token, f) { sent, size ->
+                                val pct = if (size > 0) ((sent * 100) / size).toInt() else 0
+                                onProgress(
+                                    PipelineProgress(
+                                        GitProgress.Phase.UPLOADING, pct, null,
+                                        "LFS ${i + 1}/${big.size}: ${f.name} — ${formatSize(sent)} / ${formatSize(total)}",
+                                        cp.stage.name, baseDone + sent, lfsTotalBytes,
+                                    ),
+                                )
+                            }
+                            f.writeText(lfs.pointer(obj.oid, obj.size))
+                            f.name.substringAfterLast('.', "").takeIf { it.isNotBlank() }?.let { exts.add(it) }
+                            done.add(obj.oid)
+                            doneBytes += total
+                            cp = cp.copy(doneOids = done.toList(), lfsDoneFiles = done.size, lfsDoneBytes = doneBytes)
+                            cp.save(UploadCheckpoint.fileFor(work))
+                        }
+                        if (exts.isNotEmpty()) appendGitattributes(work, exts)
+                    }
+                    cp = cp.copy(stage = UploadCheckpoint.Stage.LFS); cp.save(UploadCheckpoint.fileFor(work))
+                }
+
+                // 5. Commit + push (retried; each attempt uses the current profile).
+                if (cp.stage.ordinal < UploadCheckpoint.Stage.COMMITTED.ordinal) {
+                    GitEngine(git, profileFlow.value).commitAll(work, req.commitMessage)
+                    cp = cp.copy(stage = UploadCheckpoint.Stage.COMMITTED); cp.save(UploadCheckpoint.fileFor(work))
+                }
+                pushWithRetry(
+                    engineFor = { GitEngine(git, profileFlow.value) },
+                    work = work, token = token, branch = req.branch,
+                    onTick = { p -> onProgress(PipelineProgress(p.phase, p.percent, p.speed, p.raw, cp.stage.name)) },
+                )
+
+                UploadCheckpoint.clear(work)
+                WidgetState.write(context, "${req.owner}/${req.repo}", "Pushed to ${req.branch}")
+                UploadOutcome.Success(req.branch, cp.doneOids.size)
+            } catch (t: Throwable) {
+                cp.save(UploadCheckpoint.fileFor(work))
+                UploadOutcome.Failure(t.message ?: t.javaClass.simpleName, resumable = true)
+            } finally {
+                netJob?.cancel()
+            }
+        }
+    }
+
+    private suspend fun pushWithRetry(
+        engineFor: () -> GitEngine, work: File, token: String, branch: String,
+        onTick: (GitProgress) -> Unit, attempts: Int = 3,
+    ) {
+        var last: Throwable? = null
+        for (i in 1..attempts) {
+            try {
+                engineFor().push(work, token, branch).collect { onTick(it) }
+                return
+            } catch (t: Throwable) {
+                last = t
+                if (i < attempts) { onTick(GitProgress(GitProgress.Phase.OTHER, null, null, null, "Push failed — retrying ($i/$attempts)…")); delay(2000L * i) }
+            }
+        }
+        throw last ?: IllegalStateException("push failed")
+    }
+
+    private fun sampleOf(files: List<File>, maxBytes: Long): ByteArray {
+        val out = java.io.ByteArrayOutputStream()
+        for (f in files) {
+            if (out.size() >= maxBytes) break
+            runCatching {
+                f.inputStream().use { input ->
+                    val buf = ByteArray(64 * 1024)
+                    while (out.size() < maxBytes) {
+                        val n = input.read(buf, 0, minOf(buf.size.toLong(), maxBytes - out.size()).toInt())
+                        if (n <= 0) break
+                        out.write(buf, 0, n)
+                    }
+                }
+            }
+        }
+        return out.toByteArray()
+    }
+
+    private fun clearWorkingTree(dir: File) {
+        dir.listFiles()?.forEach { f -> if (f.name != ".git") f.deleteRecursively() }
+    }
+
+    private fun appendGitattributes(dir: File, exts: Set<String>) {
+        val file = File(dir, ".gitattributes")
+        val existing = if (file.exists()) file.readText() else ""
+        val lines = exts.filter { !existing.contains("*.$it ") }.map { "*.$it filter=lfs diff=lfs merge=lfs -text" }
+        if (lines.isNotEmpty()) {
+            file.writeText(existing + (if (existing.isNotEmpty() && !existing.endsWith("\n")) "\n" else "") + lines.joinToString("\n") + "\n")
+        }
+    }
+
+    private fun extractZip(zipUri: Uri, dest: File) {
+        val destPath = dest.canonicalPath
+        context.contentResolver.openInputStream(zipUri)?.use { input ->
+            ZipInputStream(input).use { zip ->
+                var entry = zip.nextEntry
+                while (entry != null) {
+                    val target = File(dest, entry.name)
+                    if (!target.canonicalPath.startsWith(destPath)) { entry = zip.nextEntry; continue }
+                    if (entry.isDirectory) target.mkdirs()
+                    else { target.parentFile?.mkdirs(); target.outputStream().use { zip.copyTo(it) } }
+                    zip.closeEntry(); entry = zip.nextEntry
+                }
+            }
+        } ?: error("Could not open the selected file")
+    }
+}

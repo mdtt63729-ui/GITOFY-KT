@@ -1,1 +1,162 @@
-bmFtZTogQnVpbGQgc2lnbmVkIEFQSyAod2l0aCBidW5kbGVkIGdpdCkKCiMgQSBzZWNvbmQgc2lnbmVkLUFQSyB3b3JrZmxvdyB0aGF0IEFMU08gY3Jvc3MtY29tcGlsZXMgdGhlIGJ1bmRsZWQgZ2l0IGJpbmFyeSwKIyBzbyB0aGUgcmVzdWx0aW5nIEFQSyBpcyBmdWxseSB3b3JraW5nICh1cGxvYWRzIGluY2x1ZGVkKS4gUnVucyBvbiBwdXNoIHRvIG1haW4KIyBhbmQgb24gZGVtYW5kOyBwcm9kdWNlcyB0aGUgImdpdG9meS1zaWduZWQtZnVsbCIgYXJ0aWZhY3QuCiMKIyBVc2VzIHRoZSBzYW1lIHBlcm1hbmVudCBzaWduaW5nIHNlY3JldHMgY3JlYXRlZCBieSAiQm9vdHN0cmFwIHNpZ25pbmcgc2VjcmV0cyIuCgpvbjoKICB3b3JrZmxvd19kaXNwYXRjaDoKICAgIGlucHV0czoKICAgICAgdmVyc2lvbjoKICAgICAgICBkZXNjcmlwdGlvbjogInZlcnNpb25OYW1lIHRvIHN0YW1wIChlLmcuIDEuMy4wKS4gQmxhbmsgPSB1c2UgYnVpbGQuZ3JhZGxlLiIKICAgICAgICByZXF1aXJlZDogZmFsc2UKICAgICAgICBkZWZhdWx0OiAiIgogICAgICBidWlsZF9naXQ6CiAgICAgICAgZGVzY3JpcHRpb246ICJDcm9zcy1jb21waWxlIHRoZSBidW5kbGVkIGdpdCBiaW5hcnkgKHJlY29tbWVuZGVkKSIKICAgICAgICB0eXBlOiBib29sZWFuCiAgICAgICAgZGVmYXVsdDogdHJ1ZQogIHB1c2g6CiAgICBicmFuY2hlczogWyBtYWluIF0KCnBlcm1pc3Npb25zOgogIGNvbnRlbnRzOiByZWFkCgpqb2JzOgogIGJ1aWxkOgogICAgcnVucy1vbjogdWJ1bnR1LWxhdGVzdAogICAgdGltZW91dC1taW51dGVzOiA5MAogICAgc3RlcHM6CiAgICAgIC0gdXNlczogYWN0aW9ucy9jaGVja291dEB2NAoKICAgICAgLSBuYW1lOiBSZXBhaXIgYmFzZTY0LWVuY29kZWQgc291cmNlIGZpbGVzICh0cmFuc2ZlciBzYWZldHkgbmV0KQogICAgICAgIHJ1bjogfAogICAgICAgICAgcHl0aG9uMyAtIDw8J1BZRU9GJwogICAgICAgICAgaW1wb3J0IGJhc2U2NCwgb3MsIHJlCiAgICAgICAgICB0YXJnZXRzID0gWyJidWlsZC5ncmFkbGUua3RzIiwgInNldHRpbmdzLmdyYWRsZS5rdHMiLCAiZ3JhZGxlLnByb3BlcnRpZXMiLAogICAgICAgICAgICAgICAgICAgICAiZ3JhZGxlL2xpYnMudmVyc2lvbnMudG9tbCIsICJhcHAvYnVpbGQuZ3JhZGxlLmt0cyIsCiAgICAgICAgICAgICAgICAgICAgICJhcHAvc3JjL21haW4vQW5kcm9pZE1hbmlmZXN0LnhtbCJdCiAgICAgICAgICBmb3Igcm9vdCwgXywgZmlsZXMgaW4gb3Mud2FsaygiYXBwL3NyYy9tYWluIik6CiAgICAgICAgICAgICAgZm9yIGZuIGluIGZpbGVzOgogICAgICAgICAgICAgICAgICBpZiBmbi5lbmRzd2l0aCgoIi5rdCIsICIueG1sIikpOgogICAgICAgICAgICAgICAgICAgICAgdGFyZ2V0cy5hcHBlbmQob3MucGF0aC5qb2luKHJvb3QsIGZuKSkKICAgICAgICAgIG1hcmtlcnMgPSAoInBhY2thZ2UgIiwgInBsdWdpbnMgeyIsICJhbmRyb2lkIHsiLCAiW3ZlcnNpb25zXSIsCiAgICAgICAgICAgICAgICAgICAgICI8bWFuaWZlc3QiLCAiPD94bWwiLCAicm9vdFByb2plY3QubmFtZSIsICI8cmVzb3VyY2VzIikKICAgICAgICAgIGI2NCA9IHJlLmNvbXBpbGUociJbQS1aYS16MC05Ky89XHNdKyIpCiAgICAgICAgICBmaXhlZCA9IDAKICAgICAgICAgIGZvciBwIGluIHRhcmdldHM6CiAgICAgICAgICAgICAgaWYgbm90IG9zLnBhdGguZXhpc3RzKHApOgogICAgICAgICAgICAgICAgICBjb250aW51ZQogICAgICAgICAgICAgIHMgPSBvcGVuKHAsICJyYiIpLnJlYWQoKS5kZWNvZGUoInV0Zi04IiwgImlnbm9yZSIpLnN0cmlwKCkKICAgICAgICAgICAgICBpZiBsZW4ocykgPCA0MCBvciBub3QgYjY0LmZ1bGxtYXRjaChzKToKICAgICAgICAgICAgICAgICAgY29udGludWUKICAgICAgICAgICAgICB0cnk6CiAgICAgICAgICAgICAgICAgIGRlYyA9IGJhc2U2NC5iNjRkZWNvZGUocmUuc3ViKHIiXHMrIiwgIiIsIHMpLCB2YWxpZGF0ZT1UcnVlKS5kZWNvZGUoInV0Zi04IikKICAgICAgICAgICAgICBleGNlcHQgRXhjZXB0aW9uOgogICAgICAgICAgICAgICAgICBjb250aW51ZQogICAgICAgICAgICAgIGlmIGFueShtIGluIGRlYyBmb3IgbSBpbiBtYXJrZXJzKToKICAgICAgICAgICAgICAgICAgb3BlbihwLCAidyIpLndyaXRlKGRlYykKICAgICAgICAgICAgICAgICAgZml4ZWQgKz0gMQogICAgICAgICAgICAgICAgICBwcmludCgicmVwYWlyZWQ6IiwgcCkKICAgICAgICAgIHByaW50KCJiYXNlNjQtZW5jb2RlZCBmaWxlcyByZXBhaXJlZDoiLCBmaXhlZCkKICAgICAgICAgIFBZRU9GCgogICAgICAtIG5hbWU6IFNldCB1cCBKREsgMTcKICAgICAgICB1c2VzOiBhY3Rpb25zL3NldHVwLWphdmFAdjQKICAgICAgICB3aXRoOgogICAgICAgICAgZGlzdHJpYnV0aW9uOiB0ZW11cmluCiAgICAgICAgICBqYXZhLXZlcnNpb246ICIxNyIKCiAgICAgIC0gbmFtZTogU2V0IHVwIEFuZHJvaWQgU0RLCiAgICAgICAgcnVuOiB8CiAgICAgICAgICBzZXQgLWUKICAgICAgICAgIFJPT1Q9IiR7QU5EUk9JRF9TREtfUk9PVDotJHtBTkRST0lEX0hPTUU6LX19IgogICAgICAgICAgaWYgWyAteiAiJFJPT1QiIF07IHRoZW4gZWNobyAiOjplcnJvcjo6Tm8gQW5kcm9pZCBTREsgb24gdGhpcyBydW5uZXIiOyBleGl0IDE7IGZpCiAgICAgICAgICBlY2hvICJzZGsuZGlyPSRST09UIiA+IGxvY2FsLnByb3BlcnRpZXMKICAgICAgICAgIGVjaG8gIkFORFJPSURfU0RLX1JPT1Q9JFJPT1QiID4+ICIkR0lUSFVCX0VOViIKICAgICAgICAgIGVjaG8gIkFORFJPSURfSE9NRT0kUk9PVCIgPj4gIiRHSVRIVUJfRU5WIgogICAgICAgICAgQ1Q9IiQobHMgLWQgIiRST09UIi9jbWRsaW5lLXRvb2xzLyovYmluIDI+L2Rldi9udWxsIHwgaGVhZCAtMSB8fCB0cnVlKSIKICAgICAgICAgIGlmIFsgLW4gIiRDVCIgXTsgdGhlbgogICAgICAgICAgICBlY2hvICIkQ1QiID4+ICIkR0lUSFVCX1BBVEgiCiAgICAgICAgICAgIFNNPSIkQ1Qvc2RrbWFuYWdlciIKICAgICAgICAgICAgeWVzIHwgIiRTTSIgLS1saWNlbnNlcyA+IC9kZXYvbnVsbCAyPiYxIHx8IHRydWUKICAgICAgICAgICAgIiRTTSIgInBsYXRmb3JtczthbmRyb2lkLTM0IiAiYnVpbGQtdG9vbHM7MzQuMC4wIiAicGxhdGZvcm0tdG9vbHMiID4gL2Rldi9udWxsIDI+JjEgfHwgdHJ1ZQogICAgICAgICAgZmkKICAgICAgICAgIGVjaG8gIkFuZHJvaWQgU0RLIHJlYWR5IGF0ICRST09UIgoKICAgICAgLSBuYW1lOiBTZXQgdXAgR3JhZGxlCiAgICAgICAgdXNlczogZ3JhZGxlL2FjdGlvbnMvc2V0dXAtZ3JhZGxlQHY0CiAgICAgICAgd2l0aDoKICAgICAgICAgIGdyYWRsZS12ZXJzaW9uOiAiOC45IgoKICAgICAgLSBuYW1lOiBJbnN0YWxsIE5ESwogICAgICAgIGlmOiAke3sgZ2l0aHViLmV2ZW50LmlucHV0cy5idWlsZF9naXQgIT0gJ2ZhbHNlJyB9fQogICAgICAgIHJ1bjogfAogICAgICAgICAgc2RrbWFuYWdlciAibmRrOzI2LjEuMTA5MDkxMjUiCgogICAgICAtIG5hbWU6IEJ1aWxkIGJ1bmRsZWQgZ2l0IGJpbmFyeQogICAgICAgIGlkOiBnaXRidWlsZAogICAgICAgIGlmOiAke3sgZ2l0aHViLmV2ZW50LmlucHV0cy5idWlsZF9naXQgIT0gJ2ZhbHNlJyB9fQogICAgICAgIGNvbnRpbnVlLW9uLWVycm9yOiB0cnVlCiAgICAgICAgcnVuOiB8CiAgICAgICAgICBleHBvcnQgQU5EUk9JRF9OREtfSE9NRT0iJEFORFJPSURfU0RLX1JPT1QvbmRrLzI2LjEuMTA5MDkxMjUiCiAgICAgICAgICBiYXNoIHRvb2xzL2J1aWxkLWdpdC1hbmRyb2lkLnNoIGFybTY0LXY4YQogICAgICAgICAgbHMgLWxoIGFwcC9zcmMvbWFpbi9qbmlMaWJzL2FybTY0LXY4YS8KCiAgICAgIC0gbmFtZTogV2FybiBpZiB0aGUgZ2l0IGJpbmFyeSBkaWQgbm90IGJ1aWxkCiAgICAgICAgaWY6ICR7eyBzdGVwcy5naXRidWlsZC5vdXRjb21lID09ICdmYWlsdXJlJyB9fQogICAgICAgIHJ1bjogZWNobyAiOjp3YXJuaW5nOjpUaGUgYnVuZGxlZCBnaXQgYmluYXJ5IGRpZCBub3QgYnVpbGQ7IHRoZSBBUEsgaXMgc2lnbmVkIGJ1dCB1cGxvYWRzIHdpbGwgYmUgZGlzYWJsZWQuIgoKICAgICAgLSBuYW1lOiBWYWxpZGF0ZSBzaWduaW5nIHNlY3JldHMKICAgICAgICBydW46IHwKICAgICAgICAgIG1pc3Npbmc9MAogICAgICAgICAgZm9yIHMgaW4gQU5EUk9JRF9LRVlTVE9SRV9CQVNFNjQgQU5EUk9JRF9LRVlTVE9SRV9QQVNTV09SRCBBTkRST0lEX0tFWV9BTElBUyBBTkRST0lEX0tFWV9QQVNTV09SRDsgZG8KICAgICAgICAgICAgaWYgWyAteiAiJHshc30iIF07IHRoZW4gZWNobyAiOjplcnJvcjo6TWlzc2luZyBzZWNyZXQgJHMg4oCUIHJ1biB0aGUgQm9vdHN0cmFwIHNpZ25pbmcgd29ya2Zsb3cgZmlyc3QuIjsgbWlzc2luZz0xOyBmaQogICAgICAgICAgZG9uZQogICAgICAgICAgWyAiJG1pc3NpbmciID0gIjAiIF0gfHwgZXhpdCAxCiAgICAgICAgZW52OgogICAgICAgICAgQU5EUk9JRF9LRVlTVE9SRV9CQVNFNjQ6ICR7eyBzZWNyZXRzLkFORFJPSURfS0VZU1RPUkVfQkFTRTY0IH19CiAgICAgICAgICBBTkRST0lEX0tFWVNUT1JFX1BBU1NXT1JEOiAke3sgc2VjcmV0cy5BTkRST0lEX0tFWVNUT1JFX1BBU1NXT1JEIH19CiAgICAgICAgICBBTkRST0lEX0tFWV9BTElBUzogJHt7IHNlY3JldHMuQU5EUk9JRF9LRVlfQUxJQVMgfX0KICAgICAgICAgIEFORFJPSURfS0VZX1BBU1NXT1JEOiAke3sgc2VjcmV0cy5BTkRST0lEX0tFWV9QQVNTV09SRCB9fQoKICAgICAgLSBuYW1lOiBSZXN0b3JlIGtleXN0b3JlCiAgICAgICAgcnVuOiB8CiAgICAgICAgICBlY2hvICIke3sgc2VjcmV0cy5BTkRST0lEX0tFWVNUT1JFX0JBU0U2NCB9fSIgfCBiYXNlNjQgLWQgPiAiJFJVTk5FUl9URU1QL2dpdG9meS5rZXlzdG9yZSIKCiAgICAgIC0gbmFtZTogV3JpdGUgc2lnbmluZy5wcm9wZXJ0aWVzCiAgICAgICAgcnVuOiB8CiAgICAgICAgICBjYXQgPiAiJFJVTk5FUl9URU1QL3NpZ25pbmcucHJvcGVydGllcyIgPDxUWFQKICAgICAgICAgIHN0b3JlRmlsZT0kUlVOTkVSX1RFTVAvZ2l0b2Z5LmtleXN0b3JlCiAgICAgICAgICBzdG9yZVBhc3N3b3JkPSR7eyBzZWNyZXRzLkFORFJPSURfS0VZU1RPUkVfUEFTU1dPUkQgfX0KICAgICAgICAgIGtleUFsaWFzPSR7eyBzZWNyZXRzLkFORFJPSURfS0VZX0FMSUFTIH19CiAgICAgICAgICBrZXlQYXNzd29yZD0ke3sgc2VjcmV0cy5BTkRST0lEX0tFWV9QQVNTV09SRCB9fQogICAgICAgICAgVFhUCiAgICAgICAgICBlY2hvICJTSUdOSU5HX1BST1BFUlRJRVNfRklMRT0kUlVOTkVSX1RFTVAvc2lnbmluZy5wcm9wZXJ0aWVzIiA+PiAiJEdJVEhVQl9FTlYiCgogICAgICAtIG5hbWU6IFN0YW1wIHZlcnNpb24KICAgICAgICBpZjogJHt7IGdpdGh1Yi5ldmVudC5pbnB1dHMudmVyc2lvbiAhPSAnJyB9fQogICAgICAgIHJ1bjogfAogICAgICAgICAgc2VkIC1pIC1FICJzL3ZlcnNpb25OYW1lID0gXCJbXlwiXSpcIi92ZXJzaW9uTmFtZSA9IFwiJHt7IGdpdGh1Yi5ldmVudC5pbnB1dHMudmVyc2lvbiB9fVwiLyIgYXBwL2J1aWxkLmdyYWRsZS5rdHMKICAgICAgICAgIHNlZCAtaSAtRSAicy92ZXJzaW9uQ29kZSA9IFswLTldKy92ZXJzaW9uQ29kZSA9ICR7R0lUSFVCX1JVTl9OVU1CRVJ9LyIgYXBwL2J1aWxkLmdyYWRsZS5rdHMKICAgICAgICAgIGdyZXAgLW5FICJ2ZXJzaW9uTmFtZXx2ZXJzaW9uQ29kZSIgYXBwL2J1aWxkLmdyYWRsZS5rdHMKCiAgICAgIC0gbmFtZTogQnVpbGQgc2lnbmVkIHJlbGVhc2UgQVBLCiAgICAgICAgcnVuOiBncmFkbGUgOmFwcDphc3NlbWJsZVJlbGVhc2UgLS1uby1kYWVtb24gLS1zdGFja3RyYWNlCgogICAgICAtIG5hbWU6IFZlcmlmeSB0aGUgQVBLIGlzIHNpZ25lZAogICAgICAgIHJ1bjogfAogICAgICAgICAgQlQ9IiQobHMgLWQgIiRBTkRST0lEX1NES19ST09UIi9idWlsZC10b29scy8qIHwgc29ydCAtViB8IHRhaWwgLTEpIgogICAgICAgICAgc2hvcHQgLXMgbnVsbGdsb2IKICAgICAgICAgIGZvciBhcGsgaW4gYXBwL2J1aWxkL291dHB1dHMvYXBrL3JlbGVhc2UvKi5hcGs7IGRvCiAgICAgICAgICAgIGVjaG8gIlZlcmlmeWluZyAkYXBrIgogICAgICAgICAgICAiJEJUL2Fwa3NpZ25lciIgdmVyaWZ5IC0tdmVyYm9zZSAiJGFwayIKICAgICAgICAgIGRvbmUKCiAgICAgIC0gbmFtZTogVXBsb2FkIHNpZ25lZCBBUEsKICAgICAgICB1c2VzOiBhY3Rpb25zL3VwbG9hZC1hcnRpZmFjdEB2NAogICAgICAgIHdpdGg6CiAgICAgICAgICBuYW1lOiBnaXRvZnktc2lnbmVkLWZ1bGwKICAgICAgICAgIHBhdGg6IGFwcC9idWlsZC9vdXRwdXRzL2Fway9yZWxlYXNlLyouYXBrCiAgICAgICAgICBpZi1uby1maWxlcy1mb3VuZDogZXJyb3IK
+name: Build signed APK (with bundled git)
+
+# A second signed-APK workflow that ALSO cross-compiles the bundled git binary,
+# so the resulting APK is fully working (uploads included). Runs on push to main
+# and on demand; produces the "gitofy-signed-full" artifact.
+#
+# Uses the same permanent signing secrets created by "Bootstrap signing secrets".
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "versionName to stamp (e.g. 1.3.0). Blank = use build.gradle."
+        required: false
+        default: ""
+      build_git:
+        description: "Cross-compile the bundled git binary (recommended)"
+        type: boolean
+        default: true
+  push:
+    branches: [ main ]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Repair base64-encoded source files (transfer safety net)
+        run: |
+          python3 - <<'PYEOF'
+          import base64, os, re
+          targets = ["build.gradle.kts", "settings.gradle.kts", "gradle.properties",
+                     "gradle/libs.versions.toml", "app/build.gradle.kts",
+                     "app/src/main/AndroidManifest.xml"]
+          for root, _, files in os.walk("app/src/main"):
+              for fn in files:
+                  if fn.endswith((".kt", ".xml")):
+                      targets.append(os.path.join(root, fn))
+          markers = ("package ", "plugins {", "android {", "[versions]",
+                     "<manifest", "<?xml", "rootProject.name", "<resources")
+          b64 = re.compile(r"[A-Za-z0-9+/=\s]+")
+          fixed = 0
+          for p in targets:
+              if not os.path.exists(p):
+                  continue
+              s = open(p, "rb").read().decode("utf-8", "ignore").strip()
+              if len(s) < 40 or not b64.fullmatch(s):
+                  continue
+              try:
+                  dec = base64.b64decode(re.sub(r"\s+", "", s), validate=True).decode("utf-8")
+              except Exception:
+                  continue
+              if any(m in dec for m in markers):
+                  open(p, "w").write(dec)
+                  fixed += 1
+                  print("repaired:", p)
+          print("base64-encoded files repaired:", fixed)
+          PYEOF
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Set up Android SDK
+        run: |
+          set -e
+          ROOT="${ANDROID_SDK_ROOT:-${ANDROID_HOME:-}}"
+          if [ -z "$ROOT" ]; then echo "::error::No Android SDK on this runner"; exit 1; fi
+          echo "sdk.dir=$ROOT" > local.properties
+          echo "ANDROID_SDK_ROOT=$ROOT" >> "$GITHUB_ENV"
+          echo "ANDROID_HOME=$ROOT" >> "$GITHUB_ENV"
+          CT="$(ls -d "$ROOT"/cmdline-tools/*/bin 2>/dev/null | head -1 || true)"
+          if [ -n "$CT" ]; then
+            echo "$CT" >> "$GITHUB_PATH"
+            SM="$CT/sdkmanager"
+            yes | "$SM" --licenses > /dev/null 2>&1 || true
+            "$SM" "platforms;android-34" "build-tools;34.0.0" "platform-tools" > /dev/null 2>&1 || true
+          fi
+          echo "Android SDK ready at $ROOT"
+
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: "8.9"
+
+      - name: Install NDK
+        if: ${{ github.event.inputs.build_git != 'false' }}
+        run: |
+          sdkmanager "ndk;26.1.10909125"
+
+      - name: Build bundled git binary
+        id: gitbuild
+        if: ${{ github.event.inputs.build_git != 'false' }}
+        continue-on-error: true
+        run: |
+          export ANDROID_NDK_HOME="$ANDROID_SDK_ROOT/ndk/26.1.10909125"
+          bash tools/build-git-android.sh arm64-v8a
+          ls -lh app/src/main/jniLibs/arm64-v8a/
+
+      - name: Warn if the git binary did not build
+        if: ${{ steps.gitbuild.outcome == 'failure' }}
+        run: echo "::warning::The bundled git binary did not build; the APK is signed but uploads will be disabled."
+
+      - name: Validate signing secrets
+        run: |
+          missing=0
+          for s in ANDROID_KEYSTORE_BASE64 ANDROID_KEYSTORE_PASSWORD ANDROID_KEY_ALIAS ANDROID_KEY_PASSWORD; do
+            if [ -z "${!s}" ]; then echo "::error::Missing secret $s — run the Bootstrap signing workflow first."; missing=1; fi
+          done
+          [ "$missing" = "0" ] || exit 1
+        env:
+          ANDROID_KEYSTORE_BASE64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+          ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          ANDROID_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
+          ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
+
+      - name: Restore keystore
+        run: |
+          echo "${{ secrets.ANDROID_KEYSTORE_BASE64 }}" | base64 -d > "$RUNNER_TEMP/gitofy.keystore"
+
+      - name: Write signing.properties
+        run: |
+          cat > "$RUNNER_TEMP/signing.properties" <<TXT
+          storeFile=$RUNNER_TEMP/gitofy.keystore
+          storePassword=${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          keyAlias=${{ secrets.ANDROID_KEY_ALIAS }}
+          keyPassword=${{ secrets.ANDROID_KEY_PASSWORD }}
+          TXT
+          echo "SIGNING_PROPERTIES_FILE=$RUNNER_TEMP/signing.properties" >> "$GITHUB_ENV"
+
+      - name: Stamp version
+        if: ${{ github.event.inputs.version != '' }}
+        run: |
+          sed -i -E "s/versionName = \"[^\"]*\"/versionName = \"${{ github.event.inputs.version }}\"/" app/build.gradle.kts
+          sed -i -E "s/versionCode = [0-9]+/versionCode = ${GITHUB_RUN_NUMBER}/" app/build.gradle.kts
+          grep -nE "versionName|versionCode" app/build.gradle.kts
+
+      - name: Build signed release APK
+        run: gradle :app:assembleRelease --no-daemon --stacktrace
+
+      - name: Verify the APK is signed
+        run: |
+          BT="$(ls -d "$ANDROID_SDK_ROOT"/build-tools/* | sort -V | tail -1)"
+          shopt -s nullglob
+          for apk in app/build/outputs/apk/release/*.apk; do
+            echo "Verifying $apk"
+            "$BT/apksigner" verify --verbose "$apk"
+          done
+
+      - name: Upload signed APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: gitofy-signed-full
+          path: app/build/outputs/apk/release/*.apk
+          if-no-files-found: error
