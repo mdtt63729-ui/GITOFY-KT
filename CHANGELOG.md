@@ -2,6 +2,14 @@
 
 The app version and the delivered zip name are bumped together on every update.
 
+## v1.3.2 — Fix: package namespace (build-breaking)
+- The application namespace/package was `com.gitofy.native`, which Android rejects:
+  **`native` is a Java keyword**, so AGP fails with
+  "Namespace 'com.gitofy.native' is not a valid Java package name".
+- Renamed the whole project to **`com.gitofy.app`**: `namespace`, `applicationId`,
+  every `package`/`import` and the source directory tree. 105 references updated,
+  none left.
+
 ## v1.3.1 — CI fix: Android SDK setup
 - The **Set up Android SDK** step no longer uses `android-actions/setup-android@v3`
   (it was failing on the runner). It now uses the SDK that is already installed on

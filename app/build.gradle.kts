@@ -21,7 +21,7 @@ val hasReleaseSigning: Boolean = if (signingPropsFile != null && file(signingPro
 } else false
 
 android {
-    namespace = "com.gitofy.native"
+    namespace = "com.gitofy.app"
     compileSdk = 34
 
     // Values come from signing.properties only; nothing is hard-coded here.
@@ -37,11 +37,11 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.gitofy.native"
+        applicationId = "com.gitofy.app"
         minSdk = 26
         targetSdk = 34
-        versionCode = 14
-        versionName = "1.3.1"   // CI fix: use the runner SDK instead of the failing setup-android action
+        versionCode = 15
+        versionName = "1.3.2"   // fix: namespace com.gitofy.app (native is a Java keyword)
     }
 
     splits {
