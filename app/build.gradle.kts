@@ -40,8 +40,8 @@ android {
         applicationId = "com.gitofy.app"
         minSdk = 26
         targetSdk = 34
-        versionCode = 40
-        versionName = "1.6.0"   // M3 FabMenu blur + liquid nav + content-only page transitions + workflow drill-down
+        versionCode = 41
+        versionName = "1.6.1"   // fix animateColorAsState import + slideInVertically spec type
     }
 
     splits {

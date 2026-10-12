@@ -8,6 +8,7 @@ import androidx.compose.animation.fadeOut
 import androidx.compose.animation.scaleIn
 import androidx.compose.animation.slideInVertically
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.unit.IntOffset
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
@@ -65,19 +66,20 @@ fun GitofyNavHost(
     // replaced. No horizontal slide, so a page change reads as the content animating
     // in — not the whole screen being shoved sideways.
     val screenIn = tween<Float>(420, easing = CubicBezierEasing(0.22f, 0.92f, 0.28f, 1f))
+    val screenInOffset = tween<IntOffset>(420, easing = CubicBezierEasing(0.22f, 0.92f, 0.28f, 1f))
     val screenOut = tween<Float>(160, easing = FastOutSlowInEasing)
     NavHost(
         navController = navController,
         startDestination = startRoute,
         enterTransition = {
             fadeIn(screenIn) +
-                slideInVertically(screenIn) { (it * 0.03f).toInt() } +
+                slideInVertically(screenInOffset) { (it * 0.03f).toInt() } +
                 scaleIn(screenIn, initialScale = 0.986f)
         },
         exitTransition = { fadeOut(screenOut) },
         popEnterTransition = {
             fadeIn(screenIn) +
-                slideInVertically(screenIn) { (it * 0.03f).toInt() } +
+                slideInVertically(screenInOffset) { (it * 0.03f).toInt() } +
                 scaleIn(screenIn, initialScale = 0.986f)
         },
         popExitTransition = { fadeOut(screenOut) },

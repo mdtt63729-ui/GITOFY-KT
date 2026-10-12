@@ -2,6 +2,13 @@
 
 The app version and the delivered zip name are bumped together on every update.
 
+## v1.6.1 — Build fix
+- `animateColorAsState` was imported from `androidx.compose.animation.core`, but it
+  lives in `androidx.compose.animation` — moved the import in AppShell.kt and
+  HomeScreen.kt (this was the "Unresolved reference" failure).
+- `slideInVertically` needs a `FiniteAnimationSpec<IntOffset>`, not the `Float` tween
+  used for fade/scale — added a dedicated `tween<IntOffset>` for the page-rise offset.
+
 ## v1.6.0 — Real M3 FAB menu, transparent nav, content-only transitions, workflow drill-down
 - **FabMenu** rebuilt to match the web app exactly: a 28%-black scrim paired with a
   real **backdrop blur** (18dp) of the page content — no more solid black. Pills are
