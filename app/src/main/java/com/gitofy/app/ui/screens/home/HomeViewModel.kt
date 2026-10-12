@@ -2,8 +2,10 @@ package com.gitofy.app.ui.screens.home
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.gitofy.app.data.TokenStore
 import com.gitofy.app.domain.RepoRepository
 import com.gitofy.app.model.Repository
+import com.gitofy.app.settings.SettingsStore
 import com.gitofy.app.ui.state.UiState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -13,13 +15,33 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class HomeViewModel @Inject constructor(private val repo: RepoRepository) : ViewModel() {
+class HomeViewModel @Inject constructor(
+    private val repo: RepoRepository,
+    private val tokenStore: TokenStore,
+    settings: SettingsStore,
+) : ViewModel() {
+
     private val _state = MutableStateFlow<UiState<List<Repository>>>(UiState.Loading)
     val state: StateFlow<UiState<List<Repository>>> = _state.asStateFlow()
 
-    init { refresh() }
+    private val _hasToken = MutableStateFlow(!tokenStore.token().isNullOrBlank())
+    val hasToken: StateFlow<Boolean> = _hasToken.asStateFlow()
+
+    private val _username = MutableStateFlow("")
+    val username: StateFlow<String> = _username.asStateFlow()
+
+    private val _avatarUrl = MutableStateFlow("")
+    val avatarUrl: StateFlow<String> = _avatarUrl.asStateFlow()
+
+    init {
+        refresh()
+        viewModelScope.launch {
+            settings.settings.collect { s -> _username.value = s.githubUsername; _avatarUrl.value = s.avatarUrl }
+        }
+    }
 
     fun refresh() = viewModelScope.launch {
+        _hasToken.value = !tokenStore.token().isNullOrBlank()
         _state.value = UiState.Loading
         runCatching { repo.refresh() }
             .onSuccess { _state.value = UiState.Content(it) }

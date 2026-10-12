@@ -29,4 +29,11 @@ class SettingsViewModel @Inject constructor(
     fun setReduceMotion(v: Boolean) = viewModelScope.launch { store.setReduceMotion(v) }
     fun setFlagSecure(v: Boolean) = viewModelScope.launch { store.setFlagSecure(v) }
     fun setDefaultBranch(v: String) = viewModelScope.launch { store.setDefaultBranch(v) }
+    fun setHaptics(v: Boolean) = viewModelScope.launch { store.setHaptics(v) }
+    fun setAutoHideNav(v: Boolean) = viewModelScope.launch { store.setAutoHideNav(v) }
+    fun setDefaultVisibility(v: String) = viewModelScope.launch { store.setDefaultVisibility(v) }
+    fun setStripRootFolder(v: Boolean) = viewModelScope.launch { store.setStripRootFolder(v) }
+    fun setAppLockMode(v: String) = viewModelScope.launch { store.setAppLockMode(v) }
+    fun setFontFamily(v: String) = viewModelScope.launch { store.setFontFamily(v) }
+    fun setUiDensity(v: String) = viewModelScope.launch { store.setUiDensity(v) }
 }

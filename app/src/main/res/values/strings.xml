@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <string name="app_name">Gitofy</string>
+
     <string name="app_tagline">Fast, secure GitHub login — no secret in the app.</string>
     <string name="login_title">Login with GitHub</string>
     <string name="login_subtitle">Sign in with GitHub to manage your repositories.</string>

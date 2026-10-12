@@ -25,6 +25,8 @@ sealed interface UploadState {
         val percent: Int?,
         val speed: String?,
         val detail: String,
+        val doneBytes: Long = 0,
+        val totalBytes: Long = 0,
     ) : UploadState
     data class Done(val branch: String, val lfsFiles: Int) : UploadState
     data class Failed(val message: String, val resumable: Boolean) : UploadState
@@ -89,7 +91,7 @@ class UploadViewModel @Inject constructor(
     private fun run(req: UploadRequest) {
         viewModelScope.launch {
             val outcome = pipeline.run(req) { p ->
-                _state.value = UploadState.Running(p.phase, p.percent, p.speed, p.detail)
+                _state.value = UploadState.Running(p.phase, p.percent, p.speed, p.detail, p.doneBytes, p.totalBytes)
             }
             _state.value = when (outcome) {
                 is UploadOutcome.Success -> UploadState.Done(outcome.branch, outcome.lfsFiles)

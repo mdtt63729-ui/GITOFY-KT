@@ -1,7 +1,8 @@
 package com.gitofy.app.ui.navigation
 
 import androidx.compose.animation.AnimatedContentTransitionScope
-import androidx.compose.animation.core.tween
+import androidx.compose.animation.core.Spring
+import androidx.compose.animation.core.spring
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.runtime.Composable
@@ -56,21 +57,28 @@ fun GitofyNavHost(
     startRoute: String = Routes.HOME,
     navController: NavHostController = rememberNavController(),
 ) {
-    val dur = 300
+    val slide = spring<androidx.compose.ui.unit.IntOffset>(
+        dampingRatio = Spring.DampingRatioNoBouncy,
+        stiffness = Spring.StiffnessMediumLow,
+    )
+    val fade = spring<Float>(
+        dampingRatio = Spring.DampingRatioNoBouncy,
+        stiffness = Spring.StiffnessMediumLow,
+    )
     NavHost(
         navController = navController,
         startDestination = startRoute,
         enterTransition = {
-            slideIntoContainer(AnimatedContentTransitionScope.SlideDirection.Start, tween(dur)) + fadeIn(tween(dur))
+            slideIntoContainer(AnimatedContentTransitionScope.SlideDirection.Start, slide) + fadeIn(fade)
         },
         exitTransition = {
-            slideOutOfContainer(AnimatedContentTransitionScope.SlideDirection.Start, tween(dur)) + fadeOut(tween(dur))
+            slideOutOfContainer(AnimatedContentTransitionScope.SlideDirection.Start, slide) + fadeOut(fade)
         },
         popEnterTransition = {
-            slideIntoContainer(AnimatedContentTransitionScope.SlideDirection.End, tween(dur)) + fadeIn(tween(dur))
+            slideIntoContainer(AnimatedContentTransitionScope.SlideDirection.End, slide) + fadeIn(fade)
         },
         popExitTransition = {
-            slideOutOfContainer(AnimatedContentTransitionScope.SlideDirection.End, tween(dur)) + fadeOut(tween(dur))
+            slideOutOfContainer(AnimatedContentTransitionScope.SlideDirection.End, slide) + fadeOut(fade)
         },
     ) {
         val back: () -> Unit = { navController.popBackStack() }
@@ -89,10 +97,10 @@ fun GitofyNavHost(
                 onNavigate = go,
             )
         }
-        composable(Routes.INBOX) { InboxScreen(back) }
+        composable(Routes.INBOX) { InboxScreen(back, onNavigate = go) }
         composable(Routes.GISTS) { GistsScreen(back) }
         composable(Routes.GLOBAL_SEARCH) { GlobalSearchScreen(back) }
-        composable(Routes.SETTINGS) { SettingsScreen(back) }
+        composable(Routes.SETTINGS) { SettingsScreen(back, onNavigate = go) }
         composable(Routes.GITHUB_SETTINGS) { GitHubSettingsScreen(back, onSignedOut = { navController.navigate(Routes.LOGIN) }) }
         composable(Routes.ERROR_LOG) { ErrorLogScreen(back) }
         composable(Routes.APP_STORE) { AppStoreScreen(back) }

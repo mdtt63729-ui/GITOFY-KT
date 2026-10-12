@@ -3,6 +3,7 @@ package com.gitofy.app.ui.theme
 import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.SpringSpec
 import androidx.compose.animation.core.spring
+import androidx.compose.ui.unit.IntOffset
 
 /**
  * Material 3 motion primitives.
@@ -34,4 +35,16 @@ object GitofyMotion {
     /** Nav transitions: shared axis durations (ms). */
     const val NAV_ENTER_MS = 300
     const val NAV_EXIT_MS = 250
+
+    /** Content change (tab switches, size changes): smooth, no bounce. */
+    val contentChange: SpringSpec<Float> = spring(
+        dampingRatio = Spring.DampingRatioNoBouncy,
+        stiffness = Spring.StiffnessMediumLow,
+    )
+
+    /** List item placement (insert / remove / reorder): gentle. */
+    val listItem: SpringSpec<IntOffset> = spring(
+        dampingRatio = Spring.DampingRatioNoBouncy,
+        stiffness = Spring.StiffnessMediumLow,
+    )
 }

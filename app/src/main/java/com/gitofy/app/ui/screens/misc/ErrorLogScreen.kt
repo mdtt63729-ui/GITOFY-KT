@@ -5,6 +5,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Terminal
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -34,7 +36,12 @@ fun ErrorLogScreen(onBack: () -> Unit, vm: ErrorLogViewModel = hiltViewModel()) 
     val entries by vm.entries.collectAsStateWithLifecycle()
     Scaffold(topBar = { GitofyTopBar("Error log", onBack) }) { padding ->
         if (entries.isEmpty()) {
-            EmptyState("No logs", "Diagnostics from this session appear here.", modifier = Modifier.fillMaxSize().padding(padding))
+            EmptyState(
+                "Nothing logged",
+                "That is the good outcome.",
+                icon = Icons.Filled.Terminal,
+                modifier = Modifier.fillMaxSize().padding(padding),
+            )
         } else {
             LazyColumn(Modifier.fillMaxSize().padding(padding), contentPadding = PaddingValues(12.dp)) {
                 items(entries) { e ->

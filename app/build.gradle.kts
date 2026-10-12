@@ -40,8 +40,8 @@ android {
         applicationId = "com.gitofy.app"
         minSdk = 26
         targetSdk = 34
-        versionCode = 19
-        versionName = "1.3.6"   // fix: WorkManager foreground service type (lint)
+        versionCode = 32
+        versionName = "1.5.2"   // shrink app icon (4K -> 512) so the source zip/APK is small
     }
 
     splits {

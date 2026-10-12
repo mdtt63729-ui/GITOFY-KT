@@ -2,6 +2,155 @@
 
 The app version and the delivered zip name are bumped together on every update.
 
+## v1.5.2 — Icon optimised (much smaller zip / APK)
+- The bundled app icon was a **4096x4096 PNG (2.34 MB)** — it alone was ~87% of the
+  source zip. Downscaled to **512x512** (the adaptive-icon foreground only needs
+  108dp, i.e. 432px at xxxhdpi). Same icon, ~40 KB instead of 2.3 MB.
+
+## v1.5.1 — FloatingNav liquid stretch + working FAB menu + auto-hide
+- **FloatingNav** now uses the original's **two-edge spring**: on a tab change the
+  leading edge springs first and the trailing edge follows ~90 ms later, so the
+  highlight *stretches* between Home and Inbox (liquid feel), with a spring
+  scale on the selected icon and a haptic tick on tap.
+- **FAB menu** — tapping the FAB reliably opens/closes it (the + rotates 45°
+  with a spring, the four pills stagger in with fade + slide + scale over a
+  scrim). It also auto-collapses when the FAB is hidden.
+- **Auto-hide on scroll** — the floating nav and the FAB slide out when you scroll
+  down and bounce back when you scroll up or reach the top (Home + Inbox), the
+  original app's behaviour.
+
+## v1.5.0 — Smoother animations
+- **Navigation** transitions are now **spring-based** (no-bounce, medium-low
+  stiffness) instead of linear tweens, so page slides/fades feel natural.
+- **List items** animate in/out and on reorder: `Modifier.animateItem()` on the
+  Home repo cards, Issues, Gists and Commits lists.
+- **Tab switches crossfade** with `AnimatedContent` on the Repo dashboard
+  (Overview / Releases & APKs) and Global search (Repositories / Code).
+- **Upload flow** progress card uses `animateContentSize()`, so it grows/shrinks
+  smoothly as phases and stats change.
+- `GitofyMotion` gained `contentChange` and `listItem` spring specs.
+
+## v1.4.9 — App lock + sheets parity (UI parity pass complete)
+- **App lock** (`AppLockScreen.tsx`): the lock badge, "Unlock Gitofy", "Confirm
+  your identity to continue.", Unlock, and "Could not verify. Try again." on error.
+- **Sheets**: `CreateRepoSheet` (name / description / Private), `RepoPickerSheet`
+  (repo rows with avatars), `AccountSwitcherSheet` (account rows with avatars +
+  "Use another account").
+- With this, every user-facing screen has been reworked toward the original web
+  app's design (Home, Inbox, Repo dashboard, Upload flow, Workflows, Issues,
+  Gists, Search, Release, Repo settings, Branches, Code, Commits, Run detail,
+  Login, Settings, Onboarding, sheets) plus the app icon.
+
+## v1.4.8 — Run detail + Repo action + Login diagnostics parity
+- **Workflow run detail** (`WorkflowRunDetailScreen.tsx`): a run summary card, a
+  "View live log" button, the **JOBS** list with steps, a **"GitHub log ·
+  adaptive tail"** card (last ~40 lines, monospace) with a highlighted **First
+  error**, and Download / Share actions in the top bar.
+- **Repo action result** (`RepoActionResultScreen.tsx`): a centred "**Complete**"
+  screen with a check badge.
+- **Login diagnostics** (`LoginDiagnosticsScreen.tsx`): a **Funnel** of diagnostic
+  rows (client id, signed in, transport, secret in app, token storage) and the
+  approve-only-your-own-code notice.
+
+## v1.4.7 — Repo code (file browser) + Commits parity
+- **Repo code** (`RepoCodeScreen.tsx`): a **breadcrumb** ("root / a / b"), a
+  folder/file list (folders drill in), and a file action sheet with **Open**
+  (github.com blob), **Download** (raw) and **Edit**, plus "This folder is empty."
+- **Commits** (`RepoCommitsScreen.tsx`): a commit list with author avatar, first
+  line of the message, short SHA + author + relative time, a Refresh action and
+  "No commits found."
+
+## v1.4.6 — Onboarding + Multi-repo upload parity
+- **Onboarding** (`OnboardingScreen.tsx`): a 5-slide pager with the original's
+  slides — "Welcome to Gitofy", "Smart Diff & ZIP push", "Releases & APK
+  downloads", "Workflows & live logs", "Secure by design" — each with its icon,
+  body and three bullet points, a dot indicator, Skip and Next / Get started.
+- **Multi-repo upload** (`MultiRepoUploadScreen.tsx`): the "Send to more
+  repositories" header, a ZIP picker, a **Commit message** field, a multi-select
+  list of your repositories, and a "Send to N repositories" button that pushes the
+  ZIP to each selected repo.
+
+## v1.4.5 — Error log + Release creator + Repo settings + Branch manager parity
+- **Error log** (`ErrorLogScreen.tsx`): "Error log" header, "Nothing logged" /
+  "That is the good outcome." empty state, monospace entries.
+- **Release creator** (`ReleaseCreatorScreen.tsx`): "New release" header, Tag /
+  title / notes fields, an **Attach a file** button, the **Draft** ("Save it
+  without publishing.") and **Pre-release** ("Mark it as not ready for everyone.")
+  switches, Create.
+- **Repo settings** (`RepoSettingsScreen.tsx`): **General** (name, description,
+  private), **Default branch**, and **Danger zone** (Archive this repository +
+  Delete repository) sections.
+- **Branch manager** (`BranchManagerScreen.tsx`): "Branches" header with Refresh +
+  New branch (sheet), per-branch **Default** badge, **Rename** and **Delete**,
+  "No branches found."
+
+## v1.4.4 — Workflows + Gists + Search + Issues parity
+- **Workflows** (`WorkflowsScreen.tsx`): a "GitHub Actions" header, a **Target
+  Branch** field, a workflow list with a **Run** button (dispatch) and a **Recent
+  Runs** list.
+- **Gists** (`GistsScreen.tsx`): "Gists" header + "Your GitHub snippets", a **New
+  gist** sheet (description, file name, content, a **Public gist** toggle with
+  "Anyone can find it. Off keeps it secret.", Cancel/Create) and per-gist Delete.
+- **Global search** (`GlobalSearchScreen.tsx`): the **Search** header with a query
+  field and **Repositories / Code** tabs (repo cards, code hits with repo · path).
+- **Issues** (`IssuesScreen.tsx`): a **New issue** sheet (title/description,
+  Cancel/Create) and a **Merge** action on pull requests.
+
+## v1.4.3 — Upload flow parity
+- `M3UploadFlowScreen` rebuilt to match `M3UploadFlowScreen.tsx`: the Repository /
+  Branch fields, the Pick-ZIP and Push buttons, the **pipeline stepper**
+  (Reading archive → Extracting files → Indexing & hashing → Comparing with
+  GitHub → Ready) with done/active dots, a live phase label + progress bar, a
+  stats card (Data Size, Network Speed), the Pending-uploads list with byte-level
+  resume, "Cancel upload", and "Your local ZIP file is safe."
+- `UploadState.Running` now carries `doneBytes` / `totalBytes` (from the pipeline)
+  so the flow can show Data Size.
+
+## v1.4.2 — Login + Settings parity
+- **Login** rebuilt to match `login/LoginScreen.tsx`: the GitHub-mark tile
+  (primary-container, rounded), the title/subtitle/tagline, the **"Login with a
+  Personal Access Token"** outlined capsule + the **or** divider + the filled
+  **"Log in with GitHub"** button, the device-code card, the Privacy · Terms row,
+  and the PAT bottom sheet (token field + "Create a token on GitHub" link). Added
+  the GitHub mark as `res/drawable/ic_github.xml`.
+- **Settings** rebuilt to match `SettingsScreen.tsx`'s sections: Appearance
+  (Theme / M3 Accent Palette / Font / UI Density), Behaviour (Haptics / Reduce
+  Motion / Auto-Hide Nav / Language), Repositories (Default Branch / Default
+  Visibility / Strip root folder), Security (App Lock / FLAG_SECURE), GitHub
+  (OAuth Client ID / PAT / account), More (Gists / Search / Error log), Upload
+  tuning (benchmark chart), and Danger zone (Sign out). `SettingsStore` gained the
+  matching keys/setters.
+
+## v1.4.1 — App icon + RepoDashboard parity
+- **App icon added** (was missing): copied the full icon set from the original
+  repo — `mipmap-*/ic_launcher(.png/_round.png)`, the adaptive icon
+  (`mipmap-anydpi-v26/ic_launcher.xml` + `drawable/icon_adaptive_background.xml`
+  + `drawable/icon_adaptive_foreground.xml`), and `drawable-nodpi/gitofy_icon.png`.
+  The manifest now sets `android:icon`, `android:roundIcon` and
+  `android:label="@string/app_name"` (`app_name` = Gitofy).
+- **Repo dashboard** rebuilt to match `RepoDashboardScreen.tsx`: top bar (back,
+  repo name, open-on-GitHub, a "more" menu with Share / Branches / Issues & PRs /
+  New release / Repository settings / Delete content), the **Overview /
+  Releases & APKs** sliding tab switcher, an overview header card (full_name in
+  primary mono, big name, description, stat chips) + action rows, and a releases
+  tab listing tags with the APK asset name.
+
+## v1.4.0 — UI parity: the app shell + Home/Inbox
+Rebuilding the screens to match the original web app's design (started).
+- New `ui/components/AppShell.kt`:
+  - **FloatingNav** — the floating pill bottom navigation (Home / Inbox) with the
+    sliding "liquid" indicator and an unread badge, ported from `FloatingNav.tsx`.
+  - **FabMenu** — the expandable FAB with a scrim and four labelled pills
+    (Upload project / Update repo / Create repo / Delete repo), ported from
+    `FabMenu.tsx`.
+- **Home** rebuilt to match `HomeScreen.tsx`: the large app bar with the **Gitofy
+  wordmark** (primary) + "@user · N repositories" subtitle + search / refresh /
+  settings icons + account avatar, the **"Connect your GitHub Account"** PAT card,
+  the **All / Private / Public / Pinned** filter chips, and the repo cards
+  (avatar, name, Private/Public chip, description, language dot + branch + stars).
+  It now uses the FloatingNav + FabMenu.
+- **Inbox** now uses the same FloatingNav and header style.
+
 ## v1.3.6 — Fix: release build lint error (foreground service type)
 - CI reached `packageRelease` (Kotlin compiled clean, APK assembled) but
   `lintVitalRelease` failed on the single error **SpecifyForegroundServiceType**:
