@@ -40,8 +40,8 @@ android {
         applicationId = "com.gitofy.app"
         minSdk = 26
         targetSdk = 34
-        versionCode = 50
-        versionName = "1.7.0"   // account avatar, skeleton fade, no-ripple taps, faster+bouncier motion
+        versionCode = 51
+        versionName = "1.7.1"   // fix positional GitofyTopBar(actions) call after adding the avatar param
     }
 
     splits {

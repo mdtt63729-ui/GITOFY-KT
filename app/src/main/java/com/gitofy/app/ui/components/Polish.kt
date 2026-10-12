@@ -222,7 +222,7 @@ fun <T> PolishedList(
     header: @Composable () -> Unit = {},
     row: @Composable (T) -> Unit,
 ) {
-    androidx.compose.material3.Scaffold(topBar = { GitofyTopBar(title, onBack, actions) }) { padding ->
+    androidx.compose.material3.Scaffold(topBar = { GitofyTopBar(title, onBack, actions = actions) }) { padding ->
         Column(Modifier.fillMaxSize().padding(padding)) {
             header()
             when (state) {

@@ -2,6 +2,13 @@
 
 The app version and the delivered zip name are bumped together on every update.
 
+## v1.7.1 — Build fix
+- Adding the `avatar` parameter to `GitofyTopBar` shifted its positional parameters, and
+  one call site (`Polish.kt`'s generic list scaffold) still passed `actions` positionally,
+  so the composable lambda landed in the new `Boolean` slot. Changed it to
+  `GitofyTopBar(title, onBack, actions = actions)`. All other call sites already used
+  named `actions =` or only two positional args.
+
 ## v1.7.0 — Account avatar, skeleton fade, clean taps, snappier motion
 - **GitHub account avatar**: the top-right "U" is now the real GitHub account icon.
   A new `AccountViewModel` reads the cached login/avatar from DataStore and, if it is
