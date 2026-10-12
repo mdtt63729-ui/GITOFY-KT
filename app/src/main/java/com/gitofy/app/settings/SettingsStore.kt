@@ -34,11 +34,7 @@ class SettingsStore @Inject constructor(
         val avatarUrl = stringPreferencesKey("avatarUrl")
         val appLockMode = stringPreferencesKey("appLockMode")
         val flagSecure = booleanPreferencesKey("flagSecure")
-        val haptics = booleanPreferencesKey("haptics")
         val autoHideNav = booleanPreferencesKey("autoHideNav")
-        val defaultVisibility = stringPreferencesKey("defaultVisibility")
-        val stripRootFolder = booleanPreferencesKey("stripRootFolder")
-        val appLockMode = stringPreferencesKey("appLockMode")
         val githubClientId = stringPreferencesKey("githubClientId")
         val fontFamily = stringPreferencesKey("fontFamily")
         val uiDensity = stringPreferencesKey("uiDensity")
@@ -61,11 +57,7 @@ class SettingsStore @Inject constructor(
             avatarUrl = p[K.avatarUrl] ?: d.avatarUrl,
             appLockMode = p[K.appLockMode] ?: d.appLockMode,
             flagSecure = p[K.flagSecure] ?: d.flagSecure,
-            haptics = p[K.haptics] ?: d.haptics,
             autoHideNav = p[K.autoHideNav] ?: d.autoHideNav,
-            defaultVisibility = p[K.defaultVisibility] ?: d.defaultVisibility,
-            stripRootFolder = p[K.stripRootFolder] ?: d.stripRootFolder,
-            appLockMode = p[K.appLockMode] ?: d.appLockMode,
             githubClientId = p[K.githubClientId] ?: d.githubClientId,
             fontFamily = p[K.fontFamily] ?: d.fontFamily,
             uiDensity = p[K.uiDensity] ?: d.uiDensity,

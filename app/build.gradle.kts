@@ -40,8 +40,8 @@ android {
         applicationId = "com.gitofy.app"
         minSdk = 26
         targetSdk = 34
-        versionCode = 32
-        versionName = "1.5.2"   // shrink app icon (4K -> 512) so the source zip/APK is small
+        versionCode = 33
+        versionName = "1.5.3"   // fix duplicate declarations in SettingsStore (build was failing)
     }
 
     splits {

@@ -2,6 +2,13 @@
 
 The app version and the delivered zip name are bumped together on every update.
 
+## v1.5.3 — Build fix: duplicate declarations in SettingsStore
+- `SettingsStore.kt` had duplicated lines in the `K` key object and in the
+  `settings` copy(...) call (e.g. `appLockMode`, `haptics`, `defaultVisibility`,
+  `stripRootFolder` appeared twice). Kotlin rejected them as *Conflicting
+  declarations* / *Argument already passed*, failing `:app:compileReleaseKotlin`.
+  Removed the duplicates (kept `autoHideNav`, which was new). Build compiles again.
+
 ## v1.5.2 — Icon optimised (much smaller zip / APK)
 - The bundled app icon was a **4096x4096 PNG (2.34 MB)** — it alone was ~87% of the
   source zip. Downscaled to **512x512** (the adaptive-icon foreground only needs
