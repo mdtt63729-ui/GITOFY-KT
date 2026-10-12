@@ -77,4 +77,10 @@ class SettingsStore @Inject constructor(
     suspend fun setAppLockMode(v: String) = dataStore.edit { it[K.appLockMode] = v }
     suspend fun setFontFamily(v: String) = dataStore.edit { it[K.fontFamily] = v }
     suspend fun setUiDensity(v: String) = dataStore.edit { it[K.uiDensity] = v }
+
+    /** Cache the signed-in GitHub account so every top bar can show its avatar. */
+    suspend fun setGithubIdentity(login: String, avatar: String) = dataStore.edit {
+        it[K.githubUsername] = login
+        it[K.avatarUrl] = avatar
+    }
 }

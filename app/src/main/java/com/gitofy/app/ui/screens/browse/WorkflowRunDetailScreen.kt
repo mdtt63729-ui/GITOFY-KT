@@ -8,13 +8,21 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Autorenew
+import androidx.compose.material.icons.filled.Cancel
+import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.Download
+import androidx.compose.material.icons.filled.RemoveCircleOutline
 import androidx.compose.material.icons.filled.Share
+import androidx.compose.material.icons.outlined.Circle
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -27,9 +35,12 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.ViewModel
@@ -37,6 +48,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewModelScope
 import com.gitofy.app.data.remote.GitHubApiService
 import com.gitofy.app.data.remote.dto.JobDto
+import com.gitofy.app.data.remote.dto.StepDto
 import com.gitofy.app.model.WorkflowRun
 import com.gitofy.app.ui.components.ErrorState
 import com.gitofy.app.ui.components.GitofyTopBar
@@ -117,16 +129,27 @@ fun WorkflowRunDetailScreen(owner: String, repo: String, runId: Long, onBack: ()
                 Text("JOBS", style = MaterialTheme.typography.labelMedium, color = MaterialTheme.colorScheme.primary, fontWeight = FontWeight.Bold)
                 jobs.forEach { job ->
                     Surface(
-                        shape = RoundedCornerShape(16.dp),
-                        color = MaterialTheme.colorScheme.surfaceContainer,
-                        modifier = Modifier.fillMaxWidth().clickable { onOpenJob(job.id) },
+                        shape = RoundedCornerShape(20.dp),
+                        color = MaterialTheme.colorScheme.surfaceContainerLow,
+                        border = BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant),
+                        modifier = Modifier.fillMaxWidth(),
                     ) {
-                        Column(Modifier.padding(14.dp), verticalArrangement = Arrangement.spacedBy(3.dp)) {
-                            Text(job.name, style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.SemiBold)
-                            Text("${job.status} ${job.conclusion ?: ""}", style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
-                            job.steps.forEach { step ->
-                                Text("• ${step.number}. ${step.name} — ${step.conclusion ?: step.status}", style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                        Column(Modifier.padding(16.dp)) {
+                            Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+                                val (jIcon, jTint) = statusIcon(job.status, job.conclusion)
+                                Icon(jIcon, contentDescription = null, tint = jTint, modifier = Modifier.size(20.dp))
+                                Column(Modifier.weight(1f)) {
+                                    Text(job.name, style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.Bold, maxLines = 1, overflow = TextOverflow.Ellipsis)
+                                    Text(
+                                        job.status + (job.conclusion?.let { " · $it" } ?: ""),
+                                        style = MaterialTheme.typography.labelSmall,
+                                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                                    )
+                                }
+                                OutlinedButton(onClick = { onOpenJob(job.id) }, shape = RoundedCornerShape(50)) { Text("Log") }
                             }
+                            if (job.steps.isNotEmpty()) Spacer(Modifier.height(4.dp))
+                            job.steps.forEach { step -> StepRow(step) }
                         }
                     }
                 }
@@ -154,4 +177,39 @@ fun WorkflowRunDetailScreen(owner: String, repo: String, runId: Long, onBack: ()
             }
         }
     }
+}
+
+@Composable
+private fun StepRow(step: StepDto) {
+    val (icon, tint) = statusIcon(step.status, step.conclusion)
+    Row(
+        Modifier.fillMaxWidth().padding(vertical = 7.dp),
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.spacedBy(12.dp),
+    ) {
+        Icon(icon, contentDescription = null, tint = tint, modifier = Modifier.size(20.dp))
+        Column(Modifier.weight(1f)) {
+            Text(
+                step.name,
+                style = MaterialTheme.typography.bodyMedium.copy(fontFamily = FontFamily.Monospace),
+                fontWeight = FontWeight.Medium,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
+            )
+            Text(
+                step.conclusion ?: step.status,
+                style = MaterialTheme.typography.labelSmall,
+                color = if (step.conclusion == "failure") MaterialTheme.colorScheme.error else MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+        }
+    }
+}
+
+@Composable
+private fun statusIcon(status: String, conclusion: String?): Pair<ImageVector, Color> = when {
+    conclusion == "success" -> Icons.Filled.CheckCircle to MaterialTheme.colorScheme.primary
+    conclusion == "failure" || conclusion == "timed_out" || conclusion == "cancelled" -> Icons.Filled.Cancel to MaterialTheme.colorScheme.error
+    conclusion == "skipped" -> Icons.Filled.RemoveCircleOutline to MaterialTheme.colorScheme.onSurfaceVariant
+    status == "in_progress" || status == "queued" -> Icons.Filled.Autorenew to MaterialTheme.colorScheme.tertiary
+    else -> Icons.Outlined.Circle to MaterialTheme.colorScheme.onSurfaceVariant
 }

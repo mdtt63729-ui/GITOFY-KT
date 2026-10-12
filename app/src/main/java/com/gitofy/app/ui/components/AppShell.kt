@@ -19,11 +19,13 @@ import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.navigationBars
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -32,6 +34,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.widthIn
+import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -122,12 +125,12 @@ fun FloatingNav(
                 }
                 val leading by animateFloatAsState(
                     targetValue = if (leadingTab == NavTab.HOME) 0f else 1f,
-                    animationSpec = spring(dampingRatio = 0.5f, stiffness = Spring.StiffnessLow),
+                    animationSpec = spring(dampingRatio = 0.42f, stiffness = Spring.StiffnessMedium),
                     label = "leading",
                 )
                 val trailing by animateFloatAsState(
                     targetValue = if (trailingTab == NavTab.HOME) 0f else 1f,
-                    animationSpec = spring(dampingRatio = 0.6f, stiffness = Spring.StiffnessMediumLow),
+                    animationSpec = spring(dampingRatio = 0.52f, stiffness = Spring.StiffnessMedium),
                     label = "trailing",
                 )
                 val leftFrac = minOf(leading, trailing)
@@ -186,12 +189,12 @@ private fun NavButton(
     val iconAlpha by animateFloatAsState(if (selected) 1f else 0.72f, tween(200), label = "navAlpha")
     val labelWidth by animateDpAsState(
         if (selected) 80.dp else 0.dp,
-        tween(240, easing = MenuOpenEase), label = "navLabelW",
+        tween(200, easing = MenuOpenEase), label = "navLabelW",
     )
     val labelAlpha by animateFloatAsState(if (selected) 1f else 0f, tween(200), label = "navLabelA")
 
     Row(
-        modifier = modifier.fillMaxSize().clip(RoundedCornerShape(50)).clickable(onClick = onClick),
+        modifier = modifier.fillMaxSize().clip(RoundedCornerShape(50)).pressClickable(onClick = onClick),
         horizontalArrangement = Arrangement.Center,
         verticalAlignment = Alignment.CenterVertically,
     ) {
@@ -249,23 +252,23 @@ fun FabMenu(
     LaunchedEffect(visible) { if (!visible && expanded) onToggle() }
 
     val shown = visible || expanded
+    // Only a layout offset here. Wrapping the menu in Modifier.alpha/scale puts the
+    // FAB's elevation shadow inside a graphics layer, which renders as a grey square
+    // behind the round button — so the slide-in uses offset alone.
     val containerOffset by animateDpAsState(if (shown) 0.dp else 104.dp, tween(if (shown) 380 else 220), label = "fabX")
-    val containerScale by animateFloatAsState(if (shown) 1f else 0.9f, tween(if (shown) 380 else 220, easing = NavBounceEase), label = "fabScale")
-    val containerAlpha by animateFloatAsState(if (shown) 1f else 0f, tween(220), label = "fabA")
 
     Box(modifier) {
         // Backdrop scrim (the blur itself is applied to the content by the host).
         AnimatedVisibility(expanded, enter = fadeIn(tween(280)), exit = fadeOut(tween(180))) {
-            Box(Modifier.fillMaxSize().background(Color.Black.copy(alpha = 0.28f)).clickable { onToggle() })
+            Box(Modifier.fillMaxSize().background(Color.Black.copy(alpha = 0.28f)).pressClickable { onToggle() })
         }
 
         Column(
             modifier = Modifier
                 .align(Alignment.BottomEnd)
+                .windowInsetsPadding(WindowInsets.navigationBars)
                 .padding(end = 20.dp, bottom = 100.dp)
-                .offset(x = containerOffset)
-                .scale(containerScale)
-                .alpha(containerAlpha),
+                .offset(x = containerOffset),
             horizontalAlignment = Alignment.End,
             verticalArrangement = Arrangement.spacedBy(10.dp),
         ) {
@@ -277,9 +280,9 @@ fun FabMenu(
                 val closeDelay = (items.size - 1 - index) * 25
                 AnimatedVisibility(
                     visible = expanded,
-                    enter = fadeIn(tween(300, delayMillis = openDelay)) +
-                        slideInVertically(tween(300, delayMillis = openDelay, easing = MenuOpenEase)) { (index + 1) * 36 } +
-                        scaleIn(tween(300, delayMillis = openDelay, easing = MenuOpenEase), initialScale = 0.65f),
+                    enter = fadeIn(tween(240, delayMillis = openDelay)) +
+                        slideInVertically(tween(240, delayMillis = openDelay, easing = MenuOpenEase)) { (index + 1) * 36 } +
+                        scaleIn(tween(240, delayMillis = openDelay, easing = MenuOpenEase), initialScale = 0.65f),
                     exit = fadeOut(tween(180, delayMillis = closeDelay, easing = MenuCloseEase)) +
                         scaleOut(tween(180, delayMillis = closeDelay, easing = MenuCloseEase), targetScale = 0.65f),
                 ) {
@@ -304,19 +307,19 @@ private fun FabButton(expanded: Boolean, onToggle: () -> Unit) {
         if (expanded) MaterialTheme.colorScheme.onPrimary else MaterialTheme.colorScheme.onPrimaryContainer,
         tween(240), label = "fabFg",
     )
-    val plusRot by animateFloatAsState(if (expanded) 90f else 0f, tween(220, easing = FabEase), label = "plusRot")
-    val plusAlpha by animateFloatAsState(if (expanded) 0f else 1f, tween(220, easing = FabEase), label = "plusA")
-    val plusScale by animateFloatAsState(if (expanded) 0.6f else 1f, tween(220, easing = FabEase), label = "plusS")
-    val closeRot by animateFloatAsState(if (expanded) 0f else (-90f), tween(220, easing = FabEase), label = "closeRot")
-    val closeAlpha by animateFloatAsState(if (expanded) 1f else 0f, tween(220, easing = FabEase), label = "closeA")
-    val closeScale by animateFloatAsState(if (expanded) 1f else 0.6f, tween(220, easing = FabEase), label = "closeS")
+    val plusRot by animateFloatAsState(if (expanded) 90f else 0f, tween(180, easing = FabEase), label = "plusRot")
+    val plusAlpha by animateFloatAsState(if (expanded) 0f else 1f, tween(180, easing = FabEase), label = "plusA")
+    val plusScale by animateFloatAsState(if (expanded) 0.6f else 1f, tween(180, easing = FabEase), label = "plusS")
+    val closeRot by animateFloatAsState(if (expanded) 0f else (-90f), tween(180, easing = FabEase), label = "closeRot")
+    val closeAlpha by animateFloatAsState(if (expanded) 1f else 0f, tween(180, easing = FabEase), label = "closeA")
+    val closeScale by animateFloatAsState(if (expanded) 1f else 0.6f, tween(180, easing = FabEase), label = "closeS")
 
     Surface(
         shape = RoundedCornerShape(radius),
         color = bg,
         border = BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant),
         shadowElevation = if (expanded) 18.dp else 14.dp,
-        modifier = Modifier.size(56.dp).clickable {
+        modifier = Modifier.size(56.dp).pressClickable {
             haptics.performHapticFeedback(HapticFeedbackType.LongPress)
             onToggle()
         },
@@ -341,7 +344,7 @@ private fun FabPill(item: FabItem, onClick: () -> Unit) {
         color = item.container,
         border = BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant),
         shadowElevation = 6.dp,
-        modifier = Modifier.height(56.dp).clickable(onClick = onClick),
+        modifier = Modifier.height(56.dp).pressClickable(onClick = onClick),
     ) {
         Row(
             Modifier.padding(start = 18.dp, end = 20.dp).fillMaxHeight(),

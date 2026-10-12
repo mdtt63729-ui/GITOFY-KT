@@ -1,7 +1,7 @@
 package com.gitofy.app.ui.screens.browse
 
 import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.clickable
+import com.gitofy.app.ui.components.pressClickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -150,7 +150,7 @@ fun WorkflowsScreen(
                                 shape = RoundedCornerShape(18.dp),
                                 color = MaterialTheme.colorScheme.surfaceContainer,
                                 border = BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant),
-                                modifier = Modifier.fillMaxWidth().clickable { onOpenWorkflow(w.id, w.name) },
+                                modifier = Modifier.fillMaxWidth().pressClickable { onOpenWorkflow(w.id, w.name) },
                             ) {
                                 Row(Modifier.padding(14.dp), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(10.dp)) {
                                     Icon(Icons.Filled.PlayArrow, null, tint = MaterialTheme.colorScheme.primary)
@@ -216,7 +216,7 @@ private fun RunRow(r: WorkflowRun, onClick: () -> Unit) {
         shape = RoundedCornerShape(16.dp),
         color = MaterialTheme.colorScheme.surfaceContainerLow,
         border = BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant),
-        modifier = Modifier.fillMaxWidth().clickable(onClick = onClick),
+        modifier = Modifier.fillMaxWidth().pressClickable(onClick = onClick),
     ) {
         Row(Modifier.padding(14.dp), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(10.dp)) {
             StatusDot(r.status, r.conclusion)

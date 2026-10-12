@@ -1,6 +1,7 @@
 package com.gitofy.app.ui.screens.browse
 
 import android.content.Intent
+import com.gitofy.app.ui.components.pressClickable
 import android.net.Uri
 import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.core.animateFloatAsState
@@ -9,7 +10,6 @@ import androidx.compose.animation.fadeOut
 import androidx.compose.animation.togetherWith
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
@@ -69,6 +69,7 @@ import androidx.lifecycle.viewModelScope
 import com.gitofy.app.data.remote.GitHubApiService
 import com.gitofy.app.model.GitHubRelease
 import com.gitofy.app.model.Repository
+import com.gitofy.app.ui.components.AccountAvatar
 import com.gitofy.app.ui.components.ErrorState
 import com.gitofy.app.ui.components.SkeletonList
 import com.gitofy.app.ui.navigation.Routes
@@ -131,6 +132,7 @@ fun RepoDashboardScreen(
                     repo, style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold,
                     maxLines = 1, overflow = TextOverflow.Ellipsis, modifier = Modifier.weight(1f),
                 )
+                AccountAvatar(size = 30.dp, modifier = Modifier.padding(end = 4.dp))
                 IconButton(onClick = {
                     val url = (s as? UiState.Content)?.data?.htmlUrl
                     if (!url.isNullOrBlank()) runCatching { context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url))) }
@@ -202,7 +204,7 @@ private fun TabSwitcher(selected: Int, onSelect: (Int) -> Unit) {
 
 @Composable
 private fun TabButton(label: String, active: Boolean, onClick: () -> Unit, modifier: Modifier) {
-    Box(modifier.fillMaxSize().clip(RoundedCornerShape(12.dp)).clickable(onClick = onClick), contentAlignment = Alignment.Center) {
+    Box(modifier.fillMaxSize().clip(RoundedCornerShape(12.dp)).pressClickable(onClick = onClick), contentAlignment = Alignment.Center) {
         Text(
             label,
             color = if (active) MaterialTheme.colorScheme.onPrimary else MaterialTheme.colorScheme.onSurface,
@@ -327,7 +329,7 @@ private fun DashboardButton(
     Surface(
         shape = RoundedCornerShape(50),
         color = container,
-        modifier = modifier.height(48.dp).clickable(onClick = onClick),
+        modifier = modifier.height(48.dp).pressClickable(onClick = onClick),
     ) {
         Row(
             Modifier.fillMaxSize().padding(horizontal = 14.dp),
@@ -352,7 +354,7 @@ private fun ActionRow(label: String, onClick: () -> Unit) {
     Surface(
         shape = RoundedCornerShape(16.dp),
         color = MaterialTheme.colorScheme.surfaceContainer,
-        modifier = Modifier.fillMaxWidth().clickable(onClick = onClick),
+        modifier = Modifier.fillMaxWidth().pressClickable(onClick = onClick),
     ) {
         Text(label, style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.SemiBold, modifier = Modifier.padding(16.dp))
     }

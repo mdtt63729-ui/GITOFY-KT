@@ -1,14 +1,20 @@
 package com.gitofy.app.ui.screens.home
 
 import androidx.compose.foundation.BorderStroke
+import com.gitofy.app.ui.components.pressClickable
 import androidx.compose.foundation.background
+import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.animateColorAsState
+import androidx.compose.animation.core.FastOutSlowInEasing
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.togetherWith
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.spring
 import androidx.compose.animation.core.tween
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
@@ -17,7 +23,10 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.navigationBars
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.statusBars
+import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
@@ -106,18 +115,32 @@ fun HomeScreen(
     }
 
     Box(Modifier.fillMaxSize()) {
-        Column(Modifier.fillMaxSize().blur(if (fabOpen) 18.dp else 0.dp)) {
+        Column(
+            Modifier
+                .fillMaxSize()
+                .windowInsetsPadding(WindowInsets.statusBars)
+                .blur(if (fabOpen) 18.dp else 0.dp),
+        ) {
                 HomeAppBar(
                     username = username,
                     repoCount = (s as? UiState.Content)?.data?.size ?: 0,
-                    onSearch = { onNavigate(Routes.APP_STORE) },
+                    onSearch = { onNavigate(Routes.GLOBAL_SEARCH) },
                     onRefresh = { vm.refresh() },
                     onSettings = { onNavigate(Routes.SETTINGS) },
                     onAccounts = { onNavigate(Routes.GITHUB_SETTINGS) },
                     avatarUrl = avatarUrl,
                 )
 
-                when (val st = s) {
+                // Skeleton -> content cross-fades so the loaded list appears smoothly.
+                AnimatedContent(
+                    targetState = s,
+                    contentKey = { it::class },
+                    transitionSpec = {
+                        fadeIn(tween(240, easing = FastOutSlowInEasing)) togetherWith fadeOut(tween(140))
+                    },
+                    label = "homeContent",
+                ) { st ->
+                when (st) {
                     is UiState.Loading -> SkeletonList(modifier = Modifier.fillMaxSize())
                     is UiState.Error -> ErrorState(st.message, onRetry = { vm.refresh() }, modifier = Modifier.fillMaxSize())
                     is UiState.Content -> {
@@ -152,9 +175,10 @@ fun HomeScreen(
                         }
                     }
                 }
+                }
             }
 
-        Box(Modifier.align(Alignment.BottomCenter).padding(bottom = 14.dp)) {
+        Box(Modifier.align(Alignment.BottomCenter).windowInsetsPadding(WindowInsets.navigationBars).padding(bottom = 14.dp)) {
             FloatingNav(
                 current = NavTab.HOME,
                 onSelect = { if (it == NavTab.INBOX) onNavigate(Routes.INBOX) },
@@ -216,7 +240,7 @@ private fun HomeAppBar(
             AppBarIcon(Icons.Filled.Search, "Search", onSearch)
             AppBarIcon(Icons.Filled.Refresh, "Refresh", onRefresh)
             AppBarIcon(Icons.Filled.Settings, "Settings", onSettings)
-            Box(Modifier.padding(start = 6.dp).clip(CircleShape).clickable { onAccounts() }) {
+            Box(Modifier.padding(start = 6.dp).clip(CircleShape).pressClickable { onAccounts() }) {
                 Avatar(avatarUrl.ifBlank { null }, username.ifBlank { "U" }, size = 36.dp)
             }
         }
@@ -228,7 +252,7 @@ private fun AppBarIcon(icon: androidx.compose.ui.graphics.vector.ImageVector, la
     Surface(
         color = androidx.compose.ui.graphics.Color.Transparent,
         shape = CircleShape,
-        modifier = Modifier.size(40.dp).clickable(onClick = onClick),
+        modifier = Modifier.size(40.dp).pressClickable(onClick = onClick),
     ) {
         Box(contentAlignment = Alignment.Center) {
             Icon(icon, contentDescription = label, tint = MaterialTheme.colorScheme.onSurfaceVariant, modifier = Modifier.size(22.dp))
@@ -243,22 +267,22 @@ private fun FilterRow(selected: RepoFilter, onSelect: (RepoFilter) -> Unit) {
             val active = selected == f
             val bg by animateColorAsState(
                 if (active) MaterialTheme.colorScheme.secondaryContainer else MaterialTheme.colorScheme.surfaceContainerHigh,
-                tween(220), label = "chipBg",
+                tween(170), label = "chipBg",
             )
             val fg by animateColorAsState(
                 if (active) MaterialTheme.colorScheme.onSecondaryContainer else MaterialTheme.colorScheme.onSurfaceVariant,
-                tween(220), label = "chipFg",
+                tween(170), label = "chipFg",
             )
             val border by animateColorAsState(
                 if (active) MaterialTheme.colorScheme.secondary else MaterialTheme.colorScheme.outlineVariant,
-                tween(220), label = "chipBorder",
+                tween(170), label = "chipBorder",
             )
             val scale by animateFloatAsState(if (active) 1f else 0.97f, spring(dampingRatio = 0.5f), label = "chipScale")
             Surface(
                 shape = RoundedCornerShape(50),
                 color = bg,
                 border = BorderStroke(1.dp, border),
-                modifier = Modifier.scale(scale).clip(RoundedCornerShape(50)).clickable { onSelect(f) },
+                modifier = Modifier.scale(scale).clip(RoundedCornerShape(50)).pressClickable { onSelect(f) },
             ) {
                 Text(
                     f.label,
@@ -298,7 +322,7 @@ private fun ConnectGitHubCard(onSetToken: () -> Unit) {
             Surface(
                 shape = RoundedCornerShape(50),
                 color = MaterialTheme.colorScheme.primary,
-                modifier = Modifier.clickable { onSetToken() },
+                modifier = Modifier.pressClickable { onSetToken() },
             ) {
                 Text(
                     "Set GitHub Token (PAT)",
@@ -316,7 +340,7 @@ private fun RepoCard(repo: Repository, onClick: () -> Unit) {
     Surface(
         shape = RoundedCornerShape(24.dp),
         color = MaterialTheme.colorScheme.surfaceContainer,
-        modifier = Modifier.fillMaxWidth().clickable(onClick = onClick),
+        modifier = Modifier.fillMaxWidth().pressClickable(onClick = onClick),
     ) {
         Row(Modifier.padding(14.dp), horizontalArrangement = Arrangement.spacedBy(12.dp)) {
             Avatar(repo.owner?.avatarUrl, repo.ownerLogin, size = 44.dp)

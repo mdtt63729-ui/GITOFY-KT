@@ -1,7 +1,7 @@
 package com.gitofy.app.ui.screens.misc
 
 import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.clickable
+import com.gitofy.app.ui.components.pressClickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
@@ -173,7 +173,7 @@ private fun ChipRow(title: String, options: List<Pair<String, String>>, selected
 @Composable
 private fun NavRow(title: String, subtitle: String, danger: Boolean = false, onClick: () -> Unit) {
     Row(
-        Modifier.fillMaxWidth().clickable(onClick = onClick),
+        Modifier.fillMaxWidth().pressClickable(onClick = onClick),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Column(Modifier.weight(1f)) {

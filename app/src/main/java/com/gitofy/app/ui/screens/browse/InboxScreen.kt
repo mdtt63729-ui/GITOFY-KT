@@ -1,13 +1,23 @@
 package com.gitofy.app.ui.screens.browse
 
+import androidx.compose.animation.AnimatedContent
+import androidx.compose.animation.core.FastOutSlowInEasing
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.togetherWith
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.navigationBars
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.statusBars
+import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
@@ -84,7 +94,7 @@ fun InboxScreen(onBack: () -> Unit, onNavigate: (String) -> Unit = {}, vm: Inbox
             }
     }
     Box(Modifier.fillMaxSize()) {
-        Column(Modifier.fillMaxSize()) {
+        Column(Modifier.fillMaxSize().windowInsetsPadding(WindowInsets.statusBars)) {
             Text(
                 "Inbox",
                 color = MaterialTheme.colorScheme.primary,
@@ -92,7 +102,15 @@ fun InboxScreen(onBack: () -> Unit, onNavigate: (String) -> Unit = {}, vm: Inbox
                 fontSize = 26.sp,
                 modifier = Modifier.padding(start = 20.dp, top = 14.dp, bottom = 6.dp),
             )
-            when (val st = s) {
+            AnimatedContent(
+                targetState = s,
+                contentKey = { it::class },
+                transitionSpec = {
+                    fadeIn(tween(240, easing = FastOutSlowInEasing)) togetherWith fadeOut(tween(140))
+                },
+                label = "inboxContent",
+            ) { st ->
+            when (st) {
                 is UiState.Loading -> SkeletonList(modifier = Modifier.fillMaxSize())
                 is UiState.Error -> ErrorState(st.message, onRetry = { vm.load() }, modifier = Modifier.fillMaxSize())
                 is UiState.Content ->
@@ -124,9 +142,10 @@ fun InboxScreen(onBack: () -> Unit, onNavigate: (String) -> Unit = {}, vm: Inbox
                         }
                     }
             }
+            }
         }
 
-        Box(Modifier.align(Alignment.BottomCenter).padding(bottom = 14.dp)) {
+        Box(Modifier.align(Alignment.BottomCenter).windowInsetsPadding(WindowInsets.navigationBars).padding(bottom = 14.dp)) {
             FloatingNav(current = NavTab.INBOX, onSelect = { if (it == NavTab.HOME) onNavigate(Routes.HOME) }, visible = navVisible)
         }
     }

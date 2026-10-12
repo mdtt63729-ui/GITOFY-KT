@@ -1,7 +1,7 @@
 package com.gitofy.app.ui.screens.sheets
 
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import com.gitofy.app.ui.components.pressClickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -57,7 +57,7 @@ fun RepoPickerSheet(repos: List<String>, onDismiss: () -> Unit, onPick: (String)
             Text("Pick a repository", style = MaterialTheme.typography.titleLarge, fontWeight = FontWeight.Bold)
             repos.take(40).forEach { r ->
                 Row(
-                    Modifier.fillMaxWidth().clickable { onPick(r) }.padding(vertical = 10.dp),
+                    Modifier.fillMaxWidth().pressClickable { onPick(r) }.padding(vertical = 10.dp),
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.spacedBy(12.dp),
                 ) {
@@ -82,7 +82,7 @@ fun AccountSwitcherSheet(
             Text("Accounts", style = MaterialTheme.typography.titleLarge, fontWeight = FontWeight.Bold)
             accounts.forEach { (login, avatar) ->
                 Row(
-                    Modifier.fillMaxWidth().clickable { onPick(login) }.padding(vertical = 10.dp),
+                    Modifier.fillMaxWidth().pressClickable { onPick(login) }.padding(vertical = 10.dp),
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.spacedBy(12.dp),
                 ) {
@@ -94,7 +94,7 @@ fun AccountSwitcherSheet(
                 }
             }
             Surface(
-                Modifier.fillMaxWidth().clickable { onUseAnother() },
+                Modifier.fillMaxWidth().pressClickable { onUseAnother() },
                 color = MaterialTheme.colorScheme.surfaceContainerHigh,
             ) {
                 Text(

@@ -2,6 +2,35 @@
 
 The app version and the delivered zip name are bumped together on every update.
 
+## v1.7.0 — Account avatar, skeleton fade, clean taps, snappier motion
+- **GitHub account avatar**: the top-right "U" is now the real GitHub account icon.
+  A new `AccountViewModel` reads the cached login/avatar from DataStore and, if it is
+  missing, fetches `GET /user` once and caches it. Home loads it too, and every screen
+  that uses `GitofyTopBar` now shows the account avatar (repo screens included).
+- **Skeleton → content fade**: Home and Inbox wrap their state in an `AnimatedContent`
+  keyed by the state type, so the loaded list cross-fades in smoothly after the skeleton.
+- **No more grey box on tap**: Compose's default ripple is not clipped to a rounded
+  shape, so it drew a grey rectangle behind pills/cards. Every custom-tappable surface
+  now uses `Modifier.pressClickable` (no indication), matching the web app's press-scale.
+- **Search fixed**: the Home search button opened the App Store screen; it now opens the
+  real Global Search.
+- **Faster, bouncier motion**: nav indicator springs are tighter and bouncier, the
+  selected label expands faster, FAB pills/rotate are quicker, filter chips animate in
+  170 ms, and page transitions dropped from 420 ms to 300 ms.
+
+## v1.6.2 — FAB shadow artifact, status-bar inset, GitHub-style steps
+- **FAB square artifact**: the FAB menu container used `Modifier.alpha()` + `Modifier.scale()`,
+  which put the FAB's elevation shadow inside a graphics layer and made it render as a grey
+  square behind the round button. The slide-in now uses a plain `Modifier.offset` — no layer,
+  no square.
+- **Status bar**: Home and Inbox no longer use a Scaffold (they were rebuilt as a Box stack in
+  v1.6.0), so they lost the system-bar inset and the UI sat under the status bar. Added
+  `windowInsetsPadding(statusBars)` to the content and `navigationBars` to the nav + FAB.
+- **Job steps** now render GitHub-style: each step is a row with a status icon
+  (green check / red cross / grey skip / spinner) + the step name in monospace + its status,
+  instead of a numbered `• 1. name — status` list inside a box. The job header keeps a
+  status icon and a "Log" button.
+
 ## v1.6.1 — Build fix
 - `animateColorAsState` was imported from `androidx.compose.animation.core`, but it
   lives in `androidx.compose.animation` — moved the import in AppShell.kt and

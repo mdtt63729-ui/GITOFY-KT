@@ -65,9 +65,9 @@ fun GitofyNavHost(
     // rises 16px and scales from 0.986 while fading in; the outgoing screen is just
     // replaced. No horizontal slide, so a page change reads as the content animating
     // in — not the whole screen being shoved sideways.
-    val screenIn = tween<Float>(420, easing = CubicBezierEasing(0.22f, 0.92f, 0.28f, 1f))
-    val screenInOffset = tween<IntOffset>(420, easing = CubicBezierEasing(0.22f, 0.92f, 0.28f, 1f))
-    val screenOut = tween<Float>(160, easing = FastOutSlowInEasing)
+    val screenIn = tween<Float>(300, easing = CubicBezierEasing(0.22f, 0.92f, 0.28f, 1f))
+    val screenInOffset = tween<IntOffset>(300, easing = CubicBezierEasing(0.22f, 0.92f, 0.28f, 1f))
+    val screenOut = tween<Float>(130, easing = FastOutSlowInEasing)
     NavHost(
         navController = navController,
         startDestination = startRoute,

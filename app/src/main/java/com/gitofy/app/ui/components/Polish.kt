@@ -51,7 +51,7 @@ import com.gitofy.app.model.Repository
 /** A consistent top bar with an optional back button and actions. */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun GitofyTopBar(title: String, onBack: (() -> Unit)? = null, actions: @Composable () -> Unit = {}) {
+fun GitofyTopBar(title: String, onBack: (() -> Unit)? = null, avatar: Boolean = true, actions: @Composable () -> Unit = {}) {
     TopAppBar(
         title = { Text(title, maxLines = 1, overflow = TextOverflow.Ellipsis) },
         navigationIcon = {
@@ -59,7 +59,10 @@ fun GitofyTopBar(title: String, onBack: (() -> Unit)? = null, actions: @Composab
                 Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
             }
         },
-        actions = { actions() },
+        actions = {
+            actions()
+            if (avatar) AccountAvatar(size = 32.dp, modifier = Modifier.padding(end = 8.dp))
+        },
         colors = TopAppBarDefaults.topAppBarColors(
             containerColor = MaterialTheme.colorScheme.surface,
         ),
@@ -68,9 +71,9 @@ fun GitofyTopBar(title: String, onBack: (() -> Unit)? = null, actions: @Composab
 
 /** Circular avatar: shows the initial, then the real image when it loads. */
 @Composable
-fun Avatar(url: String?, name: String, size: Dp = 40.dp) {
+fun Avatar(url: String?, name: String, size: Dp = 40.dp, modifier: Modifier = Modifier) {
     Box(
-        Modifier.size(size).clip(CircleShape).background(MaterialTheme.colorScheme.primaryContainer),
+        modifier.size(size).clip(CircleShape).background(MaterialTheme.colorScheme.primaryContainer),
         contentAlignment = Alignment.Center,
     ) {
         Text(
@@ -178,7 +181,7 @@ fun RepoCard(repo: Repository, onClick: () -> Unit) {
             .padding(horizontal = 12.dp, vertical = 6.dp)
             .clip(RoundedCornerShape(16.dp))
             .background(MaterialTheme.colorScheme.surfaceContainer)
-            .clickable(onClick = onClick)
+            .pressClickable(onClick = onClick)
             .padding(12.dp),
         horizontalArrangement = Arrangement.spacedBy(12.dp),
         verticalAlignment = Alignment.CenterVertically,

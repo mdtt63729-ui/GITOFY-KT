@@ -40,8 +40,8 @@ android {
         applicationId = "com.gitofy.app"
         minSdk = 26
         targetSdk = 34
-        versionCode = 41
-        versionName = "1.6.1"   // fix animateColorAsState import + slideInVertically spec type
+        versionCode = 50
+        versionName = "1.7.0"   // account avatar, skeleton fade, no-ripple taps, faster+bouncier motion
     }
 
     splits {

@@ -1,7 +1,7 @@
 package com.gitofy.app.ui.screens.browse
 
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import com.gitofy.app.ui.components.pressClickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
@@ -111,7 +111,7 @@ fun IssuesScreen(owner: String, repo: String, onBack: () -> Unit, onOpenIssue: (
                         Surface(
                             shape = RoundedCornerShape(18.dp),
                             color = MaterialTheme.colorScheme.surfaceContainer,
-                            modifier = Modifier.fillMaxWidth().animateItem().clickable { onOpenIssue(i.number) },
+                            modifier = Modifier.fillMaxWidth().animateItem().pressClickable { onOpenIssue(i.number) },
                         ) {
                             Row(Modifier.padding(14.dp), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(12.dp)) {
                                 Avatar(i.user?.avatarUrl, i.user?.login ?: "?")

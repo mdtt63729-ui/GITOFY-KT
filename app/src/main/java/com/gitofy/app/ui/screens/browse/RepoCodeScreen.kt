@@ -1,8 +1,8 @@
 package com.gitofy.app.ui.screens.browse
 
 import android.content.Intent
+import com.gitofy.app.ui.components.pressClickable
 import android.net.Uri
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -106,7 +106,7 @@ fun RepoCodeScreen(
                             Surface(
                                 shape = RoundedCornerShape(16.dp),
                                 color = MaterialTheme.colorScheme.surfaceContainer,
-                                modifier = Modifier.fillMaxWidth().clickable {
+                                modifier = Modifier.fillMaxWidth().pressClickable {
                                     if (c.type == "dir") onOpen(c.path, true) else sheetFile = c
                                 },
                             ) {
@@ -148,7 +148,7 @@ fun RepoCodeScreen(
 @Composable
 private fun ActionItem(label: String, icon: androidx.compose.ui.graphics.vector.ImageVector, onClick: () -> Unit) {
     Row(
-        Modifier.fillMaxWidth().clickable(onClick = onClick).padding(vertical = 12.dp),
+        Modifier.fillMaxWidth().pressClickable(onClick = onClick).padding(vertical = 12.dp),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(12.dp),
     ) {

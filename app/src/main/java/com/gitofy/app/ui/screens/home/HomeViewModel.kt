@@ -3,6 +3,7 @@ package com.gitofy.app.ui.screens.home
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.gitofy.app.data.TokenStore
+import com.gitofy.app.data.remote.GitHubApiService
 import com.gitofy.app.domain.RepoRepository
 import com.gitofy.app.model.Repository
 import com.gitofy.app.settings.SettingsStore
@@ -18,6 +19,7 @@ import javax.inject.Inject
 class HomeViewModel @Inject constructor(
     private val repo: RepoRepository,
     private val tokenStore: TokenStore,
+    private val api: GitHubApiService,
     settings: SettingsStore,
 ) : ViewModel() {
 
@@ -36,7 +38,20 @@ class HomeViewModel @Inject constructor(
     init {
         refresh()
         viewModelScope.launch {
-            settings.settings.collect { s -> _username.value = s.githubUsername; _avatarUrl.value = s.avatarUrl }
+            settings.settings.collect { s ->
+                if (s.githubUsername.isNotBlank()) _username.value = s.githubUsername
+                if (s.avatarUrl.isNotBlank()) _avatarUrl.value = s.avatarUrl
+            }
+        }
+        // Load the real account avatar (the web app shows the GitHub account icon).
+        viewModelScope.launch {
+            if (_avatarUrl.value.isBlank()) {
+                runCatching { api.currentUser() }.onSuccess { me ->
+                    _username.value = me.login
+                    _avatarUrl.value = me.avatarUrl
+                    runCatching { settings.setGithubIdentity(me.login, me.avatarUrl) }
+                }
+            }
         }
     }
 
