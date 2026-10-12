@@ -2,6 +2,16 @@
 
 The app version and the delivered zip name are bumped together on every update.
 
+## v1.3.6 — Fix: release build lint error (foreground service type)
+- CI reached `packageRelease` (Kotlin compiled clean, APK assembled) but
+  `lintVitalRelease` failed on the single error **SpecifyForegroundServiceType**:
+  WorkManager's foreground service must declare `dataSync` in the manifest.
+- Added to `AndroidManifest.xml`:
+  `<service android:name="androidx.work.impl.foreground.SystemForegroundService"
+  android:foregroundServiceType="dataSync" tools:node="merge" />`.
+- This was the last blocker: with it the release APK builds and the workflow's
+  upload-artifact step runs.
+
 ## v1.3.5 — CI safety net for base64-encoded source files
 - The CI log showed `app/build.gradle.kts:1:1: Unresolved reference: <base64>` —
   the file had arrived in the repo **base64-encoded** (a transfer accident; the

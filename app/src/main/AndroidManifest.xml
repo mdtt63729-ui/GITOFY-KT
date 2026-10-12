@@ -36,6 +36,13 @@
             </intent-filter>
         </activity>
 
+        <!-- WorkManager's foreground service needs the dataSync type, otherwise
+             lint fails the release build (SpecifyForegroundServiceType). -->
+        <service
+            android:name="androidx.work.impl.foreground.SystemForegroundService"
+            android:foregroundServiceType="dataSync"
+            tools:node="merge" />
+
         <receiver
             android:name=".update.InstallReceiver"
             android:exported="false" />

@@ -40,8 +40,8 @@ android {
         applicationId = "com.gitofy.app"
         minSdk = 26
         targetSdk = 34
-        versionCode = 18
-        versionName = "1.3.5"   // CI: repair base64-encoded source files before build
+        versionCode = 19
+        versionName = "1.3.6"   // fix: WorkManager foreground service type (lint)
     }
 
     splits {
