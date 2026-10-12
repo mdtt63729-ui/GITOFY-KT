@@ -2,6 +2,10 @@ package com.gitofy.app.ui.screens.home
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
+import androidx.compose.animation.core.animateColorAsState
+import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.animation.core.spring
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -45,7 +49,9 @@ import androidx.compose.runtime.setValue
 import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.blur
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.scale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -99,20 +105,8 @@ fun HomeScreen(
             }
     }
 
-    Scaffold(
-        bottomBar = {
-            Box(Modifier.fillMaxWidth().padding(bottom = 14.dp), contentAlignment = Alignment.Center) {
-                FloatingNav(
-                    current = NavTab.HOME,
-                    onSelect = { if (it == NavTab.INBOX) onNavigate(Routes.INBOX) },
-                    unread = 0,
-                    visible = navVisible,
-                )
-            }
-        },
-    ) { padding ->
-        Box(Modifier.fillMaxSize().padding(padding)) {
-            Column(Modifier.fillMaxSize()) {
+    Box(Modifier.fillMaxSize()) {
+        Column(Modifier.fillMaxSize().blur(if (fabOpen) 18.dp else 0.dp)) {
                 HomeAppBar(
                     username = username,
                     repoCount = (s as? UiState.Content)?.data?.size ?: 0,
@@ -160,27 +154,35 @@ fun HomeScreen(
                 }
             }
 
-            FabMenu(
-                expanded = fabOpen,
-                onToggle = { fabOpen = !fabOpen },
+        Box(Modifier.align(Alignment.BottomCenter).padding(bottom = 14.dp)) {
+            FloatingNav(
+                current = NavTab.HOME,
+                onSelect = { if (it == NavTab.INBOX) onNavigate(Routes.INBOX) },
+                unread = 0,
                 visible = navVisible,
-                items = listOf(
-                    FabItem("Upload project", Icons.Filled.FileUpload,
-                        MaterialTheme.colorScheme.tertiaryContainer, MaterialTheme.colorScheme.onTertiaryContainer,
-                        { fabOpen = false; onNavigate(Routes.UPLOAD) }),
-                    FabItem("Update repo", Icons.Filled.Sync,
-                        MaterialTheme.colorScheme.secondaryContainer, MaterialTheme.colorScheme.onSecondaryContainer,
-                        { fabOpen = false; onNavigate(Routes.MULTI_UPLOAD) }),
-                    FabItem("Create repo", Icons.Filled.Add,
-                        MaterialTheme.colorScheme.primaryContainer, MaterialTheme.colorScheme.onPrimaryContainer,
-                        { fabOpen = false; showCreate = true }),
-                    FabItem("Delete repo", Icons.Filled.DeleteOutline,
-                        MaterialTheme.colorScheme.errorContainer, MaterialTheme.colorScheme.onErrorContainer,
-                        { fabOpen = false; onNavigate(Routes.REPO_ACTION) }),
-                ),
-                modifier = Modifier.fillMaxSize().padding(20.dp),
             )
         }
+
+        FabMenu(
+            expanded = fabOpen,
+            onToggle = { fabOpen = !fabOpen },
+            visible = navVisible,
+            items = listOf(
+                FabItem("Upload project", Icons.Filled.FileUpload,
+                    MaterialTheme.colorScheme.tertiaryContainer, MaterialTheme.colorScheme.onTertiaryContainer,
+                    { fabOpen = false; onNavigate(Routes.UPLOAD) }),
+                FabItem("Update repo", Icons.Filled.Sync,
+                    MaterialTheme.colorScheme.secondaryContainer, MaterialTheme.colorScheme.onSecondaryContainer,
+                    { fabOpen = false; onNavigate(Routes.MULTI_UPLOAD) }),
+                FabItem("Create repo", Icons.Filled.Add,
+                    MaterialTheme.colorScheme.primaryContainer, MaterialTheme.colorScheme.onPrimaryContainer,
+                    { fabOpen = false; showCreate = true }),
+                FabItem("Delete repo", Icons.Filled.DeleteOutline,
+                    MaterialTheme.colorScheme.errorContainer, MaterialTheme.colorScheme.onErrorContainer,
+                    { fabOpen = false; onNavigate(Routes.REPO_ACTION) }),
+            ),
+            modifier = Modifier.fillMaxSize(),
+        )
     }
 
     if (showCreate) {
@@ -238,7 +240,34 @@ private fun AppBarIcon(icon: androidx.compose.ui.graphics.vector.ImageVector, la
 private fun FilterRow(selected: RepoFilter, onSelect: (RepoFilter) -> Unit) {
     Row(Modifier.fillMaxWidth().padding(vertical = 4.dp), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
         RepoFilter.entries.forEach { f ->
-            FilterChip(selected == f, { onSelect(f) }, label = { Text(f.label) })
+            val active = selected == f
+            val bg by animateColorAsState(
+                if (active) MaterialTheme.colorScheme.secondaryContainer else MaterialTheme.colorScheme.surfaceContainerHigh,
+                tween(220), label = "chipBg",
+            )
+            val fg by animateColorAsState(
+                if (active) MaterialTheme.colorScheme.onSecondaryContainer else MaterialTheme.colorScheme.onSurfaceVariant,
+                tween(220), label = "chipFg",
+            )
+            val border by animateColorAsState(
+                if (active) MaterialTheme.colorScheme.secondary else MaterialTheme.colorScheme.outlineVariant,
+                tween(220), label = "chipBorder",
+            )
+            val scale by animateFloatAsState(if (active) 1f else 0.97f, spring(dampingRatio = 0.5f), label = "chipScale")
+            Surface(
+                shape = RoundedCornerShape(50),
+                color = bg,
+                border = BorderStroke(1.dp, border),
+                modifier = Modifier.scale(scale).clip(RoundedCornerShape(50)).clickable { onSelect(f) },
+            ) {
+                Text(
+                    f.label,
+                    color = fg,
+                    style = MaterialTheme.typography.labelLarge,
+                    fontWeight = if (active) FontWeight.Bold else FontWeight.Medium,
+                    modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
+                )
+            }
         }
     }
 }

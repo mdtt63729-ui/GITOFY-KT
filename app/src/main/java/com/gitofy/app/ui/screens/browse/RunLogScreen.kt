@@ -44,8 +44,8 @@ class RunLogViewModel @Inject constructor(private val api: GitHubApiService) : V
     val log: StateFlow<UiState<String>> = _log.asStateFlow()
     private var owner = ""; private var repo = ""; private var runId = 0L; private var selected: Long? = null
 
-    fun start(o: String, r: String, id: Long, pollMs: Long = 5000) {
-        owner = o; repo = r; runId = id
+    fun start(o: String, r: String, id: Long, pollMs: Long = 5000, initialJob: Long? = null) {
+        owner = o; repo = r; runId = id; selected = initialJob
         viewModelScope.launch {
             while (true) {
                 val js = runCatching { api.jobs(owner, repo, runId).jobs }.getOrDefault(emptyList())
@@ -67,8 +67,8 @@ class RunLogViewModel @Inject constructor(private val api: GitHubApiService) : V
 }
 
 @Composable
-fun RunLogScreen(owner: String, repo: String, runId: Long, onBack: () -> Unit, vm: RunLogViewModel = hiltViewModel()) {
-    LaunchedEffect(runId) { vm.start(owner, repo, runId) }
+fun RunLogScreen(owner: String, repo: String, runId: Long, onBack: () -> Unit, initialJobId: Long? = null, vm: RunLogViewModel = hiltViewModel()) {
+    LaunchedEffect(runId, initialJobId) { vm.start(owner, repo, runId, initialJob = initialJobId) }
     val jobs by vm.jobs.collectAsStateWithLifecycle()
     val log by vm.log.collectAsStateWithLifecycle()
     var selected by remember { mutableStateOf<Long?>(null) }

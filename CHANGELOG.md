@@ -2,6 +2,28 @@
 
 The app version and the delivered zip name are bumped together on every update.
 
+## v1.6.0 — Real M3 FAB menu, transparent nav, content-only transitions, workflow drill-down
+- **FabMenu** rebuilt to match the web app exactly: a 28%-black scrim paired with a
+  real **backdrop blur** (18dp) of the page content — no more solid black. Pills are
+  56dp capsules that **rise from below the FAB, staggered** (fade + slideY + scale
+  0.65→1, spring easing). The FAB **morphs its corner radius** (16→28dp) and the
+  +/× icons **cross-rotate** (0→90° / −90°→0). It also slides in from the right
+  (translateX 104dp, scale 0.9) when hidden and auto-collapses on scroll-hide.
+- **FloatingNav**: the wrapper is fully transparent, so no box-like container appears
+  around the bar — only the pill is opaque. Two-edge spring indicator fixed (the old
+  code used fillMaxSize, which overrode the indicator width), plus a spring icon
+  scale/fill swap and an animated label that expands/collapses with the tab.
+- **Home/Inbox** are now a Box stack (content → nav → scrim/FAB), so the scrim covers
+  the nav too and the content blurs behind the menu.
+- **Page transitions** now use the web app's `gitofyScreenIn` motion — the incoming
+  screen rises 16px and scales from 0.986 while fading in, and the outgoing screen is
+  simply replaced. No more whole-page horizontal slide.
+- **Filter chips** (All/Private/Public/Pinned) animate their colour, border and scale.
+- **Repo dashboard**: added prominent **Upload Project** and **Workflows** buttons.
+- **Workflow drill-down**: Workflows → tap a workflow → its runs → tap a run → its
+  steps/jobs → tap a job → that job's live log (polling). New `WORKFLOW_RUNS` route;
+  `RUN_LOG` takes an optional `jobId`.
+
 ## v1.5.3 — Build fix: duplicate declarations in SettingsStore
 - `SettingsStore.kt` had duplicated lines in the `K` key object and in the
   `settings` copy(...) call (e.g. `appLockMode`, `haptics`, `defaultVisibility`,

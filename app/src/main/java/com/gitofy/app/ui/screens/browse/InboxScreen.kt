@@ -83,14 +83,8 @@ fun InboxScreen(onBack: () -> Unit, onNavigate: (String) -> Unit = {}, vm: Inbox
                 last = cur
             }
     }
-    Scaffold(
-        bottomBar = {
-            Box(Modifier.fillMaxWidth().padding(bottom = 14.dp), contentAlignment = Alignment.Center) {
-                FloatingNav(current = NavTab.INBOX, onSelect = { if (it == NavTab.HOME) onNavigate(Routes.HOME) }, visible = navVisible)
-            }
-        },
-    ) { padding ->
-        Column(Modifier.fillMaxSize().padding(padding)) {
+    Box(Modifier.fillMaxSize()) {
+        Column(Modifier.fillMaxSize()) {
             Text(
                 "Inbox",
                 color = MaterialTheme.colorScheme.primary,
@@ -130,6 +124,10 @@ fun InboxScreen(onBack: () -> Unit, onNavigate: (String) -> Unit = {}, vm: Inbox
                         }
                     }
             }
+        }
+
+        Box(Modifier.align(Alignment.BottomCenter).padding(bottom = 14.dp)) {
+            FloatingNav(current = NavTab.INBOX, onSelect = { if (it == NavTab.HOME) onNavigate(Routes.HOME) }, visible = navVisible)
         }
     }
 }

@@ -40,8 +40,8 @@ android {
         applicationId = "com.gitofy.app"
         minSdk = 26
         targetSdk = 34
-        versionCode = 33
-        versionName = "1.5.3"   // fix duplicate declarations in SettingsStore (build was failing)
+        versionCode = 40
+        versionName = "1.6.0"   // M3 FabMenu blur + liquid nav + content-only page transitions + workflow drill-down
     }
 
     splits {

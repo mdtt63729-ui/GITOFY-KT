@@ -19,6 +19,7 @@ object Routes {
     const val RESULT = "result"
     const val WORKFLOWS = "workflows"
     const val WORKFLOW_RUN_DETAIL = "workflow_run_detail"
+    const val WORKFLOW_RUNS = "workflow_runs"
     const val SETTINGS = "settings"
     const val GITHUB_SETTINGS = "github_settings"
     const val REPO_SETTINGS = "repo_settings"

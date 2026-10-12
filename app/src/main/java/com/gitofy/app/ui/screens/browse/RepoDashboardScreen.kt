@@ -30,6 +30,8 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.DeleteOutline
+import androidx.compose.material.icons.filled.FileUpload
+import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material.icons.filled.OpenInNew
 import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material.icons.filled.NewReleases
@@ -237,6 +239,24 @@ private fun OverviewTab(r: Repository, onNavigate: (String) -> Unit) {
             }
         }
         item {
+            Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+                DashboardButton(
+                    label = "Upload Project",
+                    icon = Icons.Filled.FileUpload,
+                    container = MaterialTheme.colorScheme.primary,
+                    content = MaterialTheme.colorScheme.onPrimary,
+                    modifier = Modifier.weight(1f),
+                ) { onNavigate(Routes.UPLOAD) }
+                DashboardButton(
+                    label = "Workflows",
+                    icon = Icons.Filled.PlayArrow,
+                    container = MaterialTheme.colorScheme.secondaryContainer,
+                    content = MaterialTheme.colorScheme.onSecondaryContainer,
+                    modifier = Modifier.weight(1f),
+                ) { onNavigate("${Routes.WORKFLOWS}/${r.ownerLogin}/${r.name}") }
+            }
+        }
+        item {
             Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
                 listOf(
                     Routes.REPO_FILES to "Code",
@@ -292,6 +312,38 @@ private fun ReleasesTab(releases: List<GitHubRelease>, onNavigate: (String) -> U
 private fun StatChip(text: String) {
     Surface(shape = RoundedCornerShape(50), color = MaterialTheme.colorScheme.surfaceContainerHigh) {
         Text(text, style = MaterialTheme.typography.labelMedium, modifier = Modifier.padding(horizontal = 10.dp, vertical = 4.dp))
+    }
+}
+
+@Composable
+private fun DashboardButton(
+    label: String,
+    icon: androidx.compose.ui.graphics.vector.ImageVector,
+    container: androidx.compose.ui.graphics.Color,
+    content: androidx.compose.ui.graphics.Color,
+    modifier: Modifier = Modifier,
+    onClick: () -> Unit,
+) {
+    Surface(
+        shape = RoundedCornerShape(50),
+        color = container,
+        modifier = modifier.height(48.dp).clickable(onClick = onClick),
+    ) {
+        Row(
+            Modifier.fillMaxSize().padding(horizontal = 14.dp),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.Center,
+        ) {
+            Icon(icon, contentDescription = null, tint = content, modifier = Modifier.size(18.dp))
+            Text(
+                label,
+                color = content,
+                style = MaterialTheme.typography.labelLarge,
+                fontWeight = FontWeight.Bold,
+                maxLines = 1,
+                modifier = Modifier.padding(start = 8.dp),
+            )
+        }
     }
 }
 

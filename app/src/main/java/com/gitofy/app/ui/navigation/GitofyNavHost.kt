@@ -1,10 +1,12 @@
 package com.gitofy.app.ui.navigation
 
-import androidx.compose.animation.AnimatedContentTransitionScope
-import androidx.compose.animation.core.Spring
-import androidx.compose.animation.core.spring
+import androidx.compose.animation.core.CubicBezierEasing
+import androidx.compose.animation.core.FastOutSlowInEasing
+import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
+import androidx.compose.animation.scaleIn
+import androidx.compose.animation.slideInVertically
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
@@ -28,6 +30,7 @@ import com.gitofy.app.ui.screens.browse.RepoCommitsScreen
 import com.gitofy.app.ui.screens.browse.RepoDashboardScreen
 import com.gitofy.app.ui.screens.browse.RepoSettingsScreen
 import com.gitofy.app.ui.screens.browse.WorkflowRunDetailScreen
+import com.gitofy.app.ui.screens.browse.WorkflowRunsScreen
 import com.gitofy.app.ui.screens.browse.WorkflowsScreen
 import com.gitofy.app.ui.screens.dev.M3GalleryScreen
 import com.gitofy.app.ui.screens.dev.MotionLabScreen
@@ -57,29 +60,27 @@ fun GitofyNavHost(
     startRoute: String = Routes.HOME,
     navController: NavHostController = rememberNavController(),
 ) {
-    val slide = spring<androidx.compose.ui.unit.IntOffset>(
-        dampingRatio = Spring.DampingRatioNoBouncy,
-        stiffness = Spring.StiffnessMediumLow,
-    )
-    val fade = spring<Float>(
-        dampingRatio = Spring.DampingRatioNoBouncy,
-        stiffness = Spring.StiffnessMediumLow,
-    )
+    // The web app's page entrance (index.css · gitofyScreenIn): the incoming screen
+    // rises 16px and scales from 0.986 while fading in; the outgoing screen is just
+    // replaced. No horizontal slide, so a page change reads as the content animating
+    // in — not the whole screen being shoved sideways.
+    val screenIn = tween<Float>(420, easing = CubicBezierEasing(0.22f, 0.92f, 0.28f, 1f))
+    val screenOut = tween<Float>(160, easing = FastOutSlowInEasing)
     NavHost(
         navController = navController,
         startDestination = startRoute,
         enterTransition = {
-            slideIntoContainer(AnimatedContentTransitionScope.SlideDirection.Start, slide) + fadeIn(fade)
+            fadeIn(screenIn) +
+                slideInVertically(screenIn) { (it * 0.03f).toInt() } +
+                scaleIn(screenIn, initialScale = 0.986f)
         },
-        exitTransition = {
-            slideOutOfContainer(AnimatedContentTransitionScope.SlideDirection.Start, slide) + fadeOut(fade)
-        },
+        exitTransition = { fadeOut(screenOut) },
         popEnterTransition = {
-            slideIntoContainer(AnimatedContentTransitionScope.SlideDirection.End, slide) + fadeIn(fade)
+            fadeIn(screenIn) +
+                slideInVertically(screenIn) { (it * 0.03f).toInt() } +
+                scaleIn(screenIn, initialScale = 0.986f)
         },
-        popExitTransition = {
-            slideOutOfContainer(AnimatedContentTransitionScope.SlideDirection.End, slide) + fadeOut(fade)
-        },
+        popExitTransition = { fadeOut(screenOut) },
     ) {
         val back: () -> Unit = { navController.popBackStack() }
         val go: (String) -> Unit = { navController.navigate(it) }
@@ -158,7 +159,31 @@ fun GitofyNavHost(
             "${Routes.WORKFLOWS}/{owner}/{repo}",
             arguments = listOf(navArgument("owner") { type = NavType.StringType }, navArgument("repo") { type = NavType.StringType }),
         ) { e ->
-            WorkflowsScreen(e.arguments!!.getString("owner")!!, e.arguments!!.getString("repo")!!, back)
+            val o = e.arguments!!.getString("owner")!!
+            val r = e.arguments!!.getString("repo")!!
+            WorkflowsScreen(
+                o, r, back,
+                onOpenWorkflow = { id, name ->
+                    navController.navigate("${Routes.WORKFLOW_RUNS}/$o/$r/$id?name=${android.net.Uri.encode(name)}")
+                },
+                onOpenRun = { runId -> navController.navigate("${Routes.WORKFLOW_RUN_DETAIL}/$o/$r/$runId") },
+            )
+        }
+        composable(
+            "${Routes.WORKFLOW_RUNS}/{owner}/{repo}/{workflowId}?name={name}",
+            arguments = listOf(
+                navArgument("owner") { type = NavType.StringType },
+                navArgument("repo") { type = NavType.StringType },
+                navArgument("workflowId") { type = NavType.LongType },
+                navArgument("name") { type = NavType.StringType; defaultValue = "" },
+            ),
+        ) { e ->
+            val o = e.arguments!!.getString("owner")!!
+            val r = e.arguments!!.getString("repo")!!
+            WorkflowRunsScreen(
+                o, r, e.arguments!!.getLong("workflowId"), e.arguments!!.getString("name") ?: "", back,
+                onOpenRun = { runId -> navController.navigate("${Routes.WORKFLOW_RUN_DETAIL}/$o/$r/$runId") },
+            )
         }
         composable(
             "${Routes.WORKFLOW_RUN_DETAIL}/{owner}/{repo}/{runId}",
@@ -171,7 +196,7 @@ fun GitofyNavHost(
             val o = e.arguments!!.getString("owner")!!
             val r = e.arguments!!.getString("repo")!!
             val runId = e.arguments!!.getLong("runId")
-            WorkflowRunDetailScreen(o, r, runId, back, onOpenLog = { navController.navigate("${Routes.RUN_LOG}/$o/$r/$runId") })
+            WorkflowRunDetailScreen(o, r, runId, back, onOpenJob = { jobId -> navController.navigate("${Routes.RUN_LOG}/$o/$r/$runId?jobId=$jobId") })
         }
         composable(
             "${Routes.RELEASE_CREATOR}/{owner}/{repo}",
@@ -216,18 +241,21 @@ fun GitofyNavHost(
         }
 
         composable(
-            "${Routes.RUN_LOG}/{owner}/{repo}/{runId}",
+            "${Routes.RUN_LOG}/{owner}/{repo}/{runId}?jobId={jobId}",
             arguments = listOf(
                 navArgument("owner") { type = NavType.StringType },
                 navArgument("repo") { type = NavType.StringType },
                 navArgument("runId") { type = NavType.LongType },
+                navArgument("jobId") { type = NavType.LongType; defaultValue = -1L },
             ),
         ) { e ->
+            val jid = e.arguments!!.getLong("jobId")
             RunLogScreen(
                 e.arguments!!.getString("owner")!!,
                 e.arguments!!.getString("repo")!!,
                 e.arguments!!.getLong("runId"),
                 back,
+                initialJobId = if (jid > 0) jid else null,
             )
         }
 

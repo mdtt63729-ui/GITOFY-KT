@@ -2,6 +2,7 @@ package com.gitofy.app.ui.screens.browse
 
 import android.content.Intent
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -75,7 +76,7 @@ class RunDetailViewModel @Inject constructor(private val api: GitHubApiService) 
 }
 
 @Composable
-fun WorkflowRunDetailScreen(owner: String, repo: String, runId: Long, onBack: () -> Unit, onOpenLog: () -> Unit = {}, vm: RunDetailViewModel = hiltViewModel()) {
+fun WorkflowRunDetailScreen(owner: String, repo: String, runId: Long, onBack: () -> Unit, onOpenJob: (Long) -> Unit = {}, vm: RunDetailViewModel = hiltViewModel()) {
     LaunchedEffect(runId) { vm.load(owner, repo, runId) }
     val s by vm.state.collectAsStateWithLifecycle()
     val jobs by vm.jobs.collectAsStateWithLifecycle()
@@ -111,11 +112,15 @@ fun WorkflowRunDetailScreen(owner: String, repo: String, runId: Long, onBack: ()
                         Text("${run.status} ${run.conclusion ?: ""} • ${run.headBranch ?: ""} • ${run.event}", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
                     }
                 }
-                OutlinedButton(onClick = onOpenLog, shape = RoundedCornerShape(50), modifier = Modifier.fillMaxWidth()) { Text("View live log") }
+                OutlinedButton(onClick = { jobs.firstOrNull()?.let { onOpenJob(it.id) } }, shape = RoundedCornerShape(50), modifier = Modifier.fillMaxWidth()) { Text("View live log") }
 
                 Text("JOBS", style = MaterialTheme.typography.labelMedium, color = MaterialTheme.colorScheme.primary, fontWeight = FontWeight.Bold)
                 jobs.forEach { job ->
-                    Surface(shape = RoundedCornerShape(16.dp), color = MaterialTheme.colorScheme.surfaceContainer, modifier = Modifier.fillMaxWidth()) {
+                    Surface(
+                        shape = RoundedCornerShape(16.dp),
+                        color = MaterialTheme.colorScheme.surfaceContainer,
+                        modifier = Modifier.fillMaxWidth().clickable { onOpenJob(job.id) },
+                    ) {
                         Column(Modifier.padding(14.dp), verticalArrangement = Arrangement.spacedBy(3.dp)) {
                             Text(job.name, style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.SemiBold)
                             Text("${job.status} ${job.conclusion ?: ""}", style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
