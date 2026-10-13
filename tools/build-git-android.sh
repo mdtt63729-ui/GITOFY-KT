@@ -127,7 +127,7 @@ rm -rf curl-*; tar xf curl.tar.gz
       --disable-shared --enable-static --disable-ldap --disable-rtsp \
       --disable-dict --disable-telnet --disable-tftp --disable-pop3 \
       --disable-imap --disable-smtp --without-libidn2 --without-librtmp \
-      --without-brotli --without-zstd
+      --without-brotli --without-zstd --without-libpsl
   make -j"$(nproc)" && make install )
 
 echo "== 5/5 git =="
