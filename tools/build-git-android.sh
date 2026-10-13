@@ -138,7 +138,7 @@ rm -rf git-${GIT_VERSION}; tar xf git.tar.gz
     CC="$CC" AR="$AR" RANLIB="$RANLIB" STRIP="$STRIP" \
     CFLAGS="-O2 -fPIE" LDFLAGS="-pie -static-libgcc" \
     NO_GETTEXT=1 NO_TCLTK=1 NO_PERL=1 NO_PYTHON=1 NO_INSTALL_HARDLINKS=1 \
-    NO_PTHREADS=1 NO_EXPAT=1 NO_ICONV=1 \
+    NO_PTHREADS=1 NO_EXPAT=1 NO_ICONV=1 CSPRNG_METHOD=openssl \
     CURL_LDFLAGS="-lcurl -lssl -lcrypto -lz" \
     CURL_CFLAGS="-I$PREFIX/include" \
     ZLIB_PATH="$PREFIX" PCRE2_PATH="$PREFIX" \
@@ -146,7 +146,7 @@ rm -rf git-${GIT_VERSION}; tar xf git.tar.gz
     EXPAT_PATH="$PREFIX" \
     prefix="$PREFIX" \
     all
-  make prefix="$PREFIX" NO_PERL=1 NO_TCLTK=1 NO_PTHREADS=1 install )
+  make prefix="$PREFIX" NO_PERL=1 NO_TCLTK=1 NO_PTHREADS=1 CSPRNG_METHOD=openssl install )
 
 # The single static git binary is what we ship.
 DEST="$(pwd)/../../app/src/main/jniLibs/$ABI"
