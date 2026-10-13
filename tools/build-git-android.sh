@@ -46,6 +46,31 @@ AR="llvm-ar"
 RANLIB="llvm-ranlib"
 STRIP="llvm-strip"
 
+# OpenSSL's android-* config hardcodes a "<triple>-gcc" compiler (and -ar/-ranlib),
+# but the modern NDK ships clang only. Drop tiny shims on PATH that forward the
+# expected names to the real clang/llvm tools, so OpenSSL's configure finds them.
+SHIM="$(pwd)/shim-bin"; mkdir -p "$SHIM"
+shim() { # <expected-name> <real-cmd>
+  local real; real="$(command -v "$2" 2>/dev/null)" || return 0
+  printf '#!/bin/sh\nexec "%s" "$@"\n' "$real" > "$SHIM/$1"
+  chmod +x "$SHIM/$1"
+}
+shim "${TARGET}-gcc"    "$CC"
+shim "${TARGET}-cc"     "$CC"
+shim "${TARGET}-g++"    "$CXX"
+shim "${TARGET}-c++"    "$CXX"
+shim "${TARGET}-ar"     "$AR"
+shim "${TARGET}-ranlib" "$RANLIB"
+shim "${TARGET}-strip"  "$STRIP"
+shim "${TARGET}-nm"     "llvm-nm"
+shim "${TARGET}-objcopy" "llvm-objcopy"
+# Some OpenSSL/curl targets spell the triple differently — cover the arm variant too.
+if [[ "$ABI" == armeabi-v7a ]]; then
+  shim "arm-linux-androideabi-gcc" "$CC"
+  shim "arm-linux-androideabi-ar"  "$AR"
+fi
+export PATH="$SHIM:$PATH"
+
 WORK="$(pwd)/.git-build/$ABI"
 PREFIX="$WORK/prefix"
 mkdir -p "$WORK" "$PREFIX"

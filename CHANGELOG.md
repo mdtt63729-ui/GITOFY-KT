@@ -2,6 +2,15 @@
 
 The app version and the delivered zip name are bumped together on every update.
 
+## v1.13.4 — Fix the CI git cross-compile
+- The bundled-git build failed at the **OpenSSL** step: OpenSSL's `android-arm64`
+  config hardcodes a `aarch64-linux-android-gcc` compiler, but the modern NDK ships
+  **clang only**, so configure died with "no NDK aarch64-linux-android-gcc on $PATH".
+- `tools/build-git-android.sh` now creates tiny **shims** on PATH that forward the
+  expected `<triple>-gcc` / `-g++` / `-ar` / `-ranlib` / `-strip` / `-nm` names to the
+  real clang / llvm tools, so OpenSSL (and curl) configure find them and the git binary
+  builds. The REST-API upload fallback still covers any build without it.
+
 ## v1.13.3 — Uploads work even without the bundled git binary
 - **"This build has no bundled git binary" is gone.** When the APK has no bundled git,
   the upload pipeline now falls back to the **GitHub REST API** (blobs → tree → commit →

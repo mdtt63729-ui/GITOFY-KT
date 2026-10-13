@@ -40,8 +40,8 @@ android {
         applicationId = "com.gitofy.app"
         minSdk = 26
         targetSdk = 34
-        versionCode = 113
-        versionName = "1.13.3"   // upload works without bundled git (REST API fallback) + CI builds git by default
+        versionCode = 114
+        versionName = "1.13.4"   // fix the CI git cross-compile (OpenSSL needs a *-gcc shim for the clang-only NDK)
     }
 
     splits {
