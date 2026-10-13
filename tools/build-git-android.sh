@@ -131,6 +131,8 @@ rm -rf curl-*; tar xf curl.tar.gz
   make -j"$(nproc)" && make install )
 
 echo "== 5/5 git =="
+# Git's Makefile invokes curl-config to discover target headers and libraries.
+export PATH="$PREFIX/bin:$PATH"
 fetch "https://mirrors.edge.kernel.org/pub/software/scm/git/git-${GIT_VERSION}.tar.gz" "git.tar.gz"
 rm -rf git-${GIT_VERSION}; tar xf git.tar.gz
 ( cd git-${GIT_VERSION}
