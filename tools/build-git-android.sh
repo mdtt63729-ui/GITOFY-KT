@@ -132,7 +132,6 @@ rm -rf curl-*; tar xf curl.tar.gz
 
 echo "== 5/5 git =="
 # Git's Makefile invokes curl-config to discover target headers and libraries.
-export PATH="$PREFIX/bin:$PATH"
 fetch "https://mirrors.edge.kernel.org/pub/software/scm/git/git-${GIT_VERSION}.tar.gz" "git.tar.gz"
 rm -rf git-${GIT_VERSION}; tar xf git.tar.gz
 ( cd git-${GIT_VERSION}
@@ -141,6 +140,7 @@ rm -rf git-${GIT_VERSION}; tar xf git.tar.gz
     CFLAGS="-O2 -fPIE" LDFLAGS="-pie -static-libgcc" \
     NO_GETTEXT=1 NO_TCLTK=1 NO_PERL=1 NO_PYTHON=1 NO_INSTALL_HARDLINKS=1 \
     NO_PTHREADS=1 NO_RUST=1 NO_EXPAT=1 NO_ICONV=1 CSPRNG_METHOD=openssl \
+    CURL_CONFIG="$PREFIX/bin/curl-config" \
     CURL_LDFLAGS="-lcurl -lssl -lcrypto -lz" \
     CURL_CFLAGS="-I$PREFIX/include" \
     ZLIB_PATH="$PREFIX" PCRE2_PATH="$PREFIX" \
