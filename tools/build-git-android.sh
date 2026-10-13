@@ -140,6 +140,7 @@ rm -rf git-${GIT_VERSION}; tar xf git.tar.gz
     CFLAGS="-O2 -fPIE" LDFLAGS="-pie -static-libgcc" \
     NO_GETTEXT=1 NO_TCLTK=1 NO_PERL=1 NO_PYTHON=1 NO_INSTALL_HARDLINKS=1 \
     NO_PTHREADS=1 NO_RUST=1 NO_EXPAT=1 NO_ICONV=1 CSPRNG_METHOD=openssl \
+    CURLDIR="$PREFIX" \
     CURL_CONFIG="$PREFIX/bin/curl-config" \
     CURL_LDFLAGS="-lcurl -lssl -lcrypto -lz" \
     CURL_CFLAGS="-I$PREFIX/include" \
