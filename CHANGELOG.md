@@ -2,6 +2,17 @@
 
 The app version and the delivered zip name are bumped together on every update.
 
+## v1.13.5 — CI git build: the real OpenSSL failure, fixed
+- OpenSSL's `Configurations/15-android.conf` reads **`ANDROID_NDK_ROOT`** (not
+  `ANDROID_NDK_HOME`) and only accepts a compiler it probes *inside* that NDK
+  (`which($triarch-gcc) =~ m|^$ndk/.*/prebuilt/<host>/|`). A CI image can have a
+  different NDK already exported, so OpenSSL fell through to its gcc branch and died
+  with "no NDK aarch64-linux-android-gcc on $PATH".
+- `tools/build-git-android.sh` now **pins `ANDROID_NDK_ROOT`/`ANDROID_NDK` to the NDK it
+  actually uses**, and drops the `<triple>-gcc/-ar/-ranlib/...` shims **inside the NDK's
+  bin dir** so any probe that needs them finds them there. (The REST-API upload fallback
+  still covers a build with no bundled git.)
+
 ## v1.13.4 — Fix the CI git cross-compile
 - The bundled-git build failed at the **OpenSSL** step: OpenSSL's `android-arm64`
   config hardcodes a `aarch64-linux-android-gcc` compiler, but the modern NDK ships

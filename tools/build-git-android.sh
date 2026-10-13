@@ -29,6 +29,15 @@ if [[ -z "$NDK" || ! -d "$NDK" ]]; then
   exit 1
 fi
 
+# OpenSSL's android config reads **ANDROID_NDK_ROOT** (not _HOME) and requires the
+# compiler it probes to live *inside* that NDK (^$ndk/.*/prebuilt/<host>/). A CI image
+# can have a different NDK already exported, so pin ANDROID_NDK_ROOT to the one we use
+# — otherwise OpenSSL falls through to its gcc branch and dies with
+# "no NDK aarch64-linux-android-gcc on $PATH".
+export ANDROID_NDK_ROOT="$NDK"
+export ANDROID_NDK_HOME="$NDK"
+export ANDROID_NDK="$NDK"
+
 case "$ABI" in
   arm64-v8a)   TARGET=aarch64-linux-android ;;
   armeabi-v7a) TARGET=armv7a-linux-androideabi ;;
@@ -49,11 +58,16 @@ STRIP="llvm-strip"
 # OpenSSL's android-* config hardcodes a "<triple>-gcc" compiler (and -ar/-ranlib),
 # but the modern NDK ships clang only. Drop tiny shims on PATH that forward the
 # expected names to the real clang/llvm tools, so OpenSSL's configure finds them.
-SHIM="$(pwd)/shim-bin"; mkdir -p "$SHIM"
+# Put the shims *inside the NDK*: OpenSSL only accepts a probed compiler whose path
+# matches ^$ndk/.*/prebuilt/<host>/. Fall back to a local dir if the NDK isn't writable.
+SHIM="$TOOLCHAIN/bin"
+if ! ( : > "$SHIM/.gitofy_probe" ) 2>/dev/null; then SHIM="$(pwd)/shim-bin"; fi
+mkdir -p "$SHIM"
+rm -f "$TOOLCHAIN/bin/.gitofy_probe" 2>/dev/null || true
 shim() { # <expected-name> <real-cmd>
   local real; real="$(command -v "$2" 2>/dev/null)" || return 0
-  printf '#!/bin/sh\nexec "%s" "$@"\n' "$real" > "$SHIM/$1"
-  chmod +x "$SHIM/$1"
+  printf '#!/bin/sh\nexec "%s" "$@"\n' "$real" > "$SHIM/$1" 2>/dev/null || return 0
+  chmod +x "$SHIM/$1" 2>/dev/null || true
 }
 shim "${TARGET}-gcc"    "$CC"
 shim "${TARGET}-cc"     "$CC"

@@ -40,8 +40,8 @@ android {
         applicationId = "com.gitofy.app"
         minSdk = 26
         targetSdk = 34
-        versionCode = 114
-        versionName = "1.13.4"   // fix the CI git cross-compile (OpenSSL needs a *-gcc shim for the clang-only NDK)
+        versionCode = 115
+        versionName = "1.13.5"   // CI git build: pin ANDROID_NDK_ROOT so OpenSSL takes its clang branch
     }
 
     splits {
