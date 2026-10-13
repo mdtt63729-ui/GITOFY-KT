@@ -1,5 +1,6 @@
 package com.gitofy.app.ui.screens.common
 
+import com.gitofy.app.ui.components.BouncyIconButton
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -31,7 +32,7 @@ fun PlaceholderScreen(route: String, onBack: (() -> Unit)? = null) {
                 title = { Text(route.replace('_', ' ').replaceFirstChar { it.uppercase() }) },
                 navigationIcon = {
                     if (onBack != null) {
-                        IconButton(onClick = onBack) {
+                        BouncyIconButton(onClick = onBack) {
                             Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
                         }
                     }

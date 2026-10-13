@@ -24,6 +24,7 @@ object Routes {
     const val GITHUB_SETTINGS = "github_settings"
     const val REPO_SETTINGS = "repo_settings"
     const val DELETE_REPO = "delete_repo"
+    const val DELETE_PICK = "delete_pick"
     const val REPO_ACTION = "repo_action"
     const val REPO_FILES = "repo_files"
     const val REPO_COMMITS = "repo_commits"

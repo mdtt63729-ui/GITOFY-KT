@@ -1,5 +1,7 @@
 package com.gitofy.app.ui.screens.upload
 
+import com.gitofy.app.ui.components.BouncyButton
+import com.gitofy.app.ui.components.BouncyOutlinedButton
 import android.net.Uri
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
@@ -73,7 +75,7 @@ fun MultiRepoUploadScreen(onBack: () -> Unit, upload: UploadViewModel = hiltView
 
     Scaffold(topBar = { GitofyTopBar("Send to more repositories", onBack) }) { padding ->
         Column(Modifier.fillMaxSize().padding(padding)) {
-            OutlinedButton(onClick = { picker.launch("application/zip") }, shape = RoundedCornerShape(50), modifier = Modifier.fillMaxWidth().padding(16.dp)) {
+            BouncyOutlinedButton(onClick = { picker.launch("application/zip") }, shape = RoundedCornerShape(50), modifier = Modifier.fillMaxWidth().padding(16.dp)) {
                 Text(if (picked == null) "Pick ZIP file" else "ZIP selected ✓", fontWeight = FontWeight.Bold)
             }
             OutlinedTextField(
@@ -98,7 +100,7 @@ fun MultiRepoUploadScreen(onBack: () -> Unit, upload: UploadViewModel = hiltView
                 }
             }
             (state as? UploadState.Running)?.let { Text("${it.phase} ${it.percent ?: 0}% ${it.detail}", modifier = Modifier.padding(horizontal = 16.dp)) }
-            Button(
+            BouncyButton(
                 onClick = {
                     val uri = picked ?: return@Button
                     selected.forEach { line ->

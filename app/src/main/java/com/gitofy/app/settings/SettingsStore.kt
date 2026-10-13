@@ -37,6 +37,9 @@ class SettingsStore @Inject constructor(
         val autoHideNav = booleanPreferencesKey("autoHideNav")
         val githubClientId = stringPreferencesKey("githubClientId")
         val fontFamily = stringPreferencesKey("fontFamily")
+        val fontWeight = stringPreferencesKey("fontWeight")
+        val dynamicColor = booleanPreferencesKey("dynamicColor")
+        val backgroundHex = stringPreferencesKey("backgroundHex")
         val uiDensity = stringPreferencesKey("uiDensity")
     }
 
@@ -60,6 +63,9 @@ class SettingsStore @Inject constructor(
             autoHideNav = p[K.autoHideNav] ?: d.autoHideNav,
             githubClientId = p[K.githubClientId] ?: d.githubClientId,
             fontFamily = p[K.fontFamily] ?: d.fontFamily,
+            fontWeight = p[K.fontWeight] ?: d.fontWeight,
+            dynamicColor = p[K.dynamicColor] ?: d.dynamicColor,
+            backgroundHex = p[K.backgroundHex] ?: d.backgroundHex,
             uiDensity = p[K.uiDensity] ?: d.uiDensity,
         )
     }
@@ -76,6 +82,11 @@ class SettingsStore @Inject constructor(
     suspend fun setStripRootFolder(v: Boolean) = dataStore.edit { it[K.stripRootFolder] = v }
     suspend fun setAppLockMode(v: String) = dataStore.edit { it[K.appLockMode] = v }
     suspend fun setFontFamily(v: String) = dataStore.edit { it[K.fontFamily] = v }
+    suspend fun setFontWeight(v: String) = dataStore.edit { it[K.fontWeight] = v }
+    suspend fun setDynamicColor(v: Boolean) = dataStore.edit { it[K.dynamicColor] = v }
+    suspend fun setBackgroundHex(v: String) = dataStore.edit { it[K.backgroundHex] = v }
+    suspend fun setFontScale(v: Float) = dataStore.edit { it[K.fontScale] = v }
+    suspend fun setCornerRadius(v: Int) = dataStore.edit { it[K.cornerRadius] = v }
     suspend fun setUiDensity(v: String) = dataStore.edit { it[K.uiDensity] = v }
 
     /** Cache the signed-in GitHub account so every top bar can show its avatar. */

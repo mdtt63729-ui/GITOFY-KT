@@ -2,6 +2,7 @@ package com.gitofy.app.data.local
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.gitofy.app.model.Owner
 import com.gitofy.app.model.Repository
 
 /** Offline cache row for a repository (the web app's offlineCache). */
@@ -20,6 +21,20 @@ data class RepoEntity(
     val ownerAvatar: String,
     val updatedAt: String?,
     val cachedAt: Long,
+)
+
+fun RepoEntity.toModel() = Repository(
+    id = id,
+    name = name,
+    fullName = fullName,
+    description = description,
+    isPrivate = isPrivate,
+    archived = archived,
+    language = language,
+    stargazersCount = stargazers,
+    defaultBranch = defaultBranch,
+    updatedAt = updatedAt,
+    owner = Owner(login = ownerLogin, avatarUrl = ownerAvatar),
 )
 
 fun Repository.toEntity(now: Long = System.currentTimeMillis()) = RepoEntity(

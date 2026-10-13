@@ -1,5 +1,7 @@
 package com.gitofy.app.ui.screens.misc
 
+import com.gitofy.app.ui.components.BouncyButton
+import com.gitofy.app.ui.components.BouncyOutlinedButton
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -39,7 +41,7 @@ fun AppStoreScreen(onBack: () -> Unit, vm: AppStoreViewModel = hiltViewModel()) 
                 }
             }
             when (val s = ui) {
-                UpdateUi.Idle -> Button(onClick = { vm.check() }, modifier = Modifier.fillMaxWidth()) { Text("Check for updates") }
+                UpdateUi.Idle -> BouncyButton(onClick = { vm.check() }, modifier = Modifier.fillMaxWidth()) { Text("Check for updates") }
                 UpdateUi.Checking -> Text("Checking…")
                 UpdateUi.UpToDate -> Text("You're on the latest version.", color = MaterialTheme.colorScheme.primary)
                 is UpdateUi.Available -> Card(Modifier.fillMaxWidth()) {
@@ -47,8 +49,8 @@ fun AppStoreScreen(onBack: () -> Unit, vm: AppStoreViewModel = hiltViewModel()) 
                         Text("Version ${s.info.version} is ready", style = MaterialTheme.typography.titleLarge)
                         Text(s.info.notes.take(500), style = MaterialTheme.typography.bodySmall)
                         Text("File: ${s.info.apkName}", style = MaterialTheme.typography.labelSmall)
-                        Button(onClick = { vm.update(s.info, null) }, modifier = Modifier.fillMaxWidth()) { Text("Update") }
-                        OutlinedButton(onClick = {}, modifier = Modifier.fillMaxWidth()) { Text("Later") }
+                        BouncyButton(onClick = { vm.update(s.info, null) }, modifier = Modifier.fillMaxWidth()) { Text("Update") }
+                        BouncyOutlinedButton(onClick = {}, modifier = Modifier.fillMaxWidth()) { Text("Later") }
                     }
                 }
                 is UpdateUi.Downloading -> {

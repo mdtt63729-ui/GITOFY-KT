@@ -12,6 +12,9 @@ data class GitofySettings(
     val palette: String = "crimson",     // pink|emerald|indigo|violet|crimson|cyan
     val fontScale: Float = 1.0f,
     val fontFamily: String = "josefin",
+    val fontWeight: String = "normal",   // light | normal | medium | bold
+    val dynamicColor: Boolean = false,   // Material You dynamic colour (Android 12+)
+    val backgroundHex: String = "",      // "" = palette default; else a hex tint for the canvas
     val cornerRadius: Int = 16,
     val uiDensity: String = "normal",    // compact | normal | comfortable
 

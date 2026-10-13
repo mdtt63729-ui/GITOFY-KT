@@ -1,5 +1,6 @@
 package com.gitofy.app.ui.screens.browse
 
+import com.gitofy.app.ui.components.BouncyIconButton
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -70,7 +71,7 @@ fun RepoCommitsScreen(owner: String, repo: String, onBack: () -> Unit, vm: Commi
     val s by vm.state.collectAsStateWithLifecycle()
     Scaffold(topBar = {
         GitofyTopBar("Commits · $repo", onBack, actions = {
-            IconButton(onClick = { vm.load(owner, repo) }) { Icon(Icons.Filled.Refresh, "Refresh") }
+            BouncyIconButton(onClick = { vm.load(owner, repo) }) { Icon(Icons.Filled.Refresh, "Refresh") }
         })
     }) { padding ->
         when (val st = s) {

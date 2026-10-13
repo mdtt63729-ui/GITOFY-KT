@@ -3,6 +3,7 @@ package com.gitofy.app.ui.screens.home
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.gitofy.app.data.TokenStore
+import com.gitofy.app.data.local.toModel
 import com.gitofy.app.data.remote.GitHubApiService
 import com.gitofy.app.domain.RepoRepository
 import com.gitofy.app.model.Repository
@@ -12,6 +13,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -36,6 +38,15 @@ class HomeViewModel @Inject constructor(
     val avatarUrl: StateFlow<String> = _avatarUrl.asStateFlow()
 
     init {
+        // Show the offline cache immediately so Home opens straight into content
+        // instead of flashing the skeleton (the startup prefetch warms this cache).
+        viewModelScope.launch {
+            runCatching { repo.cached().first() }.getOrNull()
+                ?.takeIf { it.isNotEmpty() }
+                ?.let { rows ->
+                    if (_state.value !is UiState.Content) _state.value = UiState.Content(rows.map { it.toModel() })
+                }
+        }
         refresh()
         viewModelScope.launch {
             settings.settings.collect { s ->
@@ -55,12 +66,18 @@ class HomeViewModel @Inject constructor(
         }
     }
 
+    private val _refreshing = MutableStateFlow(false)
+    val refreshing: StateFlow<Boolean> = _refreshing.asStateFlow()
+
     fun refresh() = viewModelScope.launch {
         _hasToken.value = !tokenStore.token().isNullOrBlank()
-        _state.value = UiState.Loading
+        // Only show the skeleton on the first load — a refresh keeps the current list on
+        // screen (with the pull-to-refresh indicator) instead of flashing the skeleton.
+        if (_state.value !is UiState.Content) _state.value = UiState.Loading else _refreshing.value = true
         runCatching { repo.refresh() }
             .onSuccess { _state.value = UiState.Content(it) }
-            .onFailure { _state.value = UiState.Error(it.message ?: "Couldn't load repositories") }
+            .onFailure { if (_state.value !is UiState.Content) _state.value = UiState.Error(it.message ?: "Couldn't load repositories") }
+        _refreshing.value = false
     }
 
     fun create(name: String, description: String, isPrivate: Boolean) = viewModelScope.launch {

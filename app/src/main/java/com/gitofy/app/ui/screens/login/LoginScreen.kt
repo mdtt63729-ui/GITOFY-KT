@@ -1,5 +1,8 @@
 package com.gitofy.app.ui.screens.login
 
+import com.gitofy.app.ui.components.BouncyButton
+import com.gitofy.app.ui.components.BouncyOutlinedButton
+import com.gitofy.app.ui.components.BouncyTextButton
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -92,7 +95,7 @@ fun LoginScreen(onNavigate: (String) -> Unit, vm: LoginViewModel = hiltViewModel
             Spacer(Modifier.height(20.dp))
 
             Column(Modifier.fillMaxWidth(), verticalArrangement = Arrangement.spacedBy(12.dp)) {
-                OutlinedButton(
+                BouncyOutlinedButton(
                     onClick = { patOpen = true },
                     shape = RoundedCornerShape(50),
                     modifier = Modifier.fillMaxWidth().height(52.dp),
@@ -106,7 +109,7 @@ fun LoginScreen(onNavigate: (String) -> Unit, vm: LoginViewModel = hiltViewModel
                     Text("or", style = MaterialTheme.typography.labelMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
                     Box(Modifier.weight(1f).height(1.dp).background(MaterialTheme.colorScheme.outlineVariant))
                 }
-                Button(
+                BouncyButton(
                     onClick = { vm.startDeviceFlow() },
                     shape = RoundedCornerShape(50),
                     modifier = Modifier.fillMaxWidth().height(52.dp),
@@ -130,9 +133,9 @@ fun LoginScreen(onNavigate: (String) -> Unit, vm: LoginViewModel = hiltViewModel
         }
 
         Row(horizontalArrangement = Arrangement.spacedBy(10.dp), modifier = Modifier.padding(top = 16.dp)) {
-            TextButton(onClick = { onNavigate(Routes.PERMISSIONS) }) { Text("Privacy") }
+            BouncyTextButton(onClick = { onNavigate(Routes.PERMISSIONS) }) { Text("Privacy") }
             Text("·", color = MaterialTheme.colorScheme.onSurfaceVariant)
-            TextButton(onClick = { onNavigate(Routes.PERMISSIONS) }) { Text("Terms") }
+            BouncyTextButton(onClick = { onNavigate(Routes.PERMISSIONS) }) { Text("Terms") }
         }
     }
 
@@ -148,7 +151,7 @@ fun LoginScreen(onNavigate: (String) -> Unit, vm: LoginViewModel = hiltViewModel
                     value = pat, onValueChange = { pat = it },
                     label = { Text("ghp_…") }, singleLine = true, modifier = Modifier.fillMaxWidth(),
                 )
-                Button(
+                BouncyButton(
                     onClick = { vm.signInWithPat(pat); patOpen = false },
                     enabled = pat.isNotBlank(), modifier = Modifier.fillMaxWidth(),
                 ) { Text("Sign in with token") }

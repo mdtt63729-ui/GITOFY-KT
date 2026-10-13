@@ -123,14 +123,17 @@ fun FloatingNav(
                     delay(90)
                     trailingTab = current
                 }
+                // Exactly the web app's indicator transition: 260ms, cubic-bezier(0.34, 1.4, 0.64, 1)
+                // (a slight overshoot), with the trailing edge following 90ms later.
+                val indicatorSpec = tween<Float>(260, easing = CubicBezierEasing(0.34f, 1.4f, 0.64f, 1f))
                 val leading by animateFloatAsState(
                     targetValue = if (leadingTab == NavTab.HOME) 0f else 1f,
-                    animationSpec = spring(dampingRatio = 0.42f, stiffness = Spring.StiffnessMedium),
+                    animationSpec = indicatorSpec,
                     label = "leading",
                 )
                 val trailing by animateFloatAsState(
                     targetValue = if (trailingTab == NavTab.HOME) 0f else 1f,
-                    animationSpec = spring(dampingRatio = 0.52f, stiffness = Spring.StiffnessMedium),
+                    animationSpec = indicatorSpec,
                     label = "trailing",
                 )
                 val leftFrac = minOf(leading, trailing)
@@ -252,10 +255,17 @@ fun FabMenu(
     LaunchedEffect(visible) { if (!visible && expanded) onToggle() }
 
     val shown = visible || expanded
-    // Only a layout offset here. Wrapping the menu in Modifier.alpha/scale puts the
-    // FAB's elevation shadow inside a graphics layer, which renders as a grey square
-    // behind the round button — so the slide-in uses offset alone.
-    val containerOffset by animateDpAsState(if (shown) 0.dp else 104.dp, tween(if (shown) 380 else 220), label = "fabX")
+    // The FAB slides down out of view when hidden and springs back up with an
+    // overshoot when it returns — the web app's cubic-bezier(0.34, 1.56, 0.64, 1).
+    // Offset only (no alpha/scale) so the FAB's elevation shadow stays a circle.
+    val containerOffset by animateDpAsState(
+        targetValue = if (shown) 0.dp else 150.dp,
+        animationSpec = tween(
+            durationMillis = if (shown) 380 else 220,
+            easing = if (shown) CubicBezierEasing(0.34f, 1.56f, 0.64f, 1f) else CubicBezierEasing(0.4f, 0f, 1f, 1f),
+        ),
+        label = "fabY",
+    )
 
     Box(modifier) {
         // Backdrop scrim (the blur itself is applied to the content by the host).
@@ -268,7 +278,7 @@ fun FabMenu(
                 .align(Alignment.BottomEnd)
                 .windowInsetsPadding(WindowInsets.navigationBars)
                 .padding(end = 20.dp, bottom = 100.dp)
-                .offset(x = containerOffset),
+                .offset(y = containerOffset),
             horizontalAlignment = Alignment.End,
             verticalArrangement = Arrangement.spacedBy(10.dp),
         ) {

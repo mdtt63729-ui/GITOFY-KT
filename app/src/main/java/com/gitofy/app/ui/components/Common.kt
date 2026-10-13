@@ -34,7 +34,7 @@ fun ScreenScaffold(
             TopAppBar(
                 title = { Text(title, maxLines = 1) },
                 navigationIcon = {
-                    if (onBack != null) IconButton(onClick = onBack) {
+                    if (onBack != null) BouncyIconButton(onClick = onBack) {
                         Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
                     }
                 },

@@ -1,5 +1,8 @@
 package com.gitofy.app.ui.screens.upload
 
+import com.gitofy.app.ui.components.BouncyButton
+import com.gitofy.app.ui.components.BouncyOutlinedButton
+import com.gitofy.app.ui.components.BouncyTextButton
 import android.net.Uri
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
@@ -80,18 +83,18 @@ fun M3UploadFlowScreen(onBack: () -> Unit, onNavigate: (String) -> Unit, vm: Upl
             OutlinedTextField(repo, { repo = it }, label = { Text("Repository") }, singleLine = true, modifier = Modifier.fillMaxWidth())
             OutlinedTextField(branch, { branch = it }, label = { Text("Branch") }, singleLine = true, modifier = Modifier.fillMaxWidth())
 
-            OutlinedButton(onClick = { picker.launch("application/zip") }, shape = RoundedCornerShape(50), modifier = Modifier.fillMaxWidth()) {
+            BouncyOutlinedButton(onClick = { picker.launch("application/zip") }, shape = RoundedCornerShape(50), modifier = Modifier.fillMaxWidth()) {
                 Text(if (picked == null) "Pick ZIP file" else "ZIP selected ✓", fontWeight = FontWeight.Bold)
             }
 
-            Button(
+            BouncyButton(
                 onClick = { picked?.let { vm.uploadZip(owner, repo, branch, it, "Upload from Gitofy") } },
                 enabled = picked != null && owner.isNotBlank() && repo.isNotBlank(),
                 shape = RoundedCornerShape(50),
                 modifier = Modifier.fillMaxWidth(),
             ) { Text("Push to GitHub", fontWeight = FontWeight.Bold) }
 
-            Button(
+            BouncyButton(
                 onClick = { picked?.let { vm.uploadInBackground(owner, repo, branch, it, "Upload from Gitofy") } },
                 enabled = picked != null && owner.isNotBlank() && repo.isNotBlank(),
                 shape = RoundedCornerShape(50),
@@ -100,7 +103,7 @@ fun M3UploadFlowScreen(onBack: () -> Unit, onNavigate: (String) -> Unit, vm: Upl
 
             val resumable = owner.isNotBlank() && repo.isNotBlank() && vm.hasResumable(owner, repo)
             if (resumable) {
-                OutlinedButton(onClick = { vm.resume(owner, repo, "Upload from Gitofy") }, shape = RoundedCornerShape(50), modifier = Modifier.fillMaxWidth()) {
+                BouncyOutlinedButton(onClick = { vm.resume(owner, repo, "Upload from Gitofy") }, shape = RoundedCornerShape(50), modifier = Modifier.fillMaxWidth()) {
                     Text("Resume previous upload")
                 }
             }
@@ -117,8 +120,8 @@ fun M3UploadFlowScreen(onBack: () -> Unit, onNavigate: (String) -> Unit, vm: Upl
                         Column(Modifier.padding(12.dp), verticalArrangement = Arrangement.spacedBy(6.dp)) {
                             Row(verticalAlignment = Alignment.CenterVertically) {
                                 Text("${cp.owner}/${cp.repo} · ${cp.stage}", Modifier.weight(1f), style = MaterialTheme.typography.bodySmall)
-                                TextButton(onClick = { vm.resume(cp.owner, cp.repo, "Upload from Gitofy") }) { Text("Resume") }
-                                TextButton(onClick = { vm.discard(cp.repo) }) { Text("Discard") }
+                                BouncyTextButton(onClick = { vm.resume(cp.owner, cp.repo, "Upload from Gitofy") }) { Text("Resume") }
+                                BouncyTextButton(onClick = { vm.discard(cp.repo) }) { Text("Discard") }
                             }
                             if (cp.remainingText.isNotEmpty()) {
                                 Text(cp.remainingText, style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
@@ -162,7 +165,7 @@ fun M3UploadFlowScreen(onBack: () -> Unit, onNavigate: (String) -> Unit, vm: Upl
                             Text(s.detail, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant, maxLines = 3)
                         }
                     }
-                    OutlinedButton(onClick = { vm.cancelBackground(repo) }, shape = RoundedCornerShape(50), modifier = Modifier.fillMaxWidth()) {
+                    BouncyOutlinedButton(onClick = { vm.cancelBackground(repo) }, shape = RoundedCornerShape(50), modifier = Modifier.fillMaxWidth()) {
                         Text("Cancel upload")
                     }
                 }
@@ -179,12 +182,12 @@ fun M3UploadFlowScreen(onBack: () -> Unit, onNavigate: (String) -> Unit, vm: Upl
                             if (s.lfsFiles > 0) Text("${s.lfsFiles} file(s) went to Git LFS.", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onPrimaryContainer)
                         }
                     }
-                    Button(onClick = { onNavigate(Routes.HOME) }, shape = RoundedCornerShape(50), modifier = Modifier.fillMaxWidth()) { Text("Done") }
+                    BouncyButton(onClick = { onNavigate(Routes.HOME) }, shape = RoundedCornerShape(50), modifier = Modifier.fillMaxWidth()) { Text("Done") }
                 }
                 is UploadState.Failed -> {
                     Text("Failed: ${s.message}", color = MaterialTheme.colorScheme.error)
                     if (s.resumable && owner.isNotBlank() && repo.isNotBlank()) {
-                        OutlinedButton(onClick = { vm.resume(owner, repo, "Upload from Gitofy") }, shape = RoundedCornerShape(50), modifier = Modifier.fillMaxWidth()) {
+                        BouncyOutlinedButton(onClick = { vm.resume(owner, repo, "Upload from Gitofy") }, shape = RoundedCornerShape(50), modifier = Modifier.fillMaxWidth()) {
                             Text("Resume")
                         }
                     }

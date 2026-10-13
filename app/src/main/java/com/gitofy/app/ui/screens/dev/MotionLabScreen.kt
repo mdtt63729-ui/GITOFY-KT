@@ -1,5 +1,6 @@
 package com.gitofy.app.ui.screens.dev
 
+import com.gitofy.app.ui.components.BouncyButton
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.expandVertically
@@ -29,7 +30,7 @@ fun MotionLabScreen(onBack: () -> Unit) {
     val scale by animateFloatAsState(if (visible) 1f else 0.6f, animationSpec = GitofyMotion.spatialMedium)
     ScreenScaffold("Motion lab", onBack) { m ->
         Column(m.padding(16.dp), Arrangement.spacedBy(16.dp)) {
-            Button(onClick = { visible = !visible }, modifier = Modifier.fillMaxWidth()) { Text("Toggle motion") }
+            BouncyButton(onClick = { visible = !visible }, modifier = Modifier.fillMaxWidth()) { Text("Toggle motion") }
             AnimatedVisibility(visible, enter = fadeIn() + expandVertically()) {
                 Card(Modifier.fillMaxWidth()) { Text("Animated container", Modifier.padding(16.dp)) }
             }

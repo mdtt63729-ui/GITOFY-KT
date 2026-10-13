@@ -2,6 +2,113 @@
 
 The app version and the delivered zip name are bumped together on every update.
 
+## v1.13.3 — Uploads work even without the bundled git binary
+- **"This build has no bundled git binary" is gone.** When the APK has no bundled git,
+  the upload pipeline now falls back to the **GitHub REST API** (blobs → tree → commit →
+  ref) and pushes anyway. It is slower than native git but never hard-fails.
+- The **unsigned-APK workflow now builds the git binary by default** (`build_git` default
+  is now `true`), so a fresh build gets native-git speed.
+- If the cross-compile does fail, the workflow still produces a working APK (the API
+  fallback covers it).
+
+## v1.13.2 — Every repo action is a Material 3 button
+- The repo overview now shows **all** destinations as real M3 `OutlinedButton`s with proper
+  Material icons — Code (Folder), Commits (History), Branches (AccountTree), Issues
+  (BugReport), New release (NewReleases), Settings (Settings) — two per row, plus a
+  full-width danger **Delete content** button (DeleteForever, error colour). The ⋯ menu
+  keeps the same actions as a shortcut.
+
+## v1.13.1 — Repo overview cleaned up to true Material 3
+- Removed the plain action list on the repo overview that duplicated the ⋯ menu
+  (Branches / Issues / New release / Repository settings).
+- **Code** and **Commits** are now real M3 `OutlinedButton`s with proper Material icons
+  (`Folder`, `History`) — the same button style as Upload Project / Workflows.
+- The ⋯ menu's destructive action now uses the danger **`DeleteForever`** icon in the
+  error colour.
+
+## v1.13.0 — Skeletons, pull-to-refresh, deep customisation, code-ZIP download
+- **Skeleton rows** now mirror a real repo card (44dp avatar + title + two description
+  lines + a stats line inside a card), so the list no longer shrinks/jumps when it loads.
+- **Pull-to-refresh** on Home and Inbox using the real M3 `PullToRefreshBox` (the
+  morphing indicator). Refreshing keeps the current list on screen instead of flashing
+  the skeleton.
+- **Deep customisation (Settings → Appearance)**:
+  - **Dynamic colour** (Material You) toggle — uses the system wallpaper on Android 12+.
+  - **Canvas colour** — pick Warm / Cool / Charcoal / Forest to tint the whole background.
+  - **Font** choice now really changes the type (mapped to distinct families) and a new
+    **Font Weight** choice (Light / Normal / Medium / Bold) applies.
+  - **Font Scale** is now an M3 `Slider`.
+- **Source code (ZIP)** download button on the repo dashboard (streams
+  `repos/…/zipball/<branch>` with live progress), alongside the release APK downloads.
+
+## v1.12.0 — Splash goes straight into Home (no loading screen)
+- The launch splash is now just the **app icon** (no spinner), so it matches the
+  system's cold-start splash and reads as one continuous icon.
+- The repo list is **prefetched during startup** (bounded to 3.5 s so a slow network
+  never holds the splash), and Home shows the **offline cache immediately** — so Home
+  opens straight into content instead of flashing the skeleton loading screen.
+- The switch from splash to Home (or Login) is a smooth **crossfade** (340 ms).
+- Added `RepoEntity.toModel()` so the cached list can render without a network round-trip.
+
+## v1.11.0 — Bouncy press on every Material 3 button
+- Every real M3 button in the app is now bouncy: `Button`, `IconButton` (top-bar
+  back/search/refresh/etc.), `OutlinedButton`, `TextButton` and `FilledTonalButton`.
+- Added drop-in wrappers `BouncyButton` / `BouncyIconButton` / `BouncyOutlinedButton` /
+  `BouncyTextButton` / `BouncyFilledTonalButton` that keep the exact M3 look (ripple,
+  state layer, colours, elevation) and add the spring overshoot via `Modifier.bouncyPress`.
+- Replaced all 78 M3 button call sites across 27 files with the wrappers.
+
+## v1.10.0 — Bouncy buttons + true Material 3 components
+- **Bouncy press everywhere**: every custom-tappable surface now springs down to 0.94×
+  and springs back with an overshoot (`Modifier.pressClickable`). For real M3 components
+  there is a matching `Modifier.bouncyPress(interactionSource)`.
+- **True Material 3 components**:
+  - Repo dashboard actions are now M3 `Button` (Upload Project) and `FilledTonalButton`
+    (Workflows) instead of hand-rolled pill Surfaces — same colours, real M3 ripple/press.
+  - Repo action rows and Settings rows are now M3 `ListItem`s (headline / supporting /
+    trailing chevron) instead of plain Text-in-a-Surface.
+  - The release download bar is now the M3 `LinearProgressIndicator`.
+- The scale uses a graphics-layer transform only (no alpha), so elevated surfaces keep
+  their round shadow (no grey square).
+
+## v1.9.1 — Tap a job for its log; fixed the log fetch
+- **Tap the job itself** to open its log — the separate "Log" button and the
+  "View live log" button are gone (the job row now shows a chevron).
+- **Logs were erroring out**: GitHub's job-logs endpoint answers with a **302** to a
+  short-lived signed blob URL, but every request went through the shared Retrofit
+  client whose `AuthInterceptor` stamps `Authorization` + `Accept: application/vnd.github+json`
+  on it. A new `JobLogFetcher` makes the call with a plain OkHttp client, follows the
+  redirect itself, and drops the Authorization header on the blob hop — the log now
+  loads. It also gives a clearer message when a job has no log yet (HTTP 404).
+- The inline log tail on the run-detail screen was removed (the log lives on the job now).
+
+## v1.9.0 — Content stagger (PRD §6) + reduced-motion
+- Added a reusable **`StaggeredAppear`** helper: each content group fades in (alpha 0→1)
+  and rises 6 dp, delayed by `index × 24 ms`, using `FastOutSlowInEasing` (no bounce).
+  It runs **once** per composition — never again on scroll or recomposition.
+- Applied to Home (app bar, connect card, filter row) and to the shared list scaffold's
+  header, so every list screen's first content group eases in the same way.
+- **Reduced motion**: `GitofyTheme` now provides `LocalReducedMotion` from the user's
+  `reduceMotion` setting; `StaggeredAppear` skips the delay/translation when it is on.
+
+## v1.8.0 — PRD page transitions, exact nav motion, FAB swap, real share/download/delete
+- **Page transitions (per the supplied PRD)**: crossfade + a subtle 4–8 dp vertical rise,
+  280 ms enter / 160 ms exit, `FastOutSlowInEasing`, **no scale, no bounce** — the old
+  slide+scale transition is gone. Applied centrally in the NavHost so every destination
+  uses the same motion.
+- **FloatingNav**: restored the web app's exact indicator transition —
+  260 ms `cubic-bezier(0.34, 1.4, 0.64, 1)` with the trailing edge 90 ms behind — instead
+  of the springs I had substituted.
+- **FAB is exactly opposite the nav** (App.tsx `visible={!isNavVisible}`): when the nav
+  hides the FAB takes its place, and vice-versa. Its hide/reveal is now a bouncy vertical
+  slide (`cubic-bezier(0.34, 1.56, 0.64, 1)`).
+- **FAB actions** wait ~160 ms before navigating so the menu closes first and the new
+  page animates in. **Delete repo** now opens a real repo picker → delete confirm
+  (no more dummy "Complete" screen).
+- **Repo ⋯ menu**: **Share** now actually shares the repo URL via the system chooser.
+- **Releases & APKs**: real in-app APK download with a live progress bar and speed.
+- **Skeleton** only shows on the first load — a refresh keeps the current list on screen.
+
 ## v1.7.1 — Build fix
 - Adding the `avatar` parameter to `GitofyTopBar` shifted its positional parameters, and
   one call site (`Polish.kt`'s generic list scaffold) still passed `actions` positionally,

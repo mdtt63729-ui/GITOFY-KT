@@ -1,5 +1,7 @@
 package com.gitofy.app.ui.screens.browse
 
+import com.gitofy.app.ui.components.BouncyButton
+import com.gitofy.app.ui.components.BouncyOutlinedButton
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -72,7 +74,7 @@ fun ReleaseCreatorScreen(owner: String, repo: String, onBack: () -> Unit, vm: Re
             OutlinedTextField(tag, { tag = it }, label = { Text("Tag (v1.2.3)") }, singleLine = true, modifier = Modifier.fillMaxWidth())
             OutlinedTextField(title, { title = it }, label = { Text("Release title") }, singleLine = true, modifier = Modifier.fillMaxWidth())
             OutlinedTextField(notes, { notes = it }, label = { Text("Describe this release") }, modifier = Modifier.fillMaxWidth())
-            OutlinedButton(onClick = {}, shape = RoundedCornerShape(50), modifier = Modifier.fillMaxWidth()) {
+            BouncyOutlinedButton(onClick = {}, shape = RoundedCornerShape(50), modifier = Modifier.fillMaxWidth()) {
                 Icon(Icons.Filled.AttachFile, null)
                 Text("  Attach a file")
             }
@@ -99,7 +101,7 @@ fun ReleaseCreatorScreen(owner: String, repo: String, onBack: () -> Unit, vm: Re
                     }
                 }
             }
-            Button(
+            BouncyButton(
                 onClick = { vm.create(owner, repo, tag, title, notes, draft, pre) },
                 enabled = tag.isNotBlank(), shape = RoundedCornerShape(50), modifier = Modifier.fillMaxWidth(),
             ) { Text("Create release", fontWeight = FontWeight.Bold) }

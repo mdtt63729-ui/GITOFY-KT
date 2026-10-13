@@ -12,8 +12,14 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
 import androidx.compose.material3.FilterChip
+import androidx.compose.material3.Icon
+import androidx.compose.material3.ListItem
+import androidx.compose.material3.ListItemDefaults
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Slider
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
@@ -46,8 +52,12 @@ fun SettingsScreen(onBack: () -> Unit, onNavigate: (String) -> Unit = {}, vm: Se
             item {
                 SettingsCard {
                     ChipRow("Theme", listOf("light" to "Light", "dark" to "Dark", "system" to "System"), s.uiMode) { vm.setUiMode(it) }
+                    SwitchRow("Dynamic Colour", "Match the system wallpaper (Android 12+)", s.dynamicColor) { vm.setDynamicColor(it) }
                     ChipRow("M3 Accent Palette", Palette.entries.map { it.label to it.label.replaceFirstChar { c -> c.uppercase() } }, s.palette) { vm.setPalette(it) }
+                    ChipRow("Canvas Colour", listOf("" to "Default", "#FFF6F3" to "Warm", "#F3F6FF" to "Cool", "#101014" to "Charcoal", "#0B1F17" to "Forest"), s.backgroundHex) { vm.setBackgroundHex(it) }
                     ChipRow("Font", listOf("josefin" to "Josefin", "poppins" to "Poppins", "montserrat" to "Montserrat", "orbitron" to "Orbitron", "playfair" to "Playfair", "system" to "System"), s.fontFamily) { vm.setFontFamily(it) }
+                    ChipRow("Font Weight", listOf("light" to "Light", "normal" to "Normal", "medium" to "Medium", "bold" to "Bold"), s.fontWeight) { vm.setFontWeight(it) }
+                    SliderRow("Font Scale", s.fontScale, 0.85f..1.3f, { vm.setFontScale(it) }, "${(s.fontScale * 100).toInt()}%")
                     ChipRow("UI Density", listOf("compact" to "Compact", "normal" to "Normal", "comfortable" to "Comfortable"), s.uiDensity) { vm.setUiDensity(it) }
                 }
             }
@@ -147,6 +157,23 @@ private fun SettingsCard(content: @Composable () -> Unit) {
 }
 
 @Composable
+private fun SliderRow(
+    title: String,
+    value: Float,
+    range: ClosedFloatingPointRange<Float>,
+    onChange: (Float) -> Unit,
+    label: String,
+) {
+    Column(verticalArrangement = Arrangement.spacedBy(2.dp)) {
+        Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
+            Text(title, style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.SemiBold, modifier = Modifier.weight(1f))
+            Text(label, style = MaterialTheme.typography.labelMedium, color = MaterialTheme.colorScheme.primary)
+        }
+        Slider(value = value, onValueChange = onChange, valueRange = range)
+    }
+}
+
+@Composable
 private fun SwitchRow(title: String, subtitle: String, checked: Boolean, onChange: (Boolean) -> Unit) {
     Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
         Column(Modifier.weight(1f)) {
@@ -172,19 +199,20 @@ private fun ChipRow(title: String, options: List<Pair<String, String>>, selected
 
 @Composable
 private fun NavRow(title: String, subtitle: String, danger: Boolean = false, onClick: () -> Unit) {
-    Row(
-        Modifier.fillMaxWidth().pressClickable(onClick = onClick),
-        verticalAlignment = Alignment.CenterVertically,
-    ) {
-        Column(Modifier.weight(1f)) {
+    ListItem(
+        headlineContent = {
             Text(
                 title,
                 style = MaterialTheme.typography.titleSmall,
                 fontWeight = FontWeight.SemiBold,
                 color = if (danger) MaterialTheme.colorScheme.error else MaterialTheme.colorScheme.onSurface,
             )
-            if (subtitle.isNotBlank()) Text(subtitle, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
-        }
-        Text("›", style = MaterialTheme.typography.titleLarge, color = MaterialTheme.colorScheme.onSurfaceVariant)
-    }
+        },
+        supportingContent = if (subtitle.isNotBlank()) {
+            { Text(subtitle, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant) }
+        } else null,
+        trailingContent = { Icon(Icons.AutoMirrored.Filled.KeyboardArrowRight, null, tint = MaterialTheme.colorScheme.onSurfaceVariant) },
+        colors = ListItemDefaults.colors(containerColor = androidx.compose.ui.graphics.Color.Transparent),
+        modifier = Modifier.fillMaxWidth().pressClickable(onClick = onClick),
+    )
 }

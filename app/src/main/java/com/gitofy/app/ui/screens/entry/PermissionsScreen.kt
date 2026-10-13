@@ -1,5 +1,7 @@
 package com.gitofy.app.ui.screens.entry
 
+import com.gitofy.app.ui.components.BouncyButton
+import com.gitofy.app.ui.components.BouncyOutlinedButton
 import android.os.Build
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
@@ -37,7 +39,7 @@ fun PermissionsScreen(onBack: () -> Unit) {
             Text("Notifications", style = MaterialTheme.typography.titleMedium)
             Text("For workflow run and upload updates.", color = MaterialTheme.colorScheme.onSurfaceVariant)
             if (Build.VERSION.SDK_INT >= 33 && !notifications) {
-                Button(onClick = { notifLauncher.launch(PermissionHelper.notificationPermission()) }, modifier = Modifier.fillMaxWidth()) {
+                BouncyButton(onClick = { notifLauncher.launch(PermissionHelper.notificationPermission()) }, modifier = Modifier.fillMaxWidth()) {
                     Text("Allow notifications")
                 }
             } else Text("Granted ✓")
@@ -45,7 +47,7 @@ fun PermissionsScreen(onBack: () -> Unit) {
             Text("Install unknown apps", style = MaterialTheme.typography.titleMedium)
             Text("Only used by the in-app updater.", color = MaterialTheme.colorScheme.onSurfaceVariant)
             if (!install) {
-                OutlinedButton(onClick = { context.startActivity(PermissionHelper.installPackagesIntent(context)) }, modifier = Modifier.fillMaxWidth()) {
+                BouncyOutlinedButton(onClick = { context.startActivity(PermissionHelper.installPackagesIntent(context)) }, modifier = Modifier.fillMaxWidth()) {
                     Text("Open settings")
                 }
             } else Text("Granted ✓")

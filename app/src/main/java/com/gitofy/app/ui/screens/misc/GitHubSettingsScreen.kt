@@ -1,5 +1,6 @@
 package com.gitofy.app.ui.screens.misc
 
+import com.gitofy.app.ui.components.BouncyButton
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -28,7 +29,7 @@ fun GitHubSettingsScreen(onBack: () -> Unit, onSignedOut: () -> Unit, vm: Settin
             Text("Signed in as ${s.githubUsername.ifBlank { "—" }}", style = MaterialTheme.typography.titleMedium)
             Text("Client id: ${com.gitofy.app.auth.AuthConfig.CLIENT_ID}", style = MaterialTheme.typography.bodySmall)
             OutlinedTextField(pat, { pat = it }, label = { Text("New Personal Access Token") }, singleLine = true, modifier = Modifier.fillMaxWidth())
-            Button(onClick = onSignedOut, modifier = Modifier.fillMaxWidth()) { Text("Sign out") }
+            BouncyButton(onClick = onSignedOut, modifier = Modifier.fillMaxWidth()) { Text("Sign out") }
         }
     }
 }

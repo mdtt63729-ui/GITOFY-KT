@@ -1,5 +1,8 @@
 package com.gitofy.app.ui.screens.browse
 
+import com.gitofy.app.ui.components.BouncyButton
+import com.gitofy.app.ui.components.BouncyIconButton
+import com.gitofy.app.ui.components.BouncyOutlinedButton
 import androidx.compose.foundation.layout.Arrangement
 import com.gitofy.app.ui.components.pressClickable
 import androidx.compose.foundation.layout.Column
@@ -93,7 +96,7 @@ fun IssuesScreen(owner: String, repo: String, onBack: () -> Unit, onOpenIssue: (
 
     Scaffold(topBar = {
         GitofyTopBar("Issues · $repo", onBack, actions = {
-            IconButton(onClick = { sheet = true }) { Icon(Icons.Filled.Add, "New issue") }
+            BouncyIconButton(onClick = { sheet = true }) { Icon(Icons.Filled.Add, "New issue") }
         })
     }) { padding ->
         when (val st = s) {
@@ -123,7 +126,7 @@ fun IssuesScreen(owner: String, repo: String, onBack: () -> Unit, onOpenIssue: (
                                     )
                                 }
                                 if (isPr) {
-                                    OutlinedButton(onClick = { vm.merge(i.number) }) { Text("Merge") }
+                                    BouncyOutlinedButton(onClick = { vm.merge(i.number) }) { Text("Merge") }
                                 }
                             }
                         }
@@ -141,8 +144,8 @@ fun IssuesScreen(owner: String, repo: String, onBack: () -> Unit, onOpenIssue: (
                 OutlinedTextField(title, { title = it }, label = { Text("Title") }, modifier = Modifier.fillMaxWidth())
                 OutlinedTextField(body, { body = it }, label = { Text("Description") }, modifier = Modifier.fillMaxWidth())
                 Row(horizontalArrangement = Arrangement.spacedBy(10.dp), modifier = Modifier.fillMaxWidth()) {
-                    Button(onClick = { sheet = false }, modifier = Modifier.weight(1f)) { Text("Cancel") }
-                    Button(
+                    BouncyButton(onClick = { sheet = false }, modifier = Modifier.weight(1f)) { Text("Cancel") }
+                    BouncyButton(
                         onClick = { vm.create(title, body); sheet = false },
                         enabled = title.isNotBlank(), modifier = Modifier.weight(1f),
                     ) { Text("Create") }

@@ -1,5 +1,7 @@
 package com.gitofy.app.ui.screens.security
 
+import com.gitofy.app.ui.components.BouncyButton
+import com.gitofy.app.ui.components.BouncyOutlinedButton
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -31,8 +33,8 @@ fun DangerSheet(onDismiss: () -> Unit, onDownloadOfficial: () -> Unit) {
             Text("This is an unofficial app", style = MaterialTheme.typography.headlineSmall, color = Color(0xFFC52A3A))
             Text("The app signature does not match the official release. Download the official build.",
                 color = MaterialTheme.colorScheme.onSurfaceVariant)
-            Button(onClick = onDownloadOfficial, modifier = Modifier.fillMaxWidth()) { Text("Download official app") }
-            OutlinedButton(onClick = onDismiss, modifier = Modifier.fillMaxWidth()) { Text("Later") }
+            BouncyButton(onClick = onDownloadOfficial, modifier = Modifier.fillMaxWidth()) { Text("Download official app") }
+            BouncyOutlinedButton(onClick = onDismiss, modifier = Modifier.fillMaxWidth()) { Text("Later") }
         }
     }
 }
@@ -44,7 +46,7 @@ fun SecurityOverlay(message: String, onDismiss: (() -> Unit)? = null) {
         Column(horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(12.dp)) {
             Text("Security check failed", style = MaterialTheme.typography.headlineSmall, color = MaterialTheme.colorScheme.error)
             Text(message, color = MaterialTheme.colorScheme.onSurfaceVariant)
-            if (onDismiss != null) Button(onClick = onDismiss) { Text("Dismiss") }
+            if (onDismiss != null) BouncyButton(onClick = onDismiss) { Text("Dismiss") }
         }
     }
 }
@@ -58,8 +60,8 @@ fun UpdateSheet(version: String, fileName: String, onUpdate: () -> Unit, onLater
             Text("A new version is ready", style = MaterialTheme.typography.headlineSmall)
             Text("$version available", style = MaterialTheme.typography.titleMedium)
             Text("File: $fileName", style = MaterialTheme.typography.bodySmall)
-            Button(onClick = onUpdate, modifier = Modifier.fillMaxWidth()) { Text("Update") }
-            OutlinedButton(onClick = onLater, modifier = Modifier.fillMaxWidth()) { Text("Later") }
+            BouncyButton(onClick = onUpdate, modifier = Modifier.fillMaxWidth()) { Text("Update") }
+            BouncyOutlinedButton(onClick = onLater, modifier = Modifier.fillMaxWidth()) { Text("Later") }
         }
     }
 }

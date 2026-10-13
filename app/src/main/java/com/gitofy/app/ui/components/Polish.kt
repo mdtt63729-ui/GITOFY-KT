@@ -55,7 +55,7 @@ fun GitofyTopBar(title: String, onBack: (() -> Unit)? = null, avatar: Boolean = 
     TopAppBar(
         title = { Text(title, maxLines = 1, overflow = TextOverflow.Ellipsis) },
         navigationIcon = {
-            if (onBack != null) IconButton(onClick = onBack) {
+            if (onBack != null) BouncyIconButton(onClick = onBack) {
                 Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
             }
         },
@@ -128,7 +128,7 @@ fun EmptyState(
                 Text(body, style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
             }
             if (actionLabel != null && onAction != null) {
-                Button(onClick = onAction) { Text(actionLabel) }
+                BouncyButton(onClick = onAction) { Text(actionLabel) }
             }
         }
     }
@@ -145,7 +145,7 @@ fun ErrorState(message: String, onRetry: (() -> Unit)? = null, modifier: Modifie
             Icon(Icons.Filled.CloudOff, null, Modifier.size(48.dp), tint = MaterialTheme.colorScheme.error)
             Text("Something went wrong", style = MaterialTheme.typography.titleMedium)
             Text(message, style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
-            if (onRetry != null) Button(onClick = onRetry) { Text("Retry") }
+            if (onRetry != null) BouncyButton(onClick = onRetry) { Text("Retry") }
         }
     }
 }
@@ -159,13 +159,25 @@ fun SkeletonList(rows: Int = 6, modifier: Modifier = Modifier) {
         animationSpec = infiniteRepeatable(tween(900), RepeatMode.Reverse),
         label = "alpha",
     )
-    Column(modifier.fillMaxWidth().padding(16.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
+    // Each placeholder row mirrors a real repo card (44dp avatar + title + two
+    // description lines + a stats line), so the list doesn't jump when it loads.
+    Column(modifier.fillMaxWidth().padding(horizontal = 12.dp, vertical = 6.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
         repeat(rows) {
-            Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-                Box(Modifier.size(40.dp).clip(CircleShape).background(MaterialTheme.colorScheme.surfaceVariant).alpha(alpha))
-                Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(6.dp)) {
-                    Box(Modifier.fillMaxWidth(0.6f).height(14.dp).clip(RoundedCornerShape(6.dp)).background(MaterialTheme.colorScheme.surfaceVariant).alpha(alpha))
-                    Box(Modifier.fillMaxWidth(0.9f).height(12.dp).clip(RoundedCornerShape(6.dp)).background(MaterialTheme.colorScheme.surfaceVariant).alpha(alpha))
+            Row(
+                Modifier
+                    .fillMaxWidth()
+                    .clip(RoundedCornerShape(16.dp))
+                    .background(MaterialTheme.colorScheme.surfaceContainer)
+                    .padding(12.dp),
+                verticalAlignment = Alignment.Top,
+                horizontalArrangement = Arrangement.spacedBy(12.dp),
+            ) {
+                Box(Modifier.size(44.dp).clip(CircleShape).background(MaterialTheme.colorScheme.surfaceVariant).alpha(alpha))
+                Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                    Box(Modifier.fillMaxWidth(0.55f).height(16.dp).clip(RoundedCornerShape(6.dp)).background(MaterialTheme.colorScheme.surfaceVariant).alpha(alpha))
+                    Box(Modifier.fillMaxWidth(0.95f).height(13.dp).clip(RoundedCornerShape(6.dp)).background(MaterialTheme.colorScheme.surfaceVariant).alpha(alpha))
+                    Box(Modifier.fillMaxWidth(0.75f).height(13.dp).clip(RoundedCornerShape(6.dp)).background(MaterialTheme.colorScheme.surfaceVariant).alpha(alpha))
+                    Box(Modifier.fillMaxWidth(0.40f).height(11.dp).clip(RoundedCornerShape(6.dp)).background(MaterialTheme.colorScheme.surfaceVariant).alpha(alpha))
                 }
             }
         }
@@ -224,7 +236,7 @@ fun <T> PolishedList(
 ) {
     androidx.compose.material3.Scaffold(topBar = { GitofyTopBar(title, onBack, actions = actions) }) { padding ->
         Column(Modifier.fillMaxSize().padding(padding)) {
-            header()
+            StaggeredAppear(0) { header() }
             when (state) {
                 is com.gitofy.app.ui.state.UiState.Loading -> SkeletonList(modifier = Modifier.fillMaxSize())
                 is com.gitofy.app.ui.state.UiState.Error -> ErrorState(state.message, onRetry, Modifier.fillMaxSize())

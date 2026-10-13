@@ -1,5 +1,6 @@
 package com.gitofy.app.ui.screens.sheets
 
+import com.gitofy.app.ui.components.BouncyButton
 import androidx.compose.foundation.layout.Arrangement
 import com.gitofy.app.ui.components.pressClickable
 import androidx.compose.foundation.layout.Column
@@ -44,7 +45,7 @@ fun CreateRepoSheet(onDismiss: () -> Unit, onCreate: (name: String, description:
                 }
                 Switch(isPrivate, { isPrivate = it })
             }
-            Button(onClick = { onCreate(name, desc, isPrivate) }, enabled = name.isNotBlank(), modifier = Modifier.fillMaxWidth()) { Text("Create") }
+            BouncyButton(onClick = { onCreate(name, desc, isPrivate) }, enabled = name.isNotBlank(), modifier = Modifier.fillMaxWidth()) { Text("Create") }
         }
     }
 }

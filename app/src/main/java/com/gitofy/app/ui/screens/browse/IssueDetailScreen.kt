@@ -1,5 +1,7 @@
 package com.gitofy.app.ui.screens.browse
 
+import com.gitofy.app.ui.components.BouncyButton
+import com.gitofy.app.ui.components.BouncyOutlinedButton
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -89,7 +91,7 @@ fun IssueDetailScreen(owner: String, repo: String, number: Int, onBack: () -> Un
                             Text(i.title, style = MaterialTheme.typography.titleLarge)
                             Text("${i.state} • ${i.user?.login ?: ""}", color = MaterialTheme.colorScheme.onSurfaceVariant)
                             i.body?.let { Text(it) }
-                            OutlinedButton(onClick = { vm.toggle(if (i.state == "open") "closed" else "open") }) {
+                            BouncyOutlinedButton(onClick = { vm.toggle(if (i.state == "open") "closed" else "open") }) {
                                 Text(if (i.state == "open") "Close issue" else "Reopen issue")
                             }
                         }
@@ -105,7 +107,7 @@ fun IssueDetailScreen(owner: String, repo: String, number: Int, onBack: () -> Un
                     item {
                         Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
                             OutlinedTextField(body, { body = it }, label = { Text("Add a comment") }, modifier = Modifier.fillMaxWidth())
-                            Button(onClick = { if (body.isNotBlank()) { vm.comment(body); body = "" } }, modifier = Modifier.fillMaxWidth()) {
+                            BouncyButton(onClick = { if (body.isNotBlank()) { vm.comment(body); body = "" } }, modifier = Modifier.fillMaxWidth()) {
                                 Text("Comment")
                             }
                         }

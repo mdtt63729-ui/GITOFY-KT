@@ -1,5 +1,8 @@
 package com.gitofy.app.ui.screens.browse
 
+import com.gitofy.app.ui.components.BouncyButton
+import com.gitofy.app.ui.components.BouncyIconButton
+import com.gitofy.app.ui.components.BouncyTextButton
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -94,8 +97,8 @@ fun BranchManagerScreen(owner: String, repo: String, onBack: () -> Unit, vm: Bra
 
     Scaffold(topBar = {
         GitofyTopBar("Branches · $repo", onBack, actions = {
-            IconButton(onClick = { vm.load(owner, repo) }) { Icon(Icons.Filled.Refresh, "Refresh") }
-            IconButton(onClick = { newOpen = true }) { Icon(Icons.Filled.Add, "New branch") }
+            BouncyIconButton(onClick = { vm.load(owner, repo) }) { Icon(Icons.Filled.Refresh, "Refresh") }
+            BouncyIconButton(onClick = { newOpen = true }) { Icon(Icons.Filled.Add, "New branch") }
         })
     }) { padding ->
         when (val st = s) {
@@ -122,8 +125,8 @@ fun BranchManagerScreen(owner: String, repo: String, onBack: () -> Unit, vm: Bra
                                 }
                                 Text(b.commit.sha.take(7), style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
                                 Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
-                                    TextButton(onClick = { vm.rename(b.name, "${b.name}-renamed") }) { Text("Rename") }
-                                    TextButton(onClick = { vm.delete(b.name) }) { Text("Delete", color = MaterialTheme.colorScheme.error) }
+                                    BouncyTextButton(onClick = { vm.rename(b.name, "${b.name}-renamed") }) { Text("Rename") }
+                                    BouncyTextButton(onClick = { vm.delete(b.name) }) { Text("Delete", color = MaterialTheme.colorScheme.error) }
                                 }
                             }
                         }
@@ -139,8 +142,8 @@ fun BranchManagerScreen(owner: String, repo: String, onBack: () -> Unit, vm: Bra
                 Text("New branch", style = MaterialTheme.typography.titleLarge, fontWeight = FontWeight.Bold)
                 OutlinedTextField(name, { name = it }, label = { Text("Branch name") }, singleLine = true, modifier = Modifier.fillMaxWidth())
                 Row(horizontalArrangement = Arrangement.spacedBy(10.dp), modifier = Modifier.fillMaxWidth()) {
-                    Button(onClick = { newOpen = false }, modifier = Modifier.weight(1f)) { Text("Cancel") }
-                    Button(
+                    BouncyButton(onClick = { newOpen = false }, modifier = Modifier.weight(1f)) { Text("Cancel") }
+                    BouncyButton(
                         onClick = { vm.create(name, (s as? UiState.Content)?.data?.firstOrNull()?.commit?.sha ?: ""); newOpen = false },
                         enabled = name.isNotBlank(), modifier = Modifier.weight(1f),
                     ) { Text("Create") }

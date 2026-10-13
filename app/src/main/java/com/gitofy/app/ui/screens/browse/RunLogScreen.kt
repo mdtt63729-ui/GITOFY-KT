@@ -37,7 +37,10 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class RunLogViewModel @Inject constructor(private val api: GitHubApiService) : ViewModel() {
+class RunLogViewModel @Inject constructor(
+    private val api: GitHubApiService,
+    private val logFetcher: com.gitofy.app.data.remote.JobLogFetcher,
+) : ViewModel() {
     private val _jobs = MutableStateFlow<List<JobDto>>(emptyList())
     val jobs: StateFlow<List<JobDto>> = _jobs.asStateFlow()
     private val _log = MutableStateFlow<UiState<String>>(UiState.Loading)
@@ -60,7 +63,7 @@ class RunLogViewModel @Inject constructor(private val api: GitHubApiService) : V
     fun select(jobId: Long) { selected = jobId; viewModelScope.launch { loadLog(jobId) } }
 
     private suspend fun loadLog(jobId: Long) {
-        runCatching { api.jobLogs(owner, repo, jobId).string() }
+        runCatching { logFetcher.fetch(owner, repo, jobId) }
             .onSuccess { _log.value = UiState.Content(it.takeLast(20000)) }
             .onFailure { _log.value = UiState.Error(it.message ?: "No log") }
     }

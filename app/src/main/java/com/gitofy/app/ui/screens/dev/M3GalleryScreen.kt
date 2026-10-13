@@ -1,5 +1,9 @@
 package com.gitofy.app.ui.screens.dev
 
+import com.gitofy.app.ui.components.BouncyButton
+import com.gitofy.app.ui.components.BouncyFilledTonalButton
+import com.gitofy.app.ui.components.BouncyOutlinedButton
+import com.gitofy.app.ui.components.BouncyTextButton
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -32,10 +36,10 @@ fun M3GalleryScreen(onBack: () -> Unit) {
     var sl by remember { mutableStateOf(0.5f) }
     ScreenScaffold("M3 gallery", onBack) { m ->
         Column(m.padding(16.dp).verticalScroll(rememberScrollState()), Arrangement.spacedBy(12.dp)) {
-            Button(onClick = {}, modifier = Modifier.fillMaxWidth()) { Text("Filled button") }
-            FilledTonalButton(onClick = {}, modifier = Modifier.fillMaxWidth()) { Text("Tonal button") }
-            OutlinedButton(onClick = {}, modifier = Modifier.fillMaxWidth()) { Text("Outlined") }
-            TextButton(onClick = {}) { Text("Text button") }
+            BouncyButton(onClick = {}, modifier = Modifier.fillMaxWidth()) { Text("Filled button") }
+            BouncyFilledTonalButton(onClick = {}, modifier = Modifier.fillMaxWidth()) { Text("Tonal button") }
+            BouncyOutlinedButton(onClick = {}, modifier = Modifier.fillMaxWidth()) { Text("Outlined") }
+            BouncyTextButton(onClick = {}) { Text("Text button") }
             FilterChip(true, {}, label = { Text("Filter chip") })
             androidx.compose.foundation.layout.Row { Text("Switch"); Switch(sw, { sw = it }) }
             Slider(sl, { sl = it })

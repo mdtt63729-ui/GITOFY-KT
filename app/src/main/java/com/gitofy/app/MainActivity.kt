@@ -5,6 +5,9 @@ import android.view.WindowManager
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
+import androidx.compose.animation.Crossfade
+import androidx.compose.animation.core.FastOutSlowInEasing
+import androidx.compose.animation.core.tween
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -72,8 +75,24 @@ class MainActivity : FragmentActivity() {
                 }
             }
 
-            GitofyTheme(darkTheme = dark, palette = Palette.fromId(s.palette)) {
-                when (val g = gate) {
+            GitofyTheme(
+                darkTheme = dark,
+                palette = Palette.fromId(s.palette),
+                reduceMotion = s.reduceMotion,
+                dynamicColor = s.dynamicColor,
+                backgroundHex = s.backgroundHex,
+                fontFamily = s.fontFamily,
+                fontWeight = s.fontWeight,
+                fontScale = s.fontScale,
+            ) {
+                // Crossfade from the splash into Home (or Login) so the app opens
+                // smoothly instead of snapping between screens.
+                Crossfade(
+                    targetState = gate,
+                    animationSpec = tween(340, easing = FastOutSlowInEasing),
+                    label = "startupGate",
+                ) { g ->
+                when (g) {
                     Gate.Loading -> SplashScreen()
 
                     is Gate.Tampered -> {
@@ -102,6 +121,7 @@ class MainActivity : FragmentActivity() {
                             GitofyNavHost(startRoute = deepLinkRoute ?: Routes.HOME)
                         }
                     }
+                }
                 }
             }
         }

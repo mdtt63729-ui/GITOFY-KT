@@ -1,5 +1,7 @@
 package com.gitofy.app.ui.screens.browse
 
+import com.gitofy.app.ui.components.BouncyButton
+import com.gitofy.app.ui.components.BouncyIconButton
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -85,7 +87,7 @@ fun GistsScreen(onBack: () -> Unit, vm: GistsViewModel = hiltViewModel()) {
 
     Scaffold(topBar = {
         GitofyTopBar("Gists", onBack, actions = {
-            IconButton(onClick = { sheet = true }) { Icon(Icons.Filled.Add, "New gist") }
+            BouncyIconButton(onClick = { sheet = true }) { Icon(Icons.Filled.Add, "New gist") }
         })
     }) { padding ->
         Column(Modifier.fillMaxSize().padding(padding)) {
@@ -113,7 +115,7 @@ fun GistsScreen(onBack: () -> Unit, vm: GistsViewModel = hiltViewModel()) {
                                         Text(g.description ?: g.id, style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.Bold, maxLines = 1, overflow = TextOverflow.Ellipsis)
                                         Text("${g.files.size} file(s) • ${if (g.isPublic) "public" else "secret"}", style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
                                     }
-                                    IconButton(onClick = { vm.delete(g.id) }) { Icon(Icons.Filled.DeleteOutline, "Delete", tint = MaterialTheme.colorScheme.error) }
+                                    BouncyIconButton(onClick = { vm.delete(g.id) }) { Icon(Icons.Filled.DeleteOutline, "Delete", tint = MaterialTheme.colorScheme.error) }
                                 }
                             }
                         }
@@ -141,8 +143,8 @@ fun GistsScreen(onBack: () -> Unit, vm: GistsViewModel = hiltViewModel()) {
                     Switch(pub, { pub = it })
                 }
                 Row(horizontalArrangement = Arrangement.spacedBy(10.dp), modifier = Modifier.fillMaxWidth()) {
-                    Button(onClick = { sheet = false }, modifier = Modifier.weight(1f)) { Text("Cancel") }
-                    Button(
+                    BouncyButton(onClick = { sheet = false }, modifier = Modifier.weight(1f)) { Text("Cancel") }
+                    BouncyButton(
                         onClick = { vm.create(desc, name, content, pub); sheet = false },
                         enabled = content.isNotBlank(), modifier = Modifier.weight(1f),
                     ) { Text("Create") }

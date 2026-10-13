@@ -43,17 +43,20 @@ import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material.icons.filled.Sync
 import androidx.compose.material.icons.filled.Lock
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.pulltorefresh.PullToRefreshBox
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Alignment
@@ -76,12 +79,16 @@ import com.gitofy.app.ui.components.FabMenu
 import com.gitofy.app.ui.components.FloatingNav
 import com.gitofy.app.ui.components.NavTab
 import com.gitofy.app.ui.components.SkeletonList
+import com.gitofy.app.ui.components.StaggeredAppear
 import com.gitofy.app.ui.navigation.Routes
 import com.gitofy.app.ui.screens.sheets.CreateRepoSheet
 import com.gitofy.app.ui.state.UiState
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 private enum class RepoFilter(val label: String) { ALL("All"), PRIVATE("Private"), PUBLIC("Public"), PINNED("Pinned") }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen(
     onOpenRepo: (String, String) -> Unit,
@@ -92,9 +99,11 @@ fun HomeScreen(
     val hasToken by vm.hasToken.collectAsStateWithLifecycle()
     val username by vm.username.collectAsStateWithLifecycle()
     val avatarUrl by vm.avatarUrl.collectAsStateWithLifecycle()
+    val refreshing by vm.refreshing.collectAsStateWithLifecycle()
     var showCreate by remember { mutableStateOf(false) }
     var fabOpen by remember { mutableStateOf(false) }
     var filter by remember { mutableStateOf(RepoFilter.ALL) }
+    val scope = rememberCoroutineScope()
 
     // Hide the nav + FAB while scrolling down, reveal them when scrolling up or
     // back near the top (the original app's auto-hide behaviour).
@@ -121,15 +130,17 @@ fun HomeScreen(
                 .windowInsetsPadding(WindowInsets.statusBars)
                 .blur(if (fabOpen) 18.dp else 0.dp),
         ) {
-                HomeAppBar(
-                    username = username,
-                    repoCount = (s as? UiState.Content)?.data?.size ?: 0,
-                    onSearch = { onNavigate(Routes.GLOBAL_SEARCH) },
-                    onRefresh = { vm.refresh() },
-                    onSettings = { onNavigate(Routes.SETTINGS) },
-                    onAccounts = { onNavigate(Routes.GITHUB_SETTINGS) },
-                    avatarUrl = avatarUrl,
-                )
+                StaggeredAppear(0) {
+                    HomeAppBar(
+                        username = username,
+                        repoCount = (s as? UiState.Content)?.data?.size ?: 0,
+                        onSearch = { onNavigate(Routes.GLOBAL_SEARCH) },
+                        onRefresh = { vm.refresh() },
+                        onSettings = { onNavigate(Routes.SETTINGS) },
+                        onAccounts = { onNavigate(Routes.GITHUB_SETTINGS) },
+                        avatarUrl = avatarUrl,
+                    )
+                }
 
                 // Skeleton -> content cross-fades so the loaded list appears smoothly.
                 AnimatedContent(
@@ -152,6 +163,11 @@ fun HomeScreen(
                                 RepoFilter.PINNED -> false
                             }
                         }
+                        PullToRefreshBox(
+                            isRefreshing = refreshing,
+                            onRefresh = { vm.refresh() },
+                            modifier = Modifier.fillMaxSize(),
+                        ) {
                         LazyColumn(
                             state = listState,
                             modifier = Modifier.fillMaxSize(),
@@ -159,9 +175,9 @@ fun HomeScreen(
                             verticalArrangement = Arrangement.spacedBy(12.dp),
                         ) {
                             if (!hasToken) {
-                                item { ConnectGitHubCard(onSetToken = { onNavigate(Routes.SETTINGS) }) }
+                                item { StaggeredAppear(0) { ConnectGitHubCard(onSetToken = { onNavigate(Routes.SETTINGS) }) } }
                             }
-                            item { FilterRow(filter) { filter = it } }
+                            item { StaggeredAppear(if (hasToken) 0 else 1) { FilterRow(filter) { filter = it } } }
                             if (filtered.isEmpty()) {
                                 item {
                                     EmptyState(
@@ -172,6 +188,7 @@ fun HomeScreen(
                             } else {
                                 items(filtered, key = { it.id }) { r -> Box(Modifier.animateItem()) { RepoCard(r) { onOpenRepo(r.ownerLogin, r.name) } } }
                             }
+                        }
                         }
                     }
                 }
@@ -190,20 +207,22 @@ fun HomeScreen(
         FabMenu(
             expanded = fabOpen,
             onToggle = { fabOpen = !fabOpen },
-            visible = navVisible,
+            // Exactly opposite the nav bar (App.tsx): when the nav is hidden the FAB
+            // takes its place; when the nav is visible the FAB slides away.
+            visible = !navVisible,
             items = listOf(
                 FabItem("Upload project", Icons.Filled.FileUpload,
                     MaterialTheme.colorScheme.tertiaryContainer, MaterialTheme.colorScheme.onTertiaryContainer,
-                    { fabOpen = false; onNavigate(Routes.UPLOAD) }),
+                    { fabOpen = false; scope.launch { delay(160); onNavigate(Routes.UPLOAD) } }),
                 FabItem("Update repo", Icons.Filled.Sync,
                     MaterialTheme.colorScheme.secondaryContainer, MaterialTheme.colorScheme.onSecondaryContainer,
-                    { fabOpen = false; onNavigate(Routes.MULTI_UPLOAD) }),
+                    { fabOpen = false; scope.launch { delay(160); onNavigate(Routes.MULTI_UPLOAD) } }),
                 FabItem("Create repo", Icons.Filled.Add,
                     MaterialTheme.colorScheme.primaryContainer, MaterialTheme.colorScheme.onPrimaryContainer,
-                    { fabOpen = false; showCreate = true }),
+                    { fabOpen = false; scope.launch { delay(160); showCreate = true } }),
                 FabItem("Delete repo", Icons.Filled.DeleteOutline,
                     MaterialTheme.colorScheme.errorContainer, MaterialTheme.colorScheme.onErrorContainer,
-                    { fabOpen = false; onNavigate(Routes.REPO_ACTION) }),
+                    { fabOpen = false; scope.launch { delay(160); onNavigate(Routes.DELETE_PICK) } }),
             ),
             modifier = Modifier.fillMaxSize(),
         )

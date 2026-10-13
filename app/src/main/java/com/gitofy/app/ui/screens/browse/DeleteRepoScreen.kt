@@ -1,5 +1,6 @@
 package com.gitofy.app.ui.screens.browse
 
+import com.gitofy.app.ui.components.BouncyButton
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -28,7 +29,7 @@ fun DeleteRepoScreen(owner: String, repo: String, onBack: () -> Unit, onConfirm:
                 value = typed, onValueChange = { typed = it },
                 label = { Text(repo) }, singleLine = true, modifier = Modifier.fillMaxWidth(),
             )
-            Button(
+            BouncyButton(
                 onClick = onConfirm,
                 enabled = typed == repo,
                 modifier = Modifier.fillMaxWidth(),

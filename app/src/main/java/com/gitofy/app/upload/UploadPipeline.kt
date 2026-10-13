@@ -42,6 +42,7 @@ class UploadPipeline @Inject constructor(
     private val http: OkHttpClient,
     private val json: Json,
     private val benchmarks: BenchmarkStore,
+    private val apiUploader: ApiUploader,
 ) {
     /** Null when the APK was built without the bundled git binary. */
     private val binary: GitBinary? by lazy { runCatching { GitBinary.resolve(context) }.getOrNull() }
@@ -54,12 +55,11 @@ class UploadPipeline @Inject constructor(
     fun workDir(repo: String): File = File(uploadsDir(), repo)
 
     suspend fun run(req: UploadRequest, onProgress: (PipelineProgress) -> Unit): UploadOutcome {
-        val git = binary ?: return UploadOutcome.Failure(
-            "This build has no bundled git binary. Build one with tools/build-git-android.sh (or enable 'build_git' in the CI workflow).",
-            false,
-        )
         val token = tokenStore.token()
             ?: return UploadOutcome.Failure("Not signed in — no GitHub token.", false)
+        // No bundled git binary in this build? Fall back to the GitHub REST API so the
+        // upload still works (slower than native git, but it never hard-fails).
+        val git = binary ?: return apiUpload(req, onProgress)
 
         val work = workDir(req.repo)
         var cp: UploadCheckpoint = if (req.resume) {
@@ -180,6 +180,29 @@ class UploadPipeline @Inject constructor(
             } finally {
                 netJob?.cancel()
             }
+        }
+    }
+
+    /**
+     * Fallback push with no bundled git: extract the ZIP and create blobs → tree →
+     * commit → ref through the GitHub REST API.
+     */
+    private suspend fun apiUpload(req: UploadRequest, onProgress: (PipelineProgress) -> Unit): UploadOutcome {
+        val work = workDir(req.repo)
+        return try {
+            work.deleteRecursively(); work.mkdirs()
+            onProgress(PipelineProgress(GitProgress.Phase.OTHER, 0, null, "Extracting…", "API"))
+            extractZip(Uri.parse(req.zipUri), work)
+            if (req.clearFirst) clearWorkingTree(work)
+            onProgress(PipelineProgress(GitProgress.Phase.UPLOADING, 0, null, "Uploading via GitHub API (this build has no bundled git)…", "API"))
+            apiUploader.push(req.owner, req.repo, req.branch, work, req.commitMessage, req.clearFirst) { done, total, name ->
+                val pct = if (total > 0) (done * 100) / total else 0
+                onProgress(PipelineProgress(GitProgress.Phase.UPLOADING, pct, null, "API $done/$total: $name", "API"))
+            }
+            WidgetState.write(context, "${req.owner}/${req.repo}", "Pushed to ${req.branch} (API)")
+            UploadOutcome.Success(req.branch, 0)
+        } catch (t: Throwable) {
+            UploadOutcome.Failure(t.message ?: t.javaClass.simpleName, resumable = false)
         }
     }
 

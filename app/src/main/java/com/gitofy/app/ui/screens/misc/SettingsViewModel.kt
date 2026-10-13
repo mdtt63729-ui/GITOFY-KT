@@ -35,5 +35,9 @@ class SettingsViewModel @Inject constructor(
     fun setStripRootFolder(v: Boolean) = viewModelScope.launch { store.setStripRootFolder(v) }
     fun setAppLockMode(v: String) = viewModelScope.launch { store.setAppLockMode(v) }
     fun setFontFamily(v: String) = viewModelScope.launch { store.setFontFamily(v) }
+    fun setFontWeight(v: String) = viewModelScope.launch { store.setFontWeight(v) }
+    fun setDynamicColor(v: Boolean) = viewModelScope.launch { store.setDynamicColor(v) }
+    fun setBackgroundHex(v: String) = viewModelScope.launch { store.setBackgroundHex(v) }
+    fun setFontScale(v: Float) = viewModelScope.launch { store.setFontScale(v) }
     fun setUiDensity(v: String) = viewModelScope.launch { store.setUiDensity(v) }
 }

@@ -1,5 +1,7 @@
 package com.gitofy.app.ui.screens.browse
 
+import com.gitofy.app.ui.components.BouncyButton
+import com.gitofy.app.ui.components.BouncyOutlinedButton
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -113,9 +115,9 @@ fun RepoSettingsScreen(owner: String, repo: String, onBack: () -> Unit, onDelete
                             }
                             Switch(archived, { archived = it })
                         }
-                        OutlinedButton(onClick = { vm.delete(onDeleted) }, modifier = Modifier.fillMaxWidth()) { Text("Delete repository") }
+                        BouncyOutlinedButton(onClick = { vm.delete(onDeleted) }, modifier = Modifier.fillMaxWidth()) { Text("Delete repository") }
                     }
-                    Button(
+                    BouncyButton(
                         onClick = { vm.save(name, desc, priv, archived, branch) },
                         shape = RoundedCornerShape(50), modifier = Modifier.fillMaxWidth(),
                     ) { Text("Save changes", fontWeight = FontWeight.Bold) }

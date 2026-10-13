@@ -1,5 +1,7 @@
 package com.gitofy.app.ui.screens.entry
 
+import com.gitofy.app.ui.components.BouncyButton
+import com.gitofy.app.ui.components.BouncyTextButton
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -66,7 +68,7 @@ fun OnboardingScreen(onNavigate: (String) -> Unit) {
 
     Column(Modifier.fillMaxSize().padding(24.dp), horizontalAlignment = Alignment.CenterHorizontally) {
         Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
-            TextButton(onClick = { onNavigate(Routes.LOGIN) }) { Text("Skip") }
+            BouncyTextButton(onClick = { onNavigate(Routes.LOGIN) }) { Text("Skip") }
         }
 
         HorizontalPager(state = pager, modifier = Modifier.weight(1f).fillMaxWidth()) { page ->
@@ -114,7 +116,7 @@ fun OnboardingScreen(onNavigate: (String) -> Unit) {
             }
         }
 
-        Button(
+        BouncyButton(
             onClick = {
                 if (pager.currentPage < SLIDES.size - 1) scope.launch { pager.animateScrollToPage(pager.currentPage + 1) }
                 else onNavigate(Routes.LOGIN)

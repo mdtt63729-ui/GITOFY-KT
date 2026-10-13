@@ -7,6 +7,8 @@ import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.animation.togetherWith
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.pulltorefresh.PullToRefreshBox
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.Column
@@ -66,18 +68,23 @@ import javax.inject.Inject
 class InboxViewModel @Inject constructor(private val api: GitHubApiService) : ViewModel() {
     private val _state = MutableStateFlow<UiState<List<NotificationDto>>>(UiState.Loading)
     val state: StateFlow<UiState<List<NotificationDto>>> = _state.asStateFlow()
+    private val _refreshing = MutableStateFlow(false)
+    val refreshing: StateFlow<Boolean> = _refreshing.asStateFlow()
     init { load() }
     fun load() = viewModelScope.launch {
-        _state.value = UiState.Loading
+        if (_state.value !is UiState.Content) _state.value = UiState.Loading else _refreshing.value = true
         runCatching { api.notifications() }
             .onSuccess { _state.value = UiState.Content(it) }
-            .onFailure { _state.value = UiState.Error(it.message ?: "Failed") }
+            .onFailure { if (_state.value !is UiState.Content) _state.value = UiState.Error(it.message ?: "Failed") }
+        _refreshing.value = false
     }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun InboxScreen(onBack: () -> Unit, onNavigate: (String) -> Unit = {}, vm: InboxViewModel = hiltViewModel()) {
     val s by vm.state.collectAsStateWithLifecycle()
+    val refreshing by vm.refreshing.collectAsStateWithLifecycle()
     val listState = rememberLazyListState()
     var navVisible by remember { mutableStateOf(true) }
     LaunchedEffect(listState) {
@@ -115,7 +122,12 @@ fun InboxScreen(onBack: () -> Unit, onNavigate: (String) -> Unit = {}, vm: Inbox
                 is UiState.Error -> ErrorState(st.message, onRetry = { vm.load() }, modifier = Modifier.fillMaxSize())
                 is UiState.Content ->
                     if (st.data.isEmpty()) EmptyState("You're all caught up", "New activity appears here.", modifier = Modifier.fillMaxSize())
-                    else LazyColumn(
+                    else PullToRefreshBox(
+                        isRefreshing = refreshing,
+                        onRefresh = { vm.load() },
+                        modifier = Modifier.fillMaxSize(),
+                    ) {
+                    LazyColumn(
                         state = listState,
                         modifier = Modifier.fillMaxSize(),
                         contentPadding = PaddingValues(horizontal = 20.dp, vertical = 4.dp),
@@ -140,6 +152,7 @@ fun InboxScreen(onBack: () -> Unit, onNavigate: (String) -> Unit = {}, vm: Inbox
                                 }
                             }
                         }
+                    }
                     }
             }
             }

@@ -16,6 +16,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.gitofy.app.ui.screens.browse.BranchManagerScreen
+import com.gitofy.app.ui.screens.browse.DeleteRepoPickerScreen
 import com.gitofy.app.ui.screens.browse.DeleteRepoScreen
 import com.gitofy.app.ui.screens.browse.GistsScreen
 import com.gitofy.app.ui.screens.browse.GlobalSearchScreen
@@ -65,22 +66,18 @@ fun GitofyNavHost(
     // rises 16px and scales from 0.986 while fading in; the outgoing screen is just
     // replaced. No horizontal slide, so a page change reads as the content animating
     // in — not the whole screen being shoved sideways.
-    val screenIn = tween<Float>(300, easing = CubicBezierEasing(0.22f, 0.92f, 0.28f, 1f))
-    val screenInOffset = tween<IntOffset>(300, easing = CubicBezierEasing(0.22f, 0.92f, 0.28f, 1f))
-    val screenOut = tween<Float>(130, easing = FastOutSlowInEasing)
+    val screenIn = tween<Float>(280, easing = FastOutSlowInEasing)
+    val screenInOffset = tween<IntOffset>(280, easing = FastOutSlowInEasing)
+    val screenOut = tween<Float>(160, easing = FastOutSlowInEasing)
     NavHost(
         navController = navController,
         startDestination = startRoute,
         enterTransition = {
-            fadeIn(screenIn) +
-                slideInVertically(screenInOffset) { (it * 0.03f).toInt() } +
-                scaleIn(screenIn, initialScale = 0.986f)
+            fadeIn(screenIn) + slideInVertically(screenInOffset) { (it * 0.012f).toInt() }
         },
         exitTransition = { fadeOut(screenOut) },
         popEnterTransition = {
-            fadeIn(screenIn) +
-                slideInVertically(screenInOffset) { (it * 0.03f).toInt() } +
-                scaleIn(screenIn, initialScale = 0.986f)
+            fadeIn(screenIn) + slideInVertically(screenInOffset) { (it * 0.012f).toInt() }
         },
         popExitTransition = { fadeOut(screenOut) },
     ) {
@@ -225,6 +222,9 @@ fun GitofyNavHost(
             )
         }
         composable(Routes.REPO_ACTION) { RepoActionScreen("Action", "Done.", back) }
+        composable(Routes.DELETE_PICK) {
+            DeleteRepoPickerScreen(back) { o, r -> navController.navigate("${Routes.DELETE_REPO}/$o/$r") }
+        }
 
         composable(
             "${Routes.WORKFLOW_EDITOR}/{owner}/{repo}?path={path}",

@@ -1,5 +1,7 @@
 package com.gitofy.app.ui.screens.browse
 
+import com.gitofy.app.ui.components.BouncyIconButton
+import com.gitofy.app.ui.components.BouncyOutlinedButton
 import androidx.compose.foundation.BorderStroke
 import com.gitofy.app.ui.components.pressClickable
 import androidx.compose.foundation.layout.Arrangement
@@ -123,7 +125,7 @@ fun WorkflowsScreen(
 
     Scaffold(topBar = {
         GitofyTopBar("GitHub Actions", onBack, actions = {
-            IconButton(onClick = { vm.load(owner, repo) }) { Icon(Icons.Filled.Refresh, "Refresh") }
+            BouncyIconButton(onClick = { vm.load(owner, repo) }) { Icon(Icons.Filled.Refresh, "Refresh") }
         })
     }) { padding ->
         Column(Modifier.fillMaxSize().padding(padding)) {
@@ -158,7 +160,7 @@ fun WorkflowsScreen(
                                         Text(w.name, style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.Bold, maxLines = 1, overflow = TextOverflow.Ellipsis)
                                         Text(w.path, style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant, maxLines = 1, overflow = TextOverflow.Ellipsis)
                                     }
-                                    OutlinedButton(onClick = { vm.run(w.id.toString(), branch) }) { Text("Run") }
+                                    BouncyOutlinedButton(onClick = { vm.run(w.id.toString(), branch) }) { Text("Run") }
                                     Icon(Icons.AutoMirrored.Filled.KeyboardArrowRight, null, tint = MaterialTheme.colorScheme.onSurfaceVariant)
                                 }
                             }

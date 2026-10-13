@@ -40,8 +40,8 @@ android {
         applicationId = "com.gitofy.app"
         minSdk = 26
         targetSdk = 34
-        versionCode = 51
-        versionName = "1.7.1"   // fix positional GitofyTopBar(actions) call after adding the avatar param
+        versionCode = 113
+        versionName = "1.13.3"   // upload works without bundled git (REST API fallback) + CI builds git by default
     }
 
     splits {

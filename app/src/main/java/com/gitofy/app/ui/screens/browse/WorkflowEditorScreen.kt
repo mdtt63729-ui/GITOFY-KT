@@ -1,5 +1,6 @@
 package com.gitofy.app.ui.screens.browse
 
+import com.gitofy.app.ui.components.BouncyButton
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -75,7 +76,7 @@ fun WorkflowEditorScreen(owner: String, repo: String, path: String, onBack: () -
                 modifier = Modifier.fillMaxWidth().weight(1f),
                 textStyle = MaterialTheme.typography.bodySmall.copy(fontFamily = FontFamily.Monospace),
             )
-            Button(onClick = { vm.save("Update $path") }, modifier = Modifier.fillMaxWidth()) { Text("Commit changes") }
+            BouncyButton(onClick = { vm.save("Update $path") }, modifier = Modifier.fillMaxWidth()) { Text("Commit changes") }
             msg?.let { Text(it) }
         }
     }

@@ -1,5 +1,6 @@
 package com.gitofy.app.ui.screens.entry
 
+import com.gitofy.app.ui.components.BouncyButton
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -51,6 +52,6 @@ fun AppLockScreen(onUnlock: () -> Unit, error: String? = null) {
             Text("Could not verify. Try again.", color = MaterialTheme.colorScheme.error, style = MaterialTheme.typography.bodySmall)
         }
         Spacer(Modifier.height(20.dp))
-        Button(onClick = onUnlock, shape = RoundedCornerShape(50), modifier = Modifier.height(52.dp)) { Text("Unlock", fontWeight = FontWeight.Bold) }
+        BouncyButton(onClick = onUnlock, shape = RoundedCornerShape(50), modifier = Modifier.height(52.dp)) { Text("Unlock", fontWeight = FontWeight.Bold) }
     }
 }
