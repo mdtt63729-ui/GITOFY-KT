@@ -102,10 +102,12 @@ fun MultiRepoUploadScreen(onBack: () -> Unit, upload: UploadViewModel = hiltView
             (state as? UploadState.Running)?.let { Text("${it.phase} ${it.percent ?: 0}% ${it.detail}", modifier = Modifier.padding(horizontal = 16.dp)) }
             BouncyButton(
                 onClick = {
-                    val uri = picked ?: return@Button
-                    selected.forEach { line ->
-                        val parts = line.split('/', limit = 2)
-                        if (parts.size == 2) upload.uploadZip(parts[0], parts[1], "main", uri, message)
+                    val uri = picked
+                    if (uri != null) {
+                        selected.forEach { line ->
+                            val parts = line.split('/', limit = 2)
+                            if (parts.size == 2) upload.uploadZip(parts[0], parts[1], "main", uri, message)
+                        }
                     }
                 },
                 enabled = picked != null && selected.isNotEmpty(),

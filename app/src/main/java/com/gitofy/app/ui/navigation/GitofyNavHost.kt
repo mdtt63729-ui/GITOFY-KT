@@ -223,7 +223,7 @@ fun GitofyNavHost(
         }
         composable(Routes.REPO_ACTION) { RepoActionScreen("Action", "Done.", back) }
         composable(Routes.DELETE_PICK) {
-            DeleteRepoPickerScreen(back) { o, r -> navController.navigate("${Routes.DELETE_REPO}/$o/$r") }
+            DeleteRepoPickerScreen(onBack = back, onPick = { o, r -> navController.navigate("${Routes.DELETE_REPO}/$o/$r") })
         }
 
         composable(
